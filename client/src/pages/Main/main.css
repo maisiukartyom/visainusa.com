@@ -7,21 +7,13 @@ html {
 	box-sizing: border-box;
 }
 
-:root {
-	--main-color: #244B7A;
-	--color: #CF3549;
-	--light-color: #ffffff;
-	--dark-color: #032144;
-	--deep-dark: #011226;
-}
-
 .center {
 	display: flex;
 	justify-content: center;
 }
 
 .mainpage {
-	background-image: url(../public/images/bg.jpg);
+	background-image: url(../../../public/images/bg.jpg);
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -239,7 +231,7 @@ html {
 /*block 2*/
 
 .vie {
-	background-image: url(../public/images/bg.jpg);
+	background-image: url(../../../public/images/bg.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -388,7 +380,7 @@ a {
 	justify-content: center;
 	border-radius: 8px;
 	padding: 50px;
-	background-image: url(../public/images/level.jpg);
+	background-image: url(../../../public/images/level.jpg);
 	transition: transform .1s;
 	background-size: cover;
 	width: 426px;

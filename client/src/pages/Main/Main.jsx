@@ -1,4 +1,4 @@
-import "../index.css";
+import "./main.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
@@ -47,7 +47,7 @@ const Header = () => {
               </a>
               <a
                 className="item-button login"
-                href="#contact"
+                href="/login"
                 onClick={myFunction}
               >
                 Log in
