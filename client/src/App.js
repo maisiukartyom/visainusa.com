@@ -1,4 +1,4 @@
-import Register from './components/Register';
+//import Register from './components/Register';
 //import Login from './components/Login';
 import Layout from './components/Layout';
 import Admin from './components/Admin';
@@ -9,6 +9,7 @@ import { Routes, Route } from 'react-router-dom';
 import Level1 from './components/Level1';
 import Main from './pages/Main/Main';
 import Login from './pages/Login/Login';
+import SignUp from './pages/SignUp/SignUp';
 
 const ROLES = {
   'User': 2001,
@@ -31,7 +32,7 @@ function App() {
         {/* public routes */}
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/unauthorized" element={<Unauthorized />} />
 
         {/* we want to protect these routes */}

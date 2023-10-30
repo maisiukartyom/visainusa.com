@@ -54,7 +54,7 @@ const Header = () => {
               </a>
               <a
                 className="item-button sign"
-                href="#contact"
+                href="/signup"
                 onClick={myFunction}
               >
                 Sign up
