@@ -1,18 +1,52 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from '../api/axios';
+import useAuth from '../hooks/useAuth';
+import { useNavigate } from "react-router-dom";
 
 function LoginForm()  {
-const [email, setEmail] = useState('')
-const [password, setPassword] = useState('')
-const [errors, setErrors] = useState([])
-const handleSubmit = (event) => {
-    event.preventDefault();
-    const errors = validate();
-    setErrors(errors);
-    if(Object.keys(errors).length === 0) {
-        alert("Done");
-    }
+
+    const {setAuth} = useAuth();
+    const navigate = useNavigate();
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [errors, setErrors] = useState([])
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const errors = validate();
+        setErrors(errors);
+
+        if((errors.email === "") && (errors.password === "")) {
+            try{
+                const response = await axios.post("/auth",
+                JSON.stringify({email, password}),
+                {
+                    headers: { 'Content-Type': 'application/json' },
+                    withCredentials: true
+                }
+                )
+                const accessToken = response?.data?.accessToken;
+                const roles = response?.data?.roles;
+                const level = response?.data?.level;
+                setAuth({ email, password, roles, level, accessToken });
+                setEmail('');
+                setPassword('');
+                navigate('/');
+            }
+            catch (err){
+                console.log(err)
+                if (!err?.response) {
+                    alert('No Server Response');
+                } else if (err.response?.status === 400) {
+                    alert('Missing Email or Password');
+                } else if (err.response?.status === 401) {
+                    alert('Invalid credentials!');
+                } else {
+                    alert('Login Failed');
+                }
+            }
+        }
 }
 
 const validate = () => {
@@ -21,15 +55,13 @@ const validate = () => {
     if(!email) {
         error.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(email)) {
-error.email = "Email not matched";
+        error.email = "Invalid email!";
     } else {
         error.email = "";
     }
 
     if(!password) {
         error.password = "Password is required";
-    } else if (password.length < 5) {
-error.password = "Password not matched";
     } else {
         error.password = "";
     }
@@ -40,7 +72,6 @@ error.password = "Password not matched";
     return (
         <div className="app-wrapper-main">
             <div className="logoForm">
-            {/* Нажимая на logo переходим на главную страницу */}
             <Link to="/"><img src="images/logo.png" alt="logo" width={70} height={94}/></Link> 
         </div>
             <div className="app-wrapper">

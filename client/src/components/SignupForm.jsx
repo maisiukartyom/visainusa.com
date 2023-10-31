@@ -1,16 +1,19 @@
 import { Link } from "react-router-dom";
 import useForm from "../hooks/useForm";
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 
 
-const SignupForm = ({ submitForm }) => {
-const { handleChange, handleFormSubmit, values, errors} = useForm(
-    submitForm
+const SignupForm = ({ submitForm }) => {    
+
+    const { handleChange, handlePhoneChange, handleFormSubmit, values, errors} = useForm(
+        submitForm
     );
+
     return (
         <div className="app-wrapper-main">
             <div className="logoForm">
-            {/* Нажимая на logo переходим на главную страницу */}
-      <Link to="/"><img src="images/logo.png" alt="logo" width={70} height={94}/></Link>
+            <Link to="/"><img src="images/logo.png" alt="logo" width={70} height={94}/></Link>
           </div>
             <div className="app-wrapper">
                 <div>
@@ -31,6 +34,22 @@ const { handleChange, handleFormSubmit, values, errors} = useForm(
                         <label className="label">Password</label>
                         <input className="input" type="password" name="password" value={values.password} onChange={handleChange}/>
                         {errors.password && <p className="error">{errors.password}</p>}
+                    </div>
+                    <div className="age">
+                        <label className="label">Age</label>
+                        <input className="input" type="number" name="age" min="0" max="100" value={values.age} onChange={handleChange}/>
+                        {errors.age && <p className="error">{errors.age}</p>}
+                    </div>
+                    <div className="phoneNumber">
+                        <label className="label">Phone number</label>
+                        <PhoneInput 
+                            country={'ru'}
+                            value={values.phoneNumber}
+                            onChange={handlePhoneChange}
+                            inputProps={{name: 'phoneNumber',
+                                        required: true,}}   
+                            />
+                        {errors.phoneNumber && <p className="error">{errors.phoneNumber}</p>}
                     </div>
                     <div>
                         <button className="submit" onClick={handleFormSubmit}>Sign Up</button>
