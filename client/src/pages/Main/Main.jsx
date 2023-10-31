@@ -6,6 +6,7 @@ import { gsap } from "gsap";
 import {Link} from 'react-router-dom';
 
 
+import useAuth from "../../hooks/useAuth";
 
 const myFunction = () => {
   let x = document.querySelector(".wrap");
@@ -17,6 +18,8 @@ const myFunction = () => {
 };
 
 const Header = () => {
+  const {auth} = useAuth();
+
   return (
     <>
       <header>
@@ -48,20 +51,26 @@ const Header = () => {
               <a className="item" href="#pricing" onClick={myFunction}>
                 Pricing
               </a>
-              <a
-                className="item-button login"
-                href="/login"
-                onClick={myFunction}
-              >
-                Log in
-              </a>
-              <a
-                className="item-button sign"
-                href="/signup"
-                onClick={myFunction}
-              >
-                Sign up
-              </a>
+              {/* Only show if not authorized */}
+              {
+                auth && 
+                <>
+                  <a
+                    className="item-button login"
+                    href="/login"
+                    onClick={myFunction}
+                  >
+                  Log in
+                  </a>
+                  <a
+                    className="item-button sign"
+                    href="/signup"
+                    onClick={myFunction}
+                  >
+                  Sign up
+                  </a>
+                </>
+              }
             </div>
           </div>
           <label htmlFor="toggle" className="burgermenu" onClick={myFunction}>
@@ -787,9 +796,27 @@ const Index = () => {
   };
 
   useEffect(() => {
+    const productContainers = [...document.querySelectorAll('.product-container')];
+    const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
+    const preBtn = [...document.querySelectorAll('.pre-btn')];
+
+    productContainers.forEach((item, i) => {
+        let containerDimensions = item.getBoundingClientRect();
+        let containerWidth = containerDimensions.width;
+
+        nxtBtn[i].addEventListener('click', () => {
+            item.scrollLeft += containerWidth;
+        })
+
+        preBtn[i].addEventListener('click', () => {
+            item.scrollLeft -= containerWidth;
+        })
+    })
     AOS.init();
     fly();
   }, []);
+
+  const {auth} = useAuth();
 
   return (
     <>

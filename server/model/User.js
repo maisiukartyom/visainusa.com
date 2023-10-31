@@ -2,13 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-    firstName: {
+    fullname: {
         type: String,
-        required: false
-    },
-    lastName: {
-        type: String,
-        required: false
+        required: true
     },
     email: {
         type: String,
@@ -16,7 +12,7 @@ const userSchema = new Schema({
     },
     phoneNumber: {
         type: String,
-        required: false
+        required: true
     },
     roles: {
         User: {
@@ -33,6 +29,10 @@ const userSchema = new Schema({
         type: Number,
         required: false,
         default: 0
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
     },
     refreshToken: String
 });
