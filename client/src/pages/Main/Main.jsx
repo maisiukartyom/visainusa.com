@@ -4,6 +4,9 @@ import "aos/dist/aos.css";
 import { useEffect } from "react";
 import { gsap } from "gsap";
 import useAuth from "../../hooks/useAuth";
+import {Link} from 'react-router-dom';
+
+
 
 const myFunction = () => {
   let x = document.querySelector(".wrap");
@@ -84,9 +87,9 @@ const Header = () => {
                 <a href="#">
                   <button className="btn-eb3">About EB3</button>
                 </a>
-                <a href="#">
-                  <button className="btn-level">Check your eligibility</button>
-                </a>
+                <Link to="/anketa">
+                  <button className="btn-level" >Check your eligibility</button>
+                </Link>
               </div>
             </div>
           </div>

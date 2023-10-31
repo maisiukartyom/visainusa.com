@@ -8,6 +8,7 @@ import Level1 from './components/Level1';
 import Main from './pages/Main/Main';
 import Login from './pages/Login/Login';
 import SignUp from './pages/SignUp/SignUp';
+import Anketa from './pages/Anketa/Anketa';
 
 const ROLES = {
   'User': 2001,
@@ -32,6 +33,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/unauthorized" element={<Unauthorized />} />
+        <Route path="/anketa" element={<Anketa />} />
 
         {/* we want to protect these routes */}
         <Route element={<RequireAuth allowedRoles={[ROLES.User]} allowedLevel={[LEVELS['Level 1']]} />}>
