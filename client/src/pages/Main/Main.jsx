@@ -3,6 +3,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import { gsap } from "gsap";
+import {Link} from 'react-router-dom';
+
 
 
 const myFunction = () => {
@@ -76,9 +78,9 @@ const Header = () => {
                 <a href="#">
                   <button className="btn-eb3">About EB3</button>
                 </a>
-                <a>
+                <Link to="/anketa">
                   <button className="btn-level" >Check your eligibility</button>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
