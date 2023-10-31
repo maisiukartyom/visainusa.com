@@ -4,6 +4,7 @@ import "aos/dist/aos.css";
 import { useEffect } from "react";
 import { gsap } from "gsap";
 
+
 const myFunction = () => {
   let x = document.querySelector(".wrap");
   if (x.style.display === "block" && window.innerWidth <= 800) {
@@ -75,8 +76,8 @@ const Header = () => {
                 <a href="#">
                   <button className="btn-eb3">About EB3</button>
                 </a>
-                <a href="#">
-                  <button className="btn-level">Check your eligibility</button>
+                <a>
+                  <button className="btn-level" >Check your eligibility</button>
                 </a>
               </div>
             </div>
