@@ -1,5 +1,3 @@
-//import Register from './components/Register';
-//import Login from './components/Login';
 import Layout from './components/Layout';
 import Admin from './components/Admin';
 import Missing from './components/Missing';
