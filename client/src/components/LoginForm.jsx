@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 function LoginForm()  {
 
-    const {setAuth} = useAuth();
+    const {setAuthentication} = useAuth();
     const navigate = useNavigate();
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -29,7 +29,8 @@ function LoginForm()  {
                 const accessToken = response?.data?.accessToken;
                 const roles = response?.data?.roles;
                 const level = response?.data?.level;
-                setAuth({ email, password, roles, level, accessToken });
+                //setAuth({ email, roles, level, accessToken });
+                setAuthentication({ email, roles, level, accessToken });
                 setEmail('');
                 setPassword('');
                 navigate('/');
