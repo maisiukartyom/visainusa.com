@@ -7,33 +7,42 @@
   }
   
   .logoForm{
-  margin-bottom: 20px;
-  align-self: center;
+
+ text-align: center;
   }
   .container{
-  
-    display: flex;
-  
-    justify-content: center;
-  
+      display: flex;
+      justify-content: center;
   }
+
   .app-wrapper-main{
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    height: 100vh;
     width: 100vh ;
-  
+    height: 100vh;
   }
+
   .app-wrapper{
-  
     background-color: #ffffff;
-    max-width: 380px;
-    max-height: 500px;
-    padding: 30px;
-  
+    min-width: 480px;
+    max-height: 1000px;
+    padding: 40px;
     border: 3px #244B7A solid;
     align-self: center;
+  }
+
+  .app-wrapper-account{
+    background-color: #ffffff;
+    min-width: 380px;
+    max-height: 1000px;
+    padding: 40px;
+    border: 3px #244B7A solid;
+    align-self: center;
+    text-align: center;
+  }
+
+  .form-wrapper{
+margin-left: -30px;
   }
   
   .title{
@@ -51,21 +60,22 @@
   
   .phoneNumber{
     margin-bottom: 40px;
+margin-left: 30px;
   }
   
   .input{
-    height: 32px;
+    height: 36px;
     font-size: 20px;
     outline: none;
     width: 100%;
-    border-top-style: none;
-    border-left-style: none;
-    border-right-style: none;
-    border-bottom-style: 2px solid #011226;
+border-radius: 6px;
+    border: 1px solid #d8d8d8;
   }
-  
+
   .error{
     color: var(--color);
+margin-left: 30px;
+
   }
   .submit{
     display: flex;
@@ -93,6 +103,7 @@
   .fom-succes{
     display: flex;
     justify-content: center;
+    text-align: center;
     margin-top: 250px;
     min-width: 370px;
     color: #0619e6;
@@ -103,7 +114,7 @@
     flex-direction: column;
     justify-content: center;
     background-color: var(--main-color);
-    height: 100vh;
+height: 100vh;
     width: 100vh ;
   }
   
@@ -129,7 +140,26 @@
   }
   
   
-  @media all and (max-width:912px){
+
+
+
+  @media all and (max-width:1024px) {
+  
+    .info{
+  display: none;
+    }
+    .app-wrapper-main{
+      display: flex;
+flex-direction: column;
+justify-content: center;
+      height: auto;
+      width: auto ;
+    }
+  
+  }
+
+  @media all and (max-width:800px) {
+
     .container{
       display: flex;
       flex-direction: column;
@@ -138,4 +168,46 @@
     .title2{
       margin-top: -25%;
     }
+
+    form {
+      width: 350px;
+      padding: 20px;
+    }
   }
+  
+  @media all and (max-width:500px) {
+  
+    .info{
+  display: none;
+    }
+  
+  }
+  
+  @media all and(max-width:300px) {
+  
+    .app-wrapper{
+      align-items: center;
+    }
+
+    .logoForm{
+      margin-bottom: 40px;
+      align-self: center;
+      }
+    
+  }
+
+  @media all and(max-width:280px) {
+  
+    .app-wrapper{
+      align-items: center;
+      margin-bottom: -100px;
+    }
+
+    .logoForm{
+      margin-top: 280px;
+      align-self: center;
+      }
+    
+  }
+
+

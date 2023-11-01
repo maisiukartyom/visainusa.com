@@ -14,7 +14,6 @@ align-self: center;
 .container{
   display: flex;
 justify-content: center;
-
 }
 .app-wrapper-main{
   display: flex;
@@ -24,13 +23,11 @@ justify-content: center;
   width: 100vh ;
 
 }
-.app-wrapper{
-
+.app-wrapper-login{
   background-color: #ffffff;
-  max-width: 380px;
-  max-height: 500px;
+  min-width: 320px;
+  max-height: 1000px;
   padding: 30px;
-
   border: 3px #244B7A solid;
   align-self: center;
 }

@@ -12,14 +12,15 @@ const SignupForm = ({ submitForm }) => {
 
     return (
         <div className="app-wrapper-main">
+            
+            <div className="app-wrapper">
             <div className="logoForm">
             <Link to="/"><img src="images/logo.png" alt="logo" width={70} height={94}/></Link>
           </div>
-            <div className="app-wrapper">
                 <div>
                     <h2 className="title">Create Account</h2>
                 </div>
-                <form className="form-wrapper">
+                <div className="form-wrapper">
                     <div className="name">
                         <label className="label">Full name</label>
                         <input className="input" type="text" name="fullname" value={values.fullname} onChange={handleChange}/>
@@ -54,7 +55,7 @@ const SignupForm = ({ submitForm }) => {
                     <div>
                         <button className="submit" onClick={handleFormSubmit}>Sign Up</button>
                     </div>
-                </form>
+                </div>
             
                 </div>
         </div>
