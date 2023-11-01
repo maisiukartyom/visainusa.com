@@ -16,7 +16,6 @@ function LoginForm()  {
         event.preventDefault();
         const errors = validate();
         setErrors(errors);
-
         if((errors.email === "") && (errors.password === "")) {
             try{
                 const response = await axios.post("/auth",
@@ -79,7 +78,7 @@ const validate = () => {
                 <div>
                     <h2 className="title">Log in</h2>
                 </div>
-                <div onSubmit={handleSubmit} className="form-wrapper">
+                <form onSubmit={handleSubmit} className="form-wrapper">
                     <div className="email">
                         <label htmlFor="email" className="label">Email</label>
                         <input className="input" type="email" onChange={(e) => setEmail(e.target.value)}/>
@@ -94,7 +93,7 @@ const validate = () => {
                     <div>
                         <button className="submit" >Log in</button>
                     </div>
-                </div>
+                </form>
                     </div>
         </div>
     )

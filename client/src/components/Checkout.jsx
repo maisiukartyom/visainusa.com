@@ -1,13 +1,17 @@
 import { CLIENT_ID } from '../utils/config'
 import React, { useState, useEffect } from "react" ;
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-import axios from '../api/axios';
+//import axios from '../api/axios';
+import useAxiosPrivate from '../hooks/useAxiosPrivate';
+import useAuth from '../hooks/useAuth';
 
 const Checkout = () => {
     const [show, setShow] = useState(false);
     const [success, setSuccess] = useState(false);
     const [ErrorMessage, setErrorMessage] = useState("");
     const [orderID, setOrderID] = useState(false);
+    const axiosPrivate = useAxiosPrivate();
+    const {auth} = useAuth;
 
     const initialOptions = {
         "client-id": CLIENT_ID, 
@@ -35,39 +39,9 @@ const Checkout = () => {
             });
     };
 
-    // check Approval
-    // const onApprove = async (data, actions) => {
-    //     const payment = actions.order.capture();
-    //     console.log(payment);
-    //     setSuccess(true);
-    //     return actions.order.capture().then(async function (payment) {
-    //         try{
-    //             await axios.post("/checkout", 
-                    // JSON.stringify({
-                    //     paymentID: payment.id,
-                    //     description: payment.purchase_units[0].description,
-                    //     status: payment.status,
-                    //     amount: payment.purchase_units[0].amount.value,
-                    //     currency: payment.purchase_units[0].amount.currency_code,
-                    //     createTime: payment.create_time,
-                    //     updateTime: payment.update_time
-                    // }),
-                    // {
-                    //     headers: { 'Content-Type': 'application/json' },
-                    //     withCredentials: true
-                    // }
-    //             )
-    //         }
-    //         catch(err){
-    //             console.log(err)
-    //         }
-
-    //         setSuccess(true);
-    //     });
-    // };
     const onApprove = (data, actions) => {
         return actions.order.capture().then(function (payment) {
-            axios.post("/checkout", 
+            axiosPrivate.post("/checkout", 
                 JSON.stringify({
                     paymentID: payment.id,
                     description: payment.purchase_units[0].description,
@@ -75,7 +49,9 @@ const Checkout = () => {
                     amount: payment.purchase_units[0].amount.value,
                     currency: payment.purchase_units[0].amount.currency_code,
                     createTime: payment.create_time,
-                    updateTime: payment.update_time
+                    updateTime: payment.update_time,
+                    payer: auth.email,
+                    purchasedLevel: 1
                 }),
                 {
                     headers: { 'Content-Type': 'application/json' },
