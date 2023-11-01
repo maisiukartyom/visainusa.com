@@ -71,14 +71,14 @@ const validate = () => {
 
     return (
         <div className="app-wrapper-main">
+            <div className="app-wrapper-login">
             <div className="logoForm">
             <Link to="/"><img src="images/logo.png" alt="logo" width={70} height={94}/></Link> 
         </div>
-            <div className="app-wrapper">
                 <div>
                     <h2 className="title">Log in</h2>
                 </div>
-                <form onSubmit={handleSubmit} className="form-wrapper">
+                <div onSubmit={handleSubmit} className="form-wrapper">
                     <div className="email">
                         <label htmlFor="email" className="label">Email</label>
                         <input className="input" type="email" onChange={(e) => setEmail(e.target.value)}/>
@@ -93,7 +93,7 @@ const validate = () => {
                     <div>
                         <button className="submit" >Log in</button>
                     </div>
-                </form>
+                </div>
                     </div>
         </div>
     )

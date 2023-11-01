@@ -1,8 +1,168 @@
-body,
-html {
-	margin: 0;
+
+.body{
+	background-color:var(--main-color) ;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-position: center;
 }
 
-* {
-	box-sizing: border-box;
+form{
+	background-color: var(--light-color);
+	align-items: center;
+    width: 660px;
+	overflow: hidden;
+	padding: 40px;
+	display: flex;
+	flex-wrap: wrap;
+	box-shadow: 0px 0px 8px 4px #353535;
+	}
+
+.mt {
+	margin-top: 18px;
+	font-size: 18px;
+	font-weight: 500;
+	}
+.check{
+	display: flex;
+	justify-content: center;
+border: 1px #CF3549 solid;
+padding: 6px;
+	
+}
+	.mini-text{
+		font-size: 12px;
+		word-spacing: 6px;
+		margin-left: 8px;
+	}
+
+	.check-box{
+		width: 60px;
+		height: 60px;
+	}
+.logo-center{
+margin: auto;
+margin-top: -20px;
+margin-bottom: 20px;
+}
+
+.btn-center{
+	margin: auto;
+}
+.label {
+	font-size: 18px;
+	padding: 10px;
+	margin: 10px;
+	font-weight: 500;
+	word-spacing: 6px;
+}
+
+
+input {
+	margin-left: 20px;
+}
+
+.one,
+.two,
+.three,
+.four,
+.five,
+.six,
+.seven,
+.eight,
+.nine,
+.ten,
+.eleven,
+.twelve,
+.thirteen {
+	padding: 30px;
+}
+
+.btn{
+	display: flex;
+	justify-content: center;
+}
+.btn-level-anketa {
+	border: none;
+	background: var(--main-color);
+	border-radius: 10px;
+	width: 240px;
+	height: 50px;
+	color: var(--light-color);
+	font-weight: 600;
+	text-transform: uppercase;
+	font-size: 16px;
+	cursor: pointer;
+	margin-top: 20px;
+	align-self: center;
+
+}
+
+.btn-level-anketa:hover {
+	background: var(--dark-color);
+	color: var(--light-color);
+}
+
+
+@media all and (max-width:800px) {
+
+	form {
+		width: 350px;
+		padding: 20px;
+	}
+}
+
+@media all and (max-width:500px) {
+
+	.label {
+		font-size: 16px;
+		padding: 6px;
+		margin: 6px;
+		word-spacing: 8px;
+	}
+
+	h1 {
+		font-size: 20px;
+		margin-top: 14px;
+	}
+
+
+
+	input {
+		margin-left: 16px;
+	}
+
+}
+
+@media all and(max-width:300px) {
+
+	.label {
+		font-size: 10px;
+		padding: 6px;
+		margin: 6px;
+
+	}
+
+
+	form {
+		width: 350px;
+		padding: 10px;
+	}
+
+	input {
+		margin-left: 4px;
+	}
+
+	.mt {
+		margin-top: 6px;
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.logo-center{
+
+		margin-top: -20px;
+		margin-bottom: 20px;
+		}
+
 }
