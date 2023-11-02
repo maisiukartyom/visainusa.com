@@ -4,18 +4,17 @@ import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 //import axios from '../api/axios';
 import useAxiosPrivate from '../hooks/useAxiosPrivate';
 import useAuth from '../hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
 
 const Checkout = () => {
-    const [show, setShow] = useState(false);
-    const [success, setSuccess] = useState(false);
-    const [ErrorMessage, setErrorMessage] = useState("");
-    const [orderID, setOrderID] = useState(false);
     const axiosPrivate = useAxiosPrivate();
-    const {auth} = useAuth;
+    const {clearAuthentication} = useAuth();
+    const navigate = useNavigate()
 
     const initialOptions = {
         "client-id": CLIENT_ID, 
         "commit": true, 
+        "enable-funding": "card"
     };
 
     // creates a paypal order
@@ -33,16 +32,13 @@ const Checkout = () => {
             application_context: {
                 shipping_preference: "NO_SHIPPING"
             }
-        }).then((orderID) => {
-                setOrderID(orderID);
-                return orderID;
-            });
+        })
     };
 
     const onApprove = (data, actions) => {
         return actions.order.capture().then(function (payment) {
             axiosPrivate.post("/checkout", 
-                JSON.stringify({
+                {
                     paymentID: payment.id,
                     description: payment.purchase_units[0].description,
                     status: payment.status,
@@ -50,28 +46,25 @@ const Checkout = () => {
                     currency: payment.purchase_units[0].amount.currency_code,
                     createTime: payment.create_time,
                     updateTime: payment.update_time,
-                    payer: auth.email,
                     purchasedLevel: 1
-                }),
+                },
                 {
                     headers: { 'Content-Type': 'application/json' },
                     withCredentials: true
                 }    
-            ).then(() => setSuccess(true)).catch((err) => alert("Couldn't save transaction in the database!"))
+            ).then(() => {
+                alert("Payment successful!!");
+                console.log('Order successful . Your order id is--', payment.id);
+                clearAuthentication();
+                navigate("/login")
+            }).catch((err) => alert("Couldn't save transaction in the database!"))
         });
     };
 
     //capture likely error
     const onError = (data, actions) => {
-        setErrorMessage("An Error occured with your payment ");
+        alert("There's been an error!");
     };
-
-    useEffect(() => {
-        if (success) {
-            alert("Payment successful!!");
-            console.log('Order successful . Your order id is--', orderID);
-        }
-    },[success]);
 
     return (
         <PayPalScriptProvider options={initialOptions}>

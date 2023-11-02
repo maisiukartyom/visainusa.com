@@ -18,14 +18,19 @@ const handleLogin = async (req, res) => {
             {
                 "UserInfo": {
                     "email": foundUser.email,
-                    "roles": roles
+                    "roles": roles,
+                    "level": level
                 }
             },
             process.env.ACCESS_TOKEN_SECRET,
             { expiresIn: '10s' }
         );
         const refreshToken = jwt.sign(
-            { "email": foundUser.email },
+            { 
+                "email": foundUser.email,
+                "roles": roles,
+                "level": level
+             },
             process.env.REFRESH_TOKEN_SECRET,
             { expiresIn: '1d' }
         );
@@ -46,4 +51,22 @@ const handleLogin = async (req, res) => {
     }
 }
 
-module.exports = { handleLogin };
+const handleCheck = async (req, res) => {
+    const {email, roles, level} = req.body;
+    const token = req.cookies.jwt;
+
+    jwt.verify(
+        token,
+        process.env.REFRESH_TOKEN_SECRET,
+        (err, decoded) => {
+            if (err) return res.sendStatus(403); //invalid token
+            if (email !== decoded.email || roles.toString() !== decoded.roles.toString() || level !== decoded.level){
+                res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true });
+                return res.sendStatus(401);
+            }
+            res.sendStatus(200);
+        }
+    );
+}
+
+module.exports = { handleLogin, handleCheck };

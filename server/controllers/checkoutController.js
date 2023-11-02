@@ -1,23 +1,33 @@
 const Payment = require('../model/Payment');
 const User = require('../model/User');
 var nodemailer = require('nodemailer');
+const jwt = require('jsonwebtoken');
 
 const handleCheckout = async (req, res) => {
-    const payment = req.body
-    try{
-        const result = await Payment.create(payment);
-        console.log(result);
-    }
-    catch(err){
-        res.status(500).json({ 'message': err.message });
-    }
-    try{
-        await User.findOneAndUpdate({email: payment.payer}, {level: payment.purchasedLevel})
-    }
-    catch(err){
-        res.status(500).json({ 'message': err.message });
-    }
-    res.status(200);
+    let payment = req.body
+    const token = req.cookies.jwt;
+    let email = "";
+    jwt.verify(
+      token,
+      process.env.REFRESH_TOKEN_SECRET,
+      async (err, decoded) => {
+          if (err) return res.sendStatus(403); //invalid token
+          email = decoded.email;
+          payment = {
+            ...payment,
+            payer: email
+          }
+          try{
+            await Payment.create(payment);
+            const result = await User.findOneAndUpdate({email: payment.payer}, {level: payment.purchasedLevel})
+            res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true });
+            res.sendStatus(200);
+          }
+          catch{
+            res.sendStatus(500);
+          }
+      }
+    );
 }
 
 const handleSendEmail = async (req, res) => {

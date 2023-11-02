@@ -32,7 +32,7 @@ function LoginForm()  {
                 setAuthentication({ email, roles, level, accessToken });
                 setEmail('');
                 setPassword('');
-                navigate('/');
+                navigate("/");
             }
             catch (err){
                 console.log(err)

@@ -816,9 +816,6 @@ const Index = () => {
     fly();
   }, []);
 
-  const {auth} = useAuth();
-  console.log(auth)
-
   return (
     <>
         <Header />
