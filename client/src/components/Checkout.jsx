@@ -1,13 +1,11 @@
 import { CLIENT_ID } from '../utils/config'
 import React, { useState, useEffect } from "react" ;
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
-//import axios from '../api/axios';
-import useAxiosPrivate from '../hooks/useAxiosPrivate';
+import axios from '../api/axios';
 import useAuth from '../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 
 const Checkout = () => {
-    const axiosPrivate = useAxiosPrivate();
     const {clearAuthentication} = useAuth();
     const navigate = useNavigate()
 
@@ -16,6 +14,25 @@ const Checkout = () => {
         "commit": true, 
         "enable-funding": "card"
     };
+
+    useEffect(() => {
+        const verifyCookie = async (level) => {
+          try{
+            await axios.post("auth/verify",
+                {
+                    requiredLevel: level
+                },
+                {
+                    withCredentials: true
+                })
+          }
+          catch (err){
+            navigate("/login")
+          }
+        }
+
+        verifyCookie(3)
+      })
 
     // creates a paypal order
     const createOrder = (data, actions) => {
@@ -37,7 +54,7 @@ const Checkout = () => {
 
     const onApprove = (data, actions) => {
         return actions.order.capture().then(function (payment) {
-            axiosPrivate.post("/checkout", 
+            axios.post("/checkout", 
                 {
                     paymentID: payment.id,
                     description: payment.purchase_units[0].description,
@@ -46,7 +63,7 @@ const Checkout = () => {
                     currency: payment.purchase_units[0].amount.currency_code,
                     createTime: payment.create_time,
                     updateTime: payment.update_time,
-                    purchasedLevel: 1
+                    purchasedLevel: 3
                 },
                 {
                     headers: { 'Content-Type': 'application/json' },
@@ -55,7 +72,6 @@ const Checkout = () => {
             ).then(() => {
                 alert("Payment successful!!");
                 console.log('Order successful . Your order id is--', payment.id);
-                clearAuthentication();
                 navigate("/login")
             }).catch((err) => alert("Couldn't save transaction in the database!"))
         });

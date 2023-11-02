@@ -37,7 +37,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/unauthorized" element={<Unauthorized />} />
         <Route path="/anketa" element={<Anketa />} />
-        {/* <Route path="/checkout" element={<Checkout />} /> */}
+        <Route path="/checkout" element={<Checkout />} />
 
         {/* we want to protect these routes */}
         <Route element={<RequireAuth allowedRoles={[ROLES.User]} allowedLevel={[LEVELS['Level 1']]} />}>
@@ -48,9 +48,9 @@ function App() {
           <Route path="/admin" element={<Admin />} />
         </Route>
 
-        <Route element={<RequireAuth allowedRoles={[ROLES.User]} allowedLevel={LEVELS['Level 0']}/>}>
+        {/* <Route element={<RequireAuth allowedRoles={[ROLES.User]} allowedLevel={LEVELS['Level 0']}/>}>
           <Route path="/checkout" element={<Checkout />} />
-        </Route>
+        </Route> */}
 
         {/* catch all */}
         <Route path="*" element={<Missing />} />

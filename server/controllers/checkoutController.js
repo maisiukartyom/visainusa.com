@@ -9,22 +9,26 @@ const handleCheckout = async (req, res) => {
     let email = "";
     jwt.verify(
       token,
-      process.env.REFRESH_TOKEN_SECRET,
-      async (err, decoded) => {
-          if (err) return res.sendStatus(403); //invalid token
-          email = decoded.email;
+      process.env.ACCESS_TOKEN_SECRET,
+      async (err, data) => {
+          if (err) {
+            res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true });
+            return res.sendStatus(403);
+          }
+          email = data.email;
           payment = {
             ...payment,
             payer: email
           }
           try{
-            await Payment.create(payment);
+            console.log(payment.payer)
             const result = await User.findOneAndUpdate({email: payment.payer}, {level: payment.purchasedLevel})
-            res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true });
+            await Payment.create(payment);
             res.sendStatus(200);
           }
           catch{
-            res.sendStatus(500);
+            res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true });
+            res.sendStatus(403);
           }
       }
     );

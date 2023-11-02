@@ -33,8 +33,7 @@ const userSchema = new Schema({
     createdAt: {
         type: Date,
         default: Date.now
-    },
-    refreshToken: String
+    }
 });
 
 module.exports = mongoose.model('User', userSchema);

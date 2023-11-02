@@ -1,10 +1,12 @@
 import "./main.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import useAuth from "../../hooks/useAuth";
 import {Link} from 'react-router-dom';
+import axios from "../../api/axios";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -18,7 +20,28 @@ const myFunction = () => {
 };
 
 const Header = () => {
-  const {auth} = useAuth();
+  const [user, setUser] = useState(false)
+
+  useEffect(() => {
+    const verifyCookie = async (level) => {
+      try{
+        await axios.post("auth/verify",
+            {
+                requiredLevel: level
+            },
+            {
+                withCredentials: true
+            })
+        setUser(true)
+      }
+      catch (err){
+        setUser(false)
+      }
+    }
+
+    verifyCookie(0)
+  })
+
 
   return (
     <>
@@ -53,7 +76,7 @@ const Header = () => {
               </a>
               {/* Only show if not authorized */}
               {
-                auth && 
+                !user && 
                 <>
                   <a
                     className="item-button login"

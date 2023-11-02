@@ -15,33 +15,18 @@ const handleLogin = async (req, res) => {
         const level = foundUser.level;
         // create JWTs
         const accessToken = jwt.sign(
-            {
-                "UserInfo": {
-                    "email": foundUser.email,
-                    "roles": roles,
-                    "level": level
-                }
-            },
-            process.env.ACCESS_TOKEN_SECRET,
-            { expiresIn: '10s' }
-        );
-        const refreshToken = jwt.sign(
             { 
                 "email": foundUser.email,
                 "roles": roles,
                 "level": level
              },
-            process.env.REFRESH_TOKEN_SECRET,
+            process.env.ACCESS_TOKEN_SECRET,
             { expiresIn: '1d' }
         );
-        // Saving refreshToken with current user
-        foundUser.refreshToken = refreshToken;
-        const result = await foundUser.save();
-        console.log(result);
-        console.log(roles);
+        await foundUser.save();
 
-        // Creates Secure Cookie with refresh token
-        res.cookie('jwt', refreshToken, { httpOnly: true, secure: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 });
+        // Creates Secure Cookie with access token
+        res.cookie('jwt', accessToken, { httpOnly: true, secure: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 });
 
         // Send authorization roles and access token to user
         res.json({ roles, accessToken, level });
@@ -51,22 +36,34 @@ const handleLogin = async (req, res) => {
     }
 }
 
-const handleCheck = async (req, res) => {
-    const {email, roles, level} = req.body;
-    const token = req.cookies.jwt;
+const userVerification = (req, res) => {
+    const token = req.cookies.jwt
+    const {requiredLevel} = req.body
 
-    jwt.verify(
-        token,
-        process.env.REFRESH_TOKEN_SECRET,
-        (err, decoded) => {
-            if (err) return res.sendStatus(403); //invalid token
-            if (email !== decoded.email || roles.toString() !== decoded.roles.toString() || level !== decoded.level){
-                res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true });
-                return res.sendStatus(401);
+    if (!token) {
+        return res.sendStatus(403);
+    }
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, async (err, data) => {
+        if (err) {
+            res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true });
+            return res.sendStatus(403);
+        } else {
+            const user = await User.findOne({email: data.email})
+            if (user) {
+                if (data.level >= requiredLevel){
+                    return res.sendStatus(200)
+                }
+                else{
+                    return res.sendStatus(403)
+                }
             }
-            res.sendStatus(200);
+            else{
+                res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true });
+                return res.sendStatus(403);
+            } 
+
         }
-    );
+    })
 }
 
-module.exports = { handleLogin, handleCheck };
+module.exports = { handleLogin, userVerification };
