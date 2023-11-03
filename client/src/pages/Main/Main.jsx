@@ -3,10 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import { gsap } from "gsap";
-import {Link} from 'react-router-dom';
-
-
-import useAuth from "../../hooks/useAuth";
+import { Link } from "react-router-dom";
 
 const myFunction = () => {
   let x = document.querySelector(".wrap");
@@ -18,8 +15,6 @@ const myFunction = () => {
 };
 
 const Header = () => {
-  const {auth} = useAuth();
-
   return (
     <>
       <header>
@@ -51,26 +46,23 @@ const Header = () => {
               <a className="item" href="#pricing" onClick={myFunction}>
                 Pricing
               </a>
-              {/* Only show if not authorized */}
-              {
-                auth && 
-                <>
-                  <a
-                    className="item-button login"
-                    href="/login"
-                    onClick={myFunction}
-                  >
-                  Log in
-                  </a>
-                  <a
-                    className="item-button sign"
-                    href="/signup"
-                    onClick={myFunction}
-                  >
-                  Sign up
-                  </a>
-                </>
-              }
+              <Link to='./ForEmployer'><a className="item" href="#pricing" onClick={myFunction}>
+                For the 
+              </a></Link>
+              <a
+                className="item-button login"
+                href="/login"
+                onClick={myFunction}
+              >
+                Log in
+              </a>
+              <a
+                className="item-button sign"
+                href="/signup"
+                onClick={myFunction}
+              >
+                Sign up
+              </a>
             </div>
           </div>
           <label htmlFor="toggle" className="burgermenu" onClick={myFunction}>
@@ -87,8 +79,8 @@ const Header = () => {
                 <a href="#">
                   <button className="btn-eb3">About EB3</button>
                 </a>
-                <Link to="/anketa">
-                  <button className="btn-level" >Check your eligibility</button>
+<Link to='./Anketa'>
+                  <button className="btn-level">Check your eligibility</button>
                 </Link>
               </div>
             </div>
@@ -435,8 +427,9 @@ const Main = () => {
                   Online chat 24 hours
                 </p>
               </div>
-              <a href="#" target="_blank"></a>
+              <Link to='./LevelOne'>
               <button className="btn-levels ">CHOOSE</button>
+              </Link>
             </div>
           </div>
           <div className="level ">
@@ -472,10 +465,10 @@ const Main = () => {
                     fill="#032144"
                   />
                 </svg>
-                Deep analysis of your particular situation (hard copy report)
+                Deep analysis of your particular situation 
               </p>
               <p className="description">
-                <svg
+              <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="30"
                   height="12"
@@ -488,7 +481,7 @@ const Main = () => {
                   />
                 </svg>
                 Step-by-step recommends to obtain green card through eb3
-                unskilled visa (hard copy report)
+                unskilled visa 
               </p>
               <p className="description">
                 <svg
@@ -796,27 +789,9 @@ const Index = () => {
   };
 
   useEffect(() => {
-    const productContainers = [...document.querySelectorAll('.product-container')];
-    const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
-    const preBtn = [...document.querySelectorAll('.pre-btn')];
-
-    productContainers.forEach((item, i) => {
-        let containerDimensions = item.getBoundingClientRect();
-        let containerWidth = containerDimensions.width;
-
-        nxtBtn[i].addEventListener('click', () => {
-            item.scrollLeft += containerWidth;
-        })
-
-        preBtn[i].addEventListener('click', () => {
-            item.scrollLeft -= containerWidth;
-        })
-    })
     AOS.init();
     fly();
   }, []);
-
-  const {auth} = useAuth();
 
   return (
     <>

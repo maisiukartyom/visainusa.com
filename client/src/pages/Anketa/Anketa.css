@@ -1,3 +1,8 @@
+@font-face{
+	font-family: 'Merriweather';
+	src: url(./Merriweather-Light.ttf);
+}
+
 
 .body{
 	background-color:var(--main-color) ;
@@ -10,7 +15,7 @@
 form{
 	background-color: var(--light-color);
 	align-items: center;
-    width: 660px;
+    width: 860px;
 	overflow: hidden;
 	padding: 40px;
 	display: flex;
@@ -21,7 +26,8 @@ form{
 .mt {
 	margin-top: 18px;
 	font-size: 18px;
-	font-weight: 500;
+	font-weight: 600;
+	font-family: 'Merriweather', serif;
 	}
 .check{
 	display: flex;
@@ -50,11 +56,12 @@ margin-bottom: 20px;
 	margin: auto;
 }
 .label {
+	font-family: 'Merriweather', serif;
 	font-size: 18px;
 	padding: 10px;
 	margin: 10px;
-	font-weight: 500;
-	word-spacing: 6px;
+	font-weight: 600;
+	word-spacing: 10px;
 }
 
 

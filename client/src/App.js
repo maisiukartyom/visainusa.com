@@ -11,6 +11,8 @@ import Main from './pages/Main/Main';
 import Login from './pages/Login/Login';
 import SignUp from './pages/SignUp/SignUp';
 import Anketa from './pages/Anketa/Anketa';
+import LevelOne from './pages/LevelOne/LevelOne';
+import ForEmployer from './pages/ForEmployer/ForEmployer';
 
 const ROLES = {
   'User': 2001,
@@ -36,6 +38,11 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/unauthorized" element={<Unauthorized />} />
         <Route path="/anketa" element={<Anketa />} />
+        <Route path="/levelOne" element={<LevelOne />} />
+        <Route path="/foremployer" element={<ForEmployer />} />
+        <Route path='/yuotube' component={() => {
+                    window.location.href = 'https://www.youtube.com/@EB3unskilled'
+                }}/>
 
         {/* we want to protect these routes */}
         <Route element={<RequireAuth allowedRoles={[ROLES.User]} allowedLevel={[LEVELS['Level 1']]} />}>

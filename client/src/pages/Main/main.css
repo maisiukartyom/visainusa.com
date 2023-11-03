@@ -3,6 +3,10 @@ html {
 	margin: 0;
 }
 
+@font-face{
+	font-family: 'Merriweather';
+	src: url(../Anketa/Merriweather-Light.ttf);
+}
 * {
 	box-sizing: border-box;
 }
@@ -263,7 +267,8 @@ a {
 
 .text {
 	font-size: 18px;
-	font-weight: 100;
+	font-weight: 200;
+	font-family: 'Merriweather', serif;
 }
 
 .grey {
