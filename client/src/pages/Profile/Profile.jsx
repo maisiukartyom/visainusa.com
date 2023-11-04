@@ -10,12 +10,11 @@ const Profile = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const verifyCookie = async (level, isAdmin) => {
+        const verifyCookie = async (level) => {
             try{
                 const user = await axios.post("auth/verify",
                     {
                         requiredLevel: level,
-                        isAdmin: isAdmin
                     },
                     {
                         withCredentials: true

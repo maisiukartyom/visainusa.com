@@ -32,7 +32,7 @@ const Checkout = () => {
           }
         }
 
-        verifyCookie(3)
+        verifyCookie(0)
       })
 
     // creates a paypal order

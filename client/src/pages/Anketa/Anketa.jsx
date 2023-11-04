@@ -42,7 +42,7 @@ const Anketa = () => {
 
     return (
         <div className="body">
-            <form onSubmit={handleSubmit}>
+            <form className="form-anketa" onSubmit={handleSubmit}>
             <div className="logo-center"><Link to="/"><img src="images/logo.png" alt="logo"  width={70} height={94}/></Link></div>
                     <div className="one" value={answers[0]} onChange={e => handleAnswerChange(0, e.target.value)}>
                         <label className="label" value="" ><b>1.</b> Do you have a communicable disease of public health significance such as tuberculosis (TB)?</label>

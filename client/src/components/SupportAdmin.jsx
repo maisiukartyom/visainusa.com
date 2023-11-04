@@ -1,9 +1,8 @@
 import React from 'react';
 
-//import { ChatEngine } from 'react-chat-engine'
+import { ChatEngine } from 'react-chat-engine'
 import { PrettyChatWindow } from 'react-chat-engine-pretty';
 import {
-  ChatEngine,
   MultiChatSocket,
   MultiChatWindow,
   useMultiChatLogic,
@@ -16,12 +15,12 @@ const SupportAdmin = () => {
     'alexey@gmail.com'
   );
   return (
-    // <ChatEngine 
-    //   projectID={process.env.REACT_APP_PROJECT_ID}
-    //   userName='Alexey'
-    //   userSecret='alexey@gmail.com'
-    //   height='calc(100vh - 12px)'
-    // />
+    <ChatEngine 
+      projectID={process.env.REACT_APP_PROJECT_ID}
+      userName='Alexey'
+      userSecret='alexey@gmail.com'
+      height='calc(100vh - 12px)'
+    />
 
   //   <PrettyChatWindow
   //   projectId={process.env.REACT_APP_PROJECT_ID}
@@ -29,10 +28,10 @@ const SupportAdmin = () => {
   //   secret='alexey@gmail.com'
   //   style={{ height: '300vh' }}
   // />
-    <>
-      <MultiChatWindow {...chatProps} />
-      <MultiChatSocket {...chatProps} />
-    </>
+    // <>
+    //   <MultiChatWindow {...chatProps} />
+    //   <MultiChatSocket {...chatProps} />
+    // </>
   );
 }
 

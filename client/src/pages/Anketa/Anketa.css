@@ -7,7 +7,7 @@
 	background-position: center;
 }
 
-form{
+.form-anketa{
 	background-color: var(--light-color);
 	align-items: center;
     width: 660px;

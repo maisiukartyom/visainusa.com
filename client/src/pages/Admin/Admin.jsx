@@ -2,7 +2,6 @@ import axios from "../../api/axios";
 import SupportAdmin from "../../components/SupportAdmin";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./admin.css"
 
 const Admin = () => {
 
@@ -10,12 +9,12 @@ const Admin = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const verifyCookie = async (level, isAdmin) => {
+        const verifyCookie = async (level, forAdmin) => {
             try{
                 const user = await axios.post("auth/verify",
                     {
                         requiredLevel: level,
-                        isAdmin: isAdmin
+                        forAdmin: forAdmin
                     },
                     {
                         withCredentials: true
