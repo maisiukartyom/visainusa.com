@@ -3,6 +3,9 @@
 	src: url(../Anketa/Merriweather-Light.ttf);
 }
 
+* {
+	box-sizing: border-box;
+}
 
 /*1 block */
 .employer-first-block {
@@ -42,7 +45,6 @@
 	word-spacing: 14px;
 }
 
-/*2 block */
 
 .hr {
 	width: 100%;
@@ -50,61 +52,8 @@
 	background-color: var(--main-color);
 }
 
-.solution-row {
-	display: flex;
-	justify-content: space-evenly;
-	background-color: var(--light-color);
-	width: 100%;
-}
 
-.solution {
-	display: flex;
-	flex-direction: column;
-	max-width: 750px;
-	margin-top: 5%;
-	margin-bottom: 5%;
-}
-
-.h2-employer-light {
-	font-size: 50px;
-}
-
-.h2-employer-light,
-.text-employer-light {
-	color: var(--dark-color);
-}
-
-.list-employer {
-	margin-top: 8%;
-}
-
-.list-column-employer {
-	display: flex;
-	flex-direction: column;
-	padding: 0 40px;
-	max-width: 600px;
-}
-
-.par-employer {
-	font-size: 22px;
-	font-weight: 800;
-	color: var(--dark-color);
-	text-align: center;
-	text-transform: uppercase;
-}
-
-.text-par-employer {
-	font-size: 18px;
-	font-weight: 600;
-	color: #626262;
-	font-family: 'Merriweather', serif;
-	word-spacing: 14px;
-	max-height: 850px;
-	margin-top: 0.1%;
-}
-
-
-/*3block*/
+/*2block*/
 
 .employer-benefits {
 	width: 100%;
@@ -160,13 +109,14 @@
 	margin-bottom: -4%;
 }
 
-/* 4 block*/
+/* 3 block*/
 
 .documents {
-	width: 100%;
+
 	background-image: url(../../../public/images/documents.jpg);
 	background-position: center;
 	height: 100%;
+	width: 100%;
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -175,6 +125,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+
 }
 
 table,
@@ -199,7 +150,7 @@ td {
 }
 
 table {
-	max-width: 1150px;
+	max-width: 1100px;
 	align-self: center;
 }
 
@@ -246,6 +197,12 @@ table {
 	margin-top: 7%;
 }
 
+.table-time {
+	padding-top: 40px;
+	padding-bottom: 40px;
+	align-self: center;
+}
+
 .text-table-time {
 	font-size: 16px;
 	font-weight: lighter;
@@ -272,6 +229,10 @@ table {
 	background-repeat: no-repeat;
 }
 
+.summary-form {
+	display: flex;
+}
+
 .block-summary {
 	display: flex;
 	flex-direction: column;
@@ -290,6 +251,172 @@ table {
 	align-self: center;
 }
 
+
+/*form*/
+
+.app-wrapper-form {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	height: 100vh;
+}
+
+.logoForm-employer {
+
+	text-align: center;
+}
+
+
+.app-wrapper-employer {
+	background-color: #ffffff;
+	min-width: 380px;
+	min-height: 500px;
+	padding: 40px;
+	border: 3px #244B7A solid;
+	align-self: center;
+}
+
+.form-wrapper {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+
+}
+
+.number-input-form {
+	align-self: center;
+	height: 36px;
+	font-size: 20px;
+	width: 300px;
+	margin-top: 4px;
+}
+
+.title-form {
+	color: var(--dark-color);
+	text-align: center;
+	max-width: fit-content;
+	font-size: 28px;
+	margin: 10px 0px 40px 0px;
+	word-break: break-all;
+
+}
+
+.company,
+.email-form,
+.time,
+.phoneNumber-form {
+	margin: auto;
+	padding: 10px;
+	color: var(--deep-dark);
+	font-size: 19px;
+}
+
+
+.react-tel-input .form-control {
+	position: none;
+	font-size: 14px;
+	letter-spacing: .01rem;
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+	padding-left: 48px;
+	margin-left: 0;
+	background: #FFFFFF;
+	border: 1px solid #CACACA;
+	border-radius: 6px;
+	line-height: 25px;
+	height: 36px;
+	width: 300px;
+	outline: none;
+}
+
+.left-phone {
+	margin-left: 19%;
+}
+
+.left-form {
+	margin-left: -10px;
+}
+
+.input-form {
+	height: 36px;
+	font-size: 20px;
+	width: 300px;
+	border-radius: 6px;
+	border: 1px solid #d8d8d8;
+	margin-top: 4px;
+}
+
+.error {
+	color: var(--color);
+	font-weight: 600;
+	margin-left: 30px;
+	margin-top: -1px;
+}
+
+.error-left {
+	color: var(--color);
+	margin-left: 20px;
+	margin-top: -1px;
+	font-weight: 600;
+
+}
+
+.submit-send {
+	display: flex;
+	justify-content: center;
+	text-transform: uppercase;
+	border-radius: 10px;
+	border: none;
+	width: 240px;
+	height: 50px;
+	font-size: 18px;
+	color: #ffffff;
+	padding: 10px 60px;
+	background-color: var(--main-color);
+	margin: auto;
+	outline: none;
+	cursor: pointer;
+	transition: all 0.1s;
+	margin-top: 10%;
+
+}
+
+button:active {
+	transform: translate(2px);
+}
+
+@media all and (max-width:1280px) {
+
+
+	.left-phone {
+		margin-left: 7%;
+	}
+
+}
+
+@media all and (max-width:1024px) {
+	.photo-block-employer {
+		display: none;
+	}
+
+	.header-nav-item {
+		font-size: 16px;
+	}
+
+	.summary-form {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.block-summary {
+		padding: 40px;
+	}
+
+	.app-wrapper-form {
+		margin-top: -15%;
+	}
+}
+
 @media all and (max-width:920px) {
 	.photo-block-employer {
 		display: none;
@@ -303,6 +430,44 @@ table {
 		margin-bottom: 10px;
 		font-size: 40px;
 		font-weight: bolder;
+	}
+
+	.summary-form {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.app-wrapper-form {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		height: 100vh;
+	}
+
+
+	.app-wrapper-employer {
+		background-color: #ffffff;
+		min-width: 280px;
+		min-height: 500px;
+		padding: 30px;
+	}
+
+	.input-form {
+		height: 36px;
+		font-size: 20px;
+		width: 260px;
+		border-radius: 6px;
+		border: 1px solid #d8d8d8;
+		margin-top: 4px;
+	}
+
+	.react-tel-input .form-control {
+		width: 260px;
+	}
+
+
+	.left-phone {
+		margin-left: 22%;
 	}
 }
 
@@ -319,10 +484,18 @@ table {
 		margin-bottom: 10px;
 	}
 
+	.left-phone {
+		margin-left: 22%;
+	}
+
 }
 
 @media (max-width: 768px) {
-
+	td {
+		font-weight: 500;
+		word-spacing: 10px;
+		padding: 12px 11px;
+	}
 }
 
 @media (max-width:579px) {
@@ -382,11 +555,42 @@ table {
 		flex-direction: column;
 	}
 
+	.text-employer-benefits {
+		font-size: 16px;
+		word-spacing: 14px;
+		max-height: 850px;
+	}
+
+	td {
+		font-weight: 500;
+		word-spacing: 10px;
+		padding: 12px 11px;
+	}
+}
+
+@media (max-width:440px) {
+	.left-phone {
+		margin-left: 12%;
+	}
+
+}
+
+@media (max-width:412px) {
+	.left-phone {
+		margin-left: 12%;
+	}
+
+}
+
+@media (max-width:400px) {
+	.left-phone {
+		margin-left: 10%;
+	}
 
 }
 
 
-@media (max-width:375px) {
+@media (max-width:380px) {
 
 	.h2-employer,
 	.h2-employer-light,
@@ -394,8 +598,98 @@ table {
 	.h2-table {
 		margin-top: 20px;
 		margin-bottom: 10px;
-		font-size: 40px;
+		font-size: 20px;
 		font-weight: 600;
-
 	}
+
+
+	.first-block-employer {
+		padding: 40px;
+	}
+
+	.text-employer,
+	.text-employer-light {
+		font-size: 16px;
+		font-weight: 500;
+		color: var(--dark-color);
+		font-family: 'Merriweather', serif;
+		word-spacing: 14px;
+	}
+
+	.text-employer-benefits {
+		font-size: 16px;
+		word-spacing: 14px;
+		max-height: 850px;
+	}
+
+	table,
+	th,
+	td {
+		border: rgb(5, 2, 13) 1px solid;
+		width: 100%;
+	}
+
+	td {
+		background-color: var(--main-color);
+		color: var(--light-color);
+		font-family: 'Merriweather', serif;
+		font-weight: 500;
+		word-spacing: 8px;
+		padding: 14px 20px;
+	}
+
+	.table {
+		padding-top: 30px;
+		padding-bottom: 80px;
+	}
+
+	.table-color {
+		font-size: 16px;
+		font-weight: 600;
+	}
+
+	td {
+		font-weight: 500;
+		word-spacing: 10px;
+		padding: 12px 11px;
+	}
+
+	.text-employer-benefits {
+		font-size: 14px;
+		font-weight: 500;
+	}
+
+	.par-benefits-employer {
+		font-size: 16px;
+		font-weight: 600;
+		padding: 8px;
+	}
+
+	.block-benefits-employer {
+		padding: 30px;
+	}
+
+	.text-table-time {
+		font-size: 12px;
+		color: rgb(197, 193, 193);
+		word-spacing: 11px;
+		max-height: 80px;
+	}
+
+	.text-summary {
+		font-size: 16px;
+		font-weight: 500;
+		color: var(--deep-dark);
+		word-spacing: 11px;
+	}
+
+	.title-form {
+		font-size: 23px;
+	}
+
+	.left-phone {
+		margin-left: 7%;
+	}
+
+
 }

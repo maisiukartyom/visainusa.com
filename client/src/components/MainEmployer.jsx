@@ -1,5 +1,5 @@
 import React from "react";
-
+import FormEmployer from './FormEmployer';
 import "../pages/ForEmployer/ForEmployer.css";
 
 
@@ -15,55 +15,6 @@ decrease labor turnover.</p>
 </div>
 </div>
 <div className="hr"></div>
-
-
-
-<div className="solution-row">
-
-<div className="solution">
-<h2 className="h2-employer-light">Ppoblems</h2>
-<div className="list-employer">
-<div className="list-column-employer">
-<p className="par-employer">Market gap</p>
-<p className="text-par-employer">Businesses need new opportunities but are using 
-old or outdated approaches and services</p>
-</div>
-<div className="list-column-employer">
-<p className="par-employer">Customers</p>
-<p className="text-par-employer">25% decrease of orders prove that there's 
-customers dissatisfaction potentially based on 
-labor turnover</p>
-</div>
-<div className="list-column-employer">
-<p className="par-employer">Cost</p>
-<p className="text-par-employer">Loss of potential income by not facing unskilled 
-labor shortage</p>
-</div>
-</div>
-    </div>
-
-    <div className="solution">
-    <h2 className="h2-employer-light">Solutions</h2>
-    <div className="list-employer">
-<div className="list-column-employer">
-<p className="par-employer">Close the gap</p>
-<p className="text-par-employer">Our service makes your life easier, and no other products on the 
-market offers the same benefits</p>
-</div>
-<div className="list-column-employer">
-<p className="par-employer">Cost savings</p>
-<p className="text-par-employer">Reduce costs for hiring, training and managing labor</p>
-</div>
-<div className="list-column-employer">
-<p className="par-employer">Easy to easy</p>
-<p className="text-par-employer">Employment Based program (EB3 unskilled) is simple solution that 
-gives businesses opportunity they need in order to make stable 
-and profitable growth</p>
-</div>
-</div>
-    </div>
-    </div>
-    <div className="hr"></div>
 
 
     <div className="employer-benefits">
@@ -178,13 +129,15 @@ are allowed to file an LC. These 30 days are to allow Americans an opportunity t
     <div className="doc-table">
 <h2 className="h2-table">TIMELINE AND MILESTONES FOR EB3 UNSKILLED CATEGORY</h2>
 <p className="text-table-time">the chart doesn't reflect any audit, request for evidence and retrogression, the retrogression could impact timing depending on the priority date</p>
-    <div className="table">
+    <div className="table-time">
 <img src="images/table.png" alt="table" className="time"/>
       </div>
       </div>
       </div>
 
       <div className="summary">
+      <div className="summary-form">
+
     <div className="block-summary">
 <h2 className="h2-employer">Summary</h2>
 <p className="text-summary">At Visa in USA limited liability company, we believe in giving 110%. 
@@ -194,9 +147,12 @@ because of our market knowledge and a great team behind our
 service. As our CEO says, "Efficiencies will come from proactively 
 transforming how we do business."</p>
 </div>
-</div>
-</div>
 
+<FormEmployer />
+
+</div>
+</div>
+</div>
         
     )
 }
