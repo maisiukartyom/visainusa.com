@@ -80,13 +80,17 @@ const validate = () => {
                 </div>
                 <div className="form-wrapper">
                     <div className="email">
+                        <div>
                         <label htmlFor="email" className="label">Email</label>
+                        </div>
                         <input className="input" type="email" onChange={(e) => setEmail(e.target.value)}/>
                         {errors.email && <p className="error">{errors.email}</p>}
 
                     </div>
                     <div className="password">
+                        <div>
                         <label htmlFor="email" className="label">Password</label>
+                        </div>
                         <input className="input" type="password" onChange={(e) => setPassword(e.target.value)} />
                         {errors.password && <p className="error">{errors.password}</p>}
                     </div>

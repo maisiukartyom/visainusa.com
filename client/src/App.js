@@ -11,6 +11,8 @@ import SignUp from './pages/SignUp/SignUp';
 import Anketa from './pages/Anketa/Anketa';
 import Checkout from './components/Checkout';
 import Profile from './pages/Profile/Profile';
+import LevelOne from './pages/LevelOne/LevelOne';
+import ForEmployer from './pages/ForEmployer/ForEmployer'
 
 function App() {
   console.log("Rendered!")
@@ -27,6 +29,11 @@ function App() {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/profile" element={<Profile />}/>
         <Route path="/admin" element={<Admin />}/>
+        <Route path="/levelOne" element={<LevelOne />} />
+        <Route path="/foremployer" element={<ForEmployer />} />
+        <Route path='/youtube' component={() => {
+                    window.location.href = 'https://www.youtube.com/@EB3unskilled'
+                }}/>
 
         {/* catch all */}
         <Route path="*" element={<Missing />} />
