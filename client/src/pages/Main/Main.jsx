@@ -21,6 +21,7 @@ const myFunction = () => {
 
 const Header = () => {
   const [user, setUser] = useState(false)
+  const [verified, setVerified] = useState(false)
 
   useEffect(() => {
     const verifyCookie = async (level) => {
@@ -33,6 +34,7 @@ const Header = () => {
                 withCredentials: true
             })
         setUser(true)
+        setVerified(true)
       }
       catch (err){
         setUser(false)
@@ -76,7 +78,7 @@ const Header = () => {
               </a>
               {/* Only show if not authorized */}
               {
-                !user && 
+                verified && !user && 
                 <>
                   <a
                     className="item-button login"

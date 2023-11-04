@@ -11,13 +11,13 @@ const handleLogin = async (req, res) => {
     // evaluate password 
     const match = await bcrypt.compare(password, foundUser.password);
     if (match) {
-        const roles = Object.values(foundUser.roles).filter(Boolean);
+        const isAdmin = foundUser.isAdmin;
         const level = foundUser.level;
         // create JWTs
         const accessToken = jwt.sign(
             { 
                 "email": foundUser.email,
-                "roles": roles,
+                "isAdmin": isAdmin,
                 "level": level
              },
             process.env.ACCESS_TOKEN_SECRET,
@@ -27,9 +27,10 @@ const handleLogin = async (req, res) => {
 
         // Creates Secure Cookie with access token
         res.cookie('jwt', accessToken, { httpOnly: true, secure: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 });
-
+        
+        res.sendStatus(200); 
         // Send authorization roles and access token to user
-        res.json({ roles, accessToken, level });
+        //res.json({ isAdmin, accessToken, level });
 
     } else {
         res.sendStatus(401);
@@ -38,7 +39,7 @@ const handleLogin = async (req, res) => {
 
 const userVerification = (req, res) => {
     const token = req.cookies.jwt
-    const {requiredLevel} = req.body
+    const {requiredLevel, forAdmin} = req.body
 
     if (!token) {
         return res.sendStatus(403);
@@ -50,8 +51,16 @@ const userVerification = (req, res) => {
         } else {
             const user = await User.findOne({email: data.email})
             if (user) {
+                
+                if (forAdmin && !data.isAdmin){
+                    return res.sendStatus(403)
+                }
+                else if (forAdmin && data.isAdmin){
+                    return res.sendStatus(200);
+                }
+
                 if (data.level >= requiredLevel){
-                    return res.sendStatus(200)
+                    return res.status(200).json({email: user.email, level: user.level, name: user.fullname, isAdmin: user.isAdmin})
                 }
                 else{
                     return res.sendStatus(403)

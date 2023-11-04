@@ -24,6 +24,16 @@ const handleCheckout = async (req, res) => {
             console.log(payment.payer)
             const result = await User.findOneAndUpdate({email: payment.payer}, {level: payment.purchasedLevel})
             await Payment.create(payment);
+            const accessToken = jwt.sign(
+              { 
+                  "email": result.email,
+                  "roles": result.roles,
+                  "level": payment.purchasedLevel
+               },
+              process.env.ACCESS_TOKEN_SECRET,
+              { expiresIn: '1d' }
+            );
+            res.cookie('jwt', accessToken, { httpOnly: true, secure: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 });
             res.sendStatus(200);
           }
           catch{

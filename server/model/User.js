@@ -14,13 +14,6 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    roles: {
-        User: {
-            type: Number,
-            default: 2001
-        },
-        Admin: Number
-    },
     password: {
         type: String,
         required: true
@@ -33,6 +26,10 @@ const userSchema = new Schema({
     createdAt: {
         type: Date,
         default: Date.now
+    },
+    isAdmin: {
+        type: Boolean,
+        default: false
     }
 });
 

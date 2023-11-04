@@ -1,16 +1,17 @@
-import { CLIENT_ID } from '../utils/config'
+//import { CLIENT_ID } from '../utils/config'
 import React, { useState, useEffect } from "react" ;
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import axios from '../api/axios';
 import useAuth from '../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
+import SupportEngine from "./SupportEngine";
 
 const Checkout = () => {
     const {clearAuthentication} = useAuth();
     const navigate = useNavigate()
 
     const initialOptions = {
-        "client-id": CLIENT_ID, 
+        "client-id": process.env.REACT_APP_CLIENT_ID, 
         "commit": true, 
         "enable-funding": "card"
     };
@@ -72,7 +73,7 @@ const Checkout = () => {
             ).then(() => {
                 alert("Payment successful!!");
                 console.log('Order successful . Your order id is--', payment.id);
-                navigate("/login")
+                navigate("/")
             }).catch((err) => alert("Couldn't save transaction in the database!"))
         });
     };
@@ -83,14 +84,17 @@ const Checkout = () => {
     };
 
     return (
-        <PayPalScriptProvider options={initialOptions}>
-            <PayPalButtons
-                style={{ layout: "vertical" }}
-                createOrder={createOrder}
-                onApprove={onApprove}
-                onError={onError}
-            />
-        </PayPalScriptProvider>
+        <>
+            <PayPalScriptProvider options={initialOptions}>
+                <PayPalButtons
+                    style={{ layout: "vertical" }}
+                    createOrder={createOrder}
+                    onApprove={onApprove}
+                    onError={onError}
+                />
+            </PayPalScriptProvider>
+            <SupportEngine />
+        </>
     );
 }
 
