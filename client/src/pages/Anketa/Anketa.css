@@ -119,6 +119,7 @@ input {
 	}
 }
 
+
 @media all and (max-width:500px) {
 
 	.label {
@@ -141,7 +142,8 @@ input {
 
 }
 
-@media all and(max-width:300px) {
+
+@media all and (max-width:300px) {
 
 	.label {
 		font-size: 10px;
@@ -167,7 +169,6 @@ input {
 	}
 
 	.logo-center{
-
 		margin-top: -20px;
 		margin-bottom: 20px;
 		}

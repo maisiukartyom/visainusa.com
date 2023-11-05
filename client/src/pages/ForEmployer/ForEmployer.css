@@ -5,9 +5,9 @@
 
 * {
 	box-sizing: border-box;
-}
+   }
 
-/*1 block */
+
 .employer-first-block {
 	width: 100%;
 	background-image: url(../../../public/images/firstPhoto.jpg);
@@ -52,8 +52,6 @@
 	background-color: var(--main-color);
 }
 
-
-/*2block*/
 
 .employer-benefits {
 	width: 100%;
@@ -108,8 +106,6 @@
 	text-transform: uppercase;
 	margin-bottom: -4%;
 }
-
-/* 3 block*/
 
 .documents {
 
@@ -178,8 +174,6 @@ table {
 	font-weight: 800;
 }
 
-/*5 block*/
-
 .table-time {
 	width: 100%;
 	background-color: var(--dark-color);
@@ -217,9 +211,6 @@ table {
 	width: 100%;
 }
 
-
-/*6 block */
-
 .summary {
 	width: 100%;
 	background-image: url(../../../public/images/summary.jpg);
@@ -250,9 +241,6 @@ table {
 	word-spacing: 12px;
 	align-self: center;
 }
-
-
-/*form*/
 
 .app-wrapper-form {
 	display: flex;
