@@ -1,13 +1,11 @@
 //import { CLIENT_ID } from '../utils/config'
-import React, { useState, useEffect } from "react" ;
+import React, { useEffect } from "react" ;
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import axios from '../api/axios';
-import useAuth from '../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 import SupportEngine from "./SupportEngine";
 
 const Checkout = () => {
-    const {clearAuthentication} = useAuth();
     const navigate = useNavigate()
 
     const initialOptions = {
