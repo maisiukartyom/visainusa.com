@@ -22,10 +22,10 @@ const Footer = () => {
 
         </div>
         <div className="footer-column link-level">
-          <a href="https://web.telegram.org/k/#@eb3usa" target="_blank"><img class="link-margin" src="images/telegram.png" alt="telegram" width="38" height="38"/></a>
-          <a href="#" target="_blank"><img class="link-margin" src="images/facebook.png" alt="facebook" width="38" height="38"/></a>
-          <a href="#" target="_blank"><img class="link-margin" src="images/instagram.png" alt="instagram" width="38" height="38"/></a>
-          <a href="https://www.youtube.com/@EB3unskilled" target="_blank"><img class="link-margin" src="images/youtube.png" alt="youtube" width="38" height="38"/></a>
+          <a href="https://web.telegram.org/k/#@eb3usa" target="_blank"><img className="link-margin" src="images/telegram.png" alt="telegram" width="38" height="38"/></a>
+          <a href="#" target="_blank"><img className="link-margin" src="images/facebook.png" alt="facebook" width="38" height="38"/></a>
+          <a href="#" target="_blank"><img className="link-margin" src="images/instagram.png" alt="instagram" width="38" height="38"/></a>
+          <a href="https://www.youtube.com/@EB3unskilled" target="_blank"><img className="link-margin" src="images/youtube.png" alt="youtube" width="38" height="38"/></a>
          </div>
       </div>
     </footer>

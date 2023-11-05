@@ -1,9 +1,10 @@
 const User = require('../model/User');
 const bcrypt = require('bcrypt');
+const axios = require('axios')
 
 const handleNewUser = async (req, res) => {
     const { fullname, email, password, phoneNumber } = req.body;
-    console.log(req.body);
+
     if (!fullname || !email || !password || !phoneNumber) return res.status(400).json({ 'message': 'Email, password, fullname and phoneNumber are required.' });
 
     // check for duplicate usernames in the db
@@ -22,7 +23,15 @@ const handleNewUser = async (req, res) => {
             phoneNumber: phoneNumber
         });
 
-        console.log(result);
+        // add chat user
+        await axios.put(
+            'https://api.chatengine.io/users/',
+            {
+                "username": email,
+                "secret": email,
+                "email": email
+            },
+            {headers: {"Private-Key": process.env.CHAT_SECRET}})
 
         res.status(201).json({ 'success': `New user ${email} created!` });
     } catch (err) {

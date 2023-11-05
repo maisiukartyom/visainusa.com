@@ -37,7 +37,7 @@ const SupportEngine = ({user}) => {
                     },
                     {headers: {"Private-Key": process.env.REACT_APP_CHAT_SECRET}}
                 ).then(r => setChatUser(r.data))
-        
+    
                 axios.put(
                     'https://api.chatengine.io/chats/',
                     {

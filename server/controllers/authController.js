@@ -4,7 +4,6 @@ const jwt = require('jsonwebtoken');
 
 const handleLogin = async (req, res) => {
     const { email, password } = req.body;
-    if (!email || !password) return res.status(400).json({ 'message': 'Email and password are required.' });
 
     const foundUser = await User.findOne({ email: email }).exec();
     if (!foundUser) return res.sendStatus(401); //Unauthorized 
@@ -35,6 +34,11 @@ const handleLogin = async (req, res) => {
     } else {
         res.sendStatus(401);
     }
+}
+
+const handleLogout = (req, res) => {
+    res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true });
+    res.sendStatus(200);
 }
 
 const userVerification = (req, res) => {
@@ -75,4 +79,4 @@ const userVerification = (req, res) => {
     })
 }
 
-module.exports = { handleLogin, userVerification };
+module.exports = { handleLogin, userVerification, handleLogout };

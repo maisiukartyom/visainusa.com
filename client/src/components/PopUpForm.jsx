@@ -75,7 +75,7 @@ const PopUpForm = ({ onClose }) => {
   return (
     <PopUpBackground>
       <PopUpContent>
-        <h2>Pop-Up Form</h2>
+        <h2>Contact Alexey</h2>
         <Input
           type="text"
           placeholder="Email"

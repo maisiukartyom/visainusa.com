@@ -1,8 +1,11 @@
 import {useState, useEffect} from "react";
 import validation from "../utils/validation.js";
 import axios from "../api/axios.js";
+import {toast} from 'react-toastify';
+import { useNavigate } from "react-router-dom";
 
 const useForm = (submitForm) =>{
+    const navigate = useNavigate();
 
     const [values, setValues] = useState({
         fullname: "",
@@ -28,32 +31,60 @@ const useForm = (submitForm) =>{
     }
     const handleFormSubmit = (event) => {
         event.preventDefault();
+        const curErrors = validation(values)
         setErrors(validation(values));
-        setDataIsCorrect(true);
+
+        if (Object.values(curErrors).every(value => value === "")){
+            setDataIsCorrect(true);
+        }
     };
 
     useEffect( () => {
         const register = async () => {
             try {
-                await axios.post("/register",
+                const result = await axios.post("/register",
                     JSON.stringify(values),
                     {
                         headers: { 'Content-Type': 'application/json' },
                         withCredentials: true
                     }
                 );
+                toast.success(result.data.success, {
+                    position: "top-center",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    progress: undefined,
+                    theme: "light",
+                    });
+                
+                navigate("/login")
+                //submitForm(true);
             }
             catch(err){
+                let errorMessage = ""
                 if (!err?.response) {
-                    alert('No Server Response');
+                    errorMessage ='No Server Response';
                 } else if (err.response?.status === 409) {
-                    alert('Email already registered!');
+                    errorMessage = 'Email already registered!';
                 } else {
-                    alert('Registration Failed')
+                    errorMessage = 'Registration failed!'
                 }
+                toast.error(errorMessage, {
+                    position: "top-center",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    progress: undefined,
+                    theme: "light",
+                    })
+
             }
-        }
-        if(Object.keys(errors).length === 0 && dataIsCorrect){
+
             setValues({
                 fullname: "",
                 email: "",
@@ -61,8 +92,10 @@ const useForm = (submitForm) =>{
                 age: "",
                 phoneNumber: ""
             })
+        }
+        
+        if (dataIsCorrect){
             register();
-            submitForm(true);
         }
     }, [errors]);
 

@@ -25,6 +25,9 @@ const Profile = () => {
                     name: user.data.fullname, 
                     isAdmin: user.data.isAdmin})
                 setVerified(true)
+                if (user.data.isAdmin){
+                    navigate("/admin")
+                }
             }
             catch (err){
               navigate("/login")

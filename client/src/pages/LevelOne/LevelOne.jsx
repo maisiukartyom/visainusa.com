@@ -14,7 +14,7 @@ const LevelOne = () => {
       <div >
           <Header />
           <MainLevel />
-<Footer />
+          <Footer />
       </div>
   )
 }

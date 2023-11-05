@@ -20,7 +20,7 @@ const SignupForm = ({ submitForm }) => {
                 <div>
                     <h2 className="title">Create Account</h2>
                 </div>
-                <div className="form-wrapper">
+                <form onSubmit={handleFormSubmit} className="form-wrapper">
                     <div className="name">
                     <div>
                         <label className="label">Full name</label>
@@ -61,9 +61,9 @@ const SignupForm = ({ submitForm }) => {
                         {errors.phoneNumber && <p className="error-left">{errors.phoneNumber}</p>}
                     </div>
                     <div>
-                        <button className="submit" onClick={handleFormSubmit}>Sign Up</button>
+                        <button className="submit">Sign Up</button>
                     </div>
-                </div>
+                </form>
             
                 </div>
         </div>

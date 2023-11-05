@@ -1,13 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from '../api/axios';
-import useAuth from '../hooks/useAuth';
+import axios from '../api/axios'
 import { useNavigate } from "react-router-dom";
+import {toast} from 'react-toastify'
 
 function LoginForm()  {
-
-    const {setAuthentication} = useAuth();
     const navigate = useNavigate();
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -25,26 +23,40 @@ function LoginForm()  {
                     withCredentials: true
                 }
                 )
-                const accessToken = response?.data?.accessToken;
-                const roles = response?.data?.roles;
-                const level = response?.data?.level;
-                //setAuth({ email, roles, level, accessToken });
-                //setAuthentication({ email, roles, level, accessToken });
                 setEmail('');
                 setPassword('');
+                toast.success('Logged in!', {
+                    position: "top-center",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    progress: undefined,
+                    theme: "light",
+                    });
                 navigate("/");
             }
             catch (err){
-                console.log(err)
+                let errorMessage = "";
                 if (!err?.response) {
-                    alert('No Server Response');
-                } else if (err.response?.status === 400) {
-                    alert('Missing Email or Password');
+                    errorMessage = 'No Server Response'
                 } else if (err.response?.status === 401) {
-                    alert('Invalid credentials!');
+                    errorMessage = 'Invalid credentials!'
                 } else {
-                    alert('Login Failed');
+                    errorMessage = 'Login Failed'
                 }
+
+                toast.error(errorMessage, {
+                    position: "top-center",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    progress: undefined,
+                    theme: "light",
+                    })
             }
         }
 }

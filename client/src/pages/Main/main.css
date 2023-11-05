@@ -17,7 +17,7 @@ html {
 }
 
 .mainpage {
-	background-image: url(../../../public/images/bg.jpg);
+	background-image: url(../../../public/images/mainpage.jpg);
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -124,6 +124,11 @@ html {
 	background-color: var(--color);
 	color: var(--dark-color);
 	border: none;
+}
+
+.button-logout {
+	margin-left: 1%;
+	cursor: pointer;
 }
 
 .sign {

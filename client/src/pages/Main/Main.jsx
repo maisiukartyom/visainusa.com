@@ -3,11 +3,9 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
 import { gsap } from "gsap";
-import useAuth from "../../hooks/useAuth";
 import {Link} from 'react-router-dom';
 import axios from "../../api/axios";
-import { useNavigate } from "react-router-dom";
-
+import {toast} from 'react-toastify';
 
 
 const myFunction = () => {
@@ -21,28 +19,54 @@ const myFunction = () => {
 
 const Header = () => {
   const [user, setUser] = useState(false)
+  const [isAdmin, setIsAdmin] = useState(false)
   const [verified, setVerified] = useState(false)
+
+  const logout = async () => {
+    await axios.get("/auth/logout", {
+      withCredentials: true
+    });
+    setVerified(false);
+    setUser(false);
+    toast.success('Logged out!', {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: false,
+      progress: undefined,
+      theme: "light",
+      });
+  }
 
   useEffect(() => {
     const verifyCookie = async (level) => {
       try{
-        await axios.post("auth/verify",
+        const user = await axios.post("auth/verify",
             {
                 requiredLevel: level
             },
             {
                 withCredentials: true
             })
+        if (user.data.isAdmin){
+          setIsAdmin(true)
+        }
+        else{
+          setIsAdmin(false)
+        }
         setUser(true)
         setVerified(true)
       }
       catch (err){
+        setVerified(true)
         setUser(false)
       }
     }
 
     verifyCookie(0)
-  })
+  }, [verified])
 
 
   return (
@@ -96,6 +120,26 @@ const Header = () => {
                   </a>
                 </>
               }
+              {
+                verified && user &&
+                <>
+                  
+                  <Link
+                    className="item-button login"
+                    to={isAdmin? "/admin" : "/profile"}
+                    onClick={myFunction}
+                  >
+                    Profile
+                  </Link>
+
+                  <button
+                    className="item-button button-logout"
+                    onClick={logout}
+                  >
+                    Logout
+                  </button>
+                </>
+              }
             </div>
           </div>
           <label htmlFor="toggle" className="burgermenu" onClick={myFunction}>
@@ -112,7 +156,7 @@ const Header = () => {
                 <a href="#">
                   <button className="btn-eb3">About EB3</button>
                 </a>
-<Link to='./Anketa'>
+                <Link to='/survey'>
                   <button className="btn-level">Check your eligibility</button>
                 </Link>
               </div>
@@ -460,8 +504,8 @@ const Main = () => {
                   Online chat 24 hours
                 </p>
               </div>
-              <Link to='./LevelOne'>
-              <button className="btn-levels ">CHOOSE</button>
+              <Link to='/levelone'>
+                <button className="btn-levels ">CHOOSE</button>
               </Link>
             </div>
           </div>
@@ -822,6 +866,22 @@ const Index = () => {
   };
 
   useEffect(() => {
+    const productContainers = [...document.querySelectorAll('.product-container')];
+    const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
+    const preBtn = [...document.querySelectorAll('.pre-btn')];
+
+    productContainers.forEach((item, i) => {
+        let containerDimensions = item.getBoundingClientRect();
+        let containerWidth = containerDimensions.width;
+
+        nxtBtn[i].addEventListener('click', () => {
+            item.scrollLeft += containerWidth;
+        })
+
+        preBtn[i].addEventListener('click', () => {
+            item.scrollLeft -= containerWidth;
+        })
+    })
     AOS.init();
     fly();
   }, []);

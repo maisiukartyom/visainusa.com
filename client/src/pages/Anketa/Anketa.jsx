@@ -2,8 +2,7 @@ import "./Anketa.css";
 import {Link} from 'react-router-dom';
 import React, { useState } from 'react';
 import PopUpForm from "../../components/PopUpForm";
-import SupportEngine from "../../components/SupportEngine";
-
+import {toast} from 'react-toastify'
 
 const Anketa = () => {
 
@@ -27,8 +26,28 @@ const Anketa = () => {
         const handleSubmit = (event) => {
             event.preventDefault();
             if (answers.every(answer => answer === 'no')) {
-                alert('«Congratulations! You have been successfully passed questionnaire and pre-approved for EB3 unskilled program»');
+                toast.success('Congratulations! You have been successfully passed questionnaire and pre-approved for EB3 unskilled program', {
+                    position: "top-center",
+                    autoClose: 8000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    progress: undefined,
+                    theme: "light",
+                    });
+                //alert('«Congratulations! You have been successfully passed questionnaire and pre-approved for EB3 unskilled program»');
             } else {
+                toast.error("You're not eligble. Please fill in the form to contact Alexey!", {
+                    position: "top-center",
+                    autoClose: 6000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    progress: undefined,
+                    theme: "light",
+                    });
                 openPopUp();
                 // alert () выпадает форма обратной связи, данные которой отправляются на почту Алексею
             }

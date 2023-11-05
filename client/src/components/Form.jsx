@@ -6,7 +6,6 @@ const Form = () => {
 
     const [formIsSubmitted, setFormIsSubmitted] = useState(false);
     const submitForm =() => {
-        console.log("Sign up successful!")
         setFormIsSubmitted(true);
     };
     return (
