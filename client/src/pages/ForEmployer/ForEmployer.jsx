@@ -14,7 +14,7 @@ const ForEmployer = () => {
         <div >
             <Header />
             <MainEmployer />
-  <Footer />
+            <Footer />
         </div>
     )
   }

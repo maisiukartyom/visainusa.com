@@ -2,11 +2,11 @@ import {useState, useEffect} from "react";
 import validation from "../utils/validation.js";
 import axios from "../api/axios.js";
 import {toast} from 'react-toastify';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const useForm = (submitForm) =>{
     const navigate = useNavigate();
-
+    const {pathname} = useLocation()
     const [values, setValues] = useState({
         fullname: "",
         email: "",
@@ -60,7 +60,7 @@ const useForm = (submitForm) =>{
                     theme: "light",
                     });
                 
-                navigate("/login")
+                navigate("/login", {state: {previousPath: pathname}})
                 //submitForm(true);
             }
             catch(err){

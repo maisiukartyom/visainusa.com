@@ -1,12 +1,63 @@
-import React, {useState} from "react";
-import {Link} from 'react-router-dom';
+import React, {useEffect, useState} from "react";
+import {Link, useLocation} from 'react-router-dom';
 import "../pages/LevelOne/LevelOne.css";
-
+import axios from "../api/axios";
+import {toast} from "react-toastify";
 
 
 export const Header = () => {
 
-    const [isOpen, setOpen] = useState();
+    const {pathname} = useLocation();
+    const [isOpen, setOpen] = useState();  
+    const [user, setUser] = useState(false)
+    const [isAdmin, setIsAdmin] = useState(false)
+    const [verified, setVerified] = useState(false)
+
+    const logout = async () => {
+        await axios.get("/auth/logout", {
+          withCredentials: true
+        });
+        setVerified(false);
+        setUser(false);
+        toast.success('Logged out!', {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          progress: undefined,
+          theme: "light",
+          });
+      }
+
+    useEffect(() => {
+        const verifyCookie = async (level) => {
+            try{
+              const user = await axios.post("auth/verify",
+                  {
+                      requiredLevel: level
+                  },
+                  {
+                      withCredentials: true
+                  })
+              if (user.data.isAdmin){
+                setIsAdmin(true)
+              }
+              else{
+                setIsAdmin(false)
+              }
+              setUser(true)
+              setVerified(true)
+            }
+            catch (err){
+              setVerified(true)
+              setUser(false)
+            }
+          }
+      
+          verifyCookie(0)
+    }, [verified])
 
     return (
         <header className="header-level">
@@ -18,8 +69,43 @@ export const Header = () => {
                     <a href="/#contacts"><li className="header-nav-item">Contacts</li></a>
                     <a href="/#pricing"><li className="header-nav-item">Pricing</li></a>
                     <Link to="/foremployer"><li className="header-nav-item employer">For the U.S. employer</li></Link>
-                    <Link to="/login"><li className="header-nav-item item-button-l login-l">Log in</li></Link>
-                    <Link to="/signup"><li className="header-nav-item item-button-l sign-l">Sign up</li></Link>
+                    {
+                        verified && !user && 
+                        <>
+                        <Link
+                            className="header-nav-item item-button-l login-l"
+                            to="/login"
+                            state={{previousPath: pathname}}
+                        >
+                        Log in
+                        </Link>
+                        <Link
+                            className="header-nav-item item-button-l sign-l"
+                            to="/signup"
+                        >
+                        Sign up
+                        </Link>
+                        </>
+                    }
+                    {
+                        verified && user &&
+                        <>
+                        
+                        <Link
+                            className="header-nav-item item-button-l login-l"
+                            to={isAdmin? "/admin" : "/profile"}
+                        >
+                            Profile
+                        </Link>
+
+                        <div
+                            className="header-nav-item item-button-l sign-l"
+                            onClick={logout}
+                        >
+                            Logout
+                        </div>
+                        </>
+                    }
                 </ul>
             </nav>
             <button className="header-menu-button"

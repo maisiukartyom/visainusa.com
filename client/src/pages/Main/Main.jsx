@@ -3,7 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
 import { gsap } from "gsap";
-import {Link} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import axios from "../../api/axios";
 import {toast} from 'react-toastify';
 
@@ -21,6 +21,7 @@ const Header = () => {
   const [user, setUser] = useState(false)
   const [isAdmin, setIsAdmin] = useState(false)
   const [verified, setVerified] = useState(false)
+  const { pathname } = useLocation();
 
   const logout = async () => {
     await axios.get("/auth/logout", {
@@ -104,20 +105,21 @@ const Header = () => {
               {
                 verified && !user && 
                 <>
-                  <a
-                    className="item-button login"
-                    href="/login"
+                  <Link
+                    className="header-nav-item item-button-l login-l"
+                    to="/login"
+                    state={{previousPath: pathname}}
                     onClick={myFunction}
                   >
                   Log in
-                  </a>
-                  <a
-                    className="item-button sign"
-                    href="/signup"
+                  </Link>
+                  <Link
+                    className = "header-nav-item item-button-l sign-l"
+                    to="/signup"
                     onClick={myFunction}
                   >
                   Sign up
-                  </a>
+                  </Link>
                 </>
               }
               {
@@ -125,19 +127,19 @@ const Header = () => {
                 <>
                   
                   <Link
-                    className="item-button login"
+                    className="header-nav-item item-button-l login-l"
                     to={isAdmin? "/admin" : "/profile"}
                     onClick={myFunction}
                   >
                     Profile
                   </Link>
 
-                  <button
-                    className="item-button button-logout"
+                  <div
+                    className = "header-nav-item item-button-l sign-l"
                     onClick={logout}
                   >
                     Logout
-                  </button>
+                  </div>
                 </>
               }
             </div>

@@ -4,14 +4,13 @@ import { Link, useNavigate } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
 import '../../src/pages/ForEmployer/ForEmployer.css';
 import axios from "../api/axios";
+import {toast} from 'react-toastify'
 
-const FormEmployer = ({ submitForm }) =>  {
+const FormEmployer = () =>  {
     
     const handlePhoneChange = (value) => {
         setPhoneNumber(value)
     }
-
-    const navigate = useNavigate()
 
     const [email, setEmail] = useState('')
     const [company, setCompany] = useState('')
@@ -31,19 +30,47 @@ const FormEmployer = ({ submitForm }) =>  {
                     company: company,
                     time: time
                 })
-                alert("Your information has been successfully sent!");
+
+                toast.success("Your information has been successfully sent!", {
+                    position: "top-center",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    progress: undefined,
+                    theme: "light",
+                    });
+
                 setEmail("")
                 setPhoneNumber("")
                 setCompany("")
                 setTime("")
-                //navigate("/");
             }
             catch(error){
-                alert("Couldn't send your information!")
+                toast.error("Couldn't send your information", {
+                    position: "top-center",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    progress: undefined,
+                    theme: "light",
+                    });
             }
         }
         else{
-            alert("All fields are required!")
+            toast.warning("Please fill all the fields", {
+                position: "top-center",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                progress: undefined,
+                theme: "light",
+                });
         }
     }
 
@@ -98,21 +125,21 @@ const FormEmployer = ({ submitForm }) =>  {
                         <label htmlFor="email" className="label">Company name</label>
                         </div>
                         <input value={company} className="input-form" onChange={(e) => setCompany(e.target.value)}/>
-                        {errors.company && <p className="error">{errors.company}</p>}
+                        {/* {errors.company && <p className="error">{errors.company}</p>} */}
                     </div>
                     <div className="email-form">
                         <div>
                         <label htmlFor="email" className="label">Email</label>
                         </div>
                         <input value={email} className="input-form" type="email" onChange={(e) => setEmail(e.target.value)}/>
-                        {errors.email && <p className="error">{errors.email}</p>}
+                        {/* {errors.email && <p className="error">{errors.email}</p>} */}
                     </div>
                     <div className="email-form">
                         <div>
                         <label htmlFor="email" className="label">Convenient time</label>
                         </div>
                         <input value={time} className="input-form" type="time" onChange={(e) => setTime(e.target.value)}/>
-                        {errors.time && <p className="error">{errors.time}</p>}
+                        {/* {errors.time && <p className="error">{errors.time}</p>} */}
                     </div>
 
                     <div className="email-form left-phone">
@@ -126,7 +153,7 @@ const FormEmployer = ({ submitForm }) =>  {
                             inputProps={{name: 'phoneNumber',
                                         required: true,}}   
                             /></div>
-                        {errors.phoneNumber && <p className="error">{errors.phoneNumber}</p>}
+                        {/* {errors.phoneNumber && <p className="error">{errors.phoneNumber}</p>} */}
                     </div>
                     
                     <div>

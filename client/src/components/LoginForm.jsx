@@ -2,11 +2,13 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from '../api/axios'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import {toast} from 'react-toastify'
 
-function LoginForm()  {
+function LoginForm(props)  {
     const navigate = useNavigate();
+    const {state} = useLocation();
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [errors, setErrors] = useState([])
@@ -25,6 +27,13 @@ function LoginForm()  {
                 )
                 setEmail('');
                 setPassword('');
+                if (state.previousPath !== "/signup"){
+                    navigate(-1);
+                }
+                else{
+                    navigate("/")
+                }
+
                 toast.success('Logged in!', {
                     position: "top-center",
                     autoClose: 3000,
@@ -35,7 +44,6 @@ function LoginForm()  {
                     progress: undefined,
                     theme: "light",
                     });
-                navigate("/");
             }
             catch (err){
                 let errorMessage = "";
