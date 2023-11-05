@@ -15,9 +15,12 @@ import LevelOne from './pages/LevelOne/LevelOne';
 import ForEmployer from './pages/ForEmployer/ForEmployer'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import LevelTwo from './pages/LevelTwo/LevelTwo';
+import AbotUs from './pages/AboutUs/AboutUs';
+import LevelThree from './pages/LevelThree/LevelThree';
 
 function App() {
-  console.log("Rendered!")
+  // console.log("Rendered!")
 
   return (
     <>
@@ -33,7 +36,10 @@ function App() {
           <Route path="/profile" element={<Profile />}/>
           <Route path="/admin" element={<Admin />}/>
           <Route path="/levelone" element={<LevelOne />} />
+          <Route path="/leveltwo" element={<LevelTwo />} />
+          <Route path="/levelthree" element={<LevelThree />} />
           <Route path="/foremployer" element={<ForEmployer />} />
+          <Route path="/aboutus" element={<AbotUs />} />
           <Route path='/youtube' component={() => {
                       window.location.href = 'https://www.youtube.com/@EB3unskilled'
                   }}/>
