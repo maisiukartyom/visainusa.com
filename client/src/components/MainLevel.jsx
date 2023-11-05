@@ -33,7 +33,11 @@ export const MainLevel = () => {
              errorMessage = 'No Server Response'
          } else if (err.response?.status === 401) {
              errorMessage = 'You already have this level!'
-         } else {
+         }
+         else if (err.response?.status === 403) {
+            errorMessage = 'You are not authorized!'
+         } 
+         else {
              errorMessage = 'Payment failed!'
          }
          toast.error(errorMessage, {

@@ -148,9 +148,6 @@ height: 100vh;
   ul{
     margin-top: 60px;
   }
-  
-  
-
 
 
   @media all and (max-width:1024px) {
@@ -193,7 +190,7 @@ justify-content: center;
   
   }
   
-  @media all and(max-width:300px) {
+  @media all and (max-width:300px) {
   
     .app-wrapper{
       align-items: center;
@@ -206,7 +203,7 @@ justify-content: center;
     
   }
 
-  @media all and(max-width:280px) {
+  @media all and (max-width:280px) {
   
     .app-wrapper{
       align-items: center;
