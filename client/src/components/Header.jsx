@@ -1,21 +1,13 @@
 import React, {useEffect, useState} from "react";
-import {Link} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import "../pages/LevelOne/LevelOne.css";
 import axios from "../api/axios";
 import {toast} from "react-toastify";
 
 
-const myFunction = () => {
-    let x = document.querySelector(".wrap");
-    if (x.style.display === "block" && window.innerWidth <= 800) {
-      x.style.display = "none";
-    } else {
-      x.style.display = "block";
-    }
-  };
-
 export const Header = () => {
 
+    const {pathname} = useLocation();
     const [isOpen, setOpen] = useState();  
     const [user, setUser] = useState(false)
     const [isAdmin, setIsAdmin] = useState(false)
@@ -77,24 +69,22 @@ export const Header = () => {
                     <a href="/#contacts"><li className="header-nav-item">Contacts</li></a>
                     <a href="/#pricing"><li className="header-nav-item">Pricing</li></a>
                     <Link to="/foremployer"><li className="header-nav-item employer">For the U.S. employer</li></Link>
-                    {/* <Link to="/login"><li className="header-nav-item item-button-l login-l">Log in</li></Link>
-                    <Link to="/signup"><li className="header-nav-item item-button-l sign-l">Sign up</li></Link> */}
-                                        {/* Only show if not authorized */}
-                                        {
+                    {
                         verified && !user && 
                         <>
-                        <a
+                        <Link
                             className="header-nav-item item-button-l login-l"
-                            href="/login"
+                            to="/login"
+                            state={{previousPath: pathname}}
                         >
                         Log in
-                        </a>
-                        <a
+                        </Link>
+                        <Link
                             className="header-nav-item item-button-l sign-l"
-                            href="/signup"
+                            to="/signup"
                         >
                         Sign up
-                        </a>
+                        </Link>
                         </>
                     }
                     {
