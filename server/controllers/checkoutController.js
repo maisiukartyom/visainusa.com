@@ -26,9 +26,9 @@ const handleCheckout = async (req, res) => {
             await Payment.create(payment);
             const accessToken = jwt.sign(
               { 
-                  "email": result.email,
-                  "roles": result.roles,
-                  "level": payment.purchasedLevel
+                  "email": email,
+                  "isAdmin": result.isAdmin,
+                  "level": result.level
                },
               process.env.ACCESS_TOKEN_SECRET,
               { expiresIn: '1d' }
@@ -119,4 +119,45 @@ const handleSendEmployer = async (req, res) => {
     });
 }
 
-module.exports = {handleCheckout, handleSendEmail, handleSendEmployer}
+const handleLevel1 = async (req, res) => {
+
+    const token = req.cookies.jwt;
+    let email = "";
+    jwt.verify(
+      token,
+      process.env.ACCESS_TOKEN_SECRET,
+      async (err, data) => {
+          if (err) {
+            res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true });
+            return res.sendStatus(403);
+          }
+          email = data.email;
+
+          if (data.level >= 1){
+            return res.sendStatus(401)
+          }
+
+          try{
+            const result = await User.findOneAndUpdate({email: email}, {level: 1})
+
+            const accessToken = jwt.sign(
+              { 
+                  "email": email,
+                  "isAdmin": result.isAdmin,
+                  "level": 1
+               },
+              process.env.ACCESS_TOKEN_SECRET,
+              { expiresIn: '1d' }
+            );
+            res.cookie('jwt', accessToken, { httpOnly: true, secure: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 });
+            res.sendStatus(200);
+          }
+          catch{
+            res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true });
+            res.sendStatus(403);
+          }
+      }
+    );
+}
+
+module.exports = {handleCheckout, handleSendEmail, handleSendEmployer, handleLevel1}
