@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import axios from '../api/axios';
-import { useNavigate } from 'react-router-dom';
+import {toast} from 'react-toastify'
 
 const PopUpBackground = styled.div`
   position: fixed;
@@ -16,6 +16,7 @@ const PopUpBackground = styled.div`
 `;
 
 const PopUpContent = styled.div`
+  position: relative;
   background: white;
   padding: 20px;
   border-radius: 8px;
@@ -39,6 +40,16 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
+const CloseButton = styled.button`
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+`;
+
 const PopUpForm = ({ onClose }) => {
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -51,8 +62,6 @@ const PopUpForm = ({ onClose }) => {
     setPhoneNumber(e.target.value);
   };
 
-  const navigate = useNavigate();
-
   const handleSubmit = async () => {
     if (email !== "" && phoneNumber !== ""){
         try{
@@ -60,21 +69,49 @@ const PopUpForm = ({ onClose }) => {
                 email: email,
                 phoneNumber: phoneNumber
             })
-            alert("Email with info has been sent to Alexey");
-            navigate("/");
+            toast.success('Email with info has been sent to Alexey!', {
+              position: "top-center",
+              autoClose: 3000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: false,
+              draggable: false,
+              progress: undefined,
+              theme: "light",
+              });
+            onClose();
         }
         catch(error){
-            alert("Couldn't send email to Alexey!")
+            toast.error("Couldn't send email to Alexey!", {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: "light",
+            });
         }
     }
     else{
-        alert("You should fill both email and phone number!")
+        toast.warning('You should fill both email and phone number!', {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+        theme: "light",
+        });
     }
   };
 
   return (
     <PopUpBackground>
       <PopUpContent>
+        <CloseButton onClick={onClose}>X</CloseButton>
         <h2>Contact Alexey</h2>
         <Input
           type="text"
