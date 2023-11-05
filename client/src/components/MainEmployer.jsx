@@ -148,7 +148,7 @@ export const MainEmployer = () => {
       transforming how we do business."</p>
       </div>
 
-<FormEmployer />
+      <FormEmployer />
 
 </div>
 </div>

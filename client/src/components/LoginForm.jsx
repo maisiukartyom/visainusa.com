@@ -35,7 +35,7 @@ function LoginForm()  {
                     progress: undefined,
                     theme: "light",
                     });
-                navigate("/");
+                navigate(-1);
             }
             catch (err){
                 let errorMessage = "";

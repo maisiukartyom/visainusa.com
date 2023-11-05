@@ -105,14 +105,14 @@ const Header = () => {
                 verified && !user && 
                 <>
                   <a
-                    className="item-button login"
+                    className="header-nav-item item-button-l login-l"
                     href="/login"
                     onClick={myFunction}
                   >
                   Log in
                   </a>
                   <a
-                    className="item-button sign"
+                    className = "header-nav-item item-button-l sign-l"
                     href="/signup"
                     onClick={myFunction}
                   >
@@ -125,19 +125,19 @@ const Header = () => {
                 <>
                   
                   <Link
-                    className="item-button login"
+                    className="header-nav-item item-button-l login-l"
                     to={isAdmin? "/admin" : "/profile"}
                     onClick={myFunction}
                   >
                     Profile
                   </Link>
 
-                  <button
-                    className="item-button button-logout"
+                  <div
+                    className = "header-nav-item item-button-l sign-l"
                     onClick={logout}
                   >
                     Logout
-                  </button>
+                  </div>
                 </>
               }
             </div>
