@@ -14,13 +14,6 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    roles: {
-        User: {
-            type: Number,
-            default: 2001
-        },
-        Admin: Number
-    },
     password: {
         type: String,
         required: true
@@ -34,7 +27,10 @@ const userSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    refreshToken: String
+    isAdmin: {
+        type: Boolean,
+        default: false
+    }
 });
 
 module.exports = mongoose.model('User', userSchema);

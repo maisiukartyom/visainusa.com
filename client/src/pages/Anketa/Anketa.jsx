@@ -1,14 +1,22 @@
 import "./Anketa.css";
 import {Link} from 'react-router-dom';
 import React, { useState } from 'react';
-
-
-
+import PopUpForm from "../../components/PopUpForm";
+import SupportEngine from "../../components/SupportEngine";
 
 
 const Anketa = () => {
 
     const [answers, setAnswers] = useState(Array(13).fill(''));
+    const [isPopUpOpen, setIsPopUpOpen] = useState(false);
+
+    const openPopUp = () => {
+      setIsPopUpOpen(true);
+    };
+  
+    const closePopUp = () => {
+      setIsPopUpOpen(false);
+    };
 
     const handleAnswerChange = (index, value) => {
         const newAnswers = [...answers];
@@ -16,32 +24,25 @@ const Anketa = () => {
         setAnswers(newAnswers);
         };
     
-        const handleSubmit = () => {
-        if (answers.every(answer => answer === 'no')) {
-            alert('«Congratulations! You have been successfully passed questionnaire and pre-approved for EB3 unskilled program»');
-        } else {
-             // alert () выпадает форма обратной связи, данные которой отправляются на почту Алексею
-        }
+        const handleSubmit = (event) => {
+            event.preventDefault();
+            if (answers.every(answer => answer === 'no')) {
+                alert('«Congratulations! You have been successfully passed questionnaire and pre-approved for EB3 unskilled program»');
+            } else {
+                openPopUp();
+                // alert () выпадает форма обратной связи, данные которой отправляются на почту Алексею
+            }
         };
         const [isChecked, setIsChecked] = useState(false);
 
         const handleCheckboxChange = () => {
         setIsChecked(!isChecked);
         };
-    
-        const handleButtonClick = () => {
-        if (isChecked) {
-
-
-        } else {
-            alert('«Congratulations! You have been successfully passed questionnaire and pre-approved for EB3 unskilled program»');
-        }
-        };
 
 
     return (
         <div className="body">
-            <form>
+            <form className="form-anketa" onSubmit={handleSubmit}>
             <div className="logo-center"><Link to="/"><img src="images/logo.png" alt="logo"  width={70} height={94}/></Link></div>
                     <div className="one" value={answers[0]} onChange={e => handleAnswerChange(0, e.target.value)}>
                         <label className="label" value="" ><b>1.</b> Do you have a communicable disease of public health significance such as tuberculosis (TB)?</label>
@@ -151,12 +152,12 @@ const Anketa = () => {
                             <p className="mini-text">«LLC “Visa in USA” is not an immigration law firm and does not provide legal advices on the selection of immigration programs, filling out immigration petitions and employment in the United States. Consultations are of an informational nature. All information presented on www.visainusa.com are taken from open official sources of USCIS/DOL».</p>
                     </label>
                     <div className="btn-center" >
-                    <button className="btn-level-anketa" onClick={() => { 
-                    handleSubmit();
-                    handleButtonClick();
-                        }} disabled={!isChecked} >Check your eligibility</button>
+                    <button className="btn-level-anketa" disabled={!isChecked} >Check your eligibility</button>
                     </div>
             </form>
+            {
+                isPopUpOpen && <PopUpForm onClose={closePopUp}/>
+            }
         </div>
     )
 }
