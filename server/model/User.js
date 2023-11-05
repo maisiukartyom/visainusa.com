@@ -2,13 +2,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-    firstName: {
+    fullname: {
         type: String,
-        required: false
-    },
-    lastName: {
-        type: String,
-        required: false
+        required: true
     },
     email: {
         type: String,
@@ -16,14 +12,7 @@ const userSchema = new Schema({
     },
     phoneNumber: {
         type: String,
-        required: false
-    },
-    roles: {
-        User: {
-            type: Number,
-            default: 2001
-        },
-        Admin: Number
+        required: true
     },
     password: {
         type: String,
@@ -34,7 +23,14 @@ const userSchema = new Schema({
         required: false,
         default: 0
     },
-    refreshToken: String
+    createdAt: {
+        type: Date,
+        default: Date.now
+    },
+    isAdmin: {
+        type: Boolean,
+        default: false
+    }
 });
 
 module.exports = mongoose.model('User', userSchema);

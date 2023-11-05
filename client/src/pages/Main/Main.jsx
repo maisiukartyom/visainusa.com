@@ -1,8 +1,12 @@
 import "./main.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { gsap } from "gsap";
+import {Link} from 'react-router-dom';
+import axios from "../../api/axios";
+import {toast} from 'react-toastify';
+
 
 const myFunction = () => {
   let x = document.querySelector(".wrap");
@@ -14,6 +18,57 @@ const myFunction = () => {
 };
 
 const Header = () => {
+  const [user, setUser] = useState(false)
+  const [isAdmin, setIsAdmin] = useState(false)
+  const [verified, setVerified] = useState(false)
+
+  const logout = async () => {
+    await axios.get("/auth/logout", {
+      withCredentials: true
+    });
+    setVerified(false);
+    setUser(false);
+    toast.success('Logged out!', {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: false,
+      progress: undefined,
+      theme: "light",
+      });
+  }
+
+  useEffect(() => {
+    const verifyCookie = async (level) => {
+      try{
+        const user = await axios.post("auth/verify",
+            {
+                requiredLevel: level
+            },
+            {
+                withCredentials: true
+            })
+        if (user.data.isAdmin){
+          setIsAdmin(true)
+        }
+        else{
+          setIsAdmin(false)
+        }
+        setUser(true)
+        setVerified(true)
+      }
+      catch (err){
+        setVerified(true)
+        setUser(false)
+      }
+    }
+
+    verifyCookie(0)
+  }, [verified])
+
+
   return (
     <>
       <header>
@@ -45,20 +100,46 @@ const Header = () => {
               <a className="item" href="#pricing" onClick={myFunction}>
                 Pricing
               </a>
-              <a
-                className="item-button login"
-                href="/login"
-                onClick={myFunction}
-              >
-                Log in
-              </a>
-              <a
-                className="item-button sign"
-                href="/signup"
-                onClick={myFunction}
-              >
-                Sign up
-              </a>
+              {/* Only show if not authorized */}
+              {
+                verified && !user && 
+                <>
+                  <a
+                    className="item-button login"
+                    href="/login"
+                    onClick={myFunction}
+                  >
+                  Log in
+                  </a>
+                  <a
+                    className="item-button sign"
+                    href="/signup"
+                    onClick={myFunction}
+                  >
+                  Sign up
+                  </a>
+                </>
+              }
+              {
+                verified && user &&
+                <>
+                  
+                  <Link
+                    className="item-button login"
+                    to={isAdmin? "/admin" : "/profile"}
+                    onClick={myFunction}
+                  >
+                    Profile
+                  </Link>
+
+                  <button
+                    className="item-button button-logout"
+                    onClick={logout}
+                  >
+                    Logout
+                  </button>
+                </>
+              }
             </div>
           </div>
           <label htmlFor="toggle" className="burgermenu" onClick={myFunction}>
@@ -75,9 +156,9 @@ const Header = () => {
                 <a href="#">
                   <button className="btn-eb3">About EB3</button>
                 </a>
-                <a href="#">
+                <Link to='/survey'>
                   <button className="btn-level">Check your eligibility</button>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -423,8 +504,9 @@ const Main = () => {
                   Online chat 24 hours
                 </p>
               </div>
-              <a href="#" target="_blank"></a>
-              <button className="btn-levels ">CHOOSE</button>
+              <Link to='/levelone'>
+                <button className="btn-levels ">CHOOSE</button>
+              </Link>
             </div>
           </div>
           <div className="level ">
@@ -460,10 +542,10 @@ const Main = () => {
                     fill="#032144"
                   />
                 </svg>
-                Deep analysis of your particular situation (hard copy report)
+                Deep analysis of your particular situation 
               </p>
               <p className="description">
-                <svg
+              <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="30"
                   height="12"
@@ -476,7 +558,7 @@ const Main = () => {
                   />
                 </svg>
                 Step-by-step recommends to obtain green card through eb3
-                unskilled visa (hard copy report)
+                unskilled visa 
               </p>
               <p className="description">
                 <svg
@@ -784,6 +866,22 @@ const Index = () => {
   };
 
   useEffect(() => {
+    const productContainers = [...document.querySelectorAll('.product-container')];
+    const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
+    const preBtn = [...document.querySelectorAll('.pre-btn')];
+
+    productContainers.forEach((item, i) => {
+        let containerDimensions = item.getBoundingClientRect();
+        let containerWidth = containerDimensions.width;
+
+        nxtBtn[i].addEventListener('click', () => {
+            item.scrollLeft += containerWidth;
+        })
+
+        preBtn[i].addEventListener('click', () => {
+            item.scrollLeft -= containerWidth;
+        })
+    })
     AOS.init();
     fly();
   }, []);

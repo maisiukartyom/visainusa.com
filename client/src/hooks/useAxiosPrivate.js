@@ -5,7 +5,7 @@ import useAuth from "./useAuth";
 
 const useAxiosPrivate = () => {
     const refresh = useRefreshToken();
-    const { auth } = useAuth();
+    const { auth, clearAuthentication } = useAuth();
 
     useEffect(() => {
 
@@ -28,6 +28,7 @@ const useAxiosPrivate = () => {
                     prevRequest.headers['Authorization'] = `Bearer ${newAccessToken}`;
                     return axiosPrivate(prevRequest);
                 }
+                clearAuthentication();
                 return Promise.reject(error);
             }
         );
@@ -36,7 +37,7 @@ const useAxiosPrivate = () => {
             axiosPrivate.interceptors.request.eject(requestIntercept);
             axiosPrivate.interceptors.response.eject(responseIntercept);
         }
-    }, [auth, refresh])
+    }, [auth, clearAuthentication, refresh])
 
     return axiosPrivate;
 }

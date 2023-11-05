@@ -1,12 +1,17 @@
 import {useState, useEffect} from "react";
 import validation from "../utils/validation.js";
+import axios from "../api/axios.js";
+import {toast} from 'react-toastify';
+import { useNavigate } from "react-router-dom";
 
 const useForm = (submitForm) =>{
-
+    const navigate = useNavigate();
 
     const [values, setValues] = useState({
         fullname: "",
         email: "",
+        age: "",
+        phoneNumber: "",
         password: "",
     });
 
@@ -18,19 +23,83 @@ const useForm = (submitForm) =>{
             [event.target.name]: event.target.value,
         });
     }
+    const handlePhoneChange = (value, country, event) => {
+        setValues({
+            ...values,
+            [event.target.name]: value
+        })
+    }
     const handleFormSubmit = (event) => {
         event.preventDefault();
+        const curErrors = validation(values)
         setErrors(validation(values));
-        setDataIsCorrect(true);
+
+        if (Object.values(curErrors).every(value => value === "")){
+            setDataIsCorrect(true);
+        }
     };
 
     useEffect( () => {
-        if(Object.keys(errors).length === 0 && dataIsCorrect){
-            submitForm(true);
+        const register = async () => {
+            try {
+                const result = await axios.post("/register",
+                    JSON.stringify(values),
+                    {
+                        headers: { 'Content-Type': 'application/json' },
+                        withCredentials: true
+                    }
+                );
+                toast.success(result.data.success, {
+                    position: "top-center",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    progress: undefined,
+                    theme: "light",
+                    });
+                
+                navigate("/login")
+                //submitForm(true);
+            }
+            catch(err){
+                let errorMessage = ""
+                if (!err?.response) {
+                    errorMessage ='No Server Response';
+                } else if (err.response?.status === 409) {
+                    errorMessage = 'Email already registered!';
+                } else {
+                    errorMessage = 'Registration failed!'
+                }
+                toast.error(errorMessage, {
+                    position: "top-center",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    progress: undefined,
+                    theme: "light",
+                    })
+
+            }
+
+            setValues({
+                fullname: "",
+                email: "",
+                password: "",
+                age: "",
+                phoneNumber: ""
+            })
+        }
+        
+        if (dataIsCorrect){
+            register();
         }
     }, [errors]);
 
-    return {handleChange, handleFormSubmit, errors, values};
+    return {handleChange, handlePhoneChange, handleFormSubmit, errors, values};
 };
 
 export default useForm;
