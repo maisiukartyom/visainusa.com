@@ -99,12 +99,12 @@ const validate = () => {
                 <div>
                     <h2 className="title">Log in</h2>
                 </div>
-                <div className="form-wrapper">
+                <form className="form-wrapper" onSubmit={handleSubmit}>
                     <div className="email">
                         <div>
                         <label htmlFor="email" className="label">Email</label>
                         </div>
-                        <input className="input" type="email" onChange={(e) => setEmail(e.target.value)}/>
+                        <input className="input" name="email" autoComplete="email" type="email" onChange={(e) => setEmail(e.target.value)}/>
                         {errors.email && <p className="error">{errors.email}</p>}
 
                     </div>
@@ -112,13 +112,13 @@ const validate = () => {
                         <div>
                         <label htmlFor="email" className="label">Password</label>
                         </div>
-                        <input className="input" type="password" onChange={(e) => setPassword(e.target.value)} />
+                        <input className="input" name="password" autoComplete="current-password" type="password" onChange={(e) => setPassword(e.target.value)} />
                         {errors.password && <p className="error">{errors.password}</p>}
                     </div>
                     <div>
-                        <button className="submit" onClick={handleSubmit}>Log in</button>
+                        <button className="submit">Log in</button>
                     </div>
-                </div>
+                </form>
                     </div>
         </div>
     )

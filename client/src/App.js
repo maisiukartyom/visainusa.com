@@ -13,9 +13,19 @@ import LevelOne from './pages/LevelOne/LevelOne';
 import ForEmployer from './pages/ForEmployer/ForEmployer'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 function App() {
   console.log("Rendered!")
+
+  const { pathname, state } = useLocation();
+
+  useEffect(() => {
+    if (!state){
+      window.scrollTo(0, 0)
+    }
+  }, [pathname, state])
 
   return (
     <>
@@ -40,7 +50,7 @@ function App() {
           <Route path="*" element={<Missing />} />
         </Route>
       </Routes>
-      <ToastContainer />
+      <ToastContainer/>
     </>
   );
 }

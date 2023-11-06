@@ -35,14 +35,14 @@ export const MainLevel = () => {
              errorMessage = 'You already have this level!'
          }
          else if (err.response?.status === 403) {
-            errorMessage = 'You are not authorized!'
+            errorMessage = 'You are not authorized! Please sign up to make purchase!'
          } 
          else {
              errorMessage = 'Payment failed!'
          }
          toast.error(errorMessage, {
             position: "top-center",
-            autoClose: 4000,
+            autoClose: 10000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: false,

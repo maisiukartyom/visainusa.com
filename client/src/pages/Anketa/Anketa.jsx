@@ -1,5 +1,5 @@
 import "./Anketa.css";
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import React, { useState } from 'react';
 import PopUpForm from "../../components/PopUpForm";
 import {toast} from 'react-toastify'
@@ -16,6 +16,8 @@ const Anketa = () => {
     const closePopUp = () => {
       setIsPopUpOpen(false);
     };
+
+    const navigate = useNavigate();
 
     const handleAnswerChange = (index, value) => {
         const newAnswers = [...answers];
@@ -40,9 +42,9 @@ const Anketa = () => {
             }
             else{
                 if (answers.every(answer => answer === 'no')) {
-                    toast.success('Congratulations! You have been successfully passed questionnaire and pre-approved for EB3 unskilled program', {
+                    toast.success(`Congratulations! You have successfully passed the questionnaire and pre-approved for EB3 unskilled program!`, {
                         position: "top-center",
-                        autoClose: 8000,
+                        autoClose: 10000,
                         hideProgressBar: false,
                         closeOnClick: true,
                         pauseOnHover: false,
@@ -50,17 +52,29 @@ const Anketa = () => {
                         progress: undefined,
                         theme: "light",
                         });
+                    toast.success("Choose the level to start your EB3 journey!", {
+                        position: "top-center",
+                        autoClose: 10000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: false,
+                        draggable: false,
+                        progress: undefined,
+                        theme: "light",
+                        });
+                    
+                    navigate("/", {state: {hash: "pricing"}})
                 } else if (!answers.every(answer => answer === 'no') && !answers.includes('')){
-                    toast.error("You're not eligble. Please fill in the form to contact Alexey!", {
-                        position: "top-center",
-                        autoClose: 6000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: false,
-                        draggable: false,
-                        progress: undefined,
-                        theme: "light",
-                        });
+                    // toast.error("You're not eligble. Please fill in the form to contact Alexey!", {
+                    //     position: "top-center",
+                    //     autoClose: 6000,
+                    //     hideProgressBar: false,
+                    //     closeOnClick: true,
+                    //     pauseOnHover: false,
+                    //     draggable: false,
+                    //     progress: undefined,
+                    //     theme: "light",
+                    //     });
                     openPopUp();
                 }
                 else{

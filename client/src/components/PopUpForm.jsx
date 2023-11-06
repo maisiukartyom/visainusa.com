@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import axios from '../api/axios';
 import {toast} from 'react-toastify'
+import { useNavigate } from 'react-router-dom';
 
 const PopUpBackground = styled.div`
   position: fixed;
@@ -53,6 +54,7 @@ const CloseButton = styled.button`
 const PopUpForm = ({ onClose }) => {
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
+  const navigate = useNavigate();
 
   const handleInputChange1 = (e) => {
     setEmail(e.target.value);
@@ -69,7 +71,7 @@ const PopUpForm = ({ onClose }) => {
                 email: email,
                 phoneNumber: phoneNumber
             })
-            toast.success('Email with info has been sent to Alexey!', {
+            toast.success('Thank you, our team will get in touch with you soon!', {
               position: "top-center",
               autoClose: 3000,
               hideProgressBar: false,
@@ -80,6 +82,7 @@ const PopUpForm = ({ onClose }) => {
               theme: "light",
               });
             onClose();
+            navigate("/", {state: {hash: "pricing"}})
         }
         catch(error){
             toast.error("Couldn't send email to Alexey!", {
@@ -113,6 +116,9 @@ const PopUpForm = ({ onClose }) => {
       <PopUpContent>
         <CloseButton onClick={onClose}>X</CloseButton>
         <h2>Contact Alexey</h2>
+        <p><strong style={{color: "red"}}>It looks like you answered "YES" to one or more questions. 
+          <br />
+          Please fill in the form and we will reach out!</strong></p>
         <Input
           type="text"
           placeholder="Email"
