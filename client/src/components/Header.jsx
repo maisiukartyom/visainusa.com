@@ -64,7 +64,7 @@ export const Header = () => {
             <Link to="/"><span className="header-logo"><img src="images/logo.png" alt="logo" width={70} height={94}/></span></Link>
             <nav className={`header-nav ${isOpen? "active" : ""}`}>
                 <ul className="header-nav-list">
-                    <a href="/#aboutus"><li className="header-nav-item">About Us</li></a>
+                <Link to="/aboutus"><a href="/#aboutus"><li className="header-nav-item">About Us</li></a></Link>
                     <a href="/#testimonials"><li className="header-nav-item">Testimonials</li></a>
                     <a href="/#contacts"><li className="header-nav-item">Contacts</li></a>
                     <a href="/#pricing"><li className="header-nav-item">Pricing</li></a>

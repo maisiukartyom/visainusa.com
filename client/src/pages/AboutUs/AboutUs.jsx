@@ -1,21 +1,21 @@
 import React, {useState} from 'react';
 import { Header } from '../../components/Header';
-import { MainEmployer } from '../../components/MainEmployer';
+
 import Footer from '../../components/Footer';
 
 
-import "./ForEmployer.css";
+import "../AboutUs/AboutUs.css";
 
 
-const ForEmployer = () => {
+const AbotUs = () => {
   
     return (
         <div >
             <Header />
-            <MainEmployer />
-            <Footer />
+
+  <Footer />
         </div>
     )
   }
   
-  export default ForEmployer
+  export default AbotUs

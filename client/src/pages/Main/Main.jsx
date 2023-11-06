@@ -606,8 +606,9 @@ const Main = () => {
               <br />
               <br />
               <br />
-              <a href="#" target="_blank"></a>
+              <Link to='/leveltwo'>
               <button className="btn-levels  ">CHOOSE</button>
+              </Link>
             </div>
           </div>
           <div className="level ">
@@ -707,8 +708,9 @@ const Main = () => {
                 </svg>
                 Personal immigration specialist for 7 days
               </p>
-              <a href="#" target="_blank"></a>
+              <Link to='/levelthree'>
               <button className="btn-levels ">CHOOSE</button>
+              </Link>
             </div>
           </div>
         </div>

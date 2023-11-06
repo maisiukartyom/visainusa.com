@@ -15,9 +15,12 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import LevelTwo from './pages/LevelTwo/LevelTwo';
+import AbotUs from './pages/AboutUs/AboutUs';
+import LevelThree from './pages/LevelThree/LevelThree';
 
 function App() {
-  console.log("Rendered!")
+  // console.log("Rendered!")
 
   const { pathname, state } = useLocation();
 
@@ -41,7 +44,10 @@ function App() {
           <Route path="/profile" element={<Profile />}/>
           <Route path="/admin" element={<Admin />}/>
           <Route path="/levelone" element={<LevelOne />} />
+          <Route path="/leveltwo" element={<LevelTwo />} />
+          <Route path="/levelthree" element={<LevelThree />} />
           <Route path="/foremployer" element={<ForEmployer />} />
+          <Route path="/aboutus" element={<AbotUs />} />
           <Route path='/youtube' component={() => {
                       window.location.href = 'https://www.youtube.com/@EB3unskilled'
                   }}/>
