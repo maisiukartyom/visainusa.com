@@ -2,11 +2,13 @@
 import React, { useEffect } from "react" ;
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import axios from '../api/axios';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import SupportEngine from "./SupportEngine";
+import {toast} from 'react-toastify'
 
 const Checkout = () => {
     const navigate = useNavigate()
+    const location = useLocation();
 
     const initialOptions = {
         "client-id": process.env.REACT_APP_CLIENT_ID, 
@@ -14,34 +16,54 @@ const Checkout = () => {
         "enable-funding": "card"
     };
 
+    let purchaseAmount = 0;
+    const level = location.pathname.substring(location.pathname.lastIndexOf('/') + 1);
+    if (level === "leveltwo"){
+        purchaseAmount = 50;
+    }
+    else if (level === "levelthree"){
+        purchaseAmount = 100;
+    }
+
     useEffect(() => {
-        const verifyCookie = async (level) => {
-          try{
-            await axios.post("auth/verify",
+        async function verifyCookie(requiredLevel) {
+            try{
+                const user = await axios.post("auth/verify",
                 {
-                    requiredLevel: level
+                    requiredLevel: requiredLevel
                 },
                 {
                     withCredentials: true
                 })
-          }
-          catch (err){
-            navigate("/login")
-          }
+            }
+            catch(err){
+                toast.error("You are not authorized!",{
+                        position: "top-center",
+                        autoClose: 6000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: false,
+                        draggable: false,
+                        progress: undefined,
+                        theme: "light",
+                        }
+                )
+                navigate("/login")
+            }
         }
 
         verifyCookie(0)
-      })
+    })
 
     // creates a paypal order
     const createOrder = (data, actions) => {
         return actions.order.create({
             purchase_units: [
                 {
-                    description: "Level 1",
+                    description: `Level ${level}`,
                     amount: {
                         currency_code: "USD",
-                        value: 10,
+                        value: purchaseAmount,
                     },
                 },
             ],
@@ -62,17 +84,35 @@ const Checkout = () => {
                     currency: payment.purchase_units[0].amount.currency_code,
                     createTime: payment.create_time,
                     updateTime: payment.update_time,
-                    purchasedLevel: 3
+                    purchasedLevel: level
                 },
                 {
                     headers: { 'Content-Type': 'application/json' },
                     withCredentials: true
                 }    
             ).then(() => {
-                alert("Payment successful!!");
+                toast.success(`Level ${level} purchased successfully!`, {
+                    position: "top-center",
+                    autoClose: 6000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    progress: undefined,
+                    theme: "light",
+                    });
                 console.log('Order successful . Your order id is--', payment.id);
-                navigate("/")
-            }).catch((err) => alert("Couldn't save transaction in the database!"))
+                navigate("/levelone")
+            }).catch((err) => toast.error(`Purchase failed!`, {
+                position: "top-center",
+                autoClose: 6000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                progress: undefined,
+                theme: "light",
+                }))
         });
     };
 
@@ -91,7 +131,6 @@ const Checkout = () => {
                     onError={onError}
                 />
             </PayPalScriptProvider>
-            <SupportEngine />
         </>
     );
 }

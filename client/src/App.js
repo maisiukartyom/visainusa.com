@@ -40,13 +40,14 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/unauthorized" element={<Unauthorized />} />
           <Route path="/survey" element={<Anketa />} />
-          <Route path="/checkout" element={<Checkout />} />
           <Route path="/profile" element={<Profile />}/>
           <Route path="/admin" element={<Admin />}/>
           <Route path="/levelone" element={<LevelOne />} />
           <Route path="/leveltwo" element={<LevelTwo />} />
           <Route path="/levelthree" element={<LevelThree />} />
           <Route path="/foremployer" element={<ForEmployer />} />
+          <Route path="/checkout/leveltwo" element={<Checkout />} />
+          <Route path="/checkout/levelthree" element={<Checkout />} />
           <Route path="/aboutus" element={<AbotUs />} />
           <Route path='/youtube' component={() => {
                       window.location.href = 'https://www.youtube.com/@EB3unskilled'

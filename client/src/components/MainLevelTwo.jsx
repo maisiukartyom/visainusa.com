@@ -1,10 +1,50 @@
 import React from "react";
 import {Link} from 'react-router-dom';
 import "../pages/LevelOne/LevelOne.css";
-
+import { useNavigate } from "react-router-dom";
+import axios from "../api/axios";
+import {toast} from 'react-toastify'
 
 
 export const MainLevelTwo = () => {
+
+   const navigate = useNavigate();
+   const purchaseLevel = async () => {
+      try {
+         await axios.post("/checkout/verify", 
+         {
+            level: 2
+         },
+         {
+            withCredentials: true
+         })
+
+         navigate("/checkout/leveltwo");
+      }
+      catch(err){
+         let errorMessage = "";
+         if (!err?.response) {
+             errorMessage = 'No Server Response'
+         } else if (err.response?.status === 401) {
+             errorMessage = 'You already have this level!'
+         }
+         else if (err.response?.status === 403) {
+            errorMessage = 'You are not authorized! Please sign up to make purchase!'
+         } 
+
+         toast.error(errorMessage, {
+            position: "top-center",
+            autoClose: 10000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: "light"}
+         )
+      }
+   }
+
     return(
         <div className="levels">
 <div className="level-first-block">
@@ -79,9 +119,8 @@ export const MainLevelTwo = () => {
                             <label className="label-level" > languages  </label>
                         </div>
                     </div>
-               <a href="#"  target="_blank">
-                  <button className="button-level-two ">PAY</button>
-                  </a> 
+                     <button className="button-level-two" onClick={purchaseLevel}>PAY</button>
+
                   </div>
 
 </div>

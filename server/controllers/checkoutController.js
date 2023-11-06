@@ -160,4 +160,34 @@ const handleLevel1 = async (req, res) => {
     );
 }
 
-module.exports = {handleCheckout, handleSendEmail, handleSendEmployer, handleLevel1}
+const handleVerify = async (req, res) => {
+    const token = req.cookies.jwt;
+    const {level} = req.body;
+
+    jwt.verify(
+    token,
+    process.env.ACCESS_TOKEN_SECRET,
+    async (err, data) => {
+        if (err) {
+          res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true });
+          return res.sendStatus(403);
+        }
+
+        const user = await User.findOne({email: data.email})
+            if (user) {
+              if (data.level >= level){
+                return res.sendStatus(401)
+              }
+                else{
+                    return res.sendStatus(200)
+                }
+            }
+            else{
+                res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true });
+                return res.sendStatus(403);
+            } 
+    }
+  );
+}
+
+module.exports = {handleCheckout, handleSendEmail, handleSendEmployer, handleLevel1, handleVerify}
