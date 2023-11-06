@@ -6,6 +6,8 @@ import { gsap } from "gsap";
 import {Link} from 'react-router-dom';
 import axios from "../../api/axios";
 import {toast} from 'react-toastify';
+import { HeaderForMain } from "../../components/HeaderForMain";
+import { MainPhoto } from "../../components/MainPhoto";
 
 
 const myFunction = () => {
@@ -17,156 +19,156 @@ const myFunction = () => {
   }
 };
 
-const Header = () => {
-  const [user, setUser] = useState(false)
-  const [isAdmin, setIsAdmin] = useState(false)
-  const [verified, setVerified] = useState(false)
+// const Header = () => {
+//   const [user, setUser] = useState(false)
+//   const [isAdmin, setIsAdmin] = useState(false)
+//   const [verified, setVerified] = useState(false)
 
-  const logout = async () => {
-    await axios.get("/auth/logout", {
-      withCredentials: true
-    });
-    setVerified(false);
-    setUser(false);
-    toast.success('Logged out!', {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: false,
-      progress: undefined,
-      theme: "light",
-      });
-  }
+//   const logout = async () => {
+//     await axios.get("/auth/logout", {
+//       withCredentials: true
+//     });
+//     setVerified(false);
+//     setUser(false);
+//     toast.success('Logged out!', {
+//       position: "top-center",
+//       autoClose: 2000,
+//       hideProgressBar: false,
+//       closeOnClick: true,
+//       pauseOnHover: false,
+//       draggable: false,
+//       progress: undefined,
+//       theme: "light",
+//       });
+//   }
 
-  useEffect(() => {
-    const verifyCookie = async (level) => {
-      try{
-        const user = await axios.post("auth/verify",
-            {
-                requiredLevel: level
-            },
-            {
-                withCredentials: true
-            })
-        if (user.data.isAdmin){
-          setIsAdmin(true)
-        }
-        else{
-          setIsAdmin(false)
-        }
-        setUser(true)
-        setVerified(true)
-      }
-      catch (err){
-        setVerified(true)
-        setUser(false)
-      }
-    }
+//   useEffect(() => {
+//     const verifyCookie = async (level) => {
+//       try{
+//         const user = await axios.post("auth/verify",
+//             {
+//                 requiredLevel: level
+//             },
+//             {
+//                 withCredentials: true
+//             })
+//         if (user.data.isAdmin){
+//           setIsAdmin(true)
+//         }
+//         else{
+//           setIsAdmin(false)
+//         }
+//         setUser(true)
+//         setVerified(true)
+//       }
+//       catch (err){
+//         setVerified(true)
+//         setUser(false)
+//       }
+//     }
 
-    verifyCookie(0)
-  }, [verified])
+//     verifyCookie(0)
+//   }, [verified])
 
 
-  return (
-    <>
-      <header>
-        <a id="home"></a>
-        <div className="mainpage"></div>
-        <nav className="topnav">
-          <div className="start gg">
-            <a className="ggitem" href="#home" onClick={myFunction}>
-              <img
-                className="logo"
-                src="images/logo.png"
-                alt="logo"
-                width="70"
-                height="94"
-              />
-            </a>
-          </div>
-          <div className="wrap">
-            <div className="mainpages">
-              <a className="item" href="#aboutus" onClick={myFunction}>
-                About us
-              </a>
-              <a className="item" href="#testimonials" onClick={myFunction}>
-                Testimonials
-              </a>
-              <a className="item" href="#contacts" onClick={myFunction}>
-                Contacts
-              </a>
-              <a className="item" href="#pricing" onClick={myFunction}>
-                Pricing
-              </a>
-              {/* Only show if not authorized */}
-              {
-                verified && !user && 
-                <>
-                  <a
-                    className="item-button login"
-                    href="/login"
-                    onClick={myFunction}
-                  >
-                  Log in
-                  </a>
-                  <a
-                    className="item-button sign"
-                    href="/signup"
-                    onClick={myFunction}
-                  >
-                  Sign up
-                  </a>
-                </>
-              }
-              {
-                verified && user &&
-                <>
+//   return (
+//     <>
+//       <header>
+//         <a id="home"></a>
+//         <div className="mainpage"></div>
+//         <nav className="topnav">
+//           <div className="start gg">
+//             <a className="ggitem" href="#home" onClick={myFunction}>
+//               <img
+//                 className="logo"
+//                 src="images/logo.png"
+//                 alt="logo"
+//                 width="70"
+//                 height="94"
+//               />
+//             </a>
+//           </div>
+//           <div className="wrap">
+//             <div className="mainpages">
+//               <a className="item" href="#aboutus" onClick={myFunction}>
+//                 About us
+//               </a>
+//               <a className="item" href="#testimonials" onClick={myFunction}>
+//                 Testimonials
+//               </a>
+//               <a className="item" href="#contacts" onClick={myFunction}>
+//                 Contacts
+//               </a>
+//               <a className="item" href="#pricing" onClick={myFunction}>
+//                 Pricing
+//               </a>
+//               {/* Only show if not authorized */}
+//               {
+//                 verified && !user && 
+//                 <>
+//                   <a
+//                     className="item-button login"
+//                     href="/login"
+//                     onClick={myFunction}
+//                   >
+//                   Log in
+//                   </a>
+//                   <a
+//                     className="item-button sign"
+//                     href="/signup"
+//                     onClick={myFunction}
+//                   >
+//                   Sign up
+//                   </a>
+//                 </>
+//               }
+//               {
+//                 verified && user &&
+//                 <>
                   
-                  <Link
-                    className="item-button login"
-                    to={isAdmin? "/admin" : "/profile"}
-                    onClick={myFunction}
-                  >
-                    Profile
-                  </Link>
+//                   <Link
+//                     className="item-button login"
+//                     to={isAdmin? "/admin" : "/profile"}
+//                     onClick={myFunction}
+//                   >
+//                     Profile
+//                   </Link>
 
-                  <button
-                    className="item-button button-logout"
-                    onClick={logout}
-                  >
-                    Logout
-                  </button>
-                </>
-              }
-            </div>
-          </div>
-          <label htmlFor="toggle" className="burgermenu" onClick={myFunction}>
-            ☰
-          </label>
-        </nav>
-        <div>
-          <div className="center">
-            <div className="fly">
-              <p id="first">We will help you</p>
-              <p id="second">make your dream</p>
-              <p id="third">come true</p>
-              <div className="buttons">
-                <a href="#">
-                  <button className="btn-eb3">About EB3</button>
-                </a>
-                <Link to='/survey'>
-                  <button className="btn-level">Check your eligibility</button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-    </>
-  );
-};
+//                   <button
+//                     className="item-button button-logout"
+//                     onClick={logout}
+//                   >
+//                     Logout
+//                   </button>
+//                 </>
+//               }
+//             </div>
+//           </div>
+//           <label htmlFor="toggle" className="burgermenu" onClick={myFunction}>
+//             ☰
+//           </label>
+//         </nav>
+//         <div>
+//           <div className="center">
+//             <div className="fly">
+//               <p id="first">We will help you</p>
+//               <p id="second">make your dream</p>
+//               <p id="third">come true</p>
+//               <div className="buttons">
+//                 <a href="#">
+//                   <button className="btn-eb3">About EB3</button>
+//                 </a>
+//                 <Link to='/survey'>
+//                   <button className="btn-level">Check your eligibility</button>
+//                 </Link>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </header>
+//     </>
+//   );
+// };
 
 const Main = () => {
   return (
@@ -214,9 +216,7 @@ const Main = () => {
               </svg>
               <p className="par  white">Affordable prices </p>
               <p className="grey text">
-                Our mission is to help everyone sort out in very simple language
-                how EB3 unskilled program works and make the process as cheap as
-                possible. Our prices start from 25$, check it out!
+              Our mission is to help everyone sort out in very simple language how EB3 unskilled program works and make the process as cheap as possible. Our prices start from 0$, check it out on Level 1 
               </p>
             </a>
           </div>
@@ -260,10 +260,7 @@ const Main = () => {
               </svg>
               <p className="par ">Individual approach</p>
               <p className="grey-dark text">
-                We speak your first language, schedule a consultation at a time
-                that is convenient for you, and provide access to our exclusive
-                Telegram community, where you can receive continuous support
-                from clients who have already applied for the EB3 program
+              We speak your first language, schedule a consultations at times that suit you, and provide access to our exclusive community, where you can chat from clients who have already applied for the EB3 unskilled visa category.
               </p>
             </a>
           </div>
@@ -307,8 +304,7 @@ const Main = () => {
               </svg>
               <p className="par  white">Professional team</p>
               <p className="grey text">
-                Who personally went through the EB3 unskilled program and got
-                green cards
+              All members of our team have personally completed the EB3 unskilled program and received green cards. We have unique first-hand knowledge of EB3 program and ready to assit you! 
               </p>
             </a>
           </div>
@@ -370,6 +366,11 @@ const Main = () => {
         <a id="competans"></a>
         <div className="vie"></div>
         <a id="adresse"></a>
+
+
+
+
+
         <div id="pricing" className="titrecenter-column">
           <p className="titre" data-aos="fade-up">
             Start your EB3 journey{" "}
@@ -379,326 +380,102 @@ const Main = () => {
         <div className="grid">
           <div className="level ">
             <h2 className="appliName">Level 1</h2>
-            <del className=" price-del">$50</del>
-            <ins className=" price">$25</ins>
+            <p className=" appliName-levelOne">FREE</p>
             <div className="text-discription">
+
               <p className="description">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="12"
-                  viewBox="0 0 33 26"
-                  fill="none"
-                >
-                  <path
-                    d="M31.9611 3.0991L29.417 0.554938C29.047 0.185006 28.6073 0 28.0984 0C27.5901 0 27.1501 0.185006 26.7804 0.554938L11.8173 15.5179L5.73545 9.43557C5.36536 9.06539 4.92585 8.88063 4.41724 8.88063C3.90855 8.88063 3.4692 9.06539 3.09903 9.43557L0.555182 11.9794C0.185169 12.3494 0 12.7889 0 13.2979C0 13.8065 0.185169 14.2459 0.555182 14.6161L10.4995 24.5603C10.8696 24.9306 11.3091 25.1153 11.8177 25.1153C12.3263 25.1153 12.7657 24.9307 13.1359 24.5603L31.9609 5.73544C32.3307 5.36551 32.5161 4.92592 32.5161 4.41723C32.5161 3.90854 32.3312 3.46903 31.9611 3.0991Z"
-                    fill="#032144"
-                  />
-                </svg>
-                What is eb3 unskilled visa category?
+ What is EB3 unskilled visa category?
               </p>
               <p className="description">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="12"
-                  viewBox="0 0 33 26"
-                  fill="none"
-                >
-                  <path
-                    d="M31.9611 3.0991L29.417 0.554938C29.047 0.185006 28.6073 0 28.0984 0C27.5901 0 27.1501 0.185006 26.7804 0.554938L11.8173 15.5179L5.73545 9.43557C5.36536 9.06539 4.92585 8.88063 4.41724 8.88063C3.90855 8.88063 3.4692 9.06539 3.09903 9.43557L0.555182 11.9794C0.185169 12.3494 0 12.7889 0 13.2979C0 13.8065 0.185169 14.2459 0.555182 14.6161L10.4995 24.5603C10.8696 24.9306 11.3091 25.1153 11.8177 25.1153C12.3263 25.1153 12.7657 24.9307 13.1359 24.5603L31.9609 5.73544C32.3307 5.36551 32.5161 4.92592 32.5161 4.41723C32.5161 3.90854 32.3312 3.46903 31.9611 3.0991Z"
-                    fill="#032144"
-                  />
-                </svg>
-                How does eb3 unskilled visa work?
+ How does EB3 unskilled visa work?
               </p>
               <p className="description ">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="12"
-                  viewBox="0 0 33 26"
-                  fill="none"
-                >
-                  <path
-                    d="M31.9611 3.0991L29.417 0.554938C29.047 0.185006 28.6073 0 28.0984 0C27.5901 0 27.1501 0.185006 26.7804 0.554938L11.8173 15.5179L5.73545 9.43557C5.36536 9.06539 4.92585 8.88063 4.41724 8.88063C3.90855 8.88063 3.4692 9.06539 3.09903 9.43557L0.555182 11.9794C0.185169 12.3494 0 12.7889 0 13.2979C0 13.8065 0.185169 14.2459 0.555182 14.6161L10.4995 24.5603C10.8696 24.9306 11.3091 25.1153 11.8177 25.1153C12.3263 25.1153 12.7657 24.9307 13.1359 24.5603L31.9609 5.73544C32.3307 5.36551 32.5161 4.92592 32.5161 4.41723C32.5161 3.90854 32.3312 3.46903 31.9611 3.0991Z"
-                    fill="#032144"
-                  />
-                </svg>
-                How long does it take to get the U.S. permanent resident card?
+How long does it take to get the U.S.  permanent resident card?
               </p>
               <p className="description">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="12"
-                  viewBox="0 0 33 26"
-                  fill="none"
-                >
-                  <path
-                    d="M31.9611 3.0991L29.417 0.554938C29.047 0.185006 28.6073 0 28.0984 0C27.5901 0 27.1501 0.185006 26.7804 0.554938L11.8173 15.5179L5.73545 9.43557C5.36536 9.06539 4.92585 8.88063 4.41724 8.88063C3.90855 8.88063 3.4692 9.06539 3.09903 9.43557L0.555182 11.9794C0.185169 12.3494 0 12.7889 0 13.2979C0 13.8065 0.185169 14.2459 0.555182 14.6161L10.4995 24.5603C10.8696 24.9306 11.3091 25.1153 11.8177 25.1153C12.3263 25.1153 12.7657 24.9307 13.1359 24.5603L31.9609 5.73544C32.3307 5.36551 32.5161 4.92592 32.5161 4.41723C32.5161 3.90854 32.3312 3.46903 31.9611 3.0991Z"
-                    fill="#032144"
-                  />
-                </svg>
-                Am i eligible for eb3 unskilled visa?
+
+Am I eligible for EB3 unskilled visa?
               </p>
               <p className="description">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="12"
-                  viewBox="0 0 33 26"
-                  fill="none"
-                >
-                  <path
-                    d="M31.9611 3.0991L29.417 0.554938C29.047 0.185006 28.6073 0 28.0984 0C27.5901 0 27.1501 0.185006 26.7804 0.554938L11.8173 15.5179L5.73545 9.43557C5.36536 9.06539 4.92585 8.88063 4.41724 8.88063C3.90855 8.88063 3.4692 9.06539 3.09903 9.43557L0.555182 11.9794C0.185169 12.3494 0 12.7889 0 13.2979C0 13.8065 0.185169 14.2459 0.555182 14.6161L10.4995 24.5603C10.8696 24.9306 11.3091 25.1153 11.8177 25.1153C12.3263 25.1153 12.7657 24.9307 13.1359 24.5603L31.9609 5.73544C32.3307 5.36551 32.5161 4.92592 32.5161 4.41723C32.5161 3.90854 32.3312 3.46903 31.9611 3.0991Z"
-                    fill="#032144"
-                  />
-                </svg>
-                How much does eb3 unskilled cost?
+How much does EB3 unskilled cost?
               </p>
               <p className="description">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="12"
-                  viewBox="0 0 33 26"
-                  fill="none"
-                >
-                  <path
-                    d="M31.9611 3.0991L29.417 0.554938C29.047 0.185006 28.6073 0 28.0984 0C27.5901 0 27.1501 0.185006 26.7804 0.554938L11.8173 15.5179L5.73545 9.43557C5.36536 9.06539 4.92585 8.88063 4.41724 8.88063C3.90855 8.88063 3.4692 9.06539 3.09903 9.43557L0.555182 11.9794C0.185169 12.3494 0 12.7889 0 13.2979C0 13.8065 0.185169 14.2459 0.555182 14.6161L10.4995 24.5603C10.8696 24.9306 11.3091 25.1153 11.8177 25.1153C12.3263 25.1153 12.7657 24.9307 13.1359 24.5603L31.9609 5.73544C32.3307 5.36551 32.5161 4.92592 32.5161 4.41723C32.5161 3.90854 32.3312 3.46903 31.9611 3.0991Z"
-                    fill="#032144"
-                  />
-                </svg>
-                What should i do in case of refusal?
+ What should I do in case of refusal?
               </p>
               <p className="description">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="12"
-                  viewBox="0 0 33 26"
-                  fill="none"
-                >
-                  <path
-                    d="M31.9611 3.0991L29.417 0.554938C29.047 0.185006 28.6073 0 28.0984 0C27.5901 0 27.1501 0.185006 26.7804 0.554938L11.8173 15.5179L5.73545 9.43557C5.36536 9.06539 4.92585 8.88063 4.41724 8.88063C3.90855 8.88063 3.4692 9.06539 3.09903 9.43557L0.555182 11.9794C0.185169 12.3494 0 12.7889 0 13.2979C0 13.8065 0.185169 14.2459 0.555182 14.6161L10.4995 24.5603C10.8696 24.9306 11.3091 25.1153 11.8177 25.1153C12.3263 25.1153 12.7657 24.9307 13.1359 24.5603L31.9609 5.73544C32.3307 5.36551 32.5161 4.92592 32.5161 4.41723C32.5161 3.90854 32.3312 3.46903 31.9611 3.0991Z"
-                    fill="#032144"
-                  />
-                </svg>
-                How do i start my eb3 journey?
+How do I start my EB3 journey?
               </p>
-              <div>
-                <p className="description">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="30"
-                    height="12"
-                    viewBox="0 0 33 26"
-                    fill="none"
-                  >
-                    <path
-                      d="M31.9611 3.0991L29.417 0.554938C29.047 0.185006 28.6073 0 28.0984 0C27.5901 0 27.1501 0.185006 26.7804 0.554938L11.8173 15.5179L5.73545 9.43557C5.36536 9.06539 4.92585 8.88063 4.41724 8.88063C3.90855 8.88063 3.4692 9.06539 3.09903 9.43557L0.555182 11.9794C0.185169 12.3494 0 12.7889 0 13.2979C0 13.8065 0.185169 14.2459 0.555182 14.6161L10.4995 24.5603C10.8696 24.9306 11.3091 25.1153 11.8177 25.1153C12.3263 25.1153 12.7657 24.9307 13.1359 24.5603L31.9609 5.73544C32.3307 5.36551 32.5161 4.92592 32.5161 4.41723C32.5161 3.90854 32.3312 3.46903 31.9611 3.0991Z"
-                      fill="#032144"
-                    />
-                  </svg>
-                  Online chat 24 hours
-                </p>
-              </div>
-              <Link to='/levelone'>
-                <button className="btn-levels ">CHOOSE</button>
-              </Link>
+
             </div>
+            <div className="center-level">
+              <Link to='/levelone'>
+                <button className="btn-levels">CHOOSE</button>
+              </Link>
+              </div>
           </div>
           <div className="level ">
             <h2 className="appliName">Level 2</h2>
-            <del className=" price-del">$150</del>
-            <ins className=" price">$99</ins>
+            <del className=" price-del">$100</del>
+            <ins className=" price">$49</ins>
             <div className="text-discription">
+
+              <p className="description top-level">
+ Personal consultation (60 mins) on English, Spain or Russian languages 
+              </p>
+
               <p className="description">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="12"
-                  viewBox="0 0 33 26"
-                  fill="none"
-                >
-                  <path
-                    d="M31.9611 3.0991L29.417 0.554938C29.047 0.185006 28.6073 0 28.0984 0C27.5901 0 27.1501 0.185006 26.7804 0.554938L11.8173 15.5179L5.73545 9.43557C5.36536 9.06539 4.92585 8.88063 4.41724 8.88063C3.90855 8.88063 3.4692 9.06539 3.09903 9.43557L0.555182 11.9794C0.185169 12.3494 0 12.7889 0 13.2979C0 13.8065 0.185169 14.2459 0.555182 14.6161L10.4995 24.5603C10.8696 24.9306 11.3091 25.1153 11.8177 25.1153C12.3263 25.1153 12.7657 24.9307 13.1359 24.5603L31.9609 5.73544C32.3307 5.36551 32.5161 4.92592 32.5161 4.41723C32.5161 3.90854 32.3312 3.46903 31.9611 3.0991Z"
-                    fill="#032144"
-                  />
-                </svg>
-                Personal consultation (45 mins)
+ Deep analysis of your particular situation 
               </p>
               <p className="description">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="12"
-                  viewBox="0 0 33 26"
-                  fill="none"
-                >
-                  <path
-                    d="M31.9611 3.0991L29.417 0.554938C29.047 0.185006 28.6073 0 28.0984 0C27.5901 0 27.1501 0.185006 26.7804 0.554938L11.8173 15.5179L5.73545 9.43557C5.36536 9.06539 4.92585 8.88063 4.41724 8.88063C3.90855 8.88063 3.4692 9.06539 3.09903 9.43557L0.555182 11.9794C0.185169 12.3494 0 12.7889 0 13.2979C0 13.8065 0.185169 14.2459 0.555182 14.6161L10.4995 24.5603C10.8696 24.9306 11.3091 25.1153 11.8177 25.1153C12.3263 25.1153 12.7657 24.9307 13.1359 24.5603L31.9609 5.73544C32.3307 5.36551 32.5161 4.92592 32.5161 4.41723C32.5161 3.90854 32.3312 3.46903 31.9611 3.0991Z"
-                    fill="#032144"
-                  />
-                </svg>
-                Deep analysis of your particular situation 
+ Step-by-step description to obtain green card 
               </p>
               <p className="description">
-              <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="12"
-                  viewBox="0 0 33 26"
-                  fill="none"
-                >
-                  <path
-                    d="M31.9611 3.0991L29.417 0.554938C29.047 0.185006 28.6073 0 28.0984 0C27.5901 0 27.1501 0.185006 26.7804 0.554938L11.8173 15.5179L5.73545 9.43557C5.36536 9.06539 4.92585 8.88063 4.41724 8.88063C3.90855 8.88063 3.4692 9.06539 3.09903 9.43557L0.555182 11.9794C0.185169 12.3494 0 12.7889 0 13.2979C0 13.8065 0.185169 14.2459 0.555182 14.6161L10.4995 24.5603C10.8696 24.9306 11.3091 25.1153 11.8177 25.1153C12.3263 25.1153 12.7657 24.9307 13.1359 24.5603L31.9609 5.73544C32.3307 5.36551 32.5161 4.92592 32.5161 4.41723C32.5161 3.90854 32.3312 3.46903 31.9611 3.0991Z"
-                    fill="#032144"
-                  />
-                </svg>
-                Step-by-step recommends to obtain green card through eb3
-                unskilled visa 
+ General information about other immigration programs in the U.S. 
               </p>
               <p className="description">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="12"
-                  viewBox="0 0 33 26"
-                  fill="none"
-                >
-                  <path
-                    d="M31.9611 3.0991L29.417 0.554938C29.047 0.185006 28.6073 0 28.0984 0C27.5901 0 27.1501 0.185006 26.7804 0.554938L11.8173 15.5179L5.73545 9.43557C5.36536 9.06539 4.92585 8.88063 4.41724 8.88063C3.90855 8.88063 3.4692 9.06539 3.09903 9.43557L0.555182 11.9794C0.185169 12.3494 0 12.7889 0 13.2979C0 13.8065 0.185169 14.2459 0.555182 14.6161L10.4995 24.5603C10.8696 24.9306 11.3091 25.1153 11.8177 25.1153C12.3263 25.1153 12.7657 24.9307 13.1359 24.5603L31.9609 5.73544C32.3307 5.36551 32.5161 4.92592 32.5161 4.41723C32.5161 3.90854 32.3312 3.46903 31.9611 3.0991Z"
-                    fill="#032144"
-                  />
-                </svg>
-                General information about other immigration programs in the us
+24 hours online chat after the consultation 
               </p>
-              <p className="description">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="12"
-                  viewBox="0 0 33 26"
-                  fill="none"
-                >
-                  <path
-                    d="M31.9611 3.0991L29.417 0.554938C29.047 0.185006 28.6073 0 28.0984 0C27.5901 0 27.1501 0.185006 26.7804 0.554938L11.8173 15.5179L5.73545 9.43557C5.36536 9.06539 4.92585 8.88063 4.41724 8.88063C3.90855 8.88063 3.4692 9.06539 3.09903 9.43557L0.555182 11.9794C0.185169 12.3494 0 12.7889 0 13.2979C0 13.8065 0.185169 14.2459 0.555182 14.6161L10.4995 24.5603C10.8696 24.9306 11.3091 25.1153 11.8177 25.1153C12.3263 25.1153 12.7657 24.9307 13.1359 24.5603L31.9609 5.73544C32.3307 5.36551 32.5161 4.92592 32.5161 4.41723C32.5161 3.90854 32.3312 3.46903 31.9611 3.0991Z"
-                    fill="#032144"
-                  />
-                </svg>
-                Online chat 48 hours
-              </p>
-              <br />
-              <br />
-              <br />
+
+              
+            </div>
+            <div className="center-level">
               <Link to='/leveltwo'>
               <button className="btn-levels  ">CHOOSE</button>
               </Link>
-            </div>
+              </div>
           </div>
           <div className="level ">
             <h2 className="appliName">Level 3</h2>
             <del className=" price-del">$1500</del>
             <ins className=" price">$999</ins>
             <div className="text-discription">
-              <p className="description">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="12"
-                  viewBox="0 0 33 26"
-                  fill="none"
-                >
-                  <path
-                    d="M31.9611 3.0991L29.417 0.554938C29.047 0.185006 28.6073 0 28.0984 0C27.5901 0 27.1501 0.185006 26.7804 0.554938L11.8173 15.5179L5.73545 9.43557C5.36536 9.06539 4.92585 8.88063 4.41724 8.88063C3.90855 8.88063 3.4692 9.06539 3.09903 9.43557L0.555182 11.9794C0.185169 12.3494 0 12.7889 0 13.2979C0 13.8065 0.185169 14.2459 0.555182 14.6161L10.4995 24.5603C10.8696 24.9306 11.3091 25.1153 11.8177 25.1153C12.3263 25.1153 12.7657 24.9307 13.1359 24.5603L31.9609 5.73544C32.3307 5.36551 32.5161 4.92592 32.5161 4.41723C32.5161 3.90854 32.3312 3.46903 31.9611 3.0991Z"
-                    fill="#032144"
-                  />
-                </svg>
-                Access to more than 1000 U.S. employers’ database (script of
+              <p className="description ">
+ Access to more than 1000 U.S. employers’ database (script of
                 pitch included)
               </p>
               <p className="description">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="12"
-                  viewBox="0 0 33 26"
-                  fill="none"
-                >
-                  <path
-                    d="M31.9611 3.0991L29.417 0.554938C29.047 0.185006 28.6073 0 28.0984 0C27.5901 0 27.1501 0.185006 26.7804 0.554938L11.8173 15.5179L5.73545 9.43557C5.36536 9.06539 4.92585 8.88063 4.41724 8.88063C3.90855 8.88063 3.4692 9.06539 3.09903 9.43557L0.555182 11.9794C0.185169 12.3494 0 12.7889 0 13.2979C0 13.8065 0.185169 14.2459 0.555182 14.6161L10.4995 24.5603C10.8696 24.9306 11.3091 25.1153 11.8177 25.1153C12.3263 25.1153 12.7657 24.9307 13.1359 24.5603L31.9609 5.73544C32.3307 5.36551 32.5161 4.92592 32.5161 4.41723C32.5161 3.90854 32.3312 3.46903 31.9611 3.0991Z"
-                    fill="#032144"
-                  />
-                </svg>
-                Access to more than 25 U.S. immigration attorneys’ database
+ Access to more than 25 U.S. immigration attorneys’ database
               </p>
               <p className="description ">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="12"
-                  viewBox="0 0 33 26"
-                  fill="none"
-                >
-                  <path
-                    d="M31.9611 3.0991L29.417 0.554938C29.047 0.185006 28.6073 0 28.0984 0C27.5901 0 27.1501 0.185006 26.7804 0.554938L11.8173 15.5179L5.73545 9.43557C5.36536 9.06539 4.92585 8.88063 4.41724 8.88063C3.90855 8.88063 3.4692 9.06539 3.09903 9.43557L0.555182 11.9794C0.185169 12.3494 0 12.7889 0 13.2979C0 13.8065 0.185169 14.2459 0.555182 14.6161L10.4995 24.5603C10.8696 24.9306 11.3091 25.1153 11.8177 25.1153C12.3263 25.1153 12.7657 24.9307 13.1359 24.5603L31.9609 5.73544C32.3307 5.36551 32.5161 4.92592 32.5161 4.41723C32.5161 3.90854 32.3312 3.46903 31.9611 3.0991Z"
-                    fill="#032144"
-                  />
-                </svg>
-                Access to files templates of immigration forms as I-485, I-765,
+Access to files templates of immigration forms as I-485, I-765,
                 I-131 and DS-260
               </p>
               <p className="description">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="12"
-                  viewBox="0 0 33 26"
-                  fill="none"
-                >
-                  <path
-                    d="M31.9611 3.0991L29.417 0.554938C29.047 0.185006 28.6073 0 28.0984 0C27.5901 0 27.1501 0.185006 26.7804 0.554938L11.8173 15.5179L5.73545 9.43557C5.36536 9.06539 4.92585 8.88063 4.41724 8.88063C3.90855 8.88063 3.4692 9.06539 3.09903 9.43557L0.555182 11.9794C0.185169 12.3494 0 12.7889 0 13.2979C0 13.8065 0.185169 14.2459 0.555182 14.6161L10.4995 24.5603C10.8696 24.9306 11.3091 25.1153 11.8177 25.1153C12.3263 25.1153 12.7657 24.9307 13.1359 24.5603L31.9609 5.73544C32.3307 5.36551 32.5161 4.92592 32.5161 4.41723C32.5161 3.90854 32.3312 3.46903 31.9611 3.0991Z"
-                    fill="#032144"
-                  />
-                </svg>
-                List of EB3 unskilled agencies
+ List of EB3 unskilled agencies
               </p>
               <p className="description">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="12"
-                  viewBox="0 0 33 26"
-                  fill="none"
-                >
-                  <path
-                    d="M31.9611 3.0991L29.417 0.554938C29.047 0.185006 28.6073 0 28.0984 0C27.5901 0 27.1501 0.185006 26.7804 0.554938L11.8173 15.5179L5.73545 9.43557C5.36536 9.06539 4.92585 8.88063 4.41724 8.88063C3.90855 8.88063 3.4692 9.06539 3.09903 9.43557L0.555182 11.9794C0.185169 12.3494 0 12.7889 0 13.2979C0 13.8065 0.185169 14.2459 0.555182 14.6161L10.4995 24.5603C10.8696 24.9306 11.3091 25.1153 11.8177 25.1153C12.3263 25.1153 12.7657 24.9307 13.1359 24.5603L31.9609 5.73544C32.3307 5.36551 32.5161 4.92592 32.5161 4.41723C32.5161 3.90854 32.3312 3.46903 31.9611 3.0991Z"
-                    fill="#032144"
-                  />
-                </svg>
-                List of risks for all parties
+List of risks for all parties
               </p>
               <p className="description">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="12"
-                  viewBox="0 0 33 26"
-                  fill="none"
-                >
-                  <path
-                    d="M31.9611 3.0991L29.417 0.554938C29.047 0.185006 28.6073 0 28.0984 0C27.5901 0 27.1501 0.185006 26.7804 0.554938L11.8173 15.5179L5.73545 9.43557C5.36536 9.06539 4.92585 8.88063 4.41724 8.88063C3.90855 8.88063 3.4692 9.06539 3.09903 9.43557L0.555182 11.9794C0.185169 12.3494 0 12.7889 0 13.2979C0 13.8065 0.185169 14.2459 0.555182 14.6161L10.4995 24.5603C10.8696 24.9306 11.3091 25.1153 11.8177 25.1153C12.3263 25.1153 12.7657 24.9307 13.1359 24.5603L31.9609 5.73544C32.3307 5.36551 32.5161 4.92592 32.5161 4.41723C32.5161 3.90854 32.3312 3.46903 31.9611 3.0991Z"
-                    fill="#032144"
-                  />
-                </svg>
-                Personal immigration specialist for 7 days
+
+Personal immigration specialist for 7 days
               </p>
+                          </div>
+            <div className="center-level">
               <Link to='/levelthree'>
               <button className="btn-levels ">CHOOSE</button>
               </Link>
-            </div>
+              </div>
           </div>
         </div>
       </div>
@@ -890,7 +667,8 @@ const Index = () => {
 
   return (
     <>
-        <Header />
+        {/* <HeaderForMain /> */}
+        <MainPhoto />
         <Main />
         <Testimonials />
         <Partners />
