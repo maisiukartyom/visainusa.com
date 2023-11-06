@@ -32,14 +32,14 @@ const SignupForm = ({ submitForm }) => {
                     <div>
                         <label className="label">Email</label>
                         </div>
-                        <input className="input" type="email" name="email" value={values.email} onChange={handleChange}/>
+                        <input className="input" autoComplete="email" type="email" name="email" value={values.email} onChange={handleChange}/>
                         {errors.email && <p className="error">{errors.email}</p>}
                     </div>
                     <div className="password">
                     <div>
                         <label className="label">Password</label>
                         </div>
-                        <input className="input" type="password" name="password" value={values.password} onChange={handleChange}/>
+                        <input className="input" autoComplete="current-password" type="password" name="password" value={values.password} onChange={handleChange}/>
                         {errors.password && <p className="error">{errors.password}</p>}
                     </div>
                     <div className="age">
