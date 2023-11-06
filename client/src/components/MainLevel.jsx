@@ -59,35 +59,31 @@ export const MainLevel = () => {
 
     <div className="appliName-level">
     <h2 className="level-list">Level 1</h2>
-               <del className=" price-del-level">$50</del>
-               <ins className=" price-level" >$25</ins>
+    <p className=" appliName-levelOne">FREE</p>
                <ul  className="text-discription-level">
                   <li  className="description-level">
-                      - What is eb3 unskilled visa category?
+                  What is EB3 unskilled visa category?
                   </li>
                   <li className="description-level">
-                      - How does eb3 unskilled visa work?
+                  How does EB3 unskilled visa work?
                   </li>
                   <li className="description-level">
 
-                    - How long does it take to get the U.S. permanent resident card? 
+                  How long does it take to get the U.S.  permanent resident card? 
                   </li>
 
                   <li className="description-level">
-                     - Am i eligible for eb3 unskilled visa?
+                  Am I eligible for EB3 unskilled visa?
                   </li>
                   <li className="description-level">
-                     - How much does eb3 unskilled cost?
+                  How much does EB3 unskilled cost?
                   </li>
                   <li className="description-level">
-                     - What should i do in case of refusal?
+                  What should I do in case of refusal?
                   </li>
                   <li className="description-level">
-                     - How do i start my eb3 journey?
+                  How do I start my EB3 journey?
                   </li>
-                     <li className="description-level">
-                        - Online chat 24 hours 
-                     </li>
                   </ul>
 
                </div>

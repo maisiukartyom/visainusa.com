@@ -153,7 +153,7 @@ const FormEmployer = () =>  {
                             inputProps={{name: 'phoneNumber',
                                         required: true,}}   
                             /></div>
-                        {/* {errors.phoneNumber && <p className="error">{errors.phoneNumber}</p>} */}
+                        {/* {errors.phoneNumber && <p className="error-phone-left">{errors.phoneNumber}</p>} */}
                     </div>
                     
                     <div>

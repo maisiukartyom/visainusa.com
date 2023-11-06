@@ -5,6 +5,7 @@ import Footer from '../../components/Footer';
 
 
 import "../AboutUs/AboutUs.css";
+import AboutUsMain from '../../components/AboutUsMain';
 
 
 const AbotUs = () => {
@@ -12,7 +13,7 @@ const AbotUs = () => {
     return (
         <div >
             <Header />
-
+<AboutUsMain />
   <Footer />
         </div>
     )

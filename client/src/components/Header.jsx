@@ -64,10 +64,10 @@ export const Header = () => {
             <Link to="/"><span className="header-logo"><img src="images/logo.png" alt="logo" width={70} height={94}/></span></Link>
             <nav className={`header-nav ${isOpen? "active" : ""}`}>
                 <ul className="header-nav-list">
-                <Link to="/aboutus"><a href="/#aboutus"><li className="header-nav-item">About Us</li></a></Link>
-                    <a href="/#testimonials"><li className="header-nav-item">Testimonials</li></a>
-                    <a href="/#contacts"><li className="header-nav-item">Contacts</li></a>
-                    <a href="/#pricing"><li className="header-nav-item">Pricing</li></a>
+                    <Link to="/aboutus"><li className="header-nav-item">About Us</li></Link>
+                    <Link to="/" state={{hash: "testimonials"}}><li className="header-nav-item">Testimonials</li></Link>
+                    <Link to="/" state={{hash: "contacts"}}><li className="header-nav-item">Contacts</li></Link>
+                    <Link to="/" state={{hash: "pricing"}}><li className="header-nav-item">Pricing</li></Link>
                     <Link to="/foremployer"><li className="header-nav-item employer">For the U.S. employer</li></Link>
                     {
                         verified && !user && 
