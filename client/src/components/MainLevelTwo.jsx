@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {Link} from 'react-router-dom';
 import "../pages/LevelOne/LevelOne.css";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +9,7 @@ import {toast} from 'react-toastify'
 export const MainLevelTwo = () => {
 
    const navigate = useNavigate();
+
    const purchaseLevel = async () => {
       try {
          await axios.post("/payment/verify", 
@@ -75,7 +76,7 @@ export const MainLevelTwo = () => {
 
 
                </div>
-               <iframe width="550" height="415" src="https://www.youtube.com/embed/2PInBgRNHo4?si=RYBU3j3Bh_VF0Zfv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen className="youtube-level1"></iframe> 
+               <iframe width="550" height="415" src="https://www.youtube.com/embed/2PInBgRNHo4?si=RYBU3j3Bh_VF0Zfv" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowFullScreen className="youtube-level1"></iframe> 
 
             </div>
 

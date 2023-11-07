@@ -9,51 +9,12 @@ const clientSecret = process.env.PAYPAL_SECRET_KEY;
 const environment = new paypal.core.SandboxEnvironment(clientId, clientSecret);
 const client = new paypal.core.PayPalHttpClient(environment);
 
-// const handleCheckout = async (req, res) => {
-//     let payment = req.body
-//     const token = req.cookies.jwt;
-//     let email = "";
-//     jwt.verify(
-//       token,
-//       process.env.ACCESS_TOKEN_SECRET,
-//       async (err, data) => {
-//           if (err) {
-//             res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true });
-//             return res.sendStatus(403);
-//           }
-//           email = data.email;
-//           payment = {
-//             ...payment,
-//             payer: email
-//           }
-//           try{
-//             console.log(payment.payer)
-//             const result = await User.findOneAndUpdate({email: payment.payer}, {level: payment.purchasedLevel})
-//             await Payment.create(payment);
-//             const accessToken = jwt.sign(
-//               { 
-//                   "email": email,
-//                   "isAdmin": result.isAdmin,
-//                   "level": result.level
-//                },
-//               process.env.ACCESS_TOKEN_SECRET,
-//               { expiresIn: '1d' }
-//             );
-//             res.cookie('jwt', accessToken, { httpOnly: true, secure: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 });
-//             res.sendStatus(200);
-//           }
-//           catch{
-//             res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true });
-//             res.sendStatus(403);
-//           }
-//       }
-//     );
-// }
 
 const handlePayment = async (req, res) => {
-  try {
-      const level = req.body.level;
 
+    const level = req.level
+
+    try {
       let priceTotal;
       switch (level){
         case 2:
@@ -185,6 +146,9 @@ const handleSendEmployer = async (req, res) => {
 
 const handlePaypalTransactionComplete = async (req, res) => {
     const orderID = req.body.orderID;
+    const {level} = req.body
+    const token = req.cookies.jwt;
+
     const request = new paypal.orders.OrdersCaptureRequest(orderID);
     request.requestBody({});
     try {
@@ -195,7 +159,37 @@ const handlePaypalTransactionComplete = async (req, res) => {
         const resJson = {
             result
         };
-        res.json(resJson);
+
+        jwt.verify(
+          token,
+          process.env.ACCESS_TOKEN_SECRET,
+          async (err, data) => {
+              if (err) {
+                res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true });
+                return res.sendStatus(403);
+              }
+              const email = data.email;
+    
+              try{
+                const user = await User.findOneAndUpdate({email: email}, {level: level})
+    
+                const accessToken = jwt.sign(
+                  { 
+                      "email": email,
+                      "isAdmin": user.isAdmin,
+                      "level": level
+                   },
+                  process.env.ACCESS_TOKEN_SECRET,
+                  { expiresIn: '1d' }
+                );
+                res.cookie('jwt', accessToken, { httpOnly: true, secure: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 }).json(resJson);;
+              }
+              catch{
+                res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true });
+                res.sendStatus(403);
+              }
+          }
+        );
         // return capture.result;
     } catch (err) {
         // Handle any errors from the call

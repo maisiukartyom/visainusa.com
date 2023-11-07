@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const paymentController = require('../controllers/paymentController');
+const verifyPayment = require('../middleware/verify')
 
 
-router.post('/', paymentController.handlePayment);
+router.post('/', verifyPayment, paymentController.handlePayment);
 router.get('/level1', paymentController.handleLevel1);
 router.post('/sendEmail', paymentController.handleSendEmail);
 router.post('/sendEmployerInfo', paymentController.handleSendEmployer);

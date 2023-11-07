@@ -8,24 +8,17 @@ import { useNavigate } from "react-router-dom";
 
 export const MainLevel = () => {
    const navigate = useNavigate();
-   const payForLevel = async () => {
-      try{
-         await axios.get("/checkout/level1", {
+   const purchaseLevel = async () => {
+      try {
+         await axios.post("/payment/verify", 
+         {
+            level: 1
+         },
+         {
             withCredentials: true
          })
 
-         toast.success("Succesfully purchased level 1!", {
-            position: "top-center",
-            autoClose: 4000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: false,
-            draggable: false,
-            progress: undefined,
-            theme: "light"}
-         )
-
-         navigate("/profile")
+         navigate("/payment", {state: {levelToPurchase: 1}});
       }
       catch(err){
          let errorMessage = "";
@@ -37,9 +30,7 @@ export const MainLevel = () => {
          else if (err.response?.status === 403) {
             errorMessage = 'You are not authorized! Please sign up to make purchase!'
          } 
-         else {
-             errorMessage = 'Payment failed!'
-         }
+
          toast.error(errorMessage, {
             position: "top-center",
             autoClose: 10000,
@@ -99,11 +90,8 @@ export const MainLevel = () => {
                             <label className="label-level" > languages  </label>
                         </div>
                     </div>
-             <a href="#"  target="_blank">
-                  <button className="button-level-two">CHOOSE</button>
-                  </a> 
+                  <button className="button-level-two" onClick={purchaseLevel}>PAY</button>
                   </div>
-            
 
 </div>
 

@@ -146,30 +146,30 @@ const Payment = () => {
             withCredentials: true
         }).then((res) => {return res})
         .catch((err) => {
-            console.log(err)
-            toast.error("Couldn't create order!",{
-                position: "top-center",
-                autoClose: 6000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: false,
-                draggable: false,
-                progress: undefined,
-                theme: "light",
-                }
-            )   
-        }).then((data) => {
-            toast.success("Order created successful!",{
-                position: "top-center",
-                autoClose: 6000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: false,
-                draggable: false,
-                progress: undefined,
-                theme: "light",
-                }
+            let errorMessage = "";
+            if (!err?.response) {
+                errorMessage = 'No Server Response'
+            } else if (err.response?.status === 401) {
+                errorMessage = 'You already have this level!'
+            }
+            else if (err.response?.status === 403) {
+               errorMessage = 'You are not authorized! Please sign up to make purchase!'
+            } 
+            else if (err.response?.status === 500){
+                errorMessage = "Couldn't create order!"
+            }
+   
+            toast.error(errorMessage, {
+               position: "top-center",
+               autoClose: 10000,
+               hideProgressBar: false,
+               closeOnClick: true,
+               pauseOnHover: false,
+               draggable: false,
+               progress: undefined,
+               theme: "light"}
             ) 
+        }).then((data) => {
             return data.data.orderID;
         })
     }
@@ -177,7 +177,8 @@ const Payment = () => {
     const onApprove = (data) => {
         return axios.post("/payment/paypal-transaction-complete", 
         {
-            orderID: data.orderID
+            orderID: data.orderID,
+            level: state.levelToPurchase
         },
         {
             headers: { 'Content-Type': 'application/json' },
@@ -185,7 +186,8 @@ const Payment = () => {
         })
         .then((res) => {
             return res;
-        }).catch((details) => {
+        }).catch((error) => {
+            console.log(error?.response)
             toast.error("Payment failed!",{
                 position: "top-center",
                 autoClose: 6000,
@@ -209,6 +211,19 @@ const Payment = () => {
             // const transactionAmount =
             //     purchase_units[0].payments.captures[0].amount.value;
             
+            switch (state.levelToPurchase){
+                case 1:
+                    navigate("/levelone")
+                    break
+                case 2:
+                    navigate("/leveltwo")
+                    break
+                case 3:
+                    navigate("/levelthree")
+                    break
+                default:
+            }
+
             toast.success("Payment successful!",{
                 position: "top-center",
                 autoClose: 6000,
