@@ -10,7 +10,7 @@ export const MainLevelThree = () => {
    const navigate = useNavigate();
    const purchaseLevel = async () => {
       try {
-         await axios.post("/checkout/verify", 
+         await axios.post("/payment/verify", 
          {
             level: 3
          },

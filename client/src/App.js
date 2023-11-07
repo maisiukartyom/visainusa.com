@@ -7,7 +7,7 @@ import Main from './pages/Main/Main';
 import Login from './pages/Login/Login';
 import SignUp from './pages/SignUp/SignUp';
 import Anketa from './pages/Anketa/Anketa';
-import Checkout from './components/Checkout';
+import Checkout from './components/Payment';
 import Profile from './pages/Profile/Profile';
 import LevelOne from './pages/LevelOne/LevelOne';
 import ForEmployer from './pages/ForEmployer/ForEmployer'
@@ -18,6 +18,7 @@ import { useEffect } from 'react';
 import LevelTwo from './pages/LevelTwo/LevelTwo';
 import AbotUs from './pages/AboutUs/AboutUs';
 import LevelThree from './pages/LevelThree/LevelThree';
+import Payment from './components/Payment';
 
 function App() {
   // console.log("Rendered!")
@@ -46,8 +47,7 @@ function App() {
           <Route path="/leveltwo" element={<LevelTwo />} />
           <Route path="/levelthree" element={<LevelThree />} />
           <Route path="/foremployer" element={<ForEmployer />} />
-          <Route path="/checkout/leveltwo" element={<Checkout />} />
-          <Route path="/checkout/levelthree" element={<Checkout />} />
+          <Route path="/payment" element={<Payment />} />
           <Route path="/aboutus" element={<AbotUs />} />
           <Route path='/youtube' component={() => {
                       window.location.href = 'https://www.youtube.com/@EB3unskilled'

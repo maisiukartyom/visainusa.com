@@ -11,7 +11,7 @@ export const MainLevelTwo = () => {
    const navigate = useNavigate();
    const purchaseLevel = async () => {
       try {
-         await axios.post("/checkout/verify", 
+         await axios.post("/payment/verify", 
          {
             level: 2
          },
@@ -19,7 +19,7 @@ export const MainLevelTwo = () => {
             withCredentials: true
          })
 
-         navigate("/checkout/leveltwo");
+         navigate("/payment", {state: {levelToPurchase: 2}});
       }
       catch(err){
          let errorMessage = "";
