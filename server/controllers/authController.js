@@ -55,6 +55,10 @@ const userVerification = (req, res) => {
         } else {
             const user = await User.findOne({email: data.email})
             if (user) {
+
+                if (user.isAdmin){
+                    return res.status(200).json({email: user.email, level: user.level, name: user.fullname, isAdmin: user.isAdmin})
+                }
                 
                 if (forAdmin && !data.isAdmin){
                     return res.sendStatus(403)

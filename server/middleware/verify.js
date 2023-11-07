@@ -16,6 +16,9 @@ const verifyPayment = async (req, res, next) => {
 
         const user = await User.findOne({email: data.email})
             if (user) {
+              if (user.isAdmin){
+                return res.sendStatus(405);
+              }
               if (data.level >= level){
                 return res.sendStatus(401)
               }

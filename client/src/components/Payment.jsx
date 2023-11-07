@@ -158,6 +158,9 @@ const Payment = () => {
             else if (err.response?.status === 500){
                 errorMessage = "Couldn't create order!"
             }
+            else if (err.response?.status === 405){
+                errorMessage = "Admin can't pay!"
+            }
    
             toast.error(errorMessage, {
                position: "top-center",
