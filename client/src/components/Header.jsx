@@ -60,6 +60,7 @@ export const Header = () => {
     }, [verified])
 
     return (
+        verified &&
         <header className="header-level">
             <Link to="/"><span className="header-logo"><img src="images/logo.png" alt="logo" width={70} height={94}/></span></Link>
             <nav className={`header-nav ${isOpen? "active" : ""}`}>
@@ -70,7 +71,7 @@ export const Header = () => {
                     <Link to="/" state={{hash: "pricing"}}><li className="header-nav-item">Pricing</li></Link>
                     <Link to="/foremployer"><li className="header-nav-item employer">For the U.S. employer</li></Link>
                     {
-                        verified && !user && 
+                        !user && 
                         <>
                         <Link
                             className="header-nav-item item-button-l login-l"
@@ -88,7 +89,7 @@ export const Header = () => {
                         </>
                     }
                     {
-                        verified && user &&
+                        user &&
                         <>
                         
                         <Link

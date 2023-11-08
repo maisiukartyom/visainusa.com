@@ -62,6 +62,7 @@ export const HeaderForMain = () => {
     }, [verified])
 
     return (
+        verified &&
         <header className="header-level">
             <Link to="/"><span className="header-logo"><img src="images/logo.png" alt="logo" width={70} height={94}/></span></Link>
             <nav className={`header-nav ${isOpen? "active" : ""}`}>
@@ -73,7 +74,7 @@ export const HeaderForMain = () => {
                     <Link to="/foremployer"><li className="header-nav-item employer">For the U.S. employer</li></Link>
                     {/* Only show if not authorized */}
                {
-                    verified && !user && 
+                    !user && 
                     <>
                     <Link
                         className="header-nav-item item-button-l login-l"
@@ -91,7 +92,7 @@ export const HeaderForMain = () => {
                     </>
                 }
                 {
-                    verified && user &&
+                    user &&
                     <>
                     
                     <Link
