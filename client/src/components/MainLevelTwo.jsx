@@ -11,6 +11,7 @@ export const MainLevelTwo = () => {
 
 <div className="appliName-level">
     <h2 className="level-list">Level 2</h2>
+    <h3 className="appliName-names">"Immigration with no mistake"</h3>
     <del className=" price-del appliName-levelOne-del">$100</del>
             <ins className=" price appliName-levelOne">$49</ins>
                <ul  className="text-discription-level">

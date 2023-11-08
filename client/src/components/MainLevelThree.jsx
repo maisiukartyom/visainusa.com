@@ -11,6 +11,7 @@ export const MainLevelThree = () => {
 
     <div className="appliName-level">
     <h2 className="level-list">Level 3</h2>
+    <h3 className="appliName-names">"Self immigration with no overpriced assistance"</h3>
                <del className=" price-del-level">$1500</del>
                <ins className=" price-level" >$999</ins>
                <ul  className="text-discription-level">
