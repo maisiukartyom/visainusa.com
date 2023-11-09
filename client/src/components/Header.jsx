@@ -92,12 +92,20 @@ export const Header = () => {
                         user &&
                         <>
                         
-                        <Link
+                        {/* <Link
                             className="header-nav-item item-button-l login-l"
                             to={isAdmin? "/admin" : "/profile"}
                         >
                             Profile
+                        </Link> */}
+
+                        {
+                        isAdmin && 
+                        <Link className="header-nav-item item-button-l login-l"
+                        to={"/admin"}>
+                            Admin
                         </Link>
+                        }
 
                         <div
                             className="header-nav-item item-button-l sign-l"
