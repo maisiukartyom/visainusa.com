@@ -18,7 +18,7 @@ export const MainLevel = () => {
             withCredentials: true
          })
 
-         navigate("/payment", {state: {levelToPurchase: 1}});
+         navigate("/payment", {state: {levelToPurchase: 1, price: 25}});
       }
       catch(err){
          let errorMessage = "";

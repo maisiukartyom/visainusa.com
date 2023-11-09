@@ -62,79 +62,6 @@ const Payment = () => {
             setIsVerified(true)
         }
     })
-    // const createOrder = (data, actions) => {
-    //     return actions.order.create({
-    //         purchase_units: [
-    //             {
-    //                 description: `Level ${level}`,
-    //                 amount: {
-    //                     currency_code: "USD",
-    //                     value: purchaseAmount,
-    //                 },
-    //             },
-    //         ],
-    //         application_context: {
-    //             shipping_preference: "NO_SHIPPING"
-    //         }
-    //     })
-    // };
-
-    // const onApprove = (data, actions) => {
-    //     return actions.order.capture().then(function (payment) {
-    //         axios.post("/checkout", 
-    //             {
-    //                 paymentID: payment.id,
-    //                 description: payment.purchase_units[0].description,
-    //                 status: payment.status,
-    //                 amount: payment.purchase_units[0].amount.value,
-    //                 currency: payment.purchase_units[0].amount.currency_code,
-    //                 createTime: payment.create_time,
-    //                 updateTime: payment.update_time,
-    //                 purchasedLevel: level
-    //             },
-    //             {
-    //                 headers: { 'Content-Type': 'application/json' },
-    //                 withCredentials: true
-    //             }    
-    //         ).then(() => {
-    //             toast.success(`Level ${level} purchased successfully!`, {
-    //                 position: "top-center",
-    //                 autoClose: 6000,
-    //                 hideProgressBar: false,
-    //                 closeOnClick: true,
-    //                 pauseOnHover: false,
-    //                 draggable: false,
-    //                 progress: undefined,
-    //                 theme: "light",
-    //                 });
-    //             console.log('Order successful . Your order id is--', payment.id);
-    //             navigate("/levelone")
-    //         }).catch((err) => toast.error(`Purchase failed!`, {
-    //             position: "top-center",
-    //             autoClose: 6000,
-    //             hideProgressBar: false,
-    //             closeOnClick: true,
-    //             pauseOnHover: false,
-    //             draggable: false,
-    //             progress: undefined,
-    //             theme: "light",
-    //             }))
-    //     });
-    // };
-
-    // //capture likely error
-    // const onError = (data, actions) => {
-    //     toast.error(`Purchase failed!`, {
-    //         position: "top-center",
-    //         autoClose: 6000,
-    //         hideProgressBar: false,
-    //         closeOnClick: true,
-    //         pauseOnHover: false,
-    //         draggable: false,
-    //         progress: undefined,
-    //         theme: "light",
-    //         })
-    // };
 
     const createOrder = () => {
         return axios.post("/payment", 
@@ -255,7 +182,7 @@ const Payment = () => {
     return (
         isVerified &&
         <div>
-        <h2>Payment for LEVEL {state.levelToPurchase}</h2>
+        <h2>Payment for LEVEL {state.levelToPurchase}. You are ready to pay ${state.price}!</h2>
         <PayPalButton
             createOrder={createOrder}
             onApprove={onApprove}

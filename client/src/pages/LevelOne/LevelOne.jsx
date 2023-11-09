@@ -46,7 +46,8 @@ const LevelOne = () => {
       verified &&
       <div >
           <Header />
-          {hasLevel? <div>Level 1 is purchased!</div> : <MainLevel />}
+          {/* {hasLevel? <div>Level 1 is purchased!</div> : <MainLevel />} */}
+          <div>Level 1 is purchased!</div>
           <Footer />
       </div>
   )

@@ -7,7 +7,6 @@ import Main from './pages/Main/Main';
 import Login from './pages/Login/Login';
 import SignUp from './pages/SignUp/SignUp';
 import Anketa from './pages/Anketa/Anketa';
-import Checkout from './components/Payment';
 import Profile from './pages/Profile/Profile';
 import LevelOne from './pages/LevelOne/LevelOne';
 import ForEmployer from './pages/ForEmployer/ForEmployer'

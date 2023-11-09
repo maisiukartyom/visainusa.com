@@ -67,7 +67,7 @@ const PopUpForm = ({ onClose }) => {
   const handleSubmit = async () => {
     if (email !== "" && phoneNumber !== ""){
         try{
-            await axios.post("/checkout/sendEmail", {
+            await axios.post("/email/sendEmail", {
                 email: email,
                 phoneNumber: phoneNumber
             })

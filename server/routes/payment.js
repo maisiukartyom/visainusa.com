@@ -5,9 +5,7 @@ const verifyPayment = require('../middleware/verify')
 
 
 router.post('/', verifyPayment, paymentController.handlePayment);
-router.get('/level1', paymentController.handleLevel1);
-router.post('/sendEmail', paymentController.handleSendEmail);
-router.post('/sendEmployerInfo', paymentController.handleSendEmployer);
+//router.get('/level1', paymentController.handleLevel1);
 router.post('/verify', paymentController.handleVerify)
 router.post('/paypal-transaction-complete', paymentController.handlePaypalTransactionComplete)
 

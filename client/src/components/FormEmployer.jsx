@@ -24,7 +24,7 @@ const FormEmployer = () =>  {
         if(errors.company === "" && errors.email === "" 
         && errors.time === "" && errors.phoneNumber === "") {
             try{
-                await axios.post("/checkout/sendEmployerInfo", {
+                await axios.post("/email/sendEmployerInfo", {
                     email: email,
                     phoneNumber: phoneNumber,
                     company: company,
