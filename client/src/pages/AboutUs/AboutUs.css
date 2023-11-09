@@ -1,3 +1,8 @@
+@font-face{
+	font-family: 'Merriweather';
+	src: url(../../pages/Anketa/Merriweather-Light.ttf);
+}
+
 
 .about-us {
     display: flex;
@@ -5,32 +10,324 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    width: 100%;
+    background-image: url(../../../public/images/photo-aboutus.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   
-  .about-us__heading {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 16px;
-  }
-  
-  .about-us__description {
-    font-size: 16px;
-    margin-bottom: 32px;
-  }
-  
-  .about-us__image {
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-  }
 
-  @media all and (max-width:1280px) {
+.h2-ourteam{
+  margin-top: 50px;
+	margin-bottom: 10px;
+	text-align: center;
+	font-size: 50px;
+	font-weight: bolder;
+	color: var(--dark-color);
+	text-transform: uppercase;
+  margin-top: 8%;
+}
 
 
-  }
-  
-  @media all and (max-width:920px) {
 
+.our-team{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text-aboutus{
+  font-size: 20px;
+	font-weight: 600;
+  max-width:1150px;
+  text-align: justify;
+	color: var(--deep-dark);
+	font-family: 'Merriweather', serif;
+	word-spacing: 14px;
+  line-height: 32px;
+}
+.team{
+  display: flex;
+  max-width: 1400px;
+  justify-content: center;
+  margin-top: 6%;
+}
+.Alexander{
+margin-bottom: 16%;
+}
+.first-team{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin: 20px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 8px 1px #364456;
+  margin: 30px;
+
+}
+.first-team-Alex{
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin: 20px;
+  background-color: rgb(255, 255, 255);
+    margin: 30px;
+
+}
+.photo-team{
+border-bottom: 8px #244B7A solid;
+box-shadow: 0px 0px 8px 1px #91979f;
+align-self: center;
+margin-top: 5%;
+}
+
+
+
+.button-read{
+  background: none;
+  border: none;
+  text-decoration: underline;
+  color: var(--color);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Merriweather', serif;
+}
+
+.when, .when-CP{
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--deep-dark);
+  font-family: 'Merriweather', serif;
+}
+.when-CP{
+margin-top: -2%;
+}
+
+.name-team{
+  font-size: 26px;
+  font-weight: bolder;
+  color: var(--deep-dark);
+  font-family: 'Merriweather', serif;
+  align-self: center;
+}
+
+.text-Alexey{
+  align-self: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dark-color);
+  font-family: 'Merriweather', serif;
+  line-height: 24px;
+  text-align: justify;
+  max-width: 600px;
+  max-height: 1000px;
+}
+.text-Alexey-more{
+  align-self: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dark-color);
+  font-family: 'Merriweather', serif;
+  line-height: 24px;
+  text-align: justify;
+  max-width: 600px;
+  margin-top: -2%;
+}
+
+.who-team-alex{
+  align-self: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dark-color);
+  font-family: 'Merriweather', serif;
+  line-height: 24px;
+  padding: 20px;
+text-align: justify;
+
+}
+.who-team-mike{
+  align-self: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dark-color);
+  font-family: 'Merriweather', serif;
+  line-height: 24px;
+  max-height: 450px;
+
+
+}
+.hr-aboutus{
+  background-color: var(--main-color);
+  height: 4px;
+  width: 250px;
+  align-self: center;
+
+
+}
+  @media all and (max-width:1024px) {
+    
+    .text-aboutus{
+      max-width:850px;
+    }
+
+  }
+  
+  @media all and (max-width:900px) {
+    .team{
+      display: flex;
+      flex-direction: column;
+    }
+    .h2-ourteam{
+      margin-top: 50px;
+      margin-bottom: 10px;
+      text-align: center;
+      font-size: 40px;
+      font-weight: bolder;
+      margin-top: 6%;
+    }
+        
+    .text-aboutus{
+      max-width:800px;
+    }
   
   }
+
+  @media (max-width:820px){
+  
+    .text-aboutus{
+      max-width:750px;
+    }
+  }
+
+  @media all and (max-width: 540px){
+    .text-aboutus{
+      max-width:500px;
+    }
+  }
+
+  @media all and (max-width: 480px){
+    .text-aboutus{
+      max-width:450px;
+    }
+  }
+  @media all and (max-width: 440px){
+    .text-aboutus{
+      max-width:380px;
+      line-height: 28px;
+    }
+  }
+
+  @media all and (max-width: 420px){
+    .text-aboutus{
+      max-width:380px;
+      line-height: 28px;
+    }
+  }
+
+  @media all and (max-width: 412px){
+    .text-aboutus{
+      max-width:370px;
+      line-height: 26px;
+    }
+
+    .first-team{
+      padding: 16px;
+      margin: 8px;
+      width: 400px;
+    }
+  }
+
+  @media all and (max-width: 396px){
+    .text-aboutus{
+      max-width:360px;
+      line-height: 26px;
+    }
+
+    .first-team{
+      padding: 16px;
+      margin: 8px;
+      width: 380px;
+    }
+    .h2-ourteam{
+      margin-bottom: 8px;
+       font-size: 34px;
+      margin-top: 10%;
+    }
+  }
+  @media all and (max-width: 380px){
+    .text-aboutus{
+      max-width:340px;
+      line-height: 24px;
+      font-size: 16px;
+    }
+
+    .first-team{
+      padding: 16px;
+      margin: 8px;
+      width: 365px;
+    }
+
+    .photo-team{
+      border-bottom: 8px #244B7A solid;
+      box-shadow: 0px 0px 8px 1px #91979f;
+      align-self: center;
+      margin-top: 5%;
+      width: 305px;
+      height:345px ;
+      }
+  }
+
+  @media all and (max-width: 320px){
+    .text-aboutus{
+      max-width:300px;
+      line-height: 22px;
+      font-size: 16px;
+    }
+
+    .first-team{
+      padding: 16px;
+      margin: 8px;
+      width: 310px;
+    }
+
+    .photo-team{
+      border-bottom: 8px #244B7A solid;
+      box-shadow: 0px 0px 8px 1px #91979f;
+      align-self: center;
+      margin-top: 5%;
+      width: 305px;
+      height:345px ;
+      }
+  }
+
+  @media all and (max-width: 280px){
+    .text-aboutus{
+      max-width:265px;
+      line-height: 19px;
+      font-size: 14px;
+    }
+
+    .first-team{
+      padding: 16px;
+      margin: 8px;
+      width: 260px;
+    }
+
+    .photo-team{
+      border-bottom: 8px #244B7A solid;
+      box-shadow: 0px 0px 8px 1px #91979f;
+      align-self: center;
+      margin-top: 5%;
+      width: 260px;
+      height:305px ;
+      }
+      .h2-ourteam{
+        margin-bottom: 8px;
+         font-size: 28px;
+        margin-top: 10%;
+      }
+  }
+
+

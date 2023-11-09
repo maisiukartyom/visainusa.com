@@ -1,10 +1,12 @@
 import "./main.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import {Link, useLocation} from 'react-router-dom';
 import { MainPhoto } from "../../components/MainPhoto";
+import SupportEngine from "../../components/SupportEngine";
+import axios from "../../api/axios";
 
 const Main = () => {
 
@@ -261,6 +263,7 @@ How do I start my EB3 journey?
           </div>
           <div className="level ">
             <h2 className="appliName">Level 2</h2>
+            <h3 className="appliName-names">"Immigration with no mistake"</h3>
             <del className=" price-del">$100</del>
             <ins className=" price">$49</ins>
             <div className="text-discription">
@@ -290,8 +293,12 @@ How do I start my EB3 journey?
               </Link>
               </div>
           </div>
+
+
+
           <div className="level ">
             <h2 className="appliName">Level 3</h2>
+            <h3 className="appliName-names">"Self immigration with no overpriced assistance"</h3>
             <del className=" price-del">$1500</del>
             <ins className=" price">$999</ins>
             <div className="text-discription">
@@ -323,6 +330,41 @@ Personal immigration specialist for 7 days
               </Link>
               </div>
           </div>
+
+
+
+          <div className="level-future ">
+            <p className="coming">Coming Q4 2024</p>
+            <h2 className="appliName">Level 4</h2>
+            <h3 className="appliName-names">"Turnkey package"</h3>
+            <div className="text-discription">
+              <p className="description ">
+              List of the U.S. employers who are ready to file the Labor Certificate and make the petition for Green Card to start your EB3 process
+              </p>
+              <p className="description">
+              Attorney and government fees are included 
+              </p>
+              <p className="description ">
+              24/7 online support 
+              </p>
+
+                          </div>
+            
+          </div>
+          <div className="level-future ">
+          <p className="coming">Coming Q4 2024</p>
+            <h2 className="appliName">Level 5</h2>
+            <h3 className="appliName-names">"VIP package"</h3>
+            <div className="text-discription">
+              <p className="description ">
+              We will find the U.S. employer based on your request (location, field of business, wage level, etc)
+              </p>
+              <p className="description">
+              Welcome settlement service not limited as rental house, airport pickup, open SSN and bank account, drive license, kids enrollment in school, kindergarten, state tour
+              </p>
+                          </div>
+                      </div>
+          
         </div>
       </div>
     </>
@@ -342,44 +384,78 @@ const Testimonials = () => {
                     <div className="product-container">
                         <div className="product-card">
                             <div className="product-info">
-                                <p className="name">Mike ⭐⭐⭐⭐⭐</p>
-                                <p className="review">This is the best company. You can completely trust their work. Thank you very much.</p>
+                                <p className="name">Francisco R.</p>
+                                <p className="review">"I had the pleasure of working with this team for my EB3 unskilled process, and
+                                 I can't express how grateful I am. Their first-hand experience and extensive knowledge helped to find solutions when my EB3 unskilled case got stuck in the USCIS. Thanks to their expertise, I now hold a U.S. permanent resident card. Highly recommended!"</p>
                             </div>
                         </div>
                         <div className="product-card">
                             <div className="product-info">
-                                <p className="name">Mike ⭐⭐⭐⭐⭐</p>
-                                <p className="review">This is the best company. You can completely trust their work. Thank you very much.</p>
+                                <p className="name">Maria S.</p>
+                                <p className="review">"I can't thank this team enough for their incredible support during my EB3 unskilled application. Their unique knowledge and personal involvement in each step of the process made a huge difference.
+                                 They provided fast response for a reasonable price." </p>
                             </div>
                         </div>
                         <div className="product-card">
                             <div className="product-info">
-                                <p className="name">Mike ⭐⭐⭐⭐⭐</p>
-                                <p className="review">This is the best company. You can completely trust their work. Thank you very much.</p>
+                                <p className="name">David L.</p>
+                                <p className="review">"I was fortunate to have this team on my side for my EB3 journey. Their dedication and commitment were evident, and I couldn't be happier with the results. If you're considering the EB3 unskilled route, don't hesitate to reach out to them."</p>
                             </div>
                         </div>
                         <div className="product-card">
                             <div className="product-info">
-                                <p className="name">Mike ⭐⭐⭐⭐⭐</p>
-                                <p className="review">This is the best company. You can completely trust their work. Thank you very much.</p>
+                                <p className="name">Carl S.</p>
+                                <p className="review">"Working with this team was a game-changer for my EB3 unskilled visa journey. Their deep understanding of the program and their ability to simplify complex procedures were invaluable. They were not just consultants; they were partners in my success.
+                                 I wholeheartedly endorse their services to anyone seeking reliable guidance."</p>
                             </div>
                         </div>
                         <div className="product-card">
                             <div className="product-info">
-                                <p className="name">Mike ⭐⭐⭐⭐⭐</p>
-                                <p className="review">This is the best company. You can completely trust their work. Thank you very much.</p>
+                                <p className="name">Oksana P.</p>
+                                <p className="review">"I was skeptical before approaching them, but during the first consultation they laid out all the aspects of the EB3 Unskilled workers program in a very simple manner and we came up with a list of pros and cons.
+                                 Now I have a better understanding of all the options I have."</p>
                             </div>
                         </div>
                         <div className="product-card">
                             <div className="product-info">
-                                <p className="name">Mike ⭐⭐⭐⭐⭐</p>
-                                <p className="review">This is the best company. You can completely trust their work. Thank you very much.</p>
+                                <p className="name">Maxim F.</p>
+                                <p className="review">"I couldn't have sorted out the complexities of the EB3 unskilled visa process without the expertise of this team. 
+                                Their in-depth knowledge and personalized guidance made me confident I overcome."</p>
                             </div>
                         </div>
                         <div className="product-card">
                             <div className="product-info">
-                                <p className="name">Mike ⭐⭐⭐⭐⭐</p>
-                                <p className="review">This is the best company. You can completely trust their work. Thank you very much.</p>
+                                <p className="name">Anton P.</p>
+                                <p className="review">"I highly recommend this team to anyone seeking assistance with their EB3 unskilled visa application.
+                                 Their professionalism and attention to detail are unparalleled."</p>
+                            </div>
+                        </div>
+                        <div className="product-card">
+                            <div className="product-info">
+                                <p className="name">Mario A.</p>
+                                <p className="review">"I was supposed to apply for H1B, but when found these guys who answered my questions about EB3 unskilled visa
+                                I came to the conclusion that EB3 is the faster way to reach green card."</p>
+                            </div>
+                        </div>
+                        <div className="product-card">
+                            <div className="product-info">
+                                <p className="name">Sergey K.</p>
+                                <p className="review">"I was lost in the EB3 application process until I found this team.
+                                 Their unique first-hand experience made all the difference. Thanks!"</p>
+                            </div>
+                        </div>
+                        <div className="product-card">
+                            <div className="product-info">
+                                <p className="name">Lucas R.</p>
+                                <p className="review">"The team's expertise in EB3 unskilled visas is truly impressive. 
+                                 I couldn't have asked for a better support."</p>
+                            </div>
+                        </div>
+                        <div className="product-card">
+                            <div className="product-info">
+                                <p className="name">Anna L.</p>
+                                <p className="review">"I reached out to this team when I needed help with my EB3 case, and it was the best decision I made.
+                                 Their personalized approach, combined with their vast knowledge, gave me the confidence I needed to succeed."</p>
                             </div>
                         </div>
                     </div>
@@ -389,10 +465,54 @@ const Testimonials = () => {
     )
 }
 
+const Contacts = () => {
+  return (
+      <>
+          <div className="vie"></div>
+
+
+          <div  class="contacts-map" >
+
+            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3349.2171612892553!2d-80.03051992448948!3d32.91886027360458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88fe6396fc39530d%3A0xaee5adf21c554e33!2zNjY1MCBSaXZlcnMgQXZlLCBOb3J0aCBDaGFybGVzdG9uLCBTQyAyOTQwNiwg0KHQqNCQ!5e0!3m2!1sru!2sby!4v1699432124178!5m2!1sru!2sby"
+             width="600" 
+             allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
+               <div className="cont">
+
+  <div className="align">
+               <h4 class="contact-name">Contacts</h4>
+                <div className="number-phone">
+               <img src="images/number.png" alt="phone" width={20} height={20} />
+               <p class="number">+1 864 748 9898</p>
+                              </div>
+                              <div className="number-phone">
+               <img src="images/mail.png" alt="phone" width={26} height={20} />
+               <a href="mailto:eb3unskilled@visainusa.com" class="number" >eb3unskilled@visainusa.com</a>
+                              </div>
+                              <br></br>
+               <div className="number-phone">
+               <img src="images/home.png" alt="phone" width={30} height={20} />
+               <p class="number" >"Visa in USA" Limited Liability Company"
+ 6650 Rivers Ave Suite 105, North Charleston, South Carolina, 29406</p>
+                              </div>
+                              </div>
+                              <div className="link-column">
+                              <a href="https://web.telegram.org/k/#1269872668" target="_blank"><img className="link-margin" src="images/telegram.png" alt="telegram" width="38" height="38" /></a>
+                        <a href="https://web.whatsapp.com/" target="_blank"><img className="link-margin" src="images/whatsapp.png" alt="whatsapp" width="38" height="38" /></a>
+                        </div>
+               </div>
+            </div>
+
+      </>
+  )
+}
+
+
 const Partners = () => {
     return (
         <>
-            <div className="vie"></div>
+<div className="vie-mini"></div>
             <div className="partners" >
                 <div id="#partners" >
                     <br/>
@@ -460,6 +580,10 @@ const Footer = () => {
 }
 
 const Index = () => {
+  const [user, setUser] = useState({});
+  const [isUser, setIsUser] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isVerified, setIsVerified] = useState(false);
 
   const fly = () => {
     if (window.innerWidth >= 1370) {
@@ -492,6 +616,32 @@ const Index = () => {
   };
 
   useEffect(() => {
+    const verifyCookie = async (level) => {
+      try{
+          const user = await axios.post("auth/verify",
+              {
+                  requiredLevel: level
+              },
+              {
+                  withCredentials: true
+              })
+          if (user.data.isAdmin){
+            setIsAdmin(true)
+          }
+          else{
+            setIsAdmin(false)
+          }
+          setUser({email: user.data.email, isAdmin: user.data.isAdmin})
+          setIsUser(true)
+          setIsVerified(true)
+          console.log(user.data)
+      }
+      catch (err){
+          setIsUser(false)
+          setIsVerified(true)
+      }
+      }
+
     const productContainers = [...document.querySelectorAll('.product-container')];
     const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
     const preBtn = [...document.querySelectorAll('.pre-btn')];
@@ -510,16 +660,27 @@ const Index = () => {
     })
     AOS.init();
     fly();
+    verifyCookie(0)
   }, []);
+
+  const logout = () => {
+    setIsVerified(false)
+    setIsAdmin(false)
+    setIsUser(false)
+  }
 
   return (
     <>
         {/* <HeaderForMain /> */}
-        <MainPhoto />
+        <MainPhoto logout={logout} />
         <Main />
         <Testimonials />
+        <Contacts />
         <Partners />
         <Footer />
+        {
+          isVerified && !isAdmin && isUser && <SupportEngine user={user} />
+        }
     </>
   );
 };

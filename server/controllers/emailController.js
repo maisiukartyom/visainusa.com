@@ -47,15 +47,28 @@ const handleSendEmployer = async (req, res) => {
       }
     });
     
-    const {company, email, time, phoneNumber} = req.body
+    const {company, email, phoneNumber, comment} = req.body
 
-    const htmlContent = `
+    let htmlContent;
+
+    if (comment !== ''){
+      htmlContent = `
       <h1>Employer's info</h1>
       <p><strong>Company:</strong> ${company}</p>
       <p><strong>Company's email:</strong> ${email}</p>
-      <p><strong>Suitable time:</strong> ${time}</p>
+      <p><strong>Phone number:</strong> ${phoneNumber}</p>
+      <p><strong>Comment:</strong> ${comment}</p>
+    `;
+    }
+    else{
+      htmlContent = `
+      <h1>Employer's info</h1>
+      <p><strong>Company:</strong> ${company}</p>
+      <p><strong>Company's email:</strong> ${email}</p>
       <p><strong>Phone number:</strong> ${phoneNumber}</p>
     `;
+    }
+
 
 
     const mailOptions = {

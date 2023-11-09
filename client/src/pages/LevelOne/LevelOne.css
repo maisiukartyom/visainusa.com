@@ -337,6 +337,12 @@ margin-left: 1%;
   }
   
 
+  @media (max-width:1920px){
+
+    .footer-column {
+      padding: 0 100px;
+    }
+  }
 
 @media (max-width:924px) {
   .header-nav{

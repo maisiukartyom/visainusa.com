@@ -40,7 +40,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/unauthorized" element={<Unauthorized />} />
           <Route path="/survey" element={<Anketa />} />
-          <Route path="/profile" element={<Profile />}/>
+          {/* <Route path="/profile" element={<Profile />}/> */}
           <Route path="/admin" element={<Admin />}/>
           <Route path="/levelone" element={<LevelOne />} />
           <Route path="/leveltwo" element={<LevelTwo />} />
