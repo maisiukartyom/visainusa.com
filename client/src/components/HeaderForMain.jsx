@@ -7,10 +7,10 @@ import {toast} from 'react-toastify'
 import { useEffect } from "react";
 
 
-export const HeaderForMain = () => {
+export const HeaderForMain = (props) => {
 
     const [isOpen, setOpen] = useState();
-    const [user, setUser] = useState(false)
+    const [user, setUser] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false)
     const [verified, setVerified] = useState(false)
     const { pathname } = useLocation();
@@ -31,6 +31,7 @@ export const HeaderForMain = () => {
         progress: undefined,
         theme: "light",
         });
+        props.logout()
     }
 
     useEffect(() => {
@@ -95,12 +96,20 @@ export const HeaderForMain = () => {
                     user &&
                     <>
                     
-                    <Link
+                    
+                    {/* <Link
                         className="header-nav-item item-button-l login-l"
                         to={isAdmin? "/admin" : "/profile"}
                     >
                         Profile
-                    </Link>
+                    </Link> */}
+                    {
+                        isAdmin && 
+                        <Link className="header-nav-item item-button-l login-l"
+                        to={"/admin"}>
+                            Admin
+                        </Link>
+                    }
 
                     <div
                         className = "header-nav-item item-button-l sign-l"

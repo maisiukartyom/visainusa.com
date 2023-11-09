@@ -4,10 +4,10 @@ import { HeaderForMain } from "./HeaderForMain";
 import { Link } from "react-router-dom";
 
 
-export const MainPhoto = () => {
+export const MainPhoto = ({logout}) => {
     return(
         <div className="photoMain">
-            <HeaderForMain />
+            <HeaderForMain logout = {logout}/>
         <div>
        <div className="center">
       <div className="fly">

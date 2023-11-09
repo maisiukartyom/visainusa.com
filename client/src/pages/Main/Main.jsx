@@ -1,10 +1,12 @@
 import "./main.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import {Link, useLocation} from 'react-router-dom';
 import { MainPhoto } from "../../components/MainPhoto";
+import SupportEngine from "../../components/SupportEngine";
+import axios from "../../api/axios";
 
 const Main = () => {
 
@@ -460,6 +462,10 @@ const Footer = () => {
 }
 
 const Index = () => {
+  const [user, setUser] = useState({});
+  const [isUser, setIsUser] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isVerified, setIsVerified] = useState(false);
 
   const fly = () => {
     if (window.innerWidth >= 1370) {
@@ -492,6 +498,32 @@ const Index = () => {
   };
 
   useEffect(() => {
+    const verifyCookie = async (level) => {
+      try{
+          const user = await axios.post("auth/verify",
+              {
+                  requiredLevel: level
+              },
+              {
+                  withCredentials: true
+              })
+          if (user.data.isAdmin){
+            setIsAdmin(true)
+          }
+          else{
+            setIsAdmin(false)
+          }
+          setUser({email: user.data.email, isAdmin: user.data.isAdmin})
+          setIsUser(true)
+          setIsVerified(true)
+          console.log(user.data)
+      }
+      catch (err){
+          setIsUser(false)
+          setIsVerified(true)
+      }
+      }
+
     const productContainers = [...document.querySelectorAll('.product-container')];
     const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
     const preBtn = [...document.querySelectorAll('.pre-btn')];
@@ -510,16 +542,26 @@ const Index = () => {
     })
     AOS.init();
     fly();
+    verifyCookie(0)
   }, []);
+
+  const logout = () => {
+    setIsVerified(false)
+    setIsAdmin(false)
+    setIsUser(false)
+  }
 
   return (
     <>
         {/* <HeaderForMain /> */}
-        <MainPhoto />
+        <MainPhoto logout={logout} />
         <Main />
         <Testimonials />
         <Partners />
         <Footer />
+        {
+          isVerified && !isAdmin && isUser && <SupportEngine user={user} />
+        }
     </>
   );
 };
