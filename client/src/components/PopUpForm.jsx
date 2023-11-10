@@ -67,7 +67,7 @@ const PopUpForm = ({ onClose }) => {
   const handleSubmit = async () => {
     if (email !== "" && phoneNumber !== ""){
         try{
-            await axios.post("/checkout/sendEmail", {
+            await axios.post("/email/sendEmail", {
                 email: email,
                 phoneNumber: phoneNumber
             })
@@ -85,7 +85,7 @@ const PopUpForm = ({ onClose }) => {
             navigate("/", {state: {hash: "pricing"}})
         }
         catch(error){
-            toast.error("Couldn't send email to Alexey!", {
+            toast.error("Couldn't send your email!", {
             position: "top-center",
             autoClose: 3000,
             hideProgressBar: false,
@@ -115,7 +115,7 @@ const PopUpForm = ({ onClose }) => {
     <PopUpBackground>
       <PopUpContent>
         <CloseButton onClick={onClose}>X</CloseButton>
-        <h2>Contact Alexey</h2>
+        <h2>Contact us</h2>
         <p><strong style={{color: "red"}}>It looks like you answered "YES" to one or more questions. 
           <br />
           Please fill in the form and we will reach out!</strong></p>

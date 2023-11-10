@@ -2,13 +2,14 @@ const User = require('../model/User');
 const bcrypt = require('bcrypt');
 const axios = require('axios')
 
+
 const handleNewUser = async (req, res) => {
     const { fullname, email, password, phoneNumber } = req.body;
 
     if (!fullname || !email || !password || !phoneNumber) return res.status(400).json({ 'message': 'Email, password, fullname and phoneNumber are required.' });
 
     // check for duplicate usernames in the db
-    const duplicate = await User.findOne({ email: email }).exec();
+    const duplicate = await User.findOne({ email: email });
     if (duplicate) return res.sendStatus(409); //Conflict 
 
     try {

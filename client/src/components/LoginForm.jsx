@@ -27,12 +27,12 @@ function LoginForm(props)  {
                 )
                 setEmail('');
                 setPassword('');
-                if (state.previousPath !== "/signup"){
+                if (state && state.previousPath !== "/signup" ){
                     navigate(-1);
                 }
                 else{
                     navigate("/")
-                }
+                }   
 
                 toast.success('Logged in!', {
                     position: "top-center",

@@ -26,7 +26,7 @@ const Profile = () => {
                     isAdmin: res.data.isAdmin})
                 setVerified(true)
                 if (res.data.isAdmin){
-                    navigate("/admin")
+                    navigate("/adminChat")
                 }
             }
             catch (err){
@@ -46,6 +46,18 @@ const Profile = () => {
                     <h3><strong>Level: {user.level}</strong></h3>
                     <button onClick={() => navigate("/")}>HOME</button>
                 </div>
+                <div style={styles.card}>
+                    {/* {user.level >= 1 &&
+                        <button onClick={() => navigate("/levelone")}>Level 1</button>
+                    } */}
+                    <button onClick={() => navigate("/levelone")}>Level 1</button>
+                        {user.level >= 2 &&
+                        <button onClick={() => navigate("/leveltwo")}>Level 2</button>
+                    }
+                        {user.level >= 3 &&
+                        <button onClick={() => navigate("/levelthree")}>Level 3</button>
+                    }
+                </div>
             </div>
               <SupportEngine user={user} />
         </>
@@ -59,6 +71,7 @@ const styles = {
       justifyContent: "center",
       alignItems: "center",
       height: "100vh",
+      gap: "10px"
     },
     card: {
       background: "#ffffff",

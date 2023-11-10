@@ -60,7 +60,12 @@ const SignupForm = ({ submitForm }) => {
                             />
                         {errors.phoneNumber && <p className="error-left">{errors.phoneNumber}</p>}
                     </div>
+
                     <div>
+                    <label className="check-sign">
+                            <input  type="checkbox" />
+                            <p className="mini-text">I read and accept term and conditions</p>
+                    </label>
                         <button className="submit">Sign Up</button>
                     </div>
                 </form>
