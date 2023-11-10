@@ -94,17 +94,21 @@ export const Header = () => {
                         
                         {/* <Link
                             className="header-nav-item item-button-l login-l"
-                            to={isAdmin? "/admin" : "/profile"}
+                            to={isAdmin? "/adminChat" : "/profile"}
                         >
                             Profile
                         </Link> */}
 
                         {
-                        isAdmin && 
-                        <Link className="header-nav-item item-button-l login-l"
-                        to={"/admin"}>
-                            Admin
-                        </Link>
+                        isAdmin && <>
+                            <Link className="header-nav-item item-button-l login-l"
+                            to="/adminChat">
+                                Chats
+                            </Link>
+                            <Link className="header-nav-item item-button-l login-l" to="/adminDashboard">
+                                Dashboard
+                            </Link>
+                        </>
                         }
 
                         <div

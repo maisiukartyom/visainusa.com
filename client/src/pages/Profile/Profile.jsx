@@ -26,7 +26,7 @@ const Profile = () => {
                     isAdmin: res.data.isAdmin})
                 setVerified(true)
                 if (res.data.isAdmin){
-                    navigate("/admin")
+                    navigate("/adminChat")
                 }
             }
             catch (err){

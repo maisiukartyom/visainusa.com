@@ -109,61 +109,33 @@ const handlePaypalTransactionComplete = async (req, res) => {
                   process.env.ACCESS_TOKEN_SECRET,
                   { expiresIn: '1d' }
                 );
+                
+                await Payment.create({
+                  paymentID: result.purchase_units[0].payments.captures[0].id,
+                  status: result.status,
+                  buyerEmail: email,
+                  createTime: result.purchase_units[0].payments.captures[0].create_time,
+                  updateTime: result.purchase_units[0].payments.captures[0].update_time,
+                  amount: result.purchase_units[0].payments.captures[0].amount.value,
+                  currency: result.purchase_units[0].payments.captures[0].amount.currency_code,
+                })
+
                 res.cookie('jwt', accessToken, { httpOnly: true, secure: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 }).json(resJson);;
               }
-              catch{
+              catch (err){
+                console.log(err)
                 res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true });
                 res.sendStatus(403);
               }
           }
         );
+
         // return capture.result;
     } catch (err) {
         // Handle any errors from the call
         console.error(err);
         res.sendStatus(500);
     }
-}
-
-const handleLevel1 = async (req, res) => {
-
-    const token = req.cookies.jwt;
-    let email = "";
-    jwt.verify(
-      token,
-      process.env.ACCESS_TOKEN_SECRET,
-      async (err, data) => {
-          if (err) {
-            res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true });
-            return res.sendStatus(403);
-          }
-          email = data.email;
-
-          if (data.level >= 1){
-            return res.sendStatus(401)
-          }
-
-          try{
-            const result = await User.findOneAndUpdate({email: email}, {level: 1})
-
-            const accessToken = jwt.sign(
-              { 
-                  "email": email,
-                  "isAdmin": result.isAdmin,
-                  "level": 1
-               },
-              process.env.ACCESS_TOKEN_SECRET,
-              { expiresIn: '1d' }
-            );
-            res.cookie('jwt', accessToken, { httpOnly: true, secure: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 });
-            res.sendStatus(200);
-          }
-          catch{
-            res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true });
-            res.sendStatus(403);
-          }
-      }
-    );
 }
 
 const handleVerify = async (req, res) => {
@@ -196,4 +168,10 @@ const handleVerify = async (req, res) => {
   );
 }
 
-module.exports = {handlePayment, handleLevel1, handleVerify, handlePaypalTransactionComplete}
+const handleGetTransactions = async (req, res) => {
+  const transactions = await Payment.find();
+  if (!transactions) return res.status(204).json({ 'message': 'No payments found' });
+  res.json(transactions);
+}
+
+module.exports = {handlePayment, handleVerify, handlePaypalTransactionComplete, handleGetTransactions}

@@ -1,5 +1,4 @@
 import Layout from './components/Layout';
-import Admin from './pages/Admin/Admin';
 import Missing from './components/Missing';
 import Unauthorized from './components/Unauthorized';
 import { Routes, Route } from 'react-router-dom';
@@ -18,6 +17,8 @@ import LevelTwo from './pages/LevelTwo/LevelTwo';
 import AbotUs from './pages/AboutUs/AboutUs';
 import LevelThree from './pages/LevelThree/LevelThree';
 import Payment from './components/Payment';
+import Dashboard from './pages/Dashboard/Dashboard';
+import AdminChat from './pages/AdminChat/AdminChat';
 
 function App() {
   // console.log("Rendered!")
@@ -41,7 +42,8 @@ function App() {
           <Route path="/unauthorized" element={<Unauthorized />} />
           <Route path="/survey" element={<Anketa />} />
           <Route path="/profile" element={<Profile />}/>
-          <Route path="/admin" element={<Admin />}/>
+          <Route path="/adminChat" element={<AdminChat />}/>
+          <Route path="/adminDashboard" element={<Dashboard />}/>
           <Route path="/levelone" element={<LevelOne />} />
           <Route path="/leveltwo" element={<LevelTwo />} />
           <Route path="/levelthree" element={<LevelThree />} />

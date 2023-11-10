@@ -43,6 +43,7 @@ app.use('/refresh', require('./routes/refresh'));
 app.use('/logout', require('./routes/logout'));
 app.use('/payment', require('./routes/payment'))
 app.use('/email', require('./routes/emailing'))
+app.use('/users', require('./routes/users'))
 
 mongoose.connection.once('open', () => {
     console.log('Connected to MongoDB');
