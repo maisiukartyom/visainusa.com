@@ -8,6 +8,10 @@ const paymentSchema = new Schema({
     },
     description: {
         type: String,
+        required: false
+    },
+    buyerEmail: {
+        type: String,
         required: true
     },
     status: {

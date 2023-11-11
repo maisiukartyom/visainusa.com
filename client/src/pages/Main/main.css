@@ -3,6 +3,10 @@ html {
 	margin: 0;
 }
 
+* {
+	box-sizing: border-box;
+   }
+
 @font-face{
 	font-family: 'Merriweather';
 	src: url(../Anketa/Merriweather-Light.ttf);
@@ -252,8 +256,6 @@ margin-left: 2%;
 }
 
 
-/*block 2*/
-
 .vie {
 	background-image: url(../../../public/images/bg.jpg);
 	background-size: cover;
@@ -367,7 +369,6 @@ a {
 	border: 2px solid #bd8e55;
 }
 
-/*block3*/
 
 .titrecenter {
 	display: flex;
@@ -569,9 +570,6 @@ font-family: 'Merriweather', serif;
 padding: 8px;
 line-height: 27px;
 }
-
-
-/*reviews*/
 
 .product {
 	position: relative;
@@ -819,8 +817,6 @@ height: 300px;
 	margin-top: -0.1%;
 	color: #424242;
 }
-
-/*footer*/
 
 .footer {
 	display: flex;

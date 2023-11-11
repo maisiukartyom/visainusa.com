@@ -4,25 +4,23 @@ import { HeaderForMain } from "./HeaderForMain";
 import {Link} from 'react-router-dom';
 
 
-
-export const MainPhoto = () => {
+export const MainPhoto = ({logout}) => {
     return(
         <div className="photoMain">
-            <HeaderForMain />
-<div>
+            <HeaderForMain logout = {logout}/>
+        <div>
        <div className="center">
       <div className="fly">
       <p id="first">EB3 unskilled program</p>
-       <p id="second">We got green cards thru it </p>
-       <p id="third">We do know how assist your case</p>
+       <p id="second">We got green cards through it </p>
+       <p id="third">We do know how to assist your case</p>
 
               <div className="buttons">
               <Link to="./abouteb3">
                    <button className="btn-eb3">About EB3</button>
                    </Link>
-                 <Link to="./survey" className="btn-level-top">
-                  <button className="btn-level-anketa">Determine your eligibility</button>
-</Link>
+                 <Link to="/survey" className="btn-level-top">
+                 <button className="btn-level-anketa">Determine your eligibility</button></Link>
               </div>
           </div>
         </div>

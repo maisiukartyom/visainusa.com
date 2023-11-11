@@ -67,7 +67,6 @@
 
 .login-l, .sign-l {
 margin-bottom: 20px;
-
 }
 
 .item-button-l {
@@ -252,11 +251,6 @@ margin-left: 20%;
 	background: var(--dark-color);
 	color: var(--light-color);
 }
-
-
-
-
-/*footer*/
 
 footer {
   background-color: var(--main-color);
@@ -479,7 +473,6 @@ width:350px ;
 height: 215px;
   }
   
-/*first block*/
 
 
 .level-first-block{

@@ -1,6 +1,7 @@
 const User = require('../model/User');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const axios = require('axios')
 
 const handleLogin = async (req, res) => {
     const { email, password } = req.body;
@@ -24,6 +25,17 @@ const handleLogin = async (req, res) => {
         );
         await foundUser.save();
 
+        if (!isAdmin){
+            await axios.put(
+                'https://api.chatengine.io/users/',
+                {
+                    "username": email,
+                    "secret": email,
+                    "email": email
+                },
+                {headers: {"Private-Key": process.env.CHAT_SECRET}})
+        }
+        
         // Creates Secure Cookie with access token
         res.cookie('jwt', accessToken, { httpOnly: true, secure: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 });
         
@@ -55,6 +67,10 @@ const userVerification = (req, res) => {
         } else {
             const user = await User.findOne({email: data.email})
             if (user) {
+
+                if (user.isAdmin){
+                    return res.status(200).json({email: user.email, level: user.level, name: user.fullname, isAdmin: user.isAdmin})
+                }
                 
                 if (forAdmin && !data.isAdmin){
                     return res.sendStatus(403)

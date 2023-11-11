@@ -2,8 +2,9 @@ import axios from "../../api/axios";
 import SupportAdmin from "../../components/SupportAdmin";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {toast} from 'react-toastify';
 
-const Admin = () => {
+const AdminChat = () => {
 
     const [verified, setVerified] = useState(false)
     const navigate = useNavigate();
@@ -27,7 +28,18 @@ const Admin = () => {
                 setVerified(true)
             }
             catch (err){
-              navigate("/login")
+                toast.error("You're not an admin!",{
+                    position: "top-center",
+                    autoClose: 6000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    progress: undefined,
+                    theme: "light",
+                    }
+                  )
+              navigate("/")
             }
           }
           verifyCookie(0, true)
@@ -41,4 +53,4 @@ const Admin = () => {
     )
 }
 
-export default Admin
+export default AdminChat

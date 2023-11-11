@@ -1,28 +1,37 @@
 import Layout from './components/Layout';
-import Admin from './pages/Admin/Admin';
 import Missing from './components/Missing';
 import Unauthorized from './components/Unauthorized';
-import RequireAuth from './components/RequireAuth';
 import { Routes, Route } from 'react-router-dom';
-import Level1 from './components/Level1';
 import Main from './pages/Main/Main';
 import Login from './pages/Login/Login';
 import SignUp from './pages/SignUp/SignUp';
 import Anketa from './pages/Anketa/Anketa';
-import Checkout from './components/Checkout';
 import Profile from './pages/Profile/Profile';
 import LevelOne from './pages/LevelOne/LevelOne';
 import ForEmployer from './pages/ForEmployer/ForEmployer'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import LevelTwo from './pages/LevelTwo/LevelTwo';
 import AbotUs from './pages/AboutUs/AboutUs';
 import LevelThree from './pages/LevelThree/LevelThree';
+import Payment from './components/Payment';
+import Dashboard from './pages/Dashboard/Dashboard';
+import AdminChat from './pages/AdminChat/AdminChat';
 import AboutEB3 from './pages/AboutEB3/AboutEb3';
 import NewDesign from './components/NewDesign';
 
 function App() {
   // console.log("Rendered!")
+
+  const { pathname, state } = useLocation();
+
+  useEffect(() => {
+    if (!state){
+      window.scrollTo(0, 0)
+    }
+  }, [pathname, state])
 
   return (
     <>
@@ -34,13 +43,14 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/unauthorized" element={<Unauthorized />} />
           <Route path="/survey" element={<Anketa />} />
-          <Route path="/checkout" element={<Checkout />} />
           <Route path="/profile" element={<Profile />}/>
-          <Route path="/admin" element={<Admin />}/>
+          <Route path="/adminChat" element={<AdminChat />}/>
+          <Route path="/adminDashboard" element={<Dashboard />}/>
           <Route path="/levelone" element={<LevelOne />} />
           <Route path="/leveltwo" element={<LevelTwo />} />
           <Route path="/levelthree" element={<LevelThree />} />
           <Route path="/foremployer" element={<ForEmployer />} />
+          <Route path="/payment" element={<Payment />} />
           <Route path="/aboutus" element={<AbotUs />} />
           <Route path="/abouteb3" element={<AboutEB3 />} />
           <Route path="/newdesign" element={<NewDesign />} />
@@ -52,7 +62,7 @@ function App() {
           <Route path="*" element={<Missing />} />
         </Route>
       </Routes>
-      <ToastContainer />
+      <ToastContainer/>
     </>
   );
 }

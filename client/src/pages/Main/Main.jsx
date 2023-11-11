@@ -3,177 +3,26 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
 import { gsap } from "gsap";
-import {Link} from 'react-router-dom';
-import axios from "../../api/axios";
-import {toast} from 'react-toastify';
-import { HeaderForMain } from "../../components/HeaderForMain";
+import {Link, useLocation} from 'react-router-dom';
 import { MainPhoto } from "../../components/MainPhoto";
-
-
-const myFunction = () => {
-  let x = document.querySelector(".wrap");
-  if (x.style.display === "block" && window.innerWidth <= 800) {
-    x.style.display = "none";
-  } else {
-    x.style.display = "block";
-  }
-};
-
-// const Header = () => {
-//   const [user, setUser] = useState(false)
-//   const [isAdmin, setIsAdmin] = useState(false)
-//   const [verified, setVerified] = useState(false)
-
-//   const logout = async () => {
-//     await axios.get("/auth/logout", {
-//       withCredentials: true
-//     });
-//     setVerified(false);
-//     setUser(false);
-//     toast.success('Logged out!', {
-//       position: "top-center",
-//       autoClose: 2000,
-//       hideProgressBar: false,
-//       closeOnClick: true,
-//       pauseOnHover: false,
-//       draggable: false,
-//       progress: undefined,
-//       theme: "light",
-//       });
-//   }
-
-//   useEffect(() => {
-//     const verifyCookie = async (level) => {
-//       try{
-//         const user = await axios.post("auth/verify",
-//             {
-//                 requiredLevel: level
-//             },
-//             {
-//                 withCredentials: true
-//             })
-//         if (user.data.isAdmin){
-//           setIsAdmin(true)
-//         }
-//         else{
-//           setIsAdmin(false)
-//         }
-//         setUser(true)
-//         setVerified(true)
-//       }
-//       catch (err){
-//         setVerified(true)
-//         setUser(false)
-//       }
-//     }
-
-//     verifyCookie(0)
-//   }, [verified])
-
-
-//   return (
-//     <>
-//       <header>
-//         <a id="home"></a>
-//         <div className="mainpage"></div>
-//         <nav className="topnav">
-//           <div className="start gg">
-//             <a className="ggitem" href="#home" onClick={myFunction}>
-//               <img
-//                 className="logo"
-//                 src="images/logo.png"
-//                 alt="logo"
-//                 width="70"
-//                 height="94"
-//               />
-//             </a>
-//           </div>
-//           <div className="wrap">
-//             <div className="mainpages">
-//               <a className="item" href="#aboutus" onClick={myFunction}>
-//                 About us
-//               </a>
-//               <a className="item" href="#testimonials" onClick={myFunction}>
-//                 Testimonials
-//               </a>
-//               <a className="item" href="#contacts" onClick={myFunction}>
-//                 Contacts
-//               </a>
-//               <a className="item" href="#pricing" onClick={myFunction}>
-//                 Pricing
-//               </a>
-//               {/* Only show if not authorized */}
-//               {
-//                 verified && !user && 
-//                 <>
-//                   <a
-//                     className="item-button login"
-//                     href="/login"
-//                     onClick={myFunction}
-//                   >
-//                   Log in
-//                   </a>
-//                   <a
-//                     className="item-button sign"
-//                     href="/signup"
-//                     onClick={myFunction}
-//                   >
-//                   Sign up
-//                   </a>
-//                 </>
-//               }
-//               {
-//                 verified && user &&
-//                 <>
-                  
-//                   <Link
-//                     className="item-button login"
-//                     to={isAdmin? "/admin" : "/profile"}
-//                     onClick={myFunction}
-//                   >
-//                     Profile
-//                   </Link>
-
-//                   <button
-//                     className="item-button button-logout"
-//                     onClick={logout}
-//                   >
-//                     Logout
-//                   </button>
-//                 </>
-//               }
-//             </div>
-//           </div>
-//           <label htmlFor="toggle" className="burgermenu" onClick={myFunction}>
-//             ☰
-//           </label>
-//         </nav>
-//         <div>
-//           <div className="center">
-//             <div className="fly">
-//               <p id="first">We will help you</p>
-//               <p id="second">make your dream</p>
-//               <p id="third">come true</p>
-//               <div className="buttons">
-//                 <a href="#">
-//                   <button className="btn-eb3">About EB3</button>
-//                 </a>
-//                 <Link to='/survey'>
-//                   <button className="btn-level">Check your eligibility</button>
-//                 </Link>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </header>
-//     </>
-//   );
-// };
+import SupportEngine from "../../components/SupportEngine";
+import axios from "../../api/axios";
+import CallForm from "../../components/CallForm/CallForm";
 
 
 
 
 const Main = () => {
+
+  const {state} = useLocation();
+
+  useEffect(() => {
+    if (state?.hash){
+      document.getElementById(state.hash).scrollIntoView();
+      window.history.replaceState(null, document.title)
+    }
+  }, [state])
+
   return (
     <>
       <div className="main">
@@ -712,22 +561,22 @@ const Footer = () => {
                     <a href="#">
                         <p className="grey marg">EB-3 Unskilled Visa</p>
                     </a>
-                    <a href="#">
+                    <a href="#pricing">
                         <p className="grey marg">Pricing</p>
                     </a>
                 </div>
                 <div className="contacts ">
                     <h4 className="parr4 light-color">Success Stories</h4>
-                    <a href="#">
+                    <a href="#testimonials">
                         <p className="grey marg">Testimonials</p>
                     </a>
                 </div>
                 <div className="contacts ">
                     <div className="links">
-                        <a href="#" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/telegram.png?v=1698341412493" alt="telegram" width="38" height="38" /></a>
+                        <a href="https://web.telegram.org/k/#@eb3usa" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/telegram.png?v=1698341412493" alt="telegram" width="38" height="38" /></a>
                         <a href="#" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/facebook.png?v=1698341176410" alt="facebook" width="38" height="38" /></a>
                         <a href="#" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/instagram.png?v=1698341213474" alt="instagram" width="38" height="38" /></a>
-                        <a href="#" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/youtube.png?v=1698341435865" alt="youtube" width="38" height="38" /></a>
+                        <a href="https://www.youtube.com/@EB3unskilled" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/youtube.png?v=1698341435865" alt="youtube" width="38" height="38" /></a>
                     </div>
                 </div>
             </footer>
@@ -736,6 +585,11 @@ const Footer = () => {
 }
 
 const Index = () => {
+  const [user, setUser] = useState({});
+  const [isUser, setIsUser] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isVerified, setIsVerified] = useState(false);
+
   const fly = () => {
     if (window.innerWidth >= 1370) {
       gsap.from("#first", { x: 1500, duration: 0.8, ease: "power1.out" });
@@ -767,6 +621,32 @@ const Index = () => {
   };
 
   useEffect(() => {
+    const verifyCookie = async (level) => {
+      try{
+          const user = await axios.post("auth/verify",
+              {
+                  requiredLevel: level
+              },
+              {
+                  withCredentials: true
+              })
+          if (user.data.isAdmin){
+            setIsAdmin(true)
+          }
+          else{
+            setIsAdmin(false)
+          }
+          setUser({email: user.data.email, isAdmin: user.data.isAdmin})
+          setIsUser(true)
+          setIsVerified(true)
+          console.log(user.data)
+      }
+      catch (err){
+          setIsUser(false)
+          setIsVerified(true)
+      }
+      }
+
     const productContainers = [...document.querySelectorAll('.product-container')];
     const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
     const preBtn = [...document.querySelectorAll('.pre-btn')];
@@ -785,17 +665,28 @@ const Index = () => {
     })
     AOS.init();
     fly();
+    verifyCookie(0)
   }, []);
+
+  const logout = () => {
+    setIsVerified(false)
+    setIsAdmin(false)
+    setIsUser(false)
+  }
 
   return (
     <>
         {/* <HeaderForMain /> */}
-        <MainPhoto />
+        <MainPhoto logout={logout} />
         <Main />
         <Testimonials />
         <Contacts />
         <Partners />
         <Footer />
+        <CallForm />
+        {
+          isVerified && !isAdmin && isUser && <SupportEngine user={user} />
+        }
     </>
   );
 };

@@ -210,7 +210,7 @@ justify-content: center;
   
   }
   
-  @media all and(max-width:300px) {
+  @media all and (max-width:300px) {
   
     .app-wrapper{
       align-items: center;
@@ -227,14 +227,14 @@ justify-content: center;
   }
 
 
-  @media all and(max-width:290px) {
+  @media all and (max-width:290px) {
   
     
       .app-wrapper-main{
         width: 100% ;
       }
   }
-  @media all and(max-width:280px) {
+  @media all and (max-width:280px) {
   
     .app-wrapper{
       align-items: center;

@@ -32,8 +32,8 @@
 .check{
 	display: flex;
 	justify-content: center;
-border: 1px #CF3549 solid;
-padding: 6px;
+	border: 1px #CF3549 solid;
+	padding: 6px;
 	
 }
 	.mini-text{
@@ -47,9 +47,9 @@ padding: 6px;
 		height: 60px;
 	}
 .logo-center{
-margin: auto;
-margin-top: -20px;
-margin-bottom: 20px;
+	margin: auto;
+	margin-top: -20px;
+	margin-bottom: 20px;
 }
 
 .btn-center{
@@ -119,6 +119,7 @@ input {
 	}
 }
 
+
 @media all and (max-width:500px) {
 
 	.label {
@@ -141,7 +142,8 @@ input {
 
 }
 
-@media all and(max-width:300px) {
+
+@media all and (max-width:300px) {
 
 	.label {
 		font-size: 10px;
@@ -167,113 +169,8 @@ input {
 	}
 
 	.logo-center{
-
 		margin-top: -20px;
 		margin-bottom: 20px;
 		}
 
 }
-
-/* .chatWithMeButton {
-	cursor: 'pointer';
-	box-shadow: '0px 0px 16px 6px rgba(0, 0, 0, 0.33)';
-	border-radius: '50%';
-	background-image: url(https://chat-engine-assets.s3.amazonaws.com/tutorials/my-face-min.png);
-	background-repeat: 'no-repeat';
-	background-position: 'center';
-	background-size: '84px';
-	width: '84px';
-	height: '84px';
-}
-
-.avatarHello{ 
-	position: 'absolute';
-	left: 'calc(-100% - 44px - 28px)'; 
-	top: 'calc(50% - 24px)';
-	z-index: '10000';
-	box-shadow: '0px 0px 16px 6px rgba(0, 0, 0, 0.33)';
-	padding: '12px 12px 12px 16px';
-	border-radius: '24px';
-	background-color: '#f9f0ff';
-	color: 'black';
-}
-
-.supportWindow{
-	position: 'fixed';
-	bottom: '116px';
-	right: '24px';
-	width: '420px';
-	height: '530px';
-	max-width: 'calc(100% - 48px)';
-	max-height: 'calc(100% - 48px)';
-	background-color: 'white';
-	border-radius: '12px';
-	border: "2px solid #7a39e0";
-	overflow: 'hidden';
-	box-shadow: '0px 0px 16px 6px rgba(0, 0, 0, 0.33)';
-}
-
-.emailFormWindow{ 
-	width: '100%';
-	overflow: 'hidden';
-	transition: "all 0.5s ease";
-	-webkit-transition: "all 0.5s ease";
-	-moz-transition: "all 0.5s ease";
-}
-
-.stripe{
-	position: 'relative';
-	top: '-45px';
-	width: '100%';
-	height: '308px';
-	background-color: '#7a39e0';
-	transform: 'skewY(-12deg)'
-}
-
-.topText{ 
-	position: 'relative';
-	width: '100%';
-	top: '15%';
-	color: 'white';
-	font-size: '24px';
-	font-weight: '600';
-}
-
-.emailInput{ 
-	width: '66%';
-	text-align: 'center';
-	outline: 'none';
-	padding: '12px';
-	border-radius: '12px';
-	border: '2px solid #7a39e0';
-}
-
-.bottomText{ 
-	position: 'absolute';
-	width: '100%'; 
-	top: '60%';
-	color: '#7a39e0';
-	font-size: '24px';
-	font-weight: '600';
-}
-
-.loadingDiv{ 
-	position: 'absolute';
-	height: '100%'; 
-	width: '100%'; 
-	text-align: 'center';
-	background-color: 'white';
-}
-
-.loadingIcon{ 
-	color: '#7a39e0',;
-	position: 'absolute';
-	top: 'calc(50% - 51px)'; 
-	left: 'calc(50% - 51px)';
-	font-weight: '600';
-}
-
-.chatEngineWindow{
-	width: '100%'; 
-	background-color: '#fff';
-} */

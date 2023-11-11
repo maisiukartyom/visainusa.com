@@ -1,10 +1,51 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {Link} from 'react-router-dom';
 import "../pages/LevelOne/LevelOne.css";
-
+import { useNavigate } from "react-router-dom";
+import axios from "../api/axios";
+import {toast} from 'react-toastify'
 
 
 export const MainLevelTwo = () => {
+
+   const navigate = useNavigate();
+
+   const purchaseLevel = async () => {
+      try {
+         await axios.post("/payment/verify", 
+         {
+            level: 2
+         },
+         {
+            withCredentials: true
+         })
+
+         navigate("/payment", {state: {levelToPurchase: 2, price: 50}});
+      }
+      catch(err){
+         let errorMessage = "";
+         if (!err?.response) {
+             errorMessage = 'No Server Response'
+         } else if (err.response?.status === 401) {
+             errorMessage = 'You already have this level!'
+         }
+         else if (err.response?.status === 403) {
+            errorMessage = 'You are not authorized! Please login or sign up to make purchase!'
+         } 
+
+         toast.error(errorMessage, {
+            position: "top-center",
+            autoClose: 10000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: "light"}
+         )
+      }
+   }
+
     return(
         <div className="levels">
 <div className="level-first-block">
@@ -36,7 +77,7 @@ export const MainLevelTwo = () => {
 
 
                </div>
-               <iframe width="550" height="415" src="https://www.youtube.com/embed/2PInBgRNHo4?si=RYBU3j3Bh_VF0Zfv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen className="youtube-level1"></iframe> 
+               <iframe width="550" height="415" src="https://www.youtube.com/embed/2PInBgRNHo4?si=RYBU3j3Bh_VF0Zfv" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowFullScreen className="youtube-level1"></iframe> 
 
             </div>
 
@@ -50,9 +91,8 @@ export const MainLevelTwo = () => {
                             <label className="label-level" > languages  </label>
                         </div>
                     </div>
-               <a href="#"  target="_blank">
-                  <button className="button-level-two ">PAY</button>
-                  </a> 
+                     <button className="button-level-two" onClick={purchaseLevel}>PAY</button>
+
                   </div>
 
 </div>

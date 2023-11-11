@@ -1,5 +1,5 @@
 import "./Anketa.css";
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import React, { useState } from 'react';
 import PopUpForm from "../../components/PopUpForm";
 import {toast} from 'react-toastify'
@@ -17,6 +17,8 @@ const Anketa = () => {
       setIsPopUpOpen(false);
     };
 
+    const navigate = useNavigate();
+
     const handleAnswerChange = (index, value) => {
         const newAnswers = [...answers];
         newAnswers[index] = value;
@@ -25,10 +27,11 @@ const Anketa = () => {
     
         const handleSubmit = (event) => {
             event.preventDefault();
-            if (answers.every(answer => answer === 'no')) {
-                toast.success('Congratulations! You have been successfully passed questionnaire and pre-approved for EB3 unskilled program', {
+            
+            if (!isChecked){
+                toast.warning("You must agree to terms and conditions!", {
                     position: "top-center",
-                    autoClose: 8000,
+                    autoClose: 3000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: false,
@@ -36,26 +39,64 @@ const Anketa = () => {
                     progress: undefined,
                     theme: "light",
                     });
-                //alert('«Congratulations! You have been successfully passed questionnaire and pre-approved for EB3 unskilled program»');
-            } else {
-                toast.error("You're not eligble. Please fill in the form to contact Alexey!", {
-                    position: "top-center",
-                    autoClose: 6000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: false,
-                    draggable: false,
-                    progress: undefined,
-                    theme: "light",
-                    });
-                openPopUp();
-                // alert () выпадает форма обратной связи, данные которой отправляются на почту Алексею
+            }
+            else{
+                if (answers.every(answer => answer === 'no')) {
+                    toast.success(`Congratulations! You have successfully passed the questionnaire and pre-approved for EB3 unskilled program!`, {
+                        position: "top-center",
+                        autoClose: 10000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: false,
+                        draggable: false,
+                        progress: undefined,
+                        theme: "light",
+                        });
+                    toast.success("Choose the level to start your EB3 journey!", {
+                        position: "top-center",
+                        autoClose: 10000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: false,
+                        draggable: false,
+                        progress: undefined,
+                        theme: "light",
+                        });
+                    
+                    navigate("/", {state: {hash: "pricing"}})
+                } else if (!answers.every(answer => answer === 'no') && !answers.includes('')){
+                    // toast.error("You're not eligble. Please fill in the form to contact Alexey!", {
+                    //     position: "top-center",
+                    //     autoClose: 6000,
+                    //     hideProgressBar: false,
+                    //     closeOnClick: true,
+                    //     pauseOnHover: false,
+                    //     draggable: false,
+                    //     progress: undefined,
+                    //     theme: "light",
+                    //     });
+                    openPopUp();
+                }
+                else{
+                    toast.warning("Please answer all the questions!", {
+                        position: "top-center",
+                        autoClose: 4000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: false,
+                        draggable: false,
+                        progress: undefined,
+                        theme: "light",
+                        });
+                }
             }
         };
+
+
         const [isChecked, setIsChecked] = useState(false);
 
         const handleCheckboxChange = () => {
-        setIsChecked(!isChecked);
+            setIsChecked(!isChecked);
         };
 
 
@@ -171,7 +212,7 @@ const Anketa = () => {
                             <p className="mini-text">«LLC “Visa in USA” is not an immigration law firm and does not provide legal advices on the selection of immigration programs, filling out immigration petitions and employment in the United States. Consultations are of an informational nature. All information presented on www.visainusa.com are taken from open official sources of USCIS/DOL».</p>
                     </label>
                     <div className="btn-center" >
-                    <button className="btn-level-anketa" disabled={!isChecked} >Determine your eligibility</button>
+                    <button className="btn-level-anketa" >Determine your eligibility</button>
                     </div>
             </form>
             {

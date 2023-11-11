@@ -1,7 +1,7 @@
 import {ChatEngineWrapper, ChatSocket, ChatFeed} from 'react-chat-engine';
 
 const ChatEngine = props => {
-    props.visible && console.log(props.chat)
+    
     return(
         <div
             className='transition-5'
