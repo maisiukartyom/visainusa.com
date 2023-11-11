@@ -18,6 +18,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import LevelTwo from './pages/LevelTwo/LevelTwo';
 import AbotUs from './pages/AboutUs/AboutUs';
 import LevelThree from './pages/LevelThree/LevelThree';
+import AboutEB3 from './pages/AboutEB3/AboutEb3';
+import NewDesign from './components/NewDesign';
 
 function App() {
   // console.log("Rendered!")
@@ -40,6 +42,8 @@ function App() {
           <Route path="/levelthree" element={<LevelThree />} />
           <Route path="/foremployer" element={<ForEmployer />} />
           <Route path="/aboutus" element={<AbotUs />} />
+          <Route path="/abouteb3" element={<AboutEB3 />} />
+          <Route path="/newdesign" element={<NewDesign />} />
           <Route path='/youtube' component={() => {
                       window.location.href = 'https://www.youtube.com/@EB3unskilled'
                   }}/>
