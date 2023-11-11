@@ -454,8 +454,8 @@ How do I start my EB3 journey?
           <div className="level ">
             <h2 className="appliName">Level 3</h2>
             <h3 className="appliName-names">"Self immigration with no overpriced assistance"</h3>
-            <del className=" price-del">$1500</del>
-            <ins className=" price">$999</ins>
+            <del className=" price-del">$500</del>
+            <ins className=" price">$199</ins>
             <div className="text-discription">
               <p className="description ">
  Access to more than 1000 U.S. employers’ database (script of
@@ -465,19 +465,20 @@ How do I start my EB3 journey?
  Access to more than 25 U.S. immigration attorneys’ database
               </p>
               <p className="description ">
-Access to files templates of immigration forms as I-485, I-765,
-                I-131 and DS-260
+              Access to instruction of immigration forms as I-140, I-485, I-765, I-131 and DS-260
               </p>
               <p className="description">
  List of EB3 unskilled agencies
               </p>
               <p className="description">
-List of risks for all parties
+
+              48 hours online chat after the consultation 
               </p>
               <p className="description">
 
-Personal immigration specialist for 7 days
+              Opportunity to complete entire EB3 program from 9999$
               </p>
+              
                           </div>
             <div className="center-level">
               <Link to='/levelthree'>

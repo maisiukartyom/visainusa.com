@@ -19,7 +19,7 @@ const NewDesign = () => {
                     <a href="/#contacts"><li className="header-nav-item">Contacts</li></a>
                     <Link to="/newdesign"><li className="header-nav-item">Pricing</li></Link>
                     <Link to="/foremployer"><li className="header-nav-item employer">For the U.S. employer</li></Link>
-<li className="header-nav-item item-button-l welcome">Welcome Alexsey</li>
+                    <a href="/#contacts"><li className="header-nav-item welcome">Welcome Alexsey</li></a> 
 
                 </ul>
             </nav>
@@ -112,7 +112,7 @@ How do I start my EB3 journey?
             <h2 className="appliName">Level 3</h2>
             <h3 className="appliName-names">"Self immigration with no overpriced assistance"</h3>
             <div className="text-discription">
-              <p className="description ">
+            <p className="description ">
  Access to more than 1000 U.S. employers’ database (script of
                 pitch included)
               </p>
@@ -120,19 +120,20 @@ How do I start my EB3 journey?
  Access to more than 25 U.S. immigration attorneys’ database
               </p>
               <p className="description ">
-Access to files templates of immigration forms as I-485, I-765,
-                I-131 and DS-260
+              Access to instruction of immigration forms as I-140, I-485, I-765, I-131 and DS-260
               </p>
               <p className="description">
  List of EB3 unskilled agencies
               </p>
               <p className="description">
-List of risks for all parties
+
+              48 hours online chat after the consultation 
               </p>
               <p className="description">
 
-Personal immigration specialist for 7 days
+              Opportunity to complete entire EB3 program from 9999$
               </p>
+              
                           </div>
             <div className="center-level">
               <Link to='/levelthree'>
