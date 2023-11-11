@@ -71,7 +71,7 @@ export const HeaderForMain = (props) => {
                 <Link to="/aboutus"><li className="header-nav-item">About Us</li></Link>
                     <a href="/#testimonials"><li className="header-nav-item">Testimonials</li></a>
                     <a href="/#contacts"><li className="header-nav-item">Contacts</li></a>
-                    <a href="/#pricing"><li className="header-nav-item">Pricing</li></a>
+                    <Link to="/newdesign"><li className="header-nav-item">Pricing</li></Link>
                     <Link to="/foremployer"><li className="header-nav-item employer">For the U.S. employer</li></Link>
                     {/* Only show if not authorized */}
                {
