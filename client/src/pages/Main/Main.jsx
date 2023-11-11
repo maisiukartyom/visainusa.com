@@ -12,7 +12,7 @@ import CallForm from "../../components/CallForm/CallForm";
 
 
 
-const Main = () => {
+const Main = ({user}) => {
 
   const {state} = useLocation();
 
@@ -230,7 +230,12 @@ const Main = () => {
           <p className="titre-column">by choosing below level</p>
         </div>
         <div className="grid">
-          <div className="level ">
+          {/* <div className={user.level >= 1 ? "level-paid" : "level"}>
+            {
+              user.level >= 1 && <p className="coming-newDesign">Paid</p>
+            } */}
+            <div className={"level-paid"}>
+            {/* <p className="coming-newDesign">Paid</p> */}
             <h2 className="appliName">Level 1</h2>
             <p className=" appliName-levelOne">FREE</p>
             <div className="text-discription">
@@ -265,11 +270,19 @@ How do I start my EB3 journey?
               </Link>
               </div>
           </div>
-          <div className="level ">
+          <div className={user.level >= 2 ? "level-paid" : "level"}>
+            {
+              user.level >= 2 && <p className="coming-newDesign">Paid</p>
+            }
             <h2 className="appliName">Level 2</h2>
             <h3 className="appliName-names">"Immigration with no mistake"</h3>
-            <del className=" price-del">$100</del>
-            <ins className=" price">$49</ins>
+            { 
+              ((user.level && user.level < 2) || !user.level) &&
+              <>
+                <del className=" price-del">$100</del>
+                <ins className=" price">$49</ins>
+              </> 
+            }
             <div className="text-discription">
 
               <p className="description top-level">
@@ -300,11 +313,19 @@ How do I start my EB3 journey?
 
 
 
-          <div className="level ">
+          <div className={user.level >= 3 ? "level-paid" : "level"}>
+            {
+              user.level >= 3 && <p className="coming-newDesign">Paid</p>
+            }
             <h2 className="appliName">Level 3</h2>
             <h3 className="appliName-names">"Self immigration with no overpriced assistance"</h3>
-            <del className=" price-del">$1500</del>
-            <ins className=" price">$999</ins>
+            { 
+              ((user.level && user.level < 3) || !user.level) &&
+              <>
+                <del className=" price-del">$1500</del>
+                <ins className=" price">$999</ins>
+              </> 
+            }
             <div className="text-discription">
               <p className="description ">
  Access to more than 1000 U.S. employers’ database (script of
@@ -336,7 +357,7 @@ Personal immigration specialist for 7 days
           </div>
 
 
-
+          {/* Change the classNames once are made! */}
           <div className="level-future ">
             <p className="coming">Coming Q4 2024</p>
             <h2 className="appliName">Level 4</h2>
@@ -635,7 +656,11 @@ const Index = () => {
           else{
             setIsAdmin(false)
           }
-          setUser({email: user.data.email, isAdmin: user.data.isAdmin})
+          setUser({
+            email: user.data.email, 
+            isAdmin: user.data.isAdmin, 
+            level: user.data.level
+          })
           setIsUser(true)
           setIsVerified(true)
           console.log(user.data)
@@ -668,6 +693,7 @@ const Index = () => {
   }, []);
 
   const logout = () => {
+    setUser({})
     setIsVerified(false)
     setIsAdmin(false)
     setIsUser(false)
@@ -677,7 +703,7 @@ const Index = () => {
     <>
         {/* <HeaderForMain /> */}
         <MainPhoto logout={logout} />
-        <Main />
+        <Main user={user} />
         <Testimonials />
         <Contacts />
         <Partners />
