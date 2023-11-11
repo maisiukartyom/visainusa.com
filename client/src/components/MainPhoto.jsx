@@ -1,7 +1,7 @@
 import React from "react";
 import "../pages/Main/main.css"
 import { HeaderForMain } from "./HeaderForMain";
-import { Link } from "react-router-dom";
+import {Link} from 'react-router-dom';
 
 
 export const MainPhoto = ({logout}) => {
@@ -15,15 +15,13 @@ export const MainPhoto = ({logout}) => {
        <p id="second">We got green cards through it </p>
        <p id="third">We do know how to assist your case</p>
 
-       {/* <p id="first">We will help you</p>
-       <p id="second">make your dream</p>
-            <p id="third">come true</p> */}
               <div className="buttons">
-                <a href="#">
+              <Link to="./abouteb3">
                    <button className="btn-eb3">About EB3</button>
-                 </a>
-                 <Link to="/survey"><button className="btn-level">Check your eligibility</button></Link>
-               </div>
+                   </Link>
+                 <Link to="/survey" className="btn-level-top">
+                 <button className="btn-level-anketa">Determine your eligibility</button></Link>
+              </div>
           </div>
         </div>
         </div>

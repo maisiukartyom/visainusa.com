@@ -115,7 +115,7 @@ margin-top: -2%;
 
 .text-Alexey{
   align-self: center;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 600;
   color: var(--dark-color);
   font-family: 'Merriweather', serif;
@@ -126,7 +126,7 @@ margin-top: -2%;
 }
 .text-Alexey-more{
   align-self: center;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 600;
   color: var(--dark-color);
   font-family: 'Merriweather', serif;
@@ -163,9 +163,9 @@ text-align: justify;
   height: 4px;
   width: 250px;
   align-self: center;
-
-
 }
+
+
   @media all and (max-width:1024px) {
     
     .text-aboutus{
@@ -195,6 +195,13 @@ text-align: justify;
   }
 
   @media (max-width:820px){
+  
+    .text-aboutus{
+      max-width:750px;
+    }
+  }
+
+  @media (max-width:765px){
   
     .text-aboutus{
       max-width:750px;

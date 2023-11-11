@@ -21,7 +21,8 @@ const AboutUsMain = () => {
             <h4 className="when-CP">Went through Consular processing</h4>
             <div className="hr-aboutus"></div>
             <div>
-            <TextBlock className="text-Alexey" title="As a father of three kids I have always known America could get my family new opportunities.
+            <TextBlock className="text-Alexey" title="As a father of three kids I have always known America 
+            could get my family new opportunities.
               If you hard-worker, there are endless prospects to reach a high level of education, get a high-paid job, or create your
                own business, no matter if you have friends or relatives in high places. In the U.S. you are a master of yourself and 
               everything depends on only you. I got my green card in the summertime of 2022, and I checked that by applying for the EB3
@@ -47,29 +48,19 @@ const AboutUsMain = () => {
             <h4 className="when-CP">Went through Adjustment of status</h4>
             <div className="hr-aboutus"></div>
             <div>
-            <TextBlock className="text-Alexey" title="I'm Paul, and I've been living in the U.S. for a decade now.
-             My journey began as a visitor, and I later switched my status to a student visa. For a long time, I've
-              been searching for a way to secure a green card for my family. Then, a friend of mine introduced me to
-               the EB3 unskilled visa. After thorough research and checking all the criteria, I discovered that I am 
-               eligible for this visa category.I couldn't afford the high fees charged by EB3 agencies, especially 
-            since my college had shifted to online tuition due to COVID-19 ... "
-             description=" leaving me unable to earn money by working on campus.To add to the challenge, my wife
-              was pregnant with our third child, which put me in a tough situation. Luckily, I obtained my OPT and 
-              secured employment with a U.S. employer where I took on extra shifts to save up money for the EB3 program. 
-              In August 2020, my Labor Certification was filed, and after 8 months, it was approved. Subsequently, I-140 was
-               filed, but the USCIS issued a request for evidence. To maintain my lawful status, I was forced to take an additional
-                semester in college. During this time, I gathered all the necessary evidence to respond to the Request for Evidence
-                 (RFE) and re-filed the I-140 form. Once the I-140 was approved, I promptly filed for my Employment Authorization
-                  Document, advance parole, and my I-485, which is the green card application. I was incredibly surprised when,
-                   in May 2022, I received a letter from USCIS with green cards for all my family members with NO immigration
-                    interview. I relocated from Texas to South Carolina since I had to work in an unskilled position for 12 
-                    months at my sponsor's gas station in SC. Once I fulfilled my obligation, I transitioned to a skilled 
-                    position with another U.S. employer. It's still hard to believe that I've obtained my 10-year green card
-                     and have the official right to work legally in the U.S. The EB3 unskilled route may not be the easiest
-                      path to a green card, but if you're considering it and want our team's support with your case, please
-                       don't hesitate to contact us. 
-             We have unique knowledge and experience in the EB3 unskilled visa category and are here to assist you
-        " />
+            <TextBlock className="text-Alexey" title="Hi, I'm Paul, and I've been living in the U.S. for almost a decade now.
+             My journey began as a student visa holder with following adjustment of status through employment-based visa. In the
+              midst of COVID, I found out about EB-3 unskilled visa category and decided to apply to it to stay in the U.S. permanently 
+              after graduation from college. In August 2020, my Labor
+             Certificate was filed, but it took almost thirteen months to hear back from the Department of Labor.  ... "
+             description=" When my LC has been approved approved, I could have all of my forms filed concurrently since my priority
+              date became current by then. I was incredibly surprised when, in May 2022 (in 22 months), I received a letter from USCIS
+               with green cards for all my family members. Shortly after that, I relocated to South Carolina and started working for my 
+               sponsor at a gas station. Once I had an obligation with my sponsor fulfilled, I transitioned to a skilled position with the 
+               other U.S. employer. It's still hard to believe that I've obtained my 10-year green card and have the official right to stay 
+               and work legally in the U.S. The EB3 unskilled route may not be the easiest path to a green card, but if you're considering it
+                and want our team's support with your case, please don't hesitate to contact us. We have unique knowledge and experience in
+                 the  EB3 unskilled visa category and are here to assist you with" />
             </div>
           </div>
           </div>
@@ -112,12 +103,17 @@ const AboutUsMain = () => {
             <h4 className="when-CP">Went through Adjustment of status</h4>
             <div className="hr-aboutus"></div>
             <div>
-            <TextBlock className="text-Alexey" title="My name is Olga and at the beginning of 2023, I crossed the Atlantic Ocean
-             and relocated to the USA after a  long time of EB3 visa expectation. We arrived as a family of 4 with our 2 sons.
-              Back in Russia, I had experience working in sales, in education, and in developing my small business. Now we are
-               going to start our new life and we are full of hope. There is always a chance to change your
-             life and 40 or 50 is not the end of life - it can easily be a new beginning. ... "
-             description="  If you want to know details of my case or if you are going to apply for the EB3 unskilled program, please fall into this link." />
+            <TextBlock className="text-Alexey" title="Hello, 
+
+My name is Olga and at the beginning of 2023, we crossed the Atlantic Ocean 
+and relocated to the USA after a  long time of EB3 visa expectation. We had studied different
+ variants of immigration and discovered the one which looks the most reliable and does not make us break any laws.
+We arrived as a family of 4 with our 2 sons. Back in Russia, I had experience working in sales, in 
+education, and in developing my small business.  ... "
+             description=" Now we are going to start our new life and we are full of hope. 
+
+             There is always a chance to change your life and 40 or 50 is not the end of life - it can easily be a new beginning.
+             Moreover - I can see future for my children here - they are free to chose the way of life which fits them the best." />
             </div>
           </div>
           </div>

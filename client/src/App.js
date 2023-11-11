@@ -19,6 +19,8 @@ import LevelThree from './pages/LevelThree/LevelThree';
 import Payment from './components/Payment';
 import Dashboard from './pages/Dashboard/Dashboard';
 import AdminChat from './pages/AdminChat/AdminChat';
+import AboutEB3 from './pages/AboutEB3/AboutEb3';
+import NewDesign from './components/NewDesign';
 
 function App() {
   // console.log("Rendered!")
@@ -50,6 +52,8 @@ function App() {
           <Route path="/foremployer" element={<ForEmployer />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/aboutus" element={<AbotUs />} />
+          <Route path="/abouteb3" element={<AboutEB3 />} />
+          <Route path="/newdesign" element={<NewDesign />} />
           <Route path='/youtube' component={() => {
                       window.location.href = 'https://www.youtube.com/@EB3unskilled'
                   }}/>
