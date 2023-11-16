@@ -9,10 +9,10 @@
 	color: var(--light-color);
 	font-size: 22px;
     text-align: center;
-margin-left: auto;
-border-top-left-radius: 6px;
-border-bottom-left-radius: 6px;
-text-transform: uppercase;
+	margin-left: auto;
+	border-top-left-radius: 6px;
+	border-bottom-left-radius: 6px;
+	text-transform: uppercase;
 }
 
 .level-paid {
