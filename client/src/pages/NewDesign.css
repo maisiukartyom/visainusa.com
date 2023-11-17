@@ -68,9 +68,7 @@ height: auto;
 .welcome {
     background-color: var(--main-color);
     color: var(--light-color);
-    -webkit-animation: pulsing 2s infinite;
     animation: pulsing 2s infinite;
-
   }
   
 @-webkit-keyframes pulsing {

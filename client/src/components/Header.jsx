@@ -3,6 +3,8 @@ import {Link, useLocation} from 'react-router-dom';
 import "../pages/LevelOne/LevelOne.css";
 import axios from "../api/axios";
 import {toast} from "react-toastify";
+import SupportEngine from "./SupportEngine";
+import '../pages/NewDesign.css'
 
 
 export const Header = () => {
@@ -12,11 +14,13 @@ export const Header = () => {
     const [user, setUser] = useState(false)
     const [isAdmin, setIsAdmin] = useState(false)
     const [verified, setVerified] = useState(false)
+    const [chatUser, setChatUser] = useState({})
 
     const logout = async () => {
         await axios.get("/auth/logout", {
           withCredentials: true
         });
+        setChatUser({})
         setVerified(false);
         setUser(false);
         toast.success('Logged out!', {
@@ -47,6 +51,11 @@ export const Header = () => {
               else{
                 setIsAdmin(false)
               }
+              setChatUser({
+                email: user.data.email, 
+                isAdmin: user.data.isAdmin, 
+                level: user.data.level
+              })
               setUser(true)
               setVerified(true)
             }
@@ -61,7 +70,8 @@ export const Header = () => {
 
     return (
         verified &&
-        <header className="header-level">
+        <>
+            <header className="header-level">
             <Link to="/"><span className="header-logo"><img src="images/logo.png" alt="logo" width={70} height={94}/></span></Link>
             <nav className={`header-nav ${isOpen? "active" : ""}`}>
                 <ul className="header-nav-list">
@@ -111,6 +121,7 @@ export const Header = () => {
                         </>
                         }
 
+                        <li className="header-nav-item item-button-l sign-l welcome">Welcome {chatUser.email}</li>
                         <div
                             className="header-nav-item item-button-l sign-l"
                             onClick={logout}
@@ -125,5 +136,10 @@ export const Header = () => {
             onClick={() => setOpen(!isOpen)}
             >< img src="images/menu.png" alt="menu"  width={24} height={24} /></button>
         </header>
+        {
+          verified && !isAdmin && user && <SupportEngine user={chatUser} />
+        }
+        </>
+        
     )
 }

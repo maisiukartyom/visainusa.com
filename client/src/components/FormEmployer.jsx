@@ -131,7 +131,8 @@ const FormEmployer = () =>  {
                             <div>
                                 <label htmlFor="email" className="label left-form">Phone number</label>
                             </div>
-                            <PhoneInput className=""
+                            <PhoneInput 
+                                className=""
                                 country={'us'}
                                 value={phoneNumber}
                                 onChange={handlePhoneChange}
@@ -146,7 +147,7 @@ const FormEmployer = () =>  {
                                 <label htmlFor="email" className="label">Comments</label>
                             </div>
                             <textarea className="comment-form" rows="4" onChange={(e) => setComment(e.target.value)}></textarea>
-                        </div>
+                        </div>  
 
                         <div>
                             <button className="submit-send" onClick={handleSubmit}>Send</button>
