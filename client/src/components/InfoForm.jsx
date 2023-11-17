@@ -1,4 +1,7 @@
 
+
+
+
 const Info = () => {
     return (
         <div className="info">

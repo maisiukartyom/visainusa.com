@@ -4,9 +4,9 @@ import "./signup.css"
 
 const SignUp = () => {
     return (
-        <div className="container">
+        <div className="container-sign">
             <Form />
-            <Info />
+            {/* <Info /> */}
         </div>
     )
 }

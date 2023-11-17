@@ -56,9 +56,8 @@ const CallForm = () => {
 
   return (
     <div className="call-form-container">
-      <span className="form-toggle" onClick={toggleForm}>
-        Receive a сall
-      </span>
+      <img src='images/number-main.png' alt='icon' width={60} height={60} className="form-toggle" onClick={toggleForm} />
+        
       {formVisible && (
         <div className="expanded-form">
           <span className="close-form" onClick={toggleForm}>X</span>

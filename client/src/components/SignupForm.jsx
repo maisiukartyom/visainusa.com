@@ -11,47 +11,49 @@ const SignupForm = ({ submitForm }) => {
     );
 
     return (
-        <div className="app-wrapper-main">
+        <div className="app-wrapper-main-signnn">
             
-            <div className="app-wrapper">
-            <div className="logoForm">
+            <div className="app-wrapper-sign">
+            <div className="logoForm-sign">
             <Link to="/"><img src="images/logo.png" alt="logo" width={70} height={94}/></Link>
           </div>
                 <div>
                     <h2 className="title">Create Account</h2>
                 </div>
-                <form onSubmit={handleFormSubmit} className="form-wrapper">
-                    <div className="name">
-                    <div>
-                        <label className="label">Full name</label>
+                <form onSubmit={handleFormSubmit} className="form-wrapper-sign">
+                      <div className="email-log">
+                      <div className="start">
+                        <label className="label-log">Full name</label>
                         </div>
-                        <input className="input" type="text" name="fullname" value={values.fullname} onChange={handleChange}/>
+                        <input className="input-log" type="text" name="fullname" value={values.fullname} onChange={handleChange}/>
                         {errors.fullname && <p className="error">{errors.fullname}</p>}
                     </div>
-                    <div className="email">
-                    <div>
-                        <label className="label">Email</label>
+                    <div className="email-log">
+                    <div className="start">
+                        <label className="label-log">Email</label>
                         </div>
-                        <input className="input" autoComplete="email" type="email" name="email" value={values.email} onChange={handleChange}/>
+                        <input className="input-log" autoComplete="email" type="email" name="email" value={values.email} onChange={handleChange}/>
                         {errors.email && <p className="error">{errors.email}</p>}
                     </div>
-                    <div className="password">
-                    <div>
-                        <label className="label">Password</label>
+                    <div className="email-log">
+                    <div className="start">
+                        <label className="label-log">Password</label>
                         </div>
-                        <input className="input" autoComplete="current-password" type="password" name="password" value={values.password} onChange={handleChange}/>
+                        <input className="input-log" autoComplete="current-password" type="password" name="password" value={values.password} onChange={handleChange}/>
                         {errors.password && <p className="error">{errors.password}</p>}
                     </div>
-                    <div className="age">
-                        <div>
-                        <label className="label">Age</label>
+                    <div className="email-log">
+                        <div className="start">
+                        <label className="label-log">Age</label>
                         </div>
-                        <input className="input" type="number" name="age" min="0" max="100" value={values.age} onChange={handleChange}/>
+                        <input className="input-log" type="number" name="age" min="0" max="100" value={values.age} onChange={handleChange}/>
                         {errors.age && <p className="error">{errors.age}</p>}
                     </div>
-                    <div className="phoneNumber">
-                        <label className="label ">Phone number</label>
-                        <PhoneInput className="number-input"
+                    <div className="password-log">
+                    <div className="start">
+                        <label className="label-log ">Phone number</label>
+                        </div>
+                        <PhoneInput className="input-log react-tel-input form-control"
                             country={'ru'}
                             value={values.phoneNumber}
                             onChange={handlePhoneChange}

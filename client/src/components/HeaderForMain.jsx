@@ -70,24 +70,24 @@ export const HeaderForMain = (props) => {
             <Link to="/"><span className="header-logo"><img src="images/logo.png" alt="logo" width={70} height={94}/></span></Link>
             <nav className={`header-nav ${isOpen? "active" : ""}`}>
                 <ul className="header-nav-list">
-                <Link to="/aboutus"><li className="header-nav-item">About Us</li></Link>
-                    <a href="/#testimonials"><li className="header-nav-item">Testimonials</li></a>
-                    <a href="/#contacts"><li className="header-nav-item">Contacts</li></a>
-                    <a href="/#pricing"><li className="header-nav-item">Pricing</li></a>
-                    <Link to="/foremployer"><li className="header-nav-item employer">For the U.S. employer</li></Link>
+                <Link to="/aboutus"><li className="header-nav-items">About Us</li></Link>
+                    <a href="/#testimonials"><li className="header-nav-items">Testimonials</li></a>
+                    <a href="/#contacts"><li className="header-nav-items">Contacts</li></a>
+                    <a href="/#pricing"><li className="header-nav-items">Pricing</li></a>
+                    <Link to="/foremployer"><li className="header-nav-items employer">For the U.S. employer</li></Link>
                     {/* Only show if not authorized */}
                {
                     !user && 
                     <>
                     <Link
-                        className="header-nav-item item-button-l login-l"
+                        className="header-nav-items item-buttons login-l"
                         to="/login"
                         state={{previousPath: pathname}}
                     >
                     Log in
                     </Link>
                     <Link
-                        className = "header-nav-item item-button-l sign-l"
+                        className = "header-nav-items item-buttons sign-l"
                         to="/signup"
                     >
                     Sign up

@@ -91,8 +91,8 @@ const validate = () => {
 }
 
     return (
-        <div className="app-wrapper-main">
-            <div className="app-wrapper-login">
+        <div className="app-wrapper-main-log">
+            <div className="app-wrapper-loginn">
             <div className="logoForm">
             <Link to="/"><img src="images/logo.png" alt="logo" width={70} height={94}/></Link> 
         </div>
@@ -100,19 +100,19 @@ const validate = () => {
                     <h2 className="title">Log in</h2>
                 </div>
                 <form className="form-wrapper" onSubmit={handleSubmit}>
-                    <div className="email">
-                        <div>
-                        <label htmlFor="email" className="label">Email</label>
+                    <div className="email-log">
+                        <div className="start">
+                        <label htmlFor="email" className="label-log">Email</label>
                         </div>
-                        <input className="input" name="email" autoComplete="email" type="email" onChange={(e) => setEmail(e.target.value)}/>
+                        <input className="input-log" name="email" autoComplete="email" type="email" onChange={(e) => setEmail(e.target.value)}/>
                         {errors.email && <p className="error">{errors.email}</p>}
 
                     </div>
-                    <div className="password">
-                        <div>
-                        <label htmlFor="email" className="label">Password</label>
+                    <div className="password-log">
+                        <div className="start">
+                        <label htmlFor="email" className="label-log">Password</label>
                         </div>
-                        <input className="input" name="password" autoComplete="current-password" type="password" onChange={(e) => setPassword(e.target.value)} />
+                        <input className="input-log" name="password" autoComplete="current-password" type="password" onChange={(e) => setPassword(e.target.value)} />
                         {errors.password && <p className="error">{errors.password}</p>}
                     </div>
                     <div>
