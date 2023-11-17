@@ -7,9 +7,6 @@ import {Link, useLocation} from 'react-router-dom';
 import { MainPhoto } from "../../components/MainPhoto";
 import SupportEngine from "../../components/SupportEngine";
 import axios from "../../api/axios";
-import CallForm from "../../components/CallForm/CallForm";
-
-
 
 
 const Main = ({user}) => {
@@ -663,7 +660,6 @@ const Index = () => {
           })
           setIsUser(true)
           setIsVerified(true)
-          console.log(user.data)
       }
       catch (err){
           setIsUser(false)
@@ -708,7 +704,6 @@ const Index = () => {
         <Contacts />
         <Partners />
         <Footer />
-        <CallForm />
         {
           isVerified && !isAdmin && isUser && <SupportEngine user={user} />
         }

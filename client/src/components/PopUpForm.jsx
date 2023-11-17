@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import axios from '../api/axios';
 import {toast} from 'react-toastify'
 import { useNavigate } from 'react-router-dom';
+import PhoneInput from 'react-phone-input-2';
 
 const PopUpBackground = styled.div`
   position: fixed;
@@ -33,6 +34,7 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
+  margin-top: 10px;
   padding: 10px 20px;
   background: #007bff;
   color: white;
@@ -111,6 +113,10 @@ const PopUpForm = ({ onClose }) => {
     }
   };
 
+  const handlePhoneChange = (value) => {
+    setPhoneNumber(value)
+}
+
   return (
     <PopUpBackground>
       <PopUpContent>
@@ -125,11 +131,14 @@ const PopUpForm = ({ onClose }) => {
           value={email}
           onChange={handleInputChange1}
         />
-        <Input
-          type="text"
-          placeholder="Phone number"
+        <PhoneInput 
+          inputStyle={{width: "100%"}}
+          className=""
+          country={'us'}
           value={phoneNumber}
-          onChange={handleInputChange2}
+          onChange={handlePhoneChange}
+          inputProps={{name: 'phoneNumber',
+          required: true,}}   
         />
         <Button onClick={handleSubmit}>Submit</Button>
       </PopUpContent>

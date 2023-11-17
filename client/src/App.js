@@ -21,6 +21,7 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import AdminChat from './pages/AdminChat/AdminChat';
 import AboutEB3 from './pages/AboutEB3/AboutEb3';
 import NewDesign from './components/NewDesign';
+import CallForm from './components/CallForm/CallForm';
 
 function App() {
   // console.log("Rendered!")
@@ -35,6 +36,7 @@ function App() {
 
   return (
     <>
+        <CallForm />
         <Routes>
         <Route path="/" element={<Layout />}>
           {/* public routes */}
