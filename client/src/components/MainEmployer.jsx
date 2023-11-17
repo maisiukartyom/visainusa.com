@@ -21,10 +21,10 @@ expansion. We don't charge you for unskilled workers.</p>
       <div className="employer-benefits">
       <div className="block-benefits-employer">
       <h2 className="h2-employer">THE U.S. EMPLOYER BENEFITS</h2>
-      <p className="text-employer-benefits">Comprehensive labor solutions in entry-level
+      {/* <p className="text-employer-benefits">Comprehensive labor solutions in entry-level
 positions in your company, which improve retention
-rates and bring you a new pool of talent through legal immigration.</p>
-      <p className="par-employer-ben">Benefits for a U.S. employer:</p>
+rates and bring you a new pool of talent through legal immigration.</p> */}
+      {/* <p className="par-employer-ben">Benefits for the U.S. employer:</p> */}
       <ul type="square">
          <li className="par-benefits-employer">educated and stable labor for unskilled positions
 with salaries not lower than the local prevailing
@@ -43,6 +43,8 @@ organization after working in an entry-level role ​</li>
       <li className="par-benefits-employer">they pay all legal and government fees​​</li>
       <li className="par-benefits-employer">No employment agency recurring fee, unique
       and untapped labor pool, long-lasting solution​</li>
+      <li className="par-benefits-employer">Cost saving model for 1 year:​</li>
+      <li className="par-benefits-employer cost-emp"><img src="images/cost.jpg" alt="table" className="cost-table"/>​</li>
          </ul>
    </div>
    <div className="photo-block-employer">
@@ -57,70 +59,8 @@ organization after working in an entry-level role ​</li>
       <h2 className="h2-employer-table">PERM LABOR CERTIFICATION PROCESS FOR THE U.S.
 EMPLOYERS</h2>
          <div className="table">
-      <table>
-               <tr >
-                  <th className="perm">PERM Labor Certification Process for the U.S. employers</th>
-                  <th>Time</th>
-                  <th>Cost</th>
-               </tr>
-               <tr>
-                  <td>1. Develop a job description in compliance with DOL requirements</td>
-                  <td className="table-color"> 2 week</td>
-                  <td className="table-color">no fee</td>
-               </tr>
-               <tr>
-                  <td>2. Request a Prevailing Wage Determination (PWD) by completing Form ETA-9141 and submitting it to the National Prevailing Wage
-Center. Electronic filing using the FLAG System is strongly recommended</td>
-                  <td className="table-color"> 2 week</td>
-                  <td className="table-color">no fee</td>
-               </tr>
-               <tr>
-                  <td>3. Obtain Prevailing Wage Determination</td>
-                  <td className="table-color"> 7 months </td>
-                  <td className="table-color">no fee</td>
-               </tr>
-               <tr>
-                  <td>4. Create an account and place a job order with State Workforce Agency (SWA) </td>
-                  <td className="table-color"> 1 months </td>
-                  <td className="table-color">no fee</td>
-               </tr>
-               <tr>
-                  <td>5. 1st Sunday advertisement in the newspaper in the greatest area circulation within the same MSA (metropolitan statistical area) of
-the worksite location</td>
-                  <td className="table-color">1 week</td>
-                  <td className="table-color">up to 1000$</td>
-               </tr>
-               <tr>
-                  <td>6. 2nd Sunday advertisement in the newspaper in the greatest area circulation within the same MSA (metropolitan statistical area)
-                         of the worksite location</td>
-                  <td className="table-color">1 week</td>
-                  <td className="table-color">up to 1000$</td>
-               </tr>
-               <tr>
-                  <td>7. A notice of the open position must be posted at the physical worksite in a conspicuous location </td>
-                  <td className="table-color">2 weeks</td>
-                  <td className="table-color">no fee</td>
-               </tr>
-               <tr>
-                  <td>8. 30-day “Colling-off Period” - after the last day any recruitment effort is made, the Sponsor must wait for an additional 30 days
-before they are allowed to file an LC. These 30 days are to allow Americans an opportunity to apply for the job</td>
-                  <td className="table-color">1 month </td>
-                  <td className="table-color">no fee</td>
-               </tr>
-               <tr>
-                  <td>9. Draft and file Form ETA 9089 – the application for Permanent Labor Certification </td>
-                  <td className="table-color">2 weeks</td>
-                  <td className="table-color">no fee</td>
-               </tr>
-               <tr>
-                  <td>10. Wait for the Labor Certification approval </td>
-                  <td className="table-color">10 months</td>
-                  <td className="table-color">no fee</td>
-               </tr>
-
-               
-            </table>
-            </div>
+            <img src="images/perm.jpg" alt="photo" className="perm"/>
+                  </div>
             </div>
             </div>
 
@@ -132,7 +72,7 @@ before they are allowed to file an LC. These 30 days are to allow Americans an o
       <h2 className="h2-table">TIMELINE AND MILESTONES FOR EB3 UNSKILLED CATEGORY</h2>
       <p className="text-table-time">the chart doesn't reflect any audit, request for evidence and retrogression, the retrogression could impact timing depending on the priority date</p>
          <div className="table-time">
-      <img src="images/table.png" alt="table" className="time"/>
+      <img src="images/table.jpg" alt="table" className="time"/>
             </div>
             </div>
             </div>

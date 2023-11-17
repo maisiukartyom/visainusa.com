@@ -27,7 +27,7 @@ const Main = ({user}) => {
     <>
       <div className="main">
         <div className="titrecenter">
-          <p className="titre" data-aos="fade-up">
+          <p className="titre titre-bottom" data-aos="fade-up">
             Our Advantages
           </p>
         </div>
@@ -230,147 +230,156 @@ const Main = ({user}) => {
           <p className="titre-column">by choosing below level</p>
         </div>
         <div className="grid">
-          {/* <div className={user.level >= 1 ? "level-paid" : "level"}>
+          {/* <div className={user.level >= 1 ? "level-paid" : "level-lev"}>
             {
               user.level >= 1 && <p className="coming-newDesign">Paid</p>
             } */}
-            <div className={"level-paid"}>
+
+             <div className={"level-paid"}>
             {/* <p className="coming-newDesign">Paid</p> */}
-            <h2 className="appliName">Level 1</h2>
-            <p className=" appliName-levelOne">FREE</p>
-            <div className="text-discription">
+            <h2 className="appliName-future">Level 1</h2>
+            
+            <>
+                <p className="appliName-levelOne price">FREE</p>
+              </>
+            <div className="text-discription-future">
+              <p className="description-future ">
+              What is EB3 unskilled visa category?
+              </p>
+              <p className="description-future">
+              How does EB3 unskilled visa work?
+              </p>
+              <p className="description-future ">
+              How long does it take to get the U.S. permanent resident card?
+              </p>
+              <p className="description-future ">
+              Am I eligible for EB3 unskilled visa?
+              </p>
+              <p className="description-future">
+              How much does EB3 unskilled cost? 
+              </p>
+              <p className="description-future ">
+              What should I do in case of refusal?
+              </p>
+              <p className="description-future description-future-finaly ">
+              How do I start my EB3 journey?
+              </p>
+                          </div>
 
-              <p className="description">
- What is EB3 unskilled visa category?
-              </p>
-              <p className="description">
- How does EB3 unskilled visa work?
-              </p>
-              <p className="description ">
-How long does it take to get the U.S.  permanent resident card?
-              </p>
-              <p className="description">
-
-Am I eligible for EB3 unskilled visa?
-              </p>
-              <p className="description">
-How much does EB3 unskilled cost?
-              </p>
-              <p className="description">
- What should I do in case of refusal?
-              </p>
-              <p className="description">
-How do I start my EB3 journey?
-              </p>
-
-            </div>
-            <div className="center-level">
+                          <div className="center-level">
               <Link to='/levelone'>
                 <button className="btn-levels">CHOOSE</button>
               </Link>
               </div>
           </div>
-          <div className={user.level >= 2 ? "level-paid" : "level"}>
-            {
-              user.level >= 2 && <p className="coming-newDesign">Paid</p>
+
+
+          <div className={user.levellev >= 2 ? "level-paid" : "levellev"}>
+          {
+              user.levellev >= 2 && <p className="coming-newDesign">Paid</p>
             }
-            <h2 className="appliName">Level 2</h2>
+            <h2 className="appliName-future">Level 2</h2>
             <h3 className="appliName-names">"Immigration with no mistake"</h3>
             { 
-              ((user.level && user.level < 2) || !user.level) &&
-              <>
-                <del className=" price-del">$100</del>
-                <ins className=" price">$49</ins>
-              </> 
-            }
-            <div className="text-discription">
-
-              <p className="description top-level">
- Personal consultation (60 mins) on English, Spain or Russian languages 
+              ((user.levellev && user.levellev < 2) || !user.levellev) &&
+            <>
+            <div className="price-all">
+            <p className="appliName-levelOne-del price-all">200$</p>
+                <p className="appliName-level-two price-all">99$</p>
+                </div>
+              </>
+}
+            <div className="text-discription-future">
+              <p className="description-future ">
+              Personal consultation (60 mins) on English, Spanish or Russian languages
+              </p>
+              <p className="description-future">
+              Deep analysis of your particular situation 
+              </p>
+              <p className="description-future ">
+              Step-by-step description to obtain green card
+              </p>
+              <p className="description-future ">
+              General information about other immigration programs in the U.S.
+              </p>
+              <p className="description-future ">
+              24 hours online chat after the consultation
+              </p>
+              <p className="description-future description-future-finaly">
+              Personal assistant (create account, helping with job selection, accompanying during your process) at BDV Solutions agency. We are BDV Solutions ambassador
               </p>
 
-              <p className="description">
- Deep analysis of your particular situation 
-              </p>
-              <p className="description">
- Step-by-step description to obtain green card 
-              </p>
-              <p className="description">
- General information about other immigration programs in the U.S. 
-              </p>
-              <p className="description">
-24 hours online chat after the consultation 
-              </p>
-
-              
-            </div>
-            <div className="center-level">
+                          </div>
+                          <div className="center-level">
               <Link to='/leveltwo'>
               <button className="btn-levels  ">CHOOSE</button>
               </Link>
               </div>
           </div>
 
-
-
-          <div className={user.level >= 3 ? "level-paid" : "level"}>
-            {
-              user.level >= 3 && <p className="coming-newDesign">Paid</p>
+          <div className={user.levellev >= 3 ? "level-paid" : "levellev"}>
+          {
+              user.levellev >= 3 && <p className="coming-newDesign">Paid</p>
             }
-            <h2 className="appliName">Level 3</h2>
+            <h2 className="appliName-future">Level 3</h2>
             <h3 className="appliName-names">"Self immigration with no overpriced assistance"</h3>
             { 
-              ((user.level && user.level < 3) || !user.level) &&
-              <>
-                <del className=" price-del">$1500</del>
-                <ins className=" price">$999</ins>
-              </> 
-            }
-            <div className="text-discription">
-              <p className="description ">
- Access to more than 1000 U.S. employers’ database (script of
-                pitch included)
+              ((user.levellev && user.levellev < 3) || !user.levellev) &&
+            <>
+            <div className="price-all">
+            <p className="appliName-levelOne-del price-all">1500$</p>
+                <p className="appliName-level-two price-all">599$</p>
+                </div>
+              </>
+}
+            <div className="text-discription-future">
+              <p className="description-future ">
+              Access to more than 1000 U.S. employers’ database (script of pitch included)
               </p>
-              <p className="description">
- Access to more than 25 U.S. immigration attorneys’ database
+              <p className="description-future">
+              Access to more than 25 U.S. immigration attorneys’ database 
               </p>
-              <p className="description ">
+              <p className="description-future ">
               Access to instruction of immigration forms as I-140, I-485, I-765, I-131 and DS-260
               </p>
-              <p className="description">
- List of EB3 unskilled agencies
+              <p className="description-future ">
+              List of EB3 unskilled agencies
               </p>
-              <p className="description">
-
-              48 hours online chat after the consultation 
+              <p className="description-future ">
+              48 hours online chat after the consultation
               </p>
-              <p className="description">
-
+              <p className="description-future ">
               Opportunity to complete entire EB3 program from 9999$
               </p>
-              
-                          </div>
-            <div className="center-level">
-              <Link to='/levelthree'>
+              <p className="coming-bonus">Extra bonus!</p>
+              <p className="description-future description-future-finaly "> Be prepared to immerse in English language environment 
+              (3 x 30 mins speaking club for you and your kids)
+</p>
+<div className="center-level">
+                          <Link to='/levelthree'>
               <button className="btn-levels ">CHOOSE</button>
               </Link>
               </div>
-          </div>
+                          </div>
 
+          </div>
 
           {/* Change the classNames once are made! */}
           <div className="level-future ">
             <p className="coming">Coming Q4 2024</p>
-            <h2 className="appliName">Level 4</h2>
+            <h2 className="appliName-future">Level 4</h2>
             <h3 className="appliName-names">"Turnkey package"</h3>
-            <div className="text-discription">
-              <p className="description ">
+            <>
+                <p className="appliName-levelOne price">$14999</p>
+              </>
+            <div className="text-discription-future">
+              <p className="description-future ">
               List of the U.S. employers who are ready to file the Labor Certificate and make the petition for Green Card to start your EB3 process
               </p>
-              <p className="description">
+              <p className="description-future">
               Attorney and government fees are included 
               </p>
-              <p className="description ">
+              <p className="description-future description-future-finaly">
               24/7 online support 
               </p>
 
@@ -379,13 +388,14 @@ How do I start my EB3 journey?
           </div>
           <div className="level-future ">
           <p className="coming">Coming Q4 2024</p>
-            <h2 className="appliName">Level 5</h2>
+            <h2 className="appliName-future">Level 5</h2>
             <h3 className="appliName-names">"VIP package"</h3>
-            <div className="text-discription">
-              <p className="description ">
+            <p className="appliName-levelOne price">$29999</p>
+            <div className="text-discription-future">
+              <p className="description-future ">
               We will find the U.S. employer based on your request (location, field of business, wage level, etc)
               </p>
-              <p className="description">
+              <p className="description-future description-future-finaly">
               Welcome settlement service not limited as rental house, airport pickup, open SSN and bank account, drive license, kids enrollment in school, kindergarten, state tour
               </p>
                           </div>
@@ -548,11 +558,11 @@ const Partners = () => {
                 <div>
                     <div className="logo-partners">
                         <div className="teachbk">
-                            <a href="https://teachbk.com/usa-immigration/" target="_blank" ><img src="images/logo-teachBK.png" alt="logo" width="200" height="60" /></a>
+                            <a href="https://teachbk.com/usa-immigration/" target="_blank" ><img src="images/logo-teachBK.png" alt="logo" width="200" height="60" className="friend" /></a>
                             <p className="teach">all about political asylum</p>
                         </div>
                         <div className="teachbk">
-                            <a href="https://rubic.us/" target="_blank" ><img src="images/logo-rubic.svg" alt="logo" width="200" height="60" /></a>
+                            <a href="https://rubic.us/" target="_blank" ><img src="images/logo-rubic.svg" alt="logo" width="200" height="60" className="friend" /></a>
                             <p className=" teach">all about life in the USA</p>
                         </div>
                     </div>
@@ -613,32 +623,20 @@ const Index = () => {
 
   const fly = () => {
     if (window.innerWidth >= 1370) {
-      gsap.from("#first", { x: 1500, duration: 0.8, ease: "power1.out" });
-      gsap.from("#second", {
+      gsap.from("#first-text", { x: 1500, duration: 0.8, ease: "power1.out" });
+      gsap.from("#second-text", {
         x: 1500,
         duration: 0.8,
         ease: "power1.out",
         delay: 0.5,
       });
-      gsap.from("#third", {
+      gsap.from("#third-text", {
         x: 1500,
         duration: 0.8,
         ease: "power1.out",
         delay: 0.9,
       });
-    } else gsap.from("#first", { y: -500, duration: 0.8, ease: "power1.out" });
-    gsap.from("#second", {
-      y: -500,
-      duration: 0.8,
-      ease: "power1.out",
-      delay: 0.5,
-    });
-    gsap.from("#third", {
-      y: -500,
-      duration: 0.8,
-      ease: "power1.out",
-      delay: 0.9,
-    });
+    } 
   };
 
   useEffect(() => {

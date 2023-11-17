@@ -51,25 +51,27 @@ const CallForm = () => {
 
   return (
     <div className="call-form-container">
-      <span className="form-toggle" onClick={toggleForm}>
-        Receive a Call
-      </span>
+
+<img src='images/number-main.png' alt='icon' width={60} height={60} className="form-toggle" onClick={toggleForm} />
+        
       {formVisible && (
         <div className="expanded-form">
+          
+          <form  onSubmit={handleSubmit}>
           <span className="close-form" onClick={toggleForm}>X</span>
-          <h2 className='h2'>Receive a call</h2>
-          <form onSubmit={handleSubmit}>
-            <div className="form-group">
+          <h2 className='h2'>Have questions?</h2>
+          <h4 className='h4'>We wiil call you back within 5 minutes</h4>
+          
+
               <input
-                className='input-phone'
+                className='input-name'
                 type="text"
                 placeholder="Name"
                 id="name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
-            </div>
-            <div className="form-group">
+
               <input
                 className='input-phone'
                 type="tel"
@@ -79,9 +81,12 @@ const CallForm = () => {
                 onChange={(e) => setPhoneNumber(e.target.value)}
                 required
               />
-            </div>
-            <button className='button-phone' type="submit">Receive Call</button>
+
+<div>
+             <button className='button-phone' type="submit">Receive Call</button> 
+             </div>
           </form>
+
         </div>
       )}
     </div>

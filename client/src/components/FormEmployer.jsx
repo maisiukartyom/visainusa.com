@@ -103,33 +103,34 @@ const FormEmployer = () =>  {
     
     }
     return (
-        <div className="app-wrapper-form">
-            <div className="app-wrapper-employer">
-                <div className="logoForm-employer">
+
+        <div className="app-wrapper-main-signnn">
+            <div className="app-wrapper-form">
+                <div className="logoForm">
                     <Link to="/"><img src="images/logo.png" alt="logo" width={70} height={94}/></Link>
                 </div>
                 <div>
                     <h2 className="title-form">Have questions? <br></br> Fill in below form and we will reach out</h2>
                 </div>
                 <div className="form-wrapper">
-                    <div className="company">
-                            <div >
-                            <label htmlFor="email" className="label">Company name</label>
+                    <div className="email-log">
+                            <div className="start">
+                            <label htmlFor="email" className="label-log">Company name</label>
                             </div>
-                            <input value={company} className="input-form" onChange={(e) => setCompany(e.target.value)}/>
+                            <input value={company} className="input-log" onChange={(e) => setCompany(e.target.value)}/>
                             {errors.company && <p className="error">{errors.company}</p>}
                         </div>
-                        <div className="email-form">
-                            <div>
-                            <label htmlFor="email" className="label">Email</label>
+                        <div className="email-log">
+                            <div className="start">
+                            <label htmlFor="email" className="label-log">Email</label>
                             </div>
-                            <input value={email} className="input-form" type="email" onChange={(e) => setEmail(e.target.value)}/>
+                            <input value={email} className="input-log" type="email" onChange={(e) => setEmail(e.target.value)}/>
                             {errors.email && <p className="error">{errors.email}</p>}
                         </div>
 
-                        <div className="email-form left-phone">
-                            <div>
-                                <label htmlFor="email" className="label left-form">Phone number</label>
+                        <div className="email-log">
+                            <div className="start">
+                                <label htmlFor="email" className="label-log">Phone number</label>
                             </div>
                             <PhoneInput className=""
                                 country={'us'}
@@ -141,11 +142,11 @@ const FormEmployer = () =>  {
                             {errors.phoneNumber && <p className="error-phone-left">{errors.phoneNumber}</p>}   
                         </div>
 
-                        <div className="email-form">
-                            <div>
-                                <label htmlFor="email" className="label">Comments</label>
+                        <div className="email-log">
+                            <div className="start">
+                                <label htmlFor="email" className="label-log">Comments</label>
                             </div>
-                            <textarea className="comment-form" rows="4" onChange={(e) => setComment(e.target.value)}></textarea>
+                            <textarea className="comment-form input-log" rows="4" onChange={(e) => setComment(e.target.value)}></textarea>
                         </div>
 
                         <div>
@@ -154,7 +155,7 @@ const FormEmployer = () =>  {
                         </div>
             </div>
         </div>
-                
+
         
     )
 }

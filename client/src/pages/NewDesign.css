@@ -19,16 +19,30 @@ text-transform: uppercase;
 	flex-direction: column;
 	justify-content: center;
 	border-radius: 8px;
-	padding: 40px;
+	padding: 30px;
 	background-image: url(../../public/images/level.jpg);
 	transition: transform .1s;
+		background-position-x: center;
 	background-size: cover;
-	width: 450px;
-height: auto;
-	margin-bottom: 4%;
+	width: 455px;
+min-height: 100%;
 	cursor: pointer;
 	box-shadow: 0px 0px 8px 6px #75e675;
 	text-align: justify;
+	position: relative;
+	margin-bottom: 8%;
+overflow: hidden;
+
+}
+.level-item{
+	flex-direction: column;
+	justify-content: center;
+	padding: 36px;
+	text-align: center;
+	width: 460px;
+	max-height: 1050px;
+		margin-bottom: 10%;
+		cursor: pointer;
 }
 
 .level-paid:hover {
@@ -36,27 +50,49 @@ height: auto;
 }
 
 .btn-levels-paid {
-	align-content: center;
+
+	border: none;
 	border: 4px #244B7A solid ;
 	background: none;
 	border-radius: 10px;
 	width: 240px;
 	height: 50px;
 	color: var(--main-color);
-	font-weight: 700;
+	font-weight: 600;
 	text-transform: uppercase;
 	font-size: 16px;
 	cursor: pointer;
-	margin-top: 10px;
 	position: relative;
+	left: 50%;
+	transform: translate(-50%, 0);
+	bottom: 30px;
+	margin-bottom: -4%;
+	position: absolute;
 }
+
+
+
+
 .center-level{
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
+margin-top: 12%;
+display: block;
 }
+
 .btn-levels-paid:hover {
 	background: var(--main-color);
 	color: var(--light-color);
+}
+.appliName-levelOne-free{
+	margin-top: 10px;
+	text-align: center;
+	font-size: 40px;
+	font-weight: bolder;
+	color: var(--color);
+	text-transform: uppercase;
+	position: relative;
 }
 
 
@@ -103,4 +139,11 @@ height: auto;
       -webkit-transform: scale(0.8, 0.8);
       transform: scale(0.8, 0.8);
     }
+  }
+
+
+
+  @media (max-width:286px){}
+  .appliName-levelOne-free{
+	font-size: 24px;
   }

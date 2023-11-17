@@ -1,3 +1,11 @@
+body,
+html {
+	margin: 0;
+}
+
+* {
+	box-sizing: border-box;
+   }
 :root {
 	--main-color: #244B7A;
 	--color: #CF3549;
@@ -8,26 +16,24 @@
 
 .logoForm{
 margin-bottom: 20px;
-align-self: center;
+text-align: center;
 }
 
 .container{
   display: flex;
 justify-content: center;
 }
-.app-wrapper-main{
+.app-wrapper-main-log{
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100vh;
-  width: 100vh ;
-
+  width: 100% ;
 }
-.app-wrapper-login{
+.app-wrapper-loginn{
   background-color: #ffffff;
-  min-width: 320px;
   max-height: 1000px;
-  padding: 30px;
+  padding: 50px;
   border: 3px #244B7A solid;
   align-self: center;
 }
@@ -39,33 +45,49 @@ justify-content: center;
   margin: 60px 0px 40px 0px;
 }
 
-.name, .email, .password{
-  margin: 20px;
+ .email-log, .password-log{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 280px;
+  margin: 14px;
   color: var(--deep-dark);
   font-size: 19px;
-}
 
-.password{
-  margin-bottom: 40px;
 }
+.label-log{
+width: 100%;
+  font-family: 'Merriweather', serif;
+	font-size: 18px;
+	font-weight: 600;
+	word-spacing: 10px;
+}
+.password-log{
+  margin-bottom: 60px;
 
-.input{
+}
+.start{
+  margin-right: auto;
+}
+.input-log{
   height: 32px;
   font-size: 20px;
   outline: none;
-  width: 100%;
-  border-top-style: none;
-  border-left-style: none;
-  border-right-style: none;
-  border-bottom-style: 2px solid #011226;
+width: 100%;
+  height: 36px;
+  border-radius: 6px;
+  border: 1px solid #d8d8d8;
 }
-
+.form-wrapper{
+  width: 100%;
+}
 .error{
   color: var(--color);
 }
 .submit{
   display: flex;
   justify-content: center;
+  text-align: center;
   text-transform: uppercase;
   border-radius: 10px;
   border: none;
@@ -94,7 +116,7 @@ button:active{
   color: #0619e6;
 }
 
-.info{
+.info-log{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -123,14 +145,45 @@ button:active{
 ul{
   margin-top: 60px;
 }
-
+@media all and (max-width:1024px){
+  .container{
+    display: flex;
+    flex-direction: column;
+  }
+  .info-log{
+    display: none;
+  }
+}
 @media all and (max-width:912px){
   .container{
     display: flex;
     flex-direction: column;
   }
+  .info-log{
+    display: none;
+  }
+}
 
-  .title2{
-    margin-top: -25%;
+@media all and (max-width:406px){
+  .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .app-wrapper-loginn{
+width: 100%;
+padding: 10px;
+  }
+}
+
+@media all and (max-width:366px){
+  .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .app-wrapper-loginn{
+width: 100%;
+padding: 10px;
   }
 }

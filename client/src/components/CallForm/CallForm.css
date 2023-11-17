@@ -3,40 +3,61 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
+
   }
   
+
   .form-toggle {
     display: block;
-    padding: 10px;
-    background-color: #007bff;
+    padding: 15px;
+    background-color: var(--dark-color);
     color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
     text-align: center;
     transition: background-color 0.3s;
+    animation: pulse 1s infinite;
+
+
+  }
+
+
+
+  @keyframes pulse {
+    0% { 
+      transform: scale(0.8);
+    }
+
+    50% { transform: scale(1.1);
+    }
+
+    100% {
+      transform: scale(0.8);
+    } 
   }
   
   .form-toggle:hover {
-    background-color: #0056b3;
+    background-color: var(--main-color);
   }
   
   .expanded-form {
+    display: flex;
+    flex-direction: column;
     position: fixed;
     bottom: 20px;
     right: 20px;
-    max-width: 300px;
-    padding: 20px;
+    max-width: 280px;
+    height: 350px;
+margin-right: auto;
+margin-left: auto;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
   }
   
-  .expanded-form h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
 
   .close-form {
     position: absolute;
@@ -51,15 +72,21 @@
   text-align: center;
   margin-bottom: 20px;
 }
-
-.form-group {
-    flex-direction: column;
-  margin-bottom: 15px;
+.h4 {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.label-phone {
-  display: block;
-  margin-bottom: 5px;
+
+.input-name{
+  padding: 8px;
+  align-self: center;
+  font-size: 16px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  width: 200px;
+
+
 }
 
 .input-phone {
@@ -67,22 +94,36 @@
   font-size: 16px;
   border-radius: 3px;
   border: 1px solid #ccc;
-  margin-left: 0px;
+display: flex;
+justify-content: center;
+  width: 200px;
+
 }
 
  .button-phone {
-  width: 100%;
   padding: 10px;
-  background-color: #007bff;
+  background-color: var(--main-color);
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s;
+  text-align: center;
 }
 
 .button-phone:hover {
-  background-color: #0056b3;
+  background-color: var(--dark-color);
 }
   
+
+@media (max-width:285px){
+
+  .call-form-container {
+    position: fixed;
+    bottom: auto;
+    right: auto;
+
+  }
+  
+}
