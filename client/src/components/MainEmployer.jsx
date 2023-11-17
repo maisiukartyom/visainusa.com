@@ -59,7 +59,7 @@ organization after working in an entry-level role ​</li>
       <h2 className="h2-employer-table">PERM LABOR CERTIFICATION PROCESS FOR THE U.S.
 EMPLOYERS</h2>
          <div className="table">
-            <img src="images/perm.jpg" alt="photo" className="perm"/>
+            <img src="images/Perm.jpg" alt="photo" className="perm"/>
                   </div>
             </div>
             </div>
