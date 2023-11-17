@@ -62,11 +62,8 @@ const PopUpForm = ({ onClose }) => {
     setEmail(e.target.value);
   };
 
-  const handleInputChange2 = (e) => {
-    setPhoneNumber(e.target.value);
-  };
-
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     if (email !== "" && phoneNumber !== ""){
         try{
             await axios.post("/email/sendEmail", {
@@ -120,27 +117,30 @@ const PopUpForm = ({ onClose }) => {
   return (
     <PopUpBackground>
       <PopUpContent>
-        <CloseButton onClick={onClose}>X</CloseButton>
-        <h2>Contact us</h2>
-        <p><strong style={{color: "red"}}>It looks like you answered "YES" to one or more questions. 
-          <br />
-          Please fill in the form and we will reach out!</strong></p>
-        <Input
-          type="text"
-          placeholder="Email"
-          value={email}
-          onChange={handleInputChange1}
-        />
-        <PhoneInput 
-          inputStyle={{width: "100%"}}
-          className=""
-          country={'us'}
-          value={phoneNumber}
-          onChange={handlePhoneChange}
-          inputProps={{name: 'phoneNumber',
-          required: true,}}   
-        />
-        <Button onClick={handleSubmit}>Submit</Button>
+        <form onSubmit={handleSubmit}>
+          <CloseButton onClick={onClose}>X</CloseButton>
+            <h2>Contact us</h2>
+            <p><strong style={{color: "red"}}>It looks like you answered "YES" to one or more questions. 
+              <br />
+              Please fill in the form and we will reach out!</strong></p>
+            <Input
+              required
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={handleInputChange1}
+            />
+            <PhoneInput 
+              inputStyle={{width: "100%"}}
+              className=""
+              country={'us'}
+              value={phoneNumber}
+              onChange={handlePhoneChange}
+              inputProps={{name: 'phoneNumber',
+              required: true,}}   
+            />
+            <Button>Send</Button>
+        </form>
       </PopUpContent>
     </PopUpBackground>
   );

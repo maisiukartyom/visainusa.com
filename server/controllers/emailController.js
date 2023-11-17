@@ -8,6 +8,10 @@ const transporter = nodemailer.createTransport({
     user: 'EB3unskilled@gmail.com',
     pass: 'muzh frte fruc uslx'
   }
+  // auth: {
+  //   user: 'artyom.majsyuk@gmail.com',
+  //   pass: 'uaqx lsln boij einl'
+  // }
 });
 
 const handleSendEmail = async (req, res) => {
