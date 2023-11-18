@@ -24,7 +24,7 @@ const calendlyButtonStyle = {
 const Calendly = ({userEmail, userName}) => {
     return(
       <PopupButton
-        url="https://calendly.com/artyom-majsyuk/30min"
+        url="https://calendly.com/eb3unskilled/eb3unskilled"
         rootElement={document.getElementById("root")}
         text='Schedule the call here!'
         styles={calendlyButtonStyle}
