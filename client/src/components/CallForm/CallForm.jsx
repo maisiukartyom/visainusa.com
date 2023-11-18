@@ -61,7 +61,7 @@ const CallForm = () => {
       {formVisible && (
         <div className="expanded-form">
           <span className="close-form" onClick={toggleForm}>X</span>
-          <h2 className='h2'>Receive a call</h2>
+          <h2 className='h2'>REQUEST A CALL</h2>
           <p className='p'>Have questions? Let us reach out to you within 5 minutes to answer.</p>
           <form onSubmit={handleSubmit}>
             <div className="form-group">

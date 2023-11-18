@@ -1,5 +1,4 @@
 const allowedOrigins = [
-    'https://www.yoursite.com',
     'https://visainusa.onrender.com',
     'https://visainusa.vercel.app',
     'http://localhost:3500',
