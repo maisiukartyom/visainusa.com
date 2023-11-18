@@ -2,9 +2,9 @@ import React, {useState, useEffect} from 'react';
 import { Header } from '../../components/Header';
 import Footer from '../../components/Footer';
 import "../LevelOne/LevelOne.css";
-import {Link} from 'react-router-dom';
 import { MainLevelThree } from '../../components/MainLevelThree';
 import axios from '../../api/axios';
+import Calendly from '../../components/Calendly/Calendly';
 
 
 const LevelThree = () => {
@@ -47,6 +47,7 @@ const LevelThree = () => {
             <Header />
             {hasLevel? <div>Level 3 is purchased!</div> : <MainLevelThree />}
             <Footer />
+            {hasLevel && <Calendly />}
         </div>
     )
   }
