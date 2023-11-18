@@ -1,7 +1,7 @@
 const Payment = require('../model/Payment');
 const User = require('../model/User');
 const jwt = require('jsonwebtoken');
-const paypal = require('@paypal/checkout-server-sdk')
+const paypal = require('@paypal/checkout-server-sdk');
 
 const clientId = process.env.PAYPAL_CLIENT_ID;
 const clientSecret = process.env.PAYPAL_SECRET_KEY;
@@ -109,6 +109,8 @@ const handlePaypalTransactionComplete = async (req, res) => {
                   process.env.ACCESS_TOKEN_SECRET,
                   { expiresIn: '1d' }
                 );
+
+                // IF LEVEL >= 3 SOMEHOW NOTIFY ALEXEY!
                 
                 await Payment.create({
                   paymentID: result.purchase_units[0].payments.captures[0].id,

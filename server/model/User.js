@@ -18,6 +18,10 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
+    confirmed:{
+        type: Boolean,
+        default: false
+    },
     level:{
         type: Number,
         required: false,

@@ -49,9 +49,19 @@ const useForm = (submitForm) =>{
                         withCredentials: true
                     }
                 );
-                toast.success(result.data.success, {
+                // toast.success("", {
+                //     position: "top-center",
+                //     autoClose: 3000,
+                //     hideProgressBar: false,
+                //     closeOnClick: true,
+                //     pauseOnHover: false,
+                //     draggable: false,
+                //     progress: undefined,
+                //     theme: "light",
+                //     });
+                toast.success("Email verification link has been sent!", {
                     position: "top-center",
-                    autoClose: 3000,
+                    autoClose: 7000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: false,

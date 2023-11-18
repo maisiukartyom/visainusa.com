@@ -22,6 +22,7 @@ import AdminChat from './pages/AdminChat/AdminChat';
 import AboutEB3 from './pages/AboutEB3/AboutEb3';
 import NewDesign from './components/NewDesign';
 import CallForm from './components/CallForm/CallForm';
+import Calendly from './components/Calendly/Calendly';
 
 function App() {
   // console.log("Rendered!")
