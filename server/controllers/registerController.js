@@ -1,7 +1,46 @@
 const User = require('../model/User');
 const bcrypt = require('bcrypt');
-const axios = require('axios')
+const axios = require('axios');
+const nodemailer = require('nodemailer');
+const jwt = require('jsonwebtoken');
 
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 587,
+    auth: {
+      user: 'EB3unskilled@gmail.com',
+      pass: 'muzh frte fruc uslx'
+    }
+    // auth: {
+    //   user: 'artyom.majsyuk@gmail.com',
+    //   pass: 'uaqx lsln boij einl'
+    // }
+  });
+
+const sendLink = async (req, res) => {
+    const email = req.body.email
+    jwt.sign(
+        { 
+            "email": email
+         },
+        process.env.EMAIL_SECRET,
+        { expiresIn: '5h' },
+        (err, emailToken) => {
+            if (err){
+                return res.sendStatus(400);
+            }
+            const url = `https://visainusa-api.onrender.com/auth/confirmEmail/${emailToken}`;
+            transporter.sendMail({
+                to: email,
+                subject: "Confirm email",
+                html: `<h2>You have 5 hours to confirm your email:</h2>
+                        <a href="${url}">${url}</a>`
+            });
+            return res.sendStatus(200);
+        }
+    );
+}
 
 const handleNewUser = async (req, res) => {
     const { fullname, email, password, phoneNumber } = req.body;
@@ -24,6 +63,23 @@ const handleNewUser = async (req, res) => {
             phoneNumber: phoneNumber
         });
 
+        jwt.sign(
+            { 
+                "email": email
+             },
+            process.env.EMAIL_SECRET,
+            { expiresIn: '5h' },
+            (err, emailToken) => {
+                const url = `https://visainusa-api.onrender.com/auth/confirmEmail/${emailToken}`;
+                transporter.sendMail({
+                    to: email,
+                    subject: "Confirm email",
+                    html: `<h2>You have 5 hours to confirm your email:</h2>
+                    <a href="${url}">${url}</a>`
+                })
+            }
+        );
+
         // add chat user
         await axios.put(
             'https://api.chatengine.io/users/',
@@ -40,4 +96,4 @@ const handleNewUser = async (req, res) => {
     }
 }
 
-module.exports = { handleNewUser };
+module.exports = { handleNewUser, sendLink };

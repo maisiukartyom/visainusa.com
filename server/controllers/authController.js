@@ -7,11 +7,17 @@ const handleLogin = async (req, res) => {
     const { email, password } = req.body;
 
     const foundUser = await User.findOne({ email: email }).exec();
+
+    
     if (!foundUser) return res.sendStatus(401); //Unauthorized 
     // evaluate password 
     const match = await bcrypt.compare(password, foundUser.password);
     if (match) {
+
         const isAdmin = foundUser.isAdmin;
+
+        if (!foundUser.confirmed && !isAdmin) return res.sendStatus(402);
+
         const level = foundUser.level;
         // create JWTs
         const accessToken = jwt.sign(
@@ -95,4 +101,16 @@ const userVerification = (req, res) => {
     })
 }
 
-module.exports = { handleLogin, userVerification, handleLogout };
+const confirmEmail = async (req, res) => {
+    try{
+        const {email} = jwt.verify(req.params.token, process.env.EMAIL_SECRET);
+        await User.findOneAndUpdate({email: email}, {confirmed: true})
+    }
+    catch{
+        res.sendStatus(404);
+    }
+
+    return res.redirect('https://visainusa.vercel.app/login')
+}
+
+module.exports = { handleLogin, userVerification, handleLogout, confirmEmail };
