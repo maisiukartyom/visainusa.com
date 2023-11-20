@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const levelSchema = new Schema({
     levelNumber: {
         type: Number,
-        required: true
+        required: true,
+        unique: true
     },
     cost: {
         type: Number,

@@ -9,6 +9,22 @@ const clientSecret = process.env.PAYPAL_SECRET_KEY;
 const environment = new paypal.core.SandboxEnvironment(clientId, clientSecret);
 const client = new paypal.core.PayPalHttpClient(environment);
 
+const updateLevels = async (req, res) => {
+  try{
+    const levels = req.body.levels;
+    for (const updatedLevel of levels){
+      const filter = {levelNumber: updatedLevel.levelNumber}
+
+      await Level.updateOne(filter, updatedLevel);
+    }
+
+    res.sendStatus(200);
+  }
+  catch(err){
+    res.sendStatus(403);
+  }
+}
+
 const getLevelCost = async (req, res) => {
   try{
     const level = req.body.level;
@@ -205,4 +221,4 @@ const handleGetTransactions = async (req, res) => {
 module.exports = {handlePayment, handleVerify, 
   handlePaypalTransactionComplete, 
   handleGetTransactions, getLevelCost,
-  getLevelsCosts}
+  getLevelsCosts, updateLevels}

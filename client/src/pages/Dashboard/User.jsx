@@ -29,7 +29,14 @@ const ActionButtons = styled.div`
 const DeleteButton = styled.button`
   background-color: #ff3333;
   color: #fff;
-  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  margin-left: 8px;
+`;
+
+const UpdateButton = styled.button`
+  background-color: #ffffff;
+  color: #000000;
   padding: 8px 12px;
   cursor: pointer;
   margin-left: 8px;
@@ -126,7 +133,7 @@ const User = ({ user, update }) => {
         <p>Admin: {isAdmin ? 'Yes' : 'No'}</p>
       </UserInfo>
       <ActionButtons>
-        <button onClick={handleUpdateClick}>Update Level</button>
+        <UpdateButton onClick={handleUpdateClick}>Update Level</UpdateButton>
         <DeleteButton onClick={handleDeleteClick}>Delete</DeleteButton>
       </ActionButtons>
     </UserWrapper>
