@@ -40,7 +40,7 @@ const LevelOne = () => {
        }
    
        verifyCookie(0)
-   })
+   }, [])
 
   return (
       verified &&

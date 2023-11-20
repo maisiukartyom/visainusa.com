@@ -1,5 +1,6 @@
 const Payment = require('../model/Payment');
 const User = require('../model/User');
+const Level = require('../model/Level')
 const jwt = require('jsonwebtoken');
 const paypal = require('@paypal/checkout-server-sdk');
 
@@ -8,24 +9,49 @@ const clientSecret = process.env.PAYPAL_SECRET_KEY;
 const environment = new paypal.core.SandboxEnvironment(clientId, clientSecret);
 const client = new paypal.core.PayPalHttpClient(environment);
 
+const getLevelCost = async (req, res) => {
+  try{
+    const level = req.body.level;
+    const currLevel = await Level.findOne({levelNumber: level});
+
+    res.json({cost: currLevel.cost});
+  }
+  catch(err){
+    res.sendStatus(403);
+  }
+}
+
+const getLevelsCosts = async (req, res) => {
+  try{
+    const levels = await Level.find();
+
+    res.json({levels: levels});
+  }
+  catch{
+    res.sendStatus(403);
+  }
+}
+
 
 const handlePayment = async (req, res) => {
 
     const level = req.level
 
     try {
-      let priceTotal;
-      switch (level){
-        case 1:
-          priceTotal = 25;
-          break;
-        case 2:
-          priceTotal = 50;
-          break;
-        case 3:
-          priceTotal = 1000;
-          break;
-      }
+      const currLevel = await Level.findOne({levelNumber: level});
+      const priceTotal = currLevel.cost;
+      // let priceTotal;
+      // switch (level){
+      //   case 1:
+      //     priceTotal = 25;
+      //     break;
+      //   case 2:
+      //     priceTotal = 50;
+      //     break;
+      //   case 3:
+      //     priceTotal = 1000;
+      //     break;
+      // }
 
       const finalSum = priceTotal;
 
@@ -176,4 +202,7 @@ const handleGetTransactions = async (req, res) => {
   res.json(transactions);
 }
 
-module.exports = {handlePayment, handleVerify, handlePaypalTransactionComplete, handleGetTransactions}
+module.exports = {handlePayment, handleVerify, 
+  handlePaypalTransactionComplete, 
+  handleGetTransactions, getLevelCost,
+  getLevelsCosts}

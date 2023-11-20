@@ -1,5 +1,6 @@
 import React from "react";
-import {Link, useNavigate} from 'react-router-dom';
+import { useEffect, useState } from "react";
+import {useNavigate} from 'react-router-dom';
 import "../pages/LevelOne/LevelOne.css";
 import axios from "../api/axios";
 import {toast} from "react-toastify"
@@ -8,6 +9,10 @@ import {toast} from "react-toastify"
 export const MainLevelThree = () => {
 
    const navigate = useNavigate();
+
+   const [levelCost, setLevelCost] = useState(0);
+   const [canPurchase, setCanPurchase] = useState(false);
+
    const purchaseLevel = async () => {
       try {
          await axios.post("/payment/verify", 
@@ -18,7 +23,7 @@ export const MainLevelThree = () => {
             withCredentials: true
          })
 
-         navigate("/payment", {state: {levelToPurchase: 3, price: 1000}});
+         navigate("/payment", {state: {levelToPurchase: 3, price: levelCost}});
       }
       catch(err){
          let errorMessage = "";
@@ -44,6 +49,34 @@ export const MainLevelThree = () => {
       }
    }
 
+   useEffect(() => {
+      async function getLevelCost(){
+         try{
+             const res = await axios.post("/payment/getLevelCost", {
+                 level: 3
+             })
+             setLevelCost(res.data.cost);
+             setCanPurchase(true);
+         }
+         catch(err){
+             toast.error("Error to get level cost!",{
+                 position: "top-center",
+                 autoClose: 10000,
+                 hideProgressBar: false,
+                 closeOnClick: true,
+                 pauseOnHover: false,
+                 draggable: false,
+                 progress: undefined,
+                 theme: "light",
+                 }
+             );
+             setCanPurchase(false);
+         }
+       }
+
+       getLevelCost()
+   }, [])
+
     return(
         <div className="levels">
 <div className="level-first-block">
@@ -52,7 +85,7 @@ export const MainLevelThree = () => {
     <h2 className="level-list">Level 3</h2>
     <h3 className="appliName-names">"Self immigration with no overpriced assistance"</h3>
                <del className=" price-del-level">$1500</del>
-               <ins className=" price-level" >$999</ins>
+               {canPurchase && <ins className=" price-level" >${levelCost}</ins>}
                <ul  className="text-discription-level">
                   <li  className="description-level">
                   Access to more than 1000 U.S. <br></br> employers’ database
@@ -90,7 +123,7 @@ export const MainLevelThree = () => {
                             <label className="label-level" > languages  </label>
                         </div>
                     </div>
-                        <button className="button-level-two" onClick={purchaseLevel}>PAY</button>
+                        <button className="button-level-two" disabled={!canPurchase} onClick={purchaseLevel}>PAY</button>
                   </div>
 
       </div>
