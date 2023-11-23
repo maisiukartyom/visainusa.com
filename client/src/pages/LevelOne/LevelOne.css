@@ -121,15 +121,16 @@ margin-bottom: 20px;
 .levels{
   background-image: url(../../../public/images/photo.jpg);
   background-position: center;
-
 	background-size: cover;
 	background-repeat: no-repeat;
+  width: 100%;
 }
 .level-first-block{
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  margin-top: 80px;
+  margin-top:5%;
+
 
 }
 
@@ -141,6 +142,7 @@ max-width: 500px;
   background-size: cover;
 	box-shadow: 0px 0px 8px 4px #b5b3b3;
   margin-bottom: 10%;
+  max-height: 2800px;
 }
 
 
@@ -234,11 +236,45 @@ padding: 8px;
 line-height: 27px;
   text-decoration: underline #CF3549;
 }
+.video-level{
 
-.youtube-level1{
+}
+.youtube-leveltwo{
+width: 800px;
+  height: 750px;
+border-radius: 10px;
   align-self: center;
 margin-bottom: 10%;
   box-shadow: 0 0 4px 4px rgba(21, 1, 202, 0.25);
+
+}
+.h2-level{
+  margin-top: 50px;
+	margin-bottom: 10px;
+	text-align: center;
+	font-size: 50px;
+	font-weight: bolder;
+	color: var(--dark-color);
+	text-transform: uppercase;
+  margin-top: 8%;
+}
+.text-leveltwo{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+  align-items: center;
+}
+.text-levelTwo{
+  font-size: 20px;
+  font-weight: 600;
+  max-width:1250px;
+  max-height: 5000px;
+  text-align: justify;
+  color: var(--deep-dark);
+  font-family: 'Merriweather', serif;
+  word-spacing: 14px;
+  line-height: 32px;
 }
 
 
@@ -921,8 +957,17 @@ margin-left: 1%;
 }
 
 }
-
-
+@media (max-width: 798px){
+  .youtube-leveltwo{
+    width: 100%;
+    height: 350px;
+  }
+}
+@media (max-width: 786px){
+  .youtube-leveltwo{
+    width: 100%;
+  }
+}
 @media (max-width: 740px) {
   .footer-column-f {
     flex-basis: 20%;

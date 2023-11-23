@@ -2,6 +2,8 @@ import React from "react";
 import { Header } from "./Header";
 import Footer from "./Footer";
 import '../pages/Job/Job.css'
+import Slider from './Slider';
+
 
 
 const JobInfo = () => {
@@ -14,10 +16,7 @@ const JobInfo = () => {
     <Header/>
 <div className="job-info">
 <div className="job-img">
-     <img className="img-ny" src="images/ny1.jpg" alt="ny" />
-    <img  className="img-ny" src="images/ny2.jpg" alt="ny" />
-    <img  className="img-ny" src="images/ny3.jpg" alt="ny" /> 
-    <img  className="img-ny" src="images/ny4.jpg" alt="ny" /> 
+<Slider/>
 
 </div>
 <div className="crew-main">
