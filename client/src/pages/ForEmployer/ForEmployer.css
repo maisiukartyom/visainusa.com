@@ -54,9 +54,9 @@ html {
 }
 
 
-.hr {
+.hr-emp {
 	width: 100%;
-	height: 20px;
+	height: 12px;
 	background-color: var(--main-color);
 }
 
@@ -116,6 +116,7 @@ html {
 	margin-bottom: -4%;
 }
 
+
 .documents {
 
 	background-image: url(../../../public/images/documents.jpg);
@@ -149,10 +150,11 @@ html {
 	margin-bottom: 4%;
 }
 .cost-table{
-	width: 450px;
+	width: 100%;
 }
 .cost-emp{
 list-style-type: none;
+
 }
 .perm {
 	background-color: var(--light-color);
@@ -208,7 +210,6 @@ list-style-type: none;
 	width: 100%;
 	background-image: url(../../../public/images/summary.jpg);
 	background-position: center;
-	height: 100vh;
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -237,71 +238,98 @@ list-style-type: none;
 	align-self: center;
 	text-align: justify;
 }
-.app-wrapper-form{
-	background-color: #ffffff;
-	height: 100vh;
-	padding: 50px;
-	border: 3px #244B7A solid;
-
-  }
 
 
-
-  .app-wrapper-main-signnn{
+.app-wrapper-main-sum{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	height: 100vh;
+	height: 100%;
 	width: 100% ;
+	border: 3px #244B7A solid;
+	background-color: #ffffff;
+	overflow: hidden;
+  } 
+
+.app-wrapper-form{
+display: flex;
+flex-direction: column;
+justify-content: center;
+
+	padding: 14px;
+
+
+  }
+  .logoForm-sum{
+	margin-bottom: 10px;
+	text-align: center;
+	}
+  .email-log-sum, .password-log-sum{
+	margin: 10px;
+	color: var(--deep-dark);
+	font-size: 19px;
+	width: 100%;
+  
+  }
+  .label-log-sum{
+  width: 100%;
+	font-family: 'Merriweather', serif;
+	  font-size: 18px;
+	  font-weight: 600;
+	  word-spacing: 10px;
+  }
+  .password-log{
+	margin-bottom: 60px;
+  
+  }
+  .start{
+	margin-right: auto;
+  }
+  .input-log{
+	height: 32px;
+	font-size: 20px;
+	outline: none;
+  width: 100%;
+	height: 36px;
+	border-radius: 6px;
+	border: 1px solid #d8d8d8;
   }
 
-
-
-.form-wrapper {
-	width: 100%;
+.form-wrapper-sum {
+	display: flex;
+	justify-content: center;
 
 }
 
-.number-input-form {
-	align-self: center;
-	height: 36px;
-	font-size: 20px;
-	width: 300px;
-	margin-top: 4px;
+.sum-right{
+	margin-right: 5%;
 }
+.sum-form{
+	display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
 
 .title-form {
 	color: var(--dark-color);
 	text-align: center;
-
 	font-size: 28px;
 	margin: 10px 0px 40px 0px;
-	word-break: break-all;
-
 }
 
 
 .react-tel-input .form-control {
-	position: none;
-	font-size: 14px;
-	letter-spacing: .01rem;
-	margin-top: 0 !important;
-	margin-bottom: 0 !important;
-	padding-left: 48px;
-	margin-left: 0;
-	background: #FFFFFF;
-	border: 1px solid #CACACA;
-	border-radius: 6px;
-	line-height: 25px;
-	height: 36px;
 	width: 100%;
 	outline: none;
+	margin-right: 5%;
 }
 
 
 .comment-form {
 height: 80px;
 	width: 100%;
+	margin-right: 5%;
 }
 
 .error {
@@ -342,9 +370,10 @@ margin-top: -1px;
 	cursor: pointer;
 	transition: all 0.1s;
 	margin-top: 10%;
-
 }
-
+ .but-sum{
+margin-bottom: 55%;
+ }
 button:active {
 	transform: translate(2px);
 }
@@ -376,9 +405,7 @@ button:active {
 		padding: 40px;
 	}
 
-	.app-wrapper-form {
-		margin-top: -15%;
-	}
+
 }
 
 @media all and (max-width:920px) {
@@ -401,39 +428,15 @@ button:active {
 		flex-direction: column;
 	}
 
-	.app-wrapper-form {
-		display: flex;
-		justify-content: center;
-		width: 100%;
-		height: 100vh;
-	}
-
-
-	.app-wrapper-employer {
-		background-color: #ffffff;
-		min-width: 280px;
-		min-height: 500px;
-		padding: 30px;
-	}
-
-	.input-form {
-		height: 36px;
-		font-size: 20px;
-		width: 260px;
-		border-radius: 6px;
-		border: 1px solid #d8d8d8;
-		margin-top: 4px;
-	}
-
-	.react-tel-input .form-control {
-		width: 260px;
-	}
-
-
 	.left-phone {
 		margin-left: 22%;
 	}
+
+	.cost-emp{
+		width: 100%;
+	}
 }
+
 
 
 @media all and (max-width:800px) {
@@ -452,6 +455,7 @@ button:active {
 		margin-left: 22%;
 	}
 
+
 }
 
 @media (max-width: 768px) {
@@ -459,6 +463,12 @@ button:active {
 		font-weight: 500;
 		word-spacing: 10px;
 		padding: 12px 11px;
+	}
+}
+
+@media (max-width:609px){
+	.first-block-employer {
+		padding: 30px;
 	}
 }
 
@@ -533,11 +543,18 @@ button:active {
 		word-spacing: 10px;
 		padding: 12px 11px;
 	}
+
+	.first-block-employer {
+		padding: 30px;
+	}
 }
 
 @media (max-width:440px) {
 	.left-phone {
 		margin-left: 12%;
+	}
+	.first-block-employer {
+		padding: 20px;
 	}
 
 }
@@ -546,12 +563,18 @@ button:active {
 	.left-phone {
 		margin-left: 12%;
 	}
+	.first-block-employer {
+		padding: 20px;
+	}
 
 }
 
 @media (max-width:400px) {
 	.left-phone {
 		margin-left: 10%;
+	}
+	.first-block-employer {
+		padding: 20px;
 	}
 
 }
@@ -571,7 +594,7 @@ button:active {
 
 
 	.first-block-employer {
-		padding: 40px;
+		padding: 20px;
 	}
 
 	.text-employer,

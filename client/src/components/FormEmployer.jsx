@@ -104,33 +104,35 @@ const FormEmployer = () =>  {
     }
     return (
 
-        <div className="app-wrapper-main-signnn">
+        <div className="app-wrapper-main-sum">
             <div className="app-wrapper-form">
-                <div className="logoForm">
+                <div className="logoForm-sum">
                     <Link to="/"><img src="images/logo.png" alt="logo" width={70} height={94}/></Link>
                 </div>
                 <div>
                     <h2 className="title-form">Have questions? <br></br> Fill in below form and we will reach out</h2>
                 </div>
-                <div className="form-wrapper">
-                    <div className="email-log">
+                <div className=" form-wrapper-sum">
+                <form className="sum-form">
+<div className="sum-right">
+                    <div className="email-log-sum">
                             <div className="start">
-                            <label htmlFor="email" className="label-log">Company name</label>
+                            <label htmlFor="email" className="label-log-sum">Company name</label>
                             </div>
-                            <input value={company} className="input-log" onChange={(e) => setCompany(e.target.value)}/>
+                            <input value={company} className="input-log-sum" onChange={(e) => setCompany(e.target.value)}/>
                             {errors.company && <p className="error">{errors.company}</p>}
                         </div>
-                        <div className="email-log">
+                        <div className="email-log-sum">
                             <div className="start">
-                            <label htmlFor="email" className="label-log">Email</label>
+                            <label htmlFor="email" className="label-log-sum">Email</label>
                             </div>
-                            <input value={email} className="input-log" type="email" onChange={(e) => setEmail(e.target.value)}/>
+                            <input value={email} className="input-log-sum" type="email" onChange={(e) => setEmail(e.target.value)}/>
                             {errors.email && <p className="error">{errors.email}</p>}
                         </div>
 
-                        <div className="email-log">
+                        <div className="email-log-sum">
                             <div className="start">
-                                <label htmlFor="email" className="label-log">Phone number</label>
+                                <label htmlFor="email" className="label-log-sum">Phone number</label>
                             </div>
                             <PhoneInput className=""
                                 country={'us'}
@@ -142,19 +144,23 @@ const FormEmployer = () =>  {
                             {errors.phoneNumber && <p className="error-phone-left">{errors.phoneNumber}</p>}   
                         </div>
 
-                        <div className="email-log">
+                        <div className="email-log-sum">
                             <div className="start">
-                                <label htmlFor="email" className="label-log">Comments</label>
+                                <label htmlFor="email" className="label-log-sum">Comments</label>
                             </div>
-                            <textarea className="comment-form input-log" rows="4" onChange={(e) => setComment(e.target.value)}></textarea>
+                            <textarea className="comment-form input-log-sum" rows="4" onChange={(e) => setComment(e.target.value)}></textarea>
                         </div>
-
+                        </div>
+                                                
                         <div>
                             <button className="submit-send" onClick={handleSubmit}>Send</button>
                         </div>
+                        </form>
+                        </div>
+
                         </div>
             </div>
-        </div>
+
 
         
     )

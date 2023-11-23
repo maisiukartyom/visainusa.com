@@ -284,8 +284,8 @@ const Main = ({user}) => {
               ((user.levellev && user.levellev < 2) || !user.levellev) &&
             <>
             <div className="price-all">
-            <p className="appliName-levelOne-del price-all">200$</p>
-                <p className="appliName-level-two price-all">99$</p>
+            <p className="appliName-levelOne-del price-all">500$</p>
+                <p className="appliName-level-two price-all">199$</p>
                 </div>
               </>
 }
@@ -293,20 +293,26 @@ const Main = ({user}) => {
               <p className="description-future ">
               Personal consultation (60 mins) on English, Spanish or Russian languages
               </p>
+              <p className="coming-bonus">
+              Our services include:
+              </p>
               <p className="description-future">
-              Deep analysis of your particular situation 
+              In-depth insights into the EB3 unskilled program
               </p>
               <p className="description-future ">
-              Step-by-step description to obtain green card
+              Deep analysis of your specific situation
+              </p>
+              <p className="description-future ">
+              Step-by-step guidance on obtaining a green card
               </p>
               <p className="description-future ">
               General information about other immigration programs in the U.S.
               </p>
               <p className="description-future ">
-              24 hours online chat after the consultation
+              Enjoy 24/7 online chat support for any additional questions or clarifications after your consultation
               </p>
-              <p className="description-future description-future-finaly">
-              Personal assistant (create account, helping with job selection, accompanying during your process) at BDV Solutions agency. We are BDV Solutions ambassador
+              <p className="coming-bonus-two description-future-finaly">
+              As an extra bonus, you'll enjoy exclusive access to a specially tailored job offering pool for EB3 unskilled applicants. Get a head start on your application journey – start applying today!  
               </p>
 
                           </div>
@@ -322,7 +328,7 @@ const Main = ({user}) => {
               user.levellev >= 3 && <p className="coming-newDesign">Paid</p>
             }
             <h2 className="appliName-future">Level 3</h2>
-            <h3 className="appliName-names">"Self immigration with no overpriced assistance"</h3>
+            <h3 className="appliName-names">"Smart immigration with no overpriced assistance"</h3>
             { 
               ((user.levellev && user.levellev < 3) || !user.levellev) &&
             <>
@@ -342,12 +348,13 @@ const Main = ({user}) => {
               <p className="description-future ">
               Access to instruction of immigration forms as I-140, I-485, I-765, I-131 and DS-260
               </p>
-              <p className="description-future ">
+ <p className="description-future ">
               List of EB3 unskilled agencies
               </p>
               <p className="description-future ">
               48 hours online chat after the consultation
               </p>
+
               <p className="description-future ">
               Opportunity to complete entire EB3 program from 9999$
               </p>

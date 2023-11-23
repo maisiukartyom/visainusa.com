@@ -50,28 +50,34 @@ export const MainLevelThree = () => {
 
     <div className="appliName-level">
     <h2 className="level-list">Level 3</h2>
-    <h3 className="appliName-names">"Self immigration with no overpriced assistance"</h3>
+    <h3 className="appliName-names">"Smart immigration with no overpriced assistance"</h3>
                <del className=" price-del-level">$1500</del>
-               <ins className=" price-level" >$999</ins>
+               <ins className=" price-level" >$599</ins>
                <ul  className="text-discription-level">
                   <li  className="description-level">
-                  Access to more than 1000 U.S. <br></br> employers’ database
+                  Access to more than 1000 U.S. employers’ database (script of pitch included)
                   </li>
                   <li className="description-level">
-                  Access to more than 25 U.S.  immigration attorneys’ database
+                  Access to more than 25 U.S. immigration attorneys’ database 
                   </li>
                   <li className="description-level">
-                  Access to files templates of  immigration <br></br>  forms as I-485, I-765,
-                I-131 and DS-260
+                  Access to instruction of immigration forms as I-140, I-485, I-765, I-131 and DS-260
                   </li>
                   <li className="description-level">
                   List of EB3 unskilled agencies
                   </li>
                   <li className="description-level">
-                  List of risks for all parties
+                  48 hours online chat after the consultation
                   </li>
+                  <Link to='/job'><li className="description-level">
+                  Job offering pool
+                  </li></Link>
                   <li className="description-level">
-                  Personal immigration specialist for 7 days
+                  Opportunity to complete entire EB3 program from 9999$
+                  </li>            
+                  <p className="coming-bonus">Extra bonus!</p>
+                        <li className="description-level">
+                        Be prepared to immerse in English language environment (3 x 30 mins speaking club for you and your kids)
                   </li>
                   </ul>
 

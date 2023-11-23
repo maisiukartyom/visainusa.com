@@ -44,7 +44,7 @@ organization after working in an entry-level role ​</li>
       <li className="par-benefits-employer">No employment agency recurring fee, unique
       and untapped labor pool, long-lasting solution​</li>
       <li className="par-benefits-employer">Cost saving model for 1 year:​</li>
-      <li className="par-benefits-employer cost-emp"><img src="images/cost.jpg" alt="table" className="cost-table"/>​</li>
+       <li className="par-benefits-employer cost-emp"><img src="images/cost.jpg" alt="table" className="cost-table" />​</li> 
          </ul>
    </div>
    <div className="photo-block-employer">
@@ -52,7 +52,7 @@ organization after working in an entry-level role ​</li>
 
    </div>
    </div>
-   <div className="hr"></div>
+   <div className="hr-emp"></div>
 
       <div className="documents">
          <div className="doc-table">
@@ -65,7 +65,7 @@ EMPLOYERS</h2>
             </div>
 
 
-            <div className="hr"></div>
+            <div className="hr-emp"></div>
 
       <div className="table-time">
          <div className="doc-table">

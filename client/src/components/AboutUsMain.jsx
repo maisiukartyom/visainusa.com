@@ -26,7 +26,7 @@ const AboutUsMain = () => {
               If you hard-worker, there are endless prospects to reach a high level of education, get a high-paid job, or create your
                own business, no matter if you have friends or relatives in high places. In the U.S. you are a master of yourself and 
               everything depends on only you. I got my green card in the summertime of 2022, and I checked that by applying for the EB3
-               program I had chosen the right path. ..." description="According to the EB3 unskilled contract main applicant has to work at least 12
+               program  ..." description="I had chosen the right path.  According to the EB3 unskilled contract main applicant has to work at least 12
                 months in an unskilled position, however, 5 months after I started my 1-year commitment I managed to get a skilled 
                 job offer from the biggest EB3 agency, and I concurrently had two jobs place: the first priority job was my the U.S.
                  sponsor who filed the immigration petition for my green card and the second job was the agency which helped me went

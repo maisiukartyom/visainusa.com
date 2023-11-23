@@ -53,31 +53,42 @@ export const MainLevelTwo = () => {
 <div className="appliName-level">
     <h2 className="level-list">Level 2</h2>
     <h3 className="appliName-names">"Immigration with no mistake"</h3>
-    <del className=" price-del appliName-levelOne-del">$100</del>
-            <ins className=" price appliName-levelOne">$49</ins>
+    <div className="price-all">
+    <del className=" price-del appliName-levelOne-del">$500</del>
+            <ins className=" price appliName-levelOne">$199</ins>
+            </div>
                <ul  className="text-discription-level">
                   <li  className="description-level">
-                  Personal consultation (60 mins) on English, Spain or Russian languages 
+                  Personal consultation (60 mins) on English, Spanish or Russian languages
                   </li>
+                  <p className="coming-bonus">
+              Our services include:
+              </p>
                   <li className="description-level">
-                  Deep analysis of your particular <br></br> situation 
+                  In-depth insights into the EB3 unskilled program
                   </li>
                   <li className="description-level">
 
-                  Step-by-step description to obtain <br></br> green card 
+                  Deep analysis of your specific situation
                   </li>
 
                   <li className="description-level">
-                  General information about other <br></br> immigration programs in the U.S. 
+                  Step-by-step guidance on obtaining a green card
                   </li>
                   <li className="description-level">
-                  24 hours online chat after the consultation 
+                  General information about other immigration programs in the U.S.
                   </li>
+                  <li className="description-level">
+                  Enjoy 24/7 online chat support for any additional questions or clarifications after your consultation
+                  </li>
+                  <Link to='/job'><li className="  link-job">
+                  Job offering pool            
+                  </li></Link>
                   </ul>
 
 
                </div>
-               <iframe width="550" height="415" src="https://www.youtube.com/embed/2PInBgRNHo4?si=RYBU3j3Bh_VF0Zfv" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowFullScreen className="youtube-level1"></iframe> 
+               <iframe width="550" height="415" src="https://app.heygen.com/share/398cb39f320343f597faf0617e05e22c" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowFullScreen className="youtube-level1"></iframe> 
 
             </div>
 
