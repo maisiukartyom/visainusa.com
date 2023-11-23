@@ -7,12 +7,14 @@ import {Link} from 'react-router-dom';
 import { useEffect } from 'react';
 import axios from '../../api/axios';
 import Calendly from '../../components/Calendly/Calendly';
+import {toast} from 'react-toastify';
 
 
 const LevelTwo = () => {
     const [hasLevel, setHasLevel] = useState(false);
     const [verified, setVerified] = useState(false);
     const [user, setUser] = useState({});
+
 
     useEffect(() => {
         const verifyCookie = async (level) => {
@@ -43,14 +45,14 @@ const LevelTwo = () => {
          }
      
          verifyCookie(2)
-     })
+     }, [])
   
     return (
         verified &&
         <div >
             <Header />
             {
-                hasLevel? <div>Level 2 is purchased!</div> : <MainLevelTwo />
+                hasLevel? <div>Level 2 is purchased!</div> : <MainLevelTwo/>
             }
             <Footer />
             {hasLevel && !user.isAdmin && <Calendly userEmail={user.email} userName={user.name} />}

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import {Link} from 'react-router-dom';
 import "../pages/LevelOne/LevelOne.css";
 import { useNavigate } from "react-router-dom";
 import axios from "../api/axios";
@@ -9,6 +8,8 @@ import {toast} from 'react-toastify'
 export const MainLevelTwo = () => {
 
    const navigate = useNavigate();
+   const [levelCost, setLevelCost] = useState(0);
+   const [canPurchase, setCanPurchase] = useState(false);
 
    const purchaseLevel = async () => {
       try {
@@ -20,7 +21,7 @@ export const MainLevelTwo = () => {
             withCredentials: true
          })
 
-         navigate("/payment", {state: {levelToPurchase: 2, price: 50}});
+         navigate("/payment", {state: {levelToPurchase: 2, price: levelCost}});
       }
       catch(err){
          let errorMessage = "";
@@ -46,6 +47,34 @@ export const MainLevelTwo = () => {
       }
    }
 
+   useEffect(() => {
+      async function getLevelCost(){
+         try{
+             const res = await axios.post("/payment/getLevelCost", {
+                 level: 2
+             })
+             setLevelCost(res.data.cost);
+             setCanPurchase(true);
+         }
+         catch(err){
+             toast.error("Error to get level cost!",{
+                 position: "top-center",
+                 autoClose: 10000,
+                 hideProgressBar: false,
+                 closeOnClick: true,
+                 pauseOnHover: false,
+                 draggable: false,
+                 progress: undefined,
+                 theme: "light",
+                 }
+             );
+             setCanPurchase(false);
+         }
+       }
+
+       getLevelCost()
+   }, [])
+
     return(
         <div className="levels">
 <div className="level-first-block">
@@ -54,7 +83,7 @@ export const MainLevelTwo = () => {
     <h2 className="level-list">Level 2</h2>
     <h3 className="appliName-names">"Immigration with no mistake"</h3>
     <del className=" price-del-level">$100</del>
-            <ins className=" price-level">$49</ins>
+            {canPurchase && <ins className=" price-level">${levelCost}</ins>}
                <ul  className="text-discription-level">
                   <li  className="description-level">
                   Personal consultation (60 mins) on English, Spain or Russian languages 
@@ -91,7 +120,7 @@ export const MainLevelTwo = () => {
                             <label className="label-level" > languages  </label>
                         </div>
                     </div>
-                     <button className="button-level-two" onClick={purchaseLevel}>PAY</button>
+                     <button className="button-level-two" disabled={!canPurchase} onClick={purchaseLevel}>PAY</button>
 
                   </div>
 

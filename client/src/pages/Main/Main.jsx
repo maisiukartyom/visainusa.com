@@ -7,13 +7,41 @@ import {Link, useLocation} from 'react-router-dom';
 import { MainPhoto } from "../../components/MainPhoto";
 import SupportEngine from "../../components/SupportEngine";
 import axios from "../../api/axios";
+import {toast} from 'react-toastify';
 
 
 const   Main = ({user}) => {
 
   const {state} = useLocation();
+  const [levelsInfo, setLevelsInfo] = useState([]);
+  const [hasInfo, setHasInfo] = useState(false);
 
   useEffect(() => {
+    const getLevelsCosts = async () => {
+      try{
+        const levels = await axios.get("/payment/getLevelsCosts");
+        console.log(levels.data.levels)
+        setLevelsInfo(levels.data.levels);
+        setHasInfo(true);
+      }
+      catch(err){
+        toast.error("Error to get levels info!",{
+          position: "top-center",
+          autoClose: 10000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          progress: undefined,
+          theme: "light",
+          }
+        );
+        setHasInfo(false)
+      }
+    }
+
+    getLevelsCosts();
+
     if (state?.hash){
       document.getElementById(state.hash).scrollIntoView();
       window.history.replaceState(null, document.title)
@@ -65,7 +93,7 @@ const   Main = ({user}) => {
               </svg>
               <p className="par  white">Affordable prices </p>
               <p className="grey text">
-              Our mission is to help everyone sort out in very simple language how EB3 unskilled program works and make the process as cheap as possible. Our prices start from 0$, check it out on Level 1 
+              Our mission is to help everyone sort out in very simple language how EB3 unskilled program works and make the process as cheap as possible. Our prices start from $0, check it out on Level 1 
               </p>
             </a>
           </div>
@@ -281,8 +309,8 @@ const   Main = ({user}) => {
               ((user.level && user.level < 2) || !user.level) &&
             <>
             <div className="price-all">
-            <p className="appliName-levelOne-del price-all">200$</p>
-                <p className="appliName-level-two price-all">99$</p>
+            <p className="appliName-levelOne-del price-all">$200</p>
+                {hasInfo && <p className="appliName-level-two price-all">${levelsInfo[1].cost}</p>}
                 </div>
               </>
 }
@@ -324,8 +352,8 @@ const   Main = ({user}) => {
               ((user.level && user.level < 3) || !user.level) &&
             <>
             <div className="price-all">
-            <p className="appliName-levelOne-del price-all">1500$</p>
-                <p className="appliName-level-two price-all">599$</p>
+            <p className="appliName-levelOne-del price-all">$1500</p>
+              {hasInfo && <p className="appliName-level-two price-all">${levelsInfo[2].cost}</p>}
                 </div>
               </>
 }
@@ -346,7 +374,7 @@ const   Main = ({user}) => {
               48 hours online chat after the consultation
               </p>
               <p className="description-future ">
-              Opportunity to complete entire EB3 program from 9999$
+              Opportunity to complete entire EB3 program from $9999
               </p>
               <p className="coming-bonus">Extra bonus!</p>
               <p className="description-future description-future-finaly "> Be prepared to immerse in English language environment 
@@ -366,8 +394,8 @@ const   Main = ({user}) => {
             <p className="coming">Coming Q4 2024</p>
             <h2 className="appliName-future">Level 4</h2>
             <h3 className="appliName-names">"Turnkey package"</h3>
-            <>
-                <p className="appliName-levelOne price">$14999</p>
+              <>
+              {hasInfo && <p className="appliName-levelOne price">${levelsInfo[3].cost}</p>}
               </>
             <div className="text-discription-future">
               <p className="description-future ">
@@ -387,7 +415,7 @@ const   Main = ({user}) => {
           <p className="coming">Coming Q4 2024</p>
             <h2 className="appliName-future">Level 5</h2>
             <h3 className="appliName-names">"VIP package"</h3>
-            <p className="appliName-levelOne price">$29999</p>
+              {hasInfo && <p className="appliName-levelOne price">${levelsInfo[4].cost}</p>}
             <div className="text-discription-future">
               <p className="description-future ">
               We will find the U.S. employer based on your request (location, field of business, wage level, etc)

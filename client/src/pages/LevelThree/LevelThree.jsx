@@ -41,7 +41,7 @@ const LevelThree = () => {
          }
      
          verifyCookie(3)
-     })
+     }, [])
 
     return (
         verified &&

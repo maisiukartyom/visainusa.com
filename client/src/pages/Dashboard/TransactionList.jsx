@@ -7,7 +7,7 @@ const TransactionListWrapper = styled.div`
   max-width: 500px;
   margin: 0 auto;
   padding: 20px;
-  height: 400px; /* Fixed height with scroll */
+  height: 470px; /* Fixed height with scroll */
   overflow-y: auto; /* Adding scroll */
 `;
 
