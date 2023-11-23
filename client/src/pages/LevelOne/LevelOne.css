@@ -223,7 +223,17 @@ line-height: 27px;
 }
 
 
-
+.link-job{
+  display: flex;
+	color: var(--deep-dark);
+	font-size: 19px;
+	font-weight: 600;
+margin-left: 2%;	
+font-family: 'Merriweather', serif;
+padding: 8px;
+line-height: 27px;
+  text-decoration: underline #CF3549;
+}
 
 .youtube-level1{
   align-self: center;

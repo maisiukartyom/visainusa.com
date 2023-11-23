@@ -67,7 +67,7 @@ export const HeaderForMain = (props) => {
     return (
         verified &&
         <header className="header-level">
-            <Link to="/"><span className="header-logo"><img src="images/logo.png" alt="logo" width={70} height={94}/></span></Link>
+            <Link to="/"><span className="header-logo"><img src="images/logo-white.png" alt="logo" width={70} height={94}/></span></Link>
             <nav className={`header-nav ${isOpen? "active" : ""}`}>
                 <ul className="header-nav-list">
                 <Link to="/aboutus"><li className="header-nav-items">About Us</li></Link>

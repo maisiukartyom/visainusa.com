@@ -51,9 +51,10 @@ const LevelTwo = () => {
         verified &&
         <div >
             <Header />
-            {
+            {/* {
                 hasLevel? <div>Level 2 is purchased!</div> : <MainLevelTwo/>
-            }
+            } */}
+            <MainLevelTwo/>
             <Footer />
             {hasLevel && !user.isAdmin && <Calendly userEmail={user.email} userName={user.name} />}
         </div>

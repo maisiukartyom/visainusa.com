@@ -218,6 +218,7 @@ const Anketa = () => {
             {
                 isPopUpOpen && <PopUpForm onClose={closePopUp}/>
             }
+
         </div>
     )
 }
