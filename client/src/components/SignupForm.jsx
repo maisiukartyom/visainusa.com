@@ -15,7 +15,7 @@ const SignupForm = ({ submitForm }) => {
             
             <div className="app-wrapper-sign">
             <div className="logoForm-sign">
-            <Link to="/"><img src="images/logo.png" alt="logo" width={70} height={94}/></Link>
+            <Link to="/"><img src="/images/logo.png" alt="logo" width={70} height={94}/></Link>
           </div>
                 <div>
                     <h2 className="title">Create Account</h2>

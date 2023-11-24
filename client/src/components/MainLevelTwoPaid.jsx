@@ -87,7 +87,7 @@ export const MainLevelTwoPaid = () => {
                   <li className="description-level">
                   Enjoy 24/7 online chat support for any additional questions or clarifications after your consultation
                   </li>
-                  <Link to='/job'><li className="  link-job">
+                  <Link to='/jobs'><li className="  link-job">
                   Job offering pool            
                   </li></Link>
                   </ul>

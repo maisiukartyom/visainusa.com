@@ -129,7 +129,7 @@ const validate = () => {
         <div className="app-wrapper-main-log">
             <div className="app-wrapper-loginn">
             <div className="logoForm">
-            <Link to="/"><img src="images/logo.png" alt="logo" width={70} height={94}/></Link> 
+            <Link to="/"><img src="/images/logo.png" alt="logo" width={70} height={94}/></Link> 
         </div>
                 <div>
                     <h2 className="title">Log in</h2>

@@ -107,7 +107,7 @@ const FormEmployer = () =>  {
         <div className="app-wrapper-main-sum">
             <div className="app-wrapper-form">
                 <div className="logoForm-sum">
-                    <Link to="/"><img src="images/logo.png" alt="logo" width={70} height={94}/></Link>
+                    <Link to="/"><img src="/images/logo.png" alt="logo" width={70} height={94}/></Link>
                 </div>
                 <div>
                     <h2 className="title-form">Have questions? <br></br> Fill in below form and we will reach out</h2>

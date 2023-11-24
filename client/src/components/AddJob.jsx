@@ -1,13 +1,108 @@
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import axios from '../api/axios';
-import { Container, Form, Button, InputGroup, FormControl } from 'react-bootstrap';
-//import 'bootstrap/dist/css/bootstrap.min.css';
+import styled from 'styled-components';
+import {toast} from 'react-toastify';
+
+// Container styles
+const FormContainer = styled.form`
+  max-width: 400px;
+  margin: auto;
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+`;
+
+// Input and Select styles
+const FormInput = styled.input`
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+`;
+
+const FormSelect = styled.select`
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+`;
+
+const FormTextArea = styled.textarea`
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+`;
+
+// Button styles
+const FormButton = styled.button`
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+
+  &:hover {
+    background-color: #45a049;
+  }
+`;
+
+// Image URL input and Remove button styles
+const FormLabel = styled.label`
+  margin-top: 10px;
+  display: block;
+  font-weight: bold;
+`;
+
+const FormRemoveButton = styled.button`
+  background-color: #f44336;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+
+  &:hover {
+    background-color: #d32f2f;
+  }
+`;
+
+const FormAddButton = styled.button`
+  background-color: #472BFF;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 3px;
+  margin-bottom: 5px;
+
+  &:hover {
+    background-color: #1F00E9;
+  }
+`;
+
 
 const AddJob = () => {
-  // const [selectedFile, setSelectedFile] = useState(null);
   const [coverUrl, setCoverUrl] = useState('');
-  //const [selectedFiles, setSelectedFiles] = useState([]);
   const [imageUrls, setImageUrls] = useState(['']);
 
   const formik = useFormik({
@@ -20,38 +115,48 @@ const AddJob = () => {
     },
 
     onSubmit: async (values) => {
-      const formData = new FormData();
-      formData.append('position', values.position);
-      formData.append('location', values.location);
-      formData.append('description', values.description);
-      formData.append('wage', values.wage);
-      // formData.append('cover', selectedFile);
-      // formData.append('images', selectedFiles);
+      const formData = {
+        position: values.position,
+        location: values.location,
+        state: values.state,
+        wage: values.wage,
+        description: values.description,
+        coverImage: coverUrl,
+        images: imageUrls
+      }
 
       try {
-        const response = await axios.post(`/jobs/addJob?position=${values.position}&location=${values.location}`, formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        });
-        console.log(response.data);
+        await axios.post('/jobs/addJob', formData);
+        setCoverUrl('');
+        setImageUrls(['']);
+        toast.success("Position has been added!", {
+          position: "top-center",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          progress: undefined,
+          theme: "light",
+          });
       } catch (error) {
-        console.error(error);
+        toast.error("Couldn't add new position!", {
+          position: "top-center",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          progress: undefined,
+          theme: "light",
+          });
       }
     },
   });
 
-  // const handleFileChange = (event) => {
-  //   setSelectedFile(event.target.files[0]);
-  // };
-
   const handleFileChange = (event) => {
     setCoverUrl(event.target.value);
   };
-
-  // const handleFilesChange = (event) => {
-  //   setSelectedFiles(Array.from(event.target.files));
-  // };
 
   const handleUrlChange = (index, value) => {
     const newImageUrls = [...imageUrls];
@@ -72,228 +177,135 @@ const AddJob = () => {
   console.log(imageUrls, coverUrl)
 
   return (
-  //   <div style={{ maxWidth: '400px', margin: 'auto', marginTop: '20px' }}>
-  //   <form onSubmit={formik.handleSubmit}>
-  //     <div>
-  //       <label htmlFor="position">Position</label>
-  //       <input
-  //         type="text"
-  //         id="position"
-  //         name="position"
-  //         onChange={formik.handleChange}
-  //         value={formik.values.position}
-  //         placeholder="Enter position name"
-  //         style={{ display: 'block', marginBottom: '10px' }}
-  //       />
-  //     </div>
-
-  //     <div>
-  //       <label htmlFor="location">Location</label>
-  //       <input
-  //         type="text"
-  //         id="location"
-  //         name="location"
-  //         onChange={formik.handleChange}
-  //         value={formik.values.location}
-  //         placeholder="Enter location"
-  //         style={{ display: 'block', marginBottom: '10px' }}
-  //       />
-  //     </div>
-
-  //     <div>
-  //       <label htmlFor="state">State</label>
-  //       <input
-  //         type="text"
-  //         id="state"
-  //         name="state"
-  //         onChange={formik.handleChange}
-  //         value={formik.values.state}
-  //         placeholder="Enter state name"
-  //         style={{ display: 'block', marginBottom: '10px' }}
-  //       />
-  //     </div>
-
-  //     <div>
-  //       <label htmlFor="wage">Wage</label>
-  //       <input
-  //         type="text"
-  //         id="wage"
-  //         name="wage"
-  //         onChange={formik.handleChange}
-  //         value={formik.values.wage}
-  //         placeholder="Enter wage"
-  //         style={{ display: 'block', marginBottom: '10px' }}
-  //       />
-  //     </div>
-
-  //     <div>
-  //       <label htmlFor="description">Description</label>
-  //       <textarea
-  //         id="description"
-  //         name="description"
-  //         onChange={formik.handleChange}
-  //         value={formik.values.description}
-  //         placeholder="Enter job description"
-  //         style={{ display: 'block', marginBottom: '10px' }}
-  //       />
-  //     </div>
-
-  //     <div>
-  //       <label htmlFor="cover">Cover</label>
-  //       <input type="url" 
-  //         id="cover" 
-  //         name="cover"
-  //         onChange={handleFileChange} 
-  //         style={{ display: 'block', marginBottom: '10px' }}/>
-  //     </div>
-
-  //     {/* <div> 
-  //       <label htmlFor="images">Images</label>
-  //       <input type="file" 
-  //         id="images" 
-  //         name="images" 
-  //         multiple 
-  //         onChange={handleFilesChange}
-  //         accept='.jpg, .jpeg, .png'
-  //         style={{ display: 'block', marginBottom: '10px' }} />
-  //     </div> */}
-  //       <div>
-  //         <label>Images (JPEG and PNG only)</label>
-
-  //         {/* Map over imageUrls to create input fields */}
-  //         {imageUrls.map((url, index) => (
-  //           <div key={index}>
-  //             <input
-  //               type="url"
-  //               value={url}
-  //               onChange={(e) => handleUrlChange(index, e.target.value)}
-  //               placeholder={`Image URL ${index + 1}`}
-  //               style={{ display: 'block', marginBottom: '10px' }}
-  //             />
-
-  //             {/* Show Remove button only if there's more than one input field */}
-  //             {imageUrls.length > 1 && (
-  //               <button type="button" onClick={() => handleRemoveInput(index)}>
-  //                 Remove
-  //               </button>
-  //             )}
-  //           </div>
-  //         ))}
-
-  //         <button type="button" onClick={handleAddInput}>
-  //           Add
-  //         </button>
-  //       </div>
-
-  //     <button type="submit">Submit</button>
-  //   </form>
-  // </div>
-  // );
-  <Container className="mt-4">
-      <Form onSubmit={formik.handleSubmit}>
-        <Form.Group className="mb-3">
-          <Form.Label>Position</Form.Label>
-          <Form.Control
+    <div style={{ maxWidth: '400px', margin: 'auto', marginTop: '20px' }}>
+      <FormContainer onSubmit={formik.handleSubmit}>
+        <div>
+          <FormLabel  htmlFor="position">Position</FormLabel >
+          <FormInput 
             type="text"
             id="position"
             name="position"
+            required
             onChange={formik.handleChange}
             value={formik.values.position}
             placeholder="Enter position name"
           />
-        </Form.Group>
+        </div>
 
-        <Form.Group className="mb-3">
-          <Form.Label>Location</Form.Label>
-          <Form.Control
+        <div>
+          <FormLabel  htmlFor="location">Location</FormLabel >
+          <FormInput 
             type="text"
             id="location"
             name="location"
+            required
             onChange={formik.handleChange}
             value={formik.values.location}
             placeholder="Enter location"
           />
-        </Form.Group>
+        </div>
 
-        <Form.Group className="mb-3">
-          <Form.Label>State</Form.Label>
-          <Form.Control
-            type="text"
+        <div>
+          <FormLabel  htmlFor="state">State</FormLabel >
+          <FormSelect 
             id="state"
             name="state"
+            required
             onChange={formik.handleChange}
             value={formik.values.state}
-            placeholder="Enter state name"
-          />
-        </Form.Group>
+          >
+            <option value="" label="Select a state" />
+            <option value="SC" label="South Carolina (SC)" />
+            <option value="CO" label="Colorado (CO)" />
+            <option value="MN" label="Minnesota (MN)" />
+            <option value="NC" label="North Carolina (NC)" />
+            <option value="NY" label="New York (NY)" />
+            <option value="AZ" label="Arizona (AZ)" />
+            <option value="FL" label="Florida (FL)" />
+            <option value="IN" label="Indiana (IN)" />
+            <option value="OH" label="Ohio (OH)" />
+            <option value="NJ" label="New Jersey (NJ)" />
+            <option value="DE" label="Delaware (DE)" />
+            <option value="ND" label="North Dakota (ND)" />
+            <option value="MI" label="Michigan (MI)" />
+            <option value="MO" label="Missouri (MO)" />
+            <option value="KS" label="Kansas (KS)" />
+            <option value="GA" label="Georgia (GA)" />
+            <option value="UT" label="Utah (UT)" />
+            <option value="WA" label="Washington (WA)" />
+            <option value="ID" label="Idaho (ID)" />
+            <option value="NV" label="Nevada (NV)" />
+            <option value="NM" label="New Mexico (NM)" />
+            <option value="TX" label="Texas (TX)" />
+            <option value="AR" label="Arkansas (AR)" />
+            <option value="TN" label="Tennessee (TN)" />
+          </FormSelect >
+        </div>
 
-        <Form.Group className="mb-3">
-          <Form.Label>Wage</Form.Label>
-          <Form.Control
+        <div>
+          <FormLabel  htmlFor="wage">Wage</FormLabel >
+          <FormInput 
             type="text"
             id="wage"
             name="wage"
+            required
             onChange={formik.handleChange}
             value={formik.values.wage}
             placeholder="Enter wage"
           />
-        </Form.Group>
+        </div>
 
-        <Form.Group className="mb-3">
-          <Form.Label>Description</Form.Label>
-          <Form.Control
-            as="textarea"
+        <div>
+          <FormLabel  htmlFor="description">Description</FormLabel >
+          <FormTextArea 
             id="description"
             name="description"
+            required
             onChange={formik.handleChange}
             value={formik.values.description}
             placeholder="Enter job description"
           />
-        </Form.Group>
+        </div>
 
-        <Form.Group className="mb-3">
-          <Form.Label>Cover</Form.Label>
-          <InputGroup>
-            <FormControl
-              type="url"
-              id="cover"
-              name="cover"
-              onChange={handleFileChange}
-              placeholder="Enter cover URL"
-            />
-          </InputGroup>
-        </Form.Group>
+        <div>
+          <FormLabel  htmlFor="cover">Cover</FormLabel >
+          <FormInput  type="url" 
+            id="cover" 
+            name="cover"
+            required
+            value={coverUrl}
+            onChange={handleFileChange} 
+            placeholder="Cover image URL"/>
+        </div>
+          <div>
+            <FormLabel >Images</FormLabel >
 
-        <Form.Group className="mb-3">
-          <Form.Label>Images</Form.Label>
-
-          {imageUrls.map((url, index) => (
-            <div key={index} className="mb-3">
-              <InputGroup>
-                <FormControl
+            {imageUrls.map((url, index) => (
+              <div key={index} style={{display: 'flex', gap: '5px'}} >
+                <FormInput 
                   type="url"
                   value={url}
+                  required
                   onChange={(e) => handleUrlChange(index, e.target.value)}
                   placeholder={`Image URL ${index + 1}`}
                 />
 
                 {imageUrls.length > 1 && (
-                  <Button variant="outline-danger" onClick={() => handleRemoveInput(index)}>
+                  <FormRemoveButton type="button" onClick={() => handleRemoveInput(index)}>
                     Remove
-                  </Button>
+                  </FormRemoveButton >
                 )}
-              </InputGroup>
-            </div>
-          ))}
+              </div>
+            ))}
 
-          <Button variant="outline-primary" onClick={handleAddInput}>
-            Add
-          </Button>
-        </Form.Group>
+            <FormAddButton  type="button" onClick={handleAddInput}>
+              Add
+            </FormAddButton >
+          </div>
 
-        <Button type="submit" variant="success">Submit</Button>
-      </Form>
-    </Container>
+        <FormButton  type="submit">Submit</FormButton >
+      </FormContainer >
+  </div>
   );
 };
 

@@ -130,7 +130,7 @@ export const HeaderForMain = (props) => {
             </nav>
             <button className="header-menu-button"
                 onClick={() => setOpen(!isOpen)}
-            >< img src="images/menu.png" alt="menu"  width={24} height={24} /></button>
+            >< img src="/images/menu.png" alt="menu"  width={24} height={24} /></button>
         </header>
     )
 }

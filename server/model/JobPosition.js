@@ -13,6 +13,21 @@ const jobPositionSchema = new Schema({
     position: {
         type: String,
         required: true
+    },
+    state: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String,
+        required: false
+    },
+    coverImage: {
+        type: String,
+        required: true
+    },
+    images: {
+        type: [String]
     }
 });
   

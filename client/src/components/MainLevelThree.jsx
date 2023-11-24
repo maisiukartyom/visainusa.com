@@ -103,7 +103,7 @@ export const MainLevelThree = () => {
                   <li className="description-level">
                   48 hours online chat after the consultation
                   </li>
-                  <Link to='/job'><li className="description-level">
+                  <Link to='/jobs'><li className="description-level">
                   Job offering pool
                   </li></Link>
                   <li className="description-level">

@@ -447,8 +447,8 @@ const Testimonials = () => {
                     <p className="titre" data-aos="fade-up">Testimonials</p>
                 </div>
                 <section className="product">
-                    <button className="pre-btn"><img src="images/left-arrow.png" alt="arrow" width="20" height="20" /></button>
-                    <button className="nxt-btn"><img src="images/right-arrow.png" alt="arrow" width="20" height="20" /></button>
+                    <button className="pre-btn"><img src="/images/left-arrow.png" alt="arrow" width="20" height="20" /></button>
+                    <button className="nxt-btn"><img src="/images/right-arrow.png" alt="arrow" width="20" height="20" /></button>
                     <div className="product-container">
                         <div className="product-card">
                             <div className="product-info">
@@ -551,16 +551,16 @@ const Contacts = () => {
   <div className="align">
                <h4 class="contact-name">Contacts</h4>
                 <div className="number-phone">
-               <img src="images/number.png" alt="phone" width={20} height={20} />
+               <img src="/images/number.png" alt="phone" width={20} height={20} />
                <p class="number">+1 864 748 9898</p>
                               </div>
                               <div className="number-phone">
-               <img src="images/mail.png" alt="phone" width={26} height={20} />
+               <img src="/images/mail.png" alt="phone" width={26} height={20} />
                <a href="mailto:eb3unskilled@visainusa.com" class="number" >eb3unskilled@visainusa.com</a>
                               </div>
                               <br></br>
                <div className="number-phone">
-               <img src="images/home.png" alt="phone" width={30} height={20} />
+               <img src="/images/home.png" alt="phone" width={30} height={20} />
                <p class="number" >"Visa in USA" Limited Liability Company"
  6650 Rivers Ave Suite 105, North Charleston, South Carolina, 29406</p>
                               </div>
@@ -590,11 +590,11 @@ const Partners = () => {
                 <div>
                     <div className="logo-partners">
                         <div className="teachbk">
-                            <a href="https://teachbk.com/usa-immigration/" target="_blank" ><img src="images/logo-teachBK.png" alt="logo" width="200" height="60" className="friend" /></a>
+                            <a href="https://teachbk.com/usa-immigration/" target="_blank" ><img src="/images/logo-teachBK.png" alt="logo" width="200" height="60" className="friend" /></a>
                             <p className="teach">all about political asylum</p>
                         </div>
                         <div className="teachbk">
-                            <a href="https://rubic.us/" target="_blank" ><img src="images/logo-rubic.svg" alt="logo" width="200" height="60" className="friend" /></a>
+                            <a href="https://rubic.us/" target="_blank" ><img src="/images/logo-rubic.svg" alt="logo" width="200" height="60" className="friend" /></a>
                             <p className=" teach">all about life in the USA</p>
                         </div>
                     </div>
