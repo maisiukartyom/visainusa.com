@@ -4,9 +4,9 @@ const JobPosition = require('../model/JobPosition');
 const addJob = async (req, res) => {
     try {
         console.log(req.body)
-        const { position, location, wage } = req.body;
+        const { position, location, wage, description } = req.body;
 
-        const newJobPosition = new JobPosition({position, location, wage});
+        const newJobPosition = new JobPosition({position, location, wage, description});
     
         await newJobPosition.save();
     
