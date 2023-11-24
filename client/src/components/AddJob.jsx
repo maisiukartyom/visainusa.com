@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import axios from '../api/axios';
 import { Container, Form, Button, InputGroup, FormControl } from 'react-bootstrap';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 
 const AddJob = () => {
   // const [selectedFile, setSelectedFile] = useState(null);

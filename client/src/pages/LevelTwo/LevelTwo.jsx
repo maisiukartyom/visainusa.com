@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import axios from '../../api/axios';
 import Calendly from '../../components/Calendly/Calendly';
 import {toast} from 'react-toastify';
+import { MainLevelTwoPaid } from '../../components/MainLevelTwoPaid';
 
 
 const LevelTwo = () => {
@@ -51,10 +52,9 @@ const LevelTwo = () => {
         verified &&
         <div >
             <Header />
-            {/* {
-                hasLevel? <div>Level 2 is purchased!</div> : <MainLevelTwo/>
-            } */}
-            <MainLevelTwo/>
+            {
+                hasLevel? <MainLevelTwoPaid /> : <MainLevelTwo/>
+            }
             <Footer />
             {hasLevel && !user.isAdmin && <Calendly userEmail={user.email} userName={user.name} />}
         </div>
