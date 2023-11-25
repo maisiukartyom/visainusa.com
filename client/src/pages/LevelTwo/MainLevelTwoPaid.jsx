@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import {Link} from 'react-router-dom';
-import "../pages/LevelOne/LevelOne.css";
+import "../LevelOne/LevelOne.css";
 import { useNavigate } from "react-router-dom";
-import axios from "../api/axios";
+import axios from "../../api/axios";
 import {toast} from 'react-toastify';
-import TextBlocktwo from "./TextBlocktwo";
+import TextBlocktwo from "../../components/TextBlocktwo";
 
 
 
-export const MainLevelTwo = () => {
+export const MainLevelTwoPaid = () => {
 
    const navigate = useNavigate();
 
@@ -87,7 +87,7 @@ export const MainLevelTwo = () => {
                   <li className="description-level">
                   Enjoy 24/7 online chat support for any additional questions or clarifications after your consultation
                   </li>
-                  <Link to='/job'><li className="  link-job">
+                  <Link to='/jobs'><li className="  link-job">
                   Job offering pool            
                   </li></Link>
                   </ul>

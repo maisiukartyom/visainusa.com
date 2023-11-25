@@ -122,19 +122,16 @@ color: var(--deep-dark);
 }
 
 
-
-
-
 .card-employer{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    /* display: flex;
+    flex-direction: column; */
+    /* justify-content: center; */
     background-color: var(--light-color);
 	box-shadow: 0px 0px 8px 4px #b5b3b3;
     width: 450px;
     max-height:780px;
-    margin-bottom: 5%;
-    margin-top: 8%;
+    /* margin-bottom: 5%;
+    margin-top: 8%; */
     
 }
 
@@ -219,7 +216,9 @@ align-items: center;
     padding: 80px;
 }
 
-
+.big-text-main{
+    overflow-wrap: break-word;
+}
 
 .crew-one{
 text-align: center;

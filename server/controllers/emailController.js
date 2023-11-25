@@ -1,15 +1,20 @@
 var nodemailer = require('nodemailer');
 
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  host: 'smtp.gmail.com',
+  port: 587,
+  auth: {
+    user: 'EB3unskilled@gmail.com',
+    pass: 'muzh frte fruc uslx'
+  }
+  // auth: {
+  //   user: 'artyom.majsyuk@gmail.com',
+  //   pass: 'uaqx lsln boij einl'
+  // }
+});
+
 const handleSendEmail = async (req, res) => {
-    const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        host: 'smtp.gmail.com',
-        port: 587,
-        auth: {
-          user: 'artyom.majsyuk@gmail.com',
-          pass: 'diux piol dnxc euse'
-        }
-      });
       
       const {email, phoneNumber} = req.body
       const htmlContent = `
@@ -20,8 +25,10 @@ const handleSendEmail = async (req, res) => {
 
 
       const mailOptions = {
-        from: 'artyom.majsyuk@gmail.com',
-        to: 'maisiukartyom@gmail.com',
+        from: 'EB3unskilled@gmail.com',
+        to: 'EB3unskilled@visainusa.com',
+        // from: 'artyom.majsyuk@gmail.com',
+        // to: 'maisiukartyom@gmail.com',
         subject: `Anketa response`,
         html: htmlContent
       };
@@ -37,16 +44,6 @@ const handleSendEmail = async (req, res) => {
 }
 
 const handleSendEmployer = async (req, res) => {
-  const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      host: 'smtp.gmail.com',
-      port: 587,
-      auth: {
-        user: 'artyom.majsyuk@gmail.com',
-        pass: 'diux piol dnxc euse'
-      }
-    });
-    
     const {company, email, phoneNumber, comment} = req.body
 
     let htmlContent;
@@ -69,11 +66,11 @@ const handleSendEmployer = async (req, res) => {
     `;
     }
 
-
-
     const mailOptions = {
-      from: 'artyom.majsyuk@gmail.com',
-      to: 'maisiukartyom@gmail.com',
+      // from: 'artyom.majsyuk@gmail.com',
+      // to: 'maisiukartyom@gmail.com',
+      from: 'EB3unskilled@gmail.com',
+      to: 'EB3unskilled@visainusa.com',
       subject: `Employer inquiry `,
       html: htmlContent
     };
@@ -89,16 +86,6 @@ const handleSendEmployer = async (req, res) => {
 }
 
 const handleSendPhone = async (req, res) => {
-  const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      host: 'smtp.gmail.com',
-      port: 587,
-      auth: {
-        user: 'artyom.majsyuk@gmail.com',
-        pass: 'diux piol dnxc euse'
-      }
-    });
-    
     const {phone, name} = req.body
     const htmlContent = `
       <h1>Phone call request</h1>
@@ -107,8 +94,10 @@ const handleSendPhone = async (req, res) => {
     `;
 
     const mailOptions = {
-      from: 'artyom.majsyuk@gmail.com',
-      to: 'maisiukartyom@gmail.com',
+      // from: 'artyom.majsyuk@gmail.com',
+      // to: 'maisiukartyom@gmail.com',
+      from: 'EB3unskilled@gmail.com',
+      to: 'EB3unskilled@visainusa.com',
       subject: `Contact request`,
       html: htmlContent
     };

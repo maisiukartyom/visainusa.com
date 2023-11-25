@@ -8,10 +8,40 @@ import {toast} from 'react-toastify'
 function LoginForm(props)  {
     const navigate = useNavigate();
     const {state} = useLocation();
+    const [sendLink, setSendLink] = useState(false);
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [errors, setErrors] = useState([])
+    const [errors, setErrors] = useState([]);
+
+    const sendEmail = async () => {
+        try{
+            await axios.post('/register/sendLink', {email: email});
+            toast.success("Email verification link has been sent!", {
+                position: "top-center",
+                autoClose: 6000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                progress: undefined,
+                theme: "light",
+                });
+        }
+        catch(err){
+            toast.error("Couldn't send verification link!", {
+                position: "top-center",
+                autoClose: 6000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                progress: undefined,
+                theme: "light",
+                });
+        }
+    }
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         const errors = validate();
@@ -52,7 +82,12 @@ function LoginForm(props)  {
                     errorMessage = 'No Server Response'
                 } else if (err.response?.status === 401) {
                     errorMessage = 'Invalid credentials!'
-                } else {
+                } 
+                else if (err.response?.status === 402){
+                    errorMessage = 'Please verify your email!';
+                    setSendLink(true);
+                }
+                else {
                     errorMessage = 'Login Failed'
                 }
 
@@ -94,7 +129,7 @@ const validate = () => {
         <div className="app-wrapper-main-log">
             <div className="app-wrapper-loginn">
             <div className="logoForm">
-            <Link to="/"><img src="images/logo.png" alt="logo" width={70} height={94}/></Link> 
+            <Link to="/"><img src="/images/logo.png" alt="logo" width={70} height={94}/></Link> 
         </div>
                 <div>
                     <h2 className="title">Log in</h2>
@@ -119,6 +154,7 @@ const validate = () => {
                         <button className="submit">Log in</button>
                     </div>
                 </form>
+                {sendLink && <div><button style={{marginTop: "10px", backgroundColor: "green"}} className="submit" onClick={sendEmail}>send email</button></div> }
                     </div>
         </div>
     )

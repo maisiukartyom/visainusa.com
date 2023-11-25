@@ -5,6 +5,7 @@ import axios from '../../api/axios';
 import {toast} from 'react-toastify'
 import { useNavigate } from 'react-router-dom';
 import TransactionList from './TransactionList';
+import LevelList from './LevelList';
 
 const Dashboard = () => {
   const [users, setUsers] = useState([]);
@@ -91,16 +92,23 @@ const Dashboard = () => {
 
   return (
     isVerified &&
-    <div style={{display: "flex", flexDirection: "row", justifyContent: "center"}}>
-      <div style={{flex: 1}}>
-        <h1 style={{textAlign: "center"}}>Users</h1>
-        <UserList update={getUsers} users={users} />
+    <>
+        <div style={{display: "flex", flexDirection: "row", justifyContent: "center"}}>
+        <div style={{flex: 1}}>
+          <h1 style={{textAlign: "center"}}>Users</h1>
+          <UserList update={getUsers} users={users} />
+        </div>
+        <div style={{flex: 1}}>
+          <h1 style={{textAlign: "center"}}>Payments</h1>
+          <TransactionList transactions={transactions}/>
+        </div>
       </div>
-      <div style={{flex: 1}}>
-        <h1 style={{textAlign: "center"}}>Payments</h1>
-        <TransactionList transactions={transactions}/>
+      <div>
+        <h1 style={{textAlign: "center"}}>Levels</h1>
+        <LevelList />
       </div>
-    </div>
+    </>
+
   );
 };
 

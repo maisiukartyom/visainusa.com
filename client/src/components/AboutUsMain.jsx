@@ -15,7 +15,7 @@ const AboutUsMain = () => {
          <div className="team">
           <div>
           <div className="first-team">
-            <img src="images/Alexey.jpg" alt="photo" width={370} height={400} className="photo-team"/>
+            <img src="/images/Alexey.jpg" alt="photo" width={370} height={400} className="photo-team"/>
             <h3 className="name-team">Alexey </h3>
             <h4 className="when">Applied for EB3 unskilled in 2018 </h4>
             <h4 className="when-CP">Went through Consular processing</h4>
@@ -42,7 +42,7 @@ const AboutUsMain = () => {
           
           <div>
           <div className="first-team">
-            <img src="images/Paul.jpg" alt="photo" width={370} height={400} className="photo-team"/>
+            <img src="/images/Paul.jpg" alt="photo" width={370} height={400} className="photo-team"/>
             <h3 className="name-team">Paul </h3>
             <h4 className="when">Applied for EB3 unskilled in 2020 </h4>
             <h4 className="when-CP">Went through Adjustment of status</h4>
@@ -69,7 +69,7 @@ const AboutUsMain = () => {
 <div className="team">
           <div>
           <div className="first-team">
-            <img src="images/Elena.jpg" alt="photo" width={370} height={400} className="photo-team"/>
+            <img src="/images/Elena.jpg" alt="photo" width={370} height={400} className="photo-team"/>
             <h3 className="name-team">Elena </h3>
             <h4 className="when">Applied for EB3 unskilled in 2018 </h4>
             <h4 className="when-CP">Went through Consular Processing</h4>
@@ -97,7 +97,7 @@ const AboutUsMain = () => {
           
           <div>
           <div className="first-team">
-            <img src="images/Olya.jpg" alt="photo" width={370} height={400} className="photo-team"/>
+            <img src="/images/Olya.jpg" alt="photo" width={370} height={400} className="photo-team"/>
             <h3 className="name-team">Olya </h3>
             <h4 className="when">Applied for EB3 unskilled in 2020 </h4>
             <h4 className="when-CP">Went through Adjustment of status</h4>
@@ -122,7 +122,7 @@ education, and in developing my small business.  ... "
 <div className="team">
           <div className="Alexander">
           <div className="first-team">
-            <img src="images/Alexsandr.jpg" alt="photo" width={370} height={400} className="photo-team"/>
+            <img src="/images/Alexsandr.jpg" alt="photo" width={370} height={400} className="photo-team"/>
             <h3 className="name-team">Alexander </h3>
             <h4 className="when">Applied for EB3 unskilled in 2017 </h4>
             <h4 className="when-CP">Went through Consular processing</h4>
@@ -145,7 +145,7 @@ education, and in developing my small business.  ... "
           </div>
           <div className="Alexander">
           <div className="first-team">
-            <img src="images/Alexsandr.jpg" alt="photo" width={370} height={400} className="photo-team"/>
+            <img src="/images/Alexsandr.jpg" alt="photo" width={370} height={400} className="photo-team"/>
             <h3 className="name-team">Alexander </h3>
             <h4 className="when">Applied for EB3 unskilled in 2017 </h4>
             <h4 className="when-CP">Went through Consular processing</h4>

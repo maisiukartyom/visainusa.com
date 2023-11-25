@@ -1,7 +1,7 @@
 import React from "react";
 
-import "../pages/LevelOne/LevelOne.css";
-import axios from "../api/axios";
+import "../LevelOne/LevelOne.css";
+import axios from "../../api/axios";
 import {toast} from 'react-toastify'
 import { useNavigate } from "react-router-dom";
 
@@ -28,7 +28,8 @@ export const MainLevel = () => {
              errorMessage = 'You already have this level!'
          }
          else if (err.response?.status === 403) {
-            errorMessage = 'You are not authorized! Please login or sign up to make purchase!'
+            errorMessage = 'You are not authorized! Please login or sign up to make purchase!';
+            navigate("/login");
          } 
 
          toast.error(errorMessage, {

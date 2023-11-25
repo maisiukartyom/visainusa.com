@@ -1,12 +1,52 @@
 const Payment = require('../model/Payment');
 const User = require('../model/User');
+const Level = require('../model/Level')
 const jwt = require('jsonwebtoken');
-const paypal = require('@paypal/checkout-server-sdk')
+const paypal = require('@paypal/checkout-server-sdk');
 
 const clientId = process.env.PAYPAL_CLIENT_ID;
 const clientSecret = process.env.PAYPAL_SECRET_KEY;
 const environment = new paypal.core.SandboxEnvironment(clientId, clientSecret);
 const client = new paypal.core.PayPalHttpClient(environment);
+
+const updateLevels = async (req, res) => {
+  try{
+    const levels = req.body.levels;
+    for (const updatedLevel of levels){
+      const filter = {levelNumber: updatedLevel.levelNumber}
+
+      await Level.updateOne(filter, updatedLevel);
+    }
+
+    res.sendStatus(200);
+  }
+  catch(err){
+    res.sendStatus(403);
+  }
+}
+
+const getLevelCost = async (req, res) => {
+  try{
+    const level = req.body.level;
+    const currLevel = await Level.findOne({levelNumber: level});
+
+    res.json({cost: currLevel.cost});
+  }
+  catch(err){
+    res.sendStatus(403);
+  }
+}
+
+const getLevelsCosts = async (req, res) => {
+  try{
+    const levels = await Level.find();
+
+    res.json({levels: levels});
+  }
+  catch{
+    res.sendStatus(403);
+  }
+}
 
 
 const handlePayment = async (req, res) => {
@@ -14,18 +54,20 @@ const handlePayment = async (req, res) => {
     const level = req.level
 
     try {
-      let priceTotal;
-      switch (level){
-        case 1:
-          priceTotal = 25;
-          break;
-        case 2:
-          priceTotal = 50;
-          break;
-        case 3:
-          priceTotal = 1000;
-          break;
-      }
+      const currLevel = await Level.findOne({levelNumber: level});
+      const priceTotal = currLevel.cost;
+      // let priceTotal;
+      // switch (level){
+      //   case 1:
+      //     priceTotal = 25;
+      //     break;
+      //   case 2:
+      //     priceTotal = 50;
+      //     break;
+      //   case 3:
+      //     priceTotal = 1000;
+      //     break;
+      // }
 
       const finalSum = priceTotal;
 
@@ -109,6 +151,8 @@ const handlePaypalTransactionComplete = async (req, res) => {
                   process.env.ACCESS_TOKEN_SECRET,
                   { expiresIn: '1d' }
                 );
+
+                // IF LEVEL >= 3 SOMEHOW NOTIFY ALEXEY!
                 
                 await Payment.create({
                   paymentID: result.purchase_units[0].payments.captures[0].id,
@@ -174,4 +218,7 @@ const handleGetTransactions = async (req, res) => {
   res.json(transactions);
 }
 
-module.exports = {handlePayment, handleVerify, handlePaypalTransactionComplete, handleGetTransactions}
+module.exports = {handlePayment, handleVerify, 
+  handlePaypalTransactionComplete, 
+  handleGetTransactions, getLevelCost,
+  getLevelsCosts, updateLevels}

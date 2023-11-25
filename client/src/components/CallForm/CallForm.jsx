@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './CallForm.css';
 import axios from '../../api/axios';
-import {toast} from 'react-toastify'
+import {toast} from 'react-toastify';
+import PhoneInput from 'react-phone-input-2';
 
 const CallForm = () => {
   const [formVisible, setFormVisible] = useState(false);
@@ -49,47 +50,42 @@ const CallForm = () => {
     setFormVisible(!formVisible);
   };
 
+  const handlePhoneChange = (value) => {
+    setPhoneNumber(value)
+}
+
   return (
-    <div className="call-form-container">
-
-<img src='images/number-main.png' alt='icon' width={60} height={60} className="form-toggle" onClick={toggleForm} />
-        
-      {formVisible && (
-        <div className="expanded-form">
-          
-          <form  onSubmit={handleSubmit}>
-          <span className="close-form" onClick={toggleForm}>X</span>
-          <h2 className='h2'>Have questions?</h2>
-          <h4 className='h4'>We wiil call you back within 5 minutes</h4>
-          
-
-              <input
-                className='input-name'
-                type="text"
-                placeholder="Name"
-                id="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-
-              <input
-                className='input-phone'
-                type="tel"
-                id="phone"
-                placeholder="Phone number"
-                value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
-                required
-              />
-
-<div>
-             <button className='button-phone' type="submit">Receive Call</button> 
-             </div>
-          </form>
-
-        </div>
-      )}
-    </div>
+    formVisible? (<div className="expanded-form">
+    <span className="close-form" onClick={toggleForm}>X</span>
+    <h2 className='h2'>REQUEST A CALL</h2>
+    <p className='p'>Have questions? Let us reach out to you within 5 minutes to answer.</p>
+    <form onSubmit={handleSubmit}>
+      <div className="form-group">
+          <input
+            className='input-phone'
+            type="text"
+            placeholder="Name"
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+      </div>
+      <div className="form-group">
+        <PhoneInput 
+        inputStyle={{width: "100%"}}
+        className=""
+        country={'us'}
+        value={phoneNumber}
+        onChange={handlePhoneChange}
+        inputProps={{name: 'phoneNumber',
+        required: true,}}   
+        />
+      </div>
+      <button className='button-phone' type="submit">Receive Call</button>
+    </form>
+  </div>) : (<div className="call-form-container">
+      <img src='/images/number-main.png' alt='icon' width={60} height={60} className="form-toggle" onClick={toggleForm} />
+      </div>)
   );
 };
 

@@ -10,6 +10,7 @@ import { useEffect } from "react";
 export const HeaderForMain = (props) => {
 
     const [isOpen, setOpen] = useState();
+    const [email, setEmail] = useState("");
     const [user, setUser] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false)
     const [verified, setVerified] = useState(false)
@@ -50,6 +51,7 @@ export const HeaderForMain = (props) => {
             else{
             setIsAdmin(false)
             }
+            setEmail(user.data.email)
             setUser(true)
             setVerified(true)
         }
@@ -70,8 +72,8 @@ export const HeaderForMain = (props) => {
                 <ul className="header-nav-list">
                 <Link to="/aboutus"><li className="header-nav-items">About Us</li></Link>
                     <a href="/#testimonials"><li className="header-nav-items">Testimonials</li></a>
-                    <a href="/#contact"><li className="header-nav-items">Contacts</li></a>
-                    <Link to="/newdesign"><li className="header-nav-items">Pricing</li></Link>
+                    <a href="/#contacts"><li className="header-nav-items">Contacts</li></a>
+                    <a href="/#pricing"><li className="header-nav-items">Pricing</li></a>
                     <Link to="/foremployer"><li className="header-nav-items employer">For the U.S. employer</li></Link>
                     {/* Only show if not authorized */}
                {
@@ -104,17 +106,11 @@ export const HeaderForMain = (props) => {
                         Profile
                     </Link> */}
                     {
-                        isAdmin && <>
-                        <Link className="header-nav-item item-button-l login-l"
-                        to="/adminChat">
-                            Chats
-                        </Link>
-                        <Link className="header-nav-item item-button-l login-l" to="/adminDashboard">
-                            Dashboard
-                        </Link>
-                    </>
+                        isAdmin && 
+                        <Link className="header-nav-item item-button-l login-l" to="/admin">Admin</Link>
                     }
 
+                    <li className="header-nav-item sign-l welcome">Welcome {email}</li>
                     <div
                         className = "header-nav-item item-button-l sign-l"
                         onClick={logout}
@@ -127,7 +123,7 @@ export const HeaderForMain = (props) => {
             </nav>
             <button className="header-menu-button"
                 onClick={() => setOpen(!isOpen)}
-            >< img src="images/menu.png" alt="menu"  width={24} height={24} /></button>
+            >< img src="/images/menu.png" alt="menu"  width={24} height={24} /></button>
         </header>
     )
 }

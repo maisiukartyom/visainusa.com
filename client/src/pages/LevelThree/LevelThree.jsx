@@ -2,14 +2,15 @@ import React, {useState, useEffect} from 'react';
 import { Header } from '../../components/Header';
 import Footer from '../../components/Footer';
 import "../LevelOne/LevelOne.css";
-import {Link} from 'react-router-dom';
 import { MainLevelThree } from '../../components/MainLevelThree';
 import axios from '../../api/axios';
+import Calendly from '../../components/Calendly/Calendly';
 
 
 const LevelThree = () => {
     const [hasLevel, setHasLevel] = useState(false);
-    const [verified, setVerified] = useState(false)
+    const [verified, setVerified] = useState(false);
+    const [user, setUser] = useState({});
 
     useEffect(() => {
         const verifyCookie = async (level) => {
@@ -30,7 +31,8 @@ const LevelThree = () => {
              else if (user.data.level < level){
               setHasLevel(false)
              }
-             setVerified(true)
+             setVerified(true);
+             setUser({email: user.data.email, isAdmin: user.data.isAdmin, name: user.data.name})
            }
            catch (err){
             setHasLevel(false)
@@ -39,7 +41,7 @@ const LevelThree = () => {
          }
      
          verifyCookie(3)
-     })
+     }, [])
 
     return (
         verified &&
@@ -47,6 +49,7 @@ const LevelThree = () => {
             <Header />
             {hasLevel? <div>Level 3 is purchased!</div> : <MainLevelThree />}
             <Footer />
+            {hasLevel && <Calendly userEmail={user.email} userName={user.name} />}
         </div>
     )
   }

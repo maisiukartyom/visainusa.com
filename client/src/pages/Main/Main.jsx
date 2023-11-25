@@ -7,17 +7,41 @@ import {Link, useLocation} from 'react-router-dom';
 import { MainPhoto } from "../../components/MainPhoto";
 import SupportEngine from "../../components/SupportEngine";
 import axios from "../../api/axios";
-import CallForm from "../../components/CallForm/CallForm";
+import {toast} from 'react-toastify';
 
 
-
-
-
-const Main = ({user}) => {
+const   Main = ({user}) => {
 
   const {state} = useLocation();
+  const [levelsInfo, setLevelsInfo] = useState([]);
+  const [hasInfo, setHasInfo] = useState(false);
 
   useEffect(() => {
+    const getLevelsCosts = async () => {
+      try{
+        const levels = await axios.get("/payment/getLevelsCosts");
+        console.log(levels.data.levels)
+        setLevelsInfo(levels.data.levels);
+        setHasInfo(true);
+      }
+      catch(err){
+        toast.error("Error to get levels info!",{
+          position: "top-center",
+          autoClose: 10000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          progress: undefined,
+          theme: "light",
+          }
+        );
+        setHasInfo(false)
+      }
+    }
+
+    getLevelsCosts();
+
     if (state?.hash){
       document.getElementById(state.hash).scrollIntoView();
       window.history.replaceState(null, document.title)
@@ -69,7 +93,7 @@ const Main = ({user}) => {
               </svg>
               <p className="par  white">Affordable prices </p>
               <p className="grey text">
-              Our mission is to help everyone sort out in very simple language how EB3 unskilled program works and make the process as cheap as possible. Our prices start from 0$, check it out on Level 1 
+              Our mission is to help everyone sort out in very simple language how EB3 unskilled program works and make the process as cheap as possible. Our prices start from $0, check it out on Level 1 
               </p>
             </a>
           </div>
@@ -287,18 +311,18 @@ const Main = ({user}) => {
           </div>
 
 
-          <div className={user.levellev >= 2 ? "level-paid" : "levellev"}>
+          <div className={user.level >= 2 ? "level-paid" : "levellev"}>
           {
-              user.levellev >= 2 && <p className="coming-newDesign">Paid</p>
+              user.level >= 2 && <p className="coming-newDesign">Paid</p>
             }
             <h2 className="appliName-future">Level 2</h2>
             <h3 className="appliName-names">"Immigration with no mistake"</h3>
             { 
-              ((user.levellev && user.levellev < 2) || !user.levellev) &&
+              ((user.level && user.level < 2) || !user.level) &&
             <>
             <div className="price-all">
-            <p className="appliName-levelOne-del price-all">500$</p>
-                <p className="appliName-level-two price-all">199$</p>
+            <p className="appliName-levelOne-del price-all">$500</p>
+              {hasInfo && <p className="appliName-level-two price-all">${levelsInfo[1].cost}</p>}
                 </div>
               </>
 }
@@ -336,18 +360,18 @@ const Main = ({user}) => {
               </div>
           </div>
 
-          <div className={user.levellev >= 3 ? "level-paid" : "levellev"}>
+          <div className={user.level >= 3 ? "level-paid" : "levellev"}>
           {
-              user.levellev >= 3 && <p className="coming-newDesign">Paid</p>
+              user.level >= 3 && <p className="coming-newDesign">Paid</p>
             }
             <h2 className="appliName-future">Level 3</h2>
             <h3 className="appliName-names">"Smart immigration with no overpriced assistance"</h3>
             { 
-              ((user.levellev && user.levellev < 3) || !user.levellev) &&
+              ((user.level && user.level < 3) || !user.level) &&
             <>
             <div className="price-all">
-            <p className="appliName-levelOne-del price-all">1500$</p>
-                <p className="appliName-level-two price-all">599$</p>
+            <p className="appliName-levelOne-del price-all">$1500</p>
+              {hasInfo && <p className="appliName-level-two price-all">${levelsInfo[2].cost}</p>}
                 </div>
               </>
 }
@@ -369,7 +393,7 @@ const Main = ({user}) => {
               </p>
 
               <p className="description-future ">
-              Opportunity to complete entire EB3 program from 9999$
+              Opportunity to complete entire EB3 program from $9999
               </p>
               <p className="coming-bonus">Extra bonus!</p>
               <p className="description-future description-future-finaly "> Be prepared to immerse in English language environment 
@@ -389,8 +413,8 @@ const Main = ({user}) => {
             <p className="coming">Coming Q4 2024</p>
             <h2 className="appliName-future">Level 4</h2>
             <h3 className="appliName-names">"Turnkey package"</h3>
-            <>
-                <p className="appliName-levelOne price">$14999</p>
+              <>
+              {hasInfo && <p className="appliName-levelOne price">${levelsInfo[3].cost}</p>}
               </>
             <div className="text-discription-future">
               <p className="description-future ">
@@ -410,7 +434,7 @@ const Main = ({user}) => {
           <p className="coming">Coming Q4 2024</p>
             <h2 className="appliName-future">Level 5</h2>
             <h3 className="appliName-names">"VIP package"</h3>
-            <p className="appliName-levelOne price">$29999</p>
+              {hasInfo && <p className="appliName-levelOne price">${levelsInfo[4].cost}</p>}
             <div className="text-discription-future">
               <p className="description-future ">
               We will find the U.S. employer based on your request (location, field of business, wage level, etc)
@@ -435,8 +459,8 @@ const Testimonials = () => {
                     <p className="titre" data-aos="fade-up">Testimonials</p>
                 </div>
                 <section className="product">
-                    <button className="pre-btn"><img src="images/left-arrow.png" alt="arrow" width="20" height="20" /></button>
-                    <button className="nxt-btn"><img src="images/right-arrow.png" alt="arrow" width="20" height="20" /></button>
+                    <button className="pre-btn"><img src="/images/left-arrow.png" alt="arrow" width="20" height="20" /></button>
+                    <button className="nxt-btn"><img src="/images/right-arrow.png" alt="arrow" width="20" height="20" /></button>
                     <div className="product-container">
                         <div className="product-card">
                             <div className="product-info">
@@ -539,16 +563,16 @@ const Contacts = () => {
   <div className="align">
                <h4 class="contact-name" id="contact">Contacts</h4>
                 <div className="number-phone">
-               <img src="images/number.png" alt="phone" width={20} height={20} />
+               <img src="/images/number.png" alt="phone" width={20} height={20} />
                <p class="number">+1 864 748 9898</p>
                               </div>
                               <div className="number-phone">
-               <img src="images/mail.png" alt="phone" width={26} height={20} />
+               <img src="/images/mail.png" alt="phone" width={26} height={20} />
                <a href="mailto:eb3unskilled@visainusa.com" class="number" >eb3unskilled@visainusa.com</a>
                               </div>
                               <br></br>
                <div className="number-phone">
-               <img src="images/home.png" alt="phone" width={30} height={20} />
+               <img src="/images/home.png" alt="phone" width={30} height={20} />
                <p class="number" >"Visa in USA" Limited Liability Company"
  6650 Rivers Ave Suite 105, North Charleston, South Carolina, 29406</p>
                               </div>
@@ -578,11 +602,11 @@ const Partners = () => {
                 <div>
                     <div className="logo-partners">
                         <div className="teachbk">
-                            <a href="https://teachbk.com/usa-immigration/" target="_blank" ><img src="images/logo-teachBK.png" alt="logo" width="200" height="60" className="friend" /></a>
+                            <a href="https://teachbk.com/usa-immigration/" target="_blank" ><img src="/images/logo-teachBK.png" alt="logo" width="200" height="60" className="friend" /></a>
                             <p className="teach">all about political asylum</p>
                         </div>
                         <div className="teachbk">
-                            <a href="https://rubic.us/" target="_blank" ><img src="images/logo-rubic.svg" alt="logo" width="200" height="60" className="friend" /></a>
+                            <a href="https://rubic.us/" target="_blank" ><img src="/images/logo-rubic.svg" alt="logo" width="200" height="60" className="friend" /></a>
                             <p className=" teach">all about life in the USA</p>
                         </div>
                     </div>
@@ -680,7 +704,6 @@ const Index = () => {
           })
           setIsUser(true)
           setIsVerified(true)
-          console.log(user.data)
       }
       catch (err){
           setIsUser(false)
@@ -725,7 +748,6 @@ const Index = () => {
         <Contacts />
         <Partners />
         <Footer />
-        <CallForm />
         {
           isVerified && !isAdmin && isUser && <SupportEngine user={user} />
         }

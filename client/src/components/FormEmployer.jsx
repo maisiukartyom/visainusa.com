@@ -107,7 +107,7 @@ const FormEmployer = () =>  {
         <div className="app-wrapper-main-sum">
             <div className="app-wrapper-form">
                 <div className="logoForm-sum">
-                    <Link to="/"><img src="images/logo.png" alt="logo" width={70} height={94}/></Link>
+                    <Link to="/"><img src="/images/logo.png" alt="logo" width={70} height={94}/></Link>
                 </div>
                 <div>
                     <h2 className="title-form">Have questions? <br></br> Fill in below form and we will reach out</h2>
@@ -119,29 +119,30 @@ const FormEmployer = () =>  {
                             <div className="start">
                             <label htmlFor="email" className="label-log-sum">Company name</label>
                             </div>
-                            <input value={company} className="input-log-sum" onChange={(e) => setCompany(e.target.value)}/>
-                            {errors.company && <p className="error">{errors.company}</p>}
+                            <input required value={company} className="input-log-sum" onChange={(e) => setCompany(e.target.value)}/>
+                            {/* {errors.company && <p className="error">{errors.company}</p>} */}
                         </div>
                         <div className="email-log-sum">
                             <div className="start">
                             <label htmlFor="email" className="label-log-sum">Email</label>
                             </div>
-                            <input value={email} className="input-log-sum" type="email" onChange={(e) => setEmail(e.target.value)}/>
-                            {errors.email && <p className="error">{errors.email}</p>}
+                            <input required value={email} className="input-log-sum" type="email" onChange={(e) => setEmail(e.target.value)}/>
+                            {/* {errors.email && <p className="error">{errors.email}</p>} */}
                         </div>
 
                         <div className="email-log-sum">
                             <div className="start">
                                 <label htmlFor="email" className="label-log-sum">Phone number</label>
                             </div>
-                            <PhoneInput className=""
+                            <PhoneInput 
+                                className=""
                                 country={'us'}
                                 value={phoneNumber}
                                 onChange={handlePhoneChange}
                                 inputProps={{name: 'phoneNumber',
                                             required: true,}}   
                                 />
-                            {errors.phoneNumber && <p className="error-phone-left">{errors.phoneNumber}</p>}   
+                            {/* {errors.phoneNumber && <p className="error-phone-left">{errors.phoneNumber}</p>}    */}
                         </div>
 
                         <div className="email-log-sum">
@@ -160,9 +161,6 @@ const FormEmployer = () =>  {
 
                         </div>
             </div>
-
-
-        
     )
 }
 

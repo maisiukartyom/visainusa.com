@@ -11,7 +11,7 @@ const Payment = () => {
     const navigate = useNavigate();
     const [isVerified, setIsVerified] = useState(false);
     const {state} = useLocation();
-    // const location = useLocation();
+
 
     useEffect(() => {
         async function verifyCookie(requiredLevel) {
@@ -41,6 +41,7 @@ const Payment = () => {
                 navigate("/login")
             }
         }
+
         verifyCookie(0)
         if (!state){
             setIsVerified(false)
@@ -61,7 +62,7 @@ const Payment = () => {
         else{
             setIsVerified(true)
         }
-    })
+    }, [])
 
     const createOrder = () => {
         return axios.post("/payment", 

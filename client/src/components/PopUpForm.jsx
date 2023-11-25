@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import axios from '../api/axios';
 import {toast} from 'react-toastify'
 import { useNavigate } from 'react-router-dom';
+import PhoneInput from 'react-phone-input-2';
 
 const PopUpBackground = styled.div`
   position: fixed;
@@ -33,6 +34,7 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
+  margin-top: 10px;
   padding: 10px 20px;
   background: #007bff;
   color: white;
@@ -60,11 +62,8 @@ const PopUpForm = ({ onClose }) => {
     setEmail(e.target.value);
   };
 
-  const handleInputChange2 = (e) => {
-    setPhoneNumber(e.target.value);
-  };
-
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     if (email !== "" && phoneNumber !== ""){
         try{
             await axios.post("/email/sendEmail", {
@@ -111,27 +110,37 @@ const PopUpForm = ({ onClose }) => {
     }
   };
 
+  const handlePhoneChange = (value) => {
+    setPhoneNumber(value)
+}
+
   return (
     <PopUpBackground>
       <PopUpContent>
-        <CloseButton onClick={onClose}>X</CloseButton>
-        <h2>Contact us</h2>
-        <p><strong style={{color: "red"}}>It looks like you answered "YES" to one or more questions. 
-          <br />
-          Please fill in the form and we will reach out!</strong></p>
-        <Input
-          type="text"
-          placeholder="Email"
-          value={email}
-          onChange={handleInputChange1}
-        />
-        <Input
-          type="text"
-          placeholder="Phone number"
-          value={phoneNumber}
-          onChange={handleInputChange2}
-        />
-        <Button onClick={handleSubmit}>Submit</Button>
+        <form onSubmit={handleSubmit}>
+          <CloseButton onClick={onClose}>X</CloseButton>
+            <h2>Contact us</h2>
+            <p><strong style={{color: "red"}}>It looks like you answered "YES" to one or more questions. 
+              <br />
+              Please fill in the form and we will reach out!</strong></p>
+            <Input
+              required
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={handleInputChange1}
+            />
+            <PhoneInput 
+              inputStyle={{width: "100%"}}
+              className=""
+              country={'us'}
+              value={phoneNumber}
+              onChange={handlePhoneChange}
+              inputProps={{name: 'phoneNumber',
+              required: true,}}   
+            />
+            <Button>Send</Button>
+        </form>
       </PopUpContent>
     </PopUpBackground>
   );

@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
-import {Link} from 'react-router-dom';
-import "../pages/LevelOne/LevelOne.css";
+import "../LevelOne/LevelOne.css";
 import { useNavigate } from "react-router-dom";
-import axios from "../api/axios";
+import axios from "../../api/axios";
 import {toast} from 'react-toastify';
-import TextBlocktwo from "./TextBlocktwo";
+import TextBlocktwo from "../../components/TextBlocktwo";
 
 
 
 export const MainLevelTwo = () => {
 
    const navigate = useNavigate();
+   const [levelCost, setLevelCost] = useState(0);
+   const [canPurchase, setCanPurchase] = useState(false);
 
    const purchaseLevel = async () => {
       try {
@@ -22,7 +23,7 @@ export const MainLevelTwo = () => {
             withCredentials: true
          })
 
-         navigate("/payment", {state: {levelToPurchase: 2, price: 50}});
+         navigate("/payment", {state: {levelToPurchase: 2, price: levelCost}});
       }
       catch(err){
          let errorMessage = "";
@@ -32,7 +33,8 @@ export const MainLevelTwo = () => {
              errorMessage = 'You already have this level!'
          }
          else if (err.response?.status === 403) {
-            errorMessage = 'You are not authorized! Please login or sign up to make purchase!'
+            errorMessage = 'You are not authorized! Please login or sign up to make purchase!';
+            navigate("/login");
          } 
 
          toast.error(errorMessage, {
@@ -47,6 +49,34 @@ export const MainLevelTwo = () => {
          )
       }
    }
+
+   useEffect(() => {
+      async function getLevelCost(){
+         try{
+             const res = await axios.post("/payment/getLevelCost", {
+                 level: 2
+             })
+             setLevelCost(res.data.cost);
+             setCanPurchase(true);
+         }
+         catch(err){
+             toast.error("Error to get level cost!",{
+                 position: "top-center",
+                 autoClose: 10000,
+                 hideProgressBar: false,
+                 closeOnClick: true,
+                 pauseOnHover: false,
+                 draggable: false,
+                 progress: undefined,
+                 theme: "light",
+                 }
+             );
+             setCanPurchase(false);
+         }
+       }
+
+       getLevelCost()
+   }, [])
 
     return(
       <div>
@@ -76,7 +106,7 @@ export const MainLevelTwo = () => {
     <h3 className="appliName-names">"Immigration with no mistake"</h3>
     <div className="price-all">
     <del className=" price-del appliName-levelOne-del">$500</del>
-            <ins className=" price appliName-levelOne">$199</ins>
+            {canPurchase &&<ins className=" price appliName-levelOne">${levelCost}</ins>}
             </div>
                <ul  className="text-discription-level">
                   <li  className="description-level">
@@ -102,9 +132,9 @@ export const MainLevelTwo = () => {
                   <li className="description-level">
                   Enjoy 24/7 online chat support for any additional questions or clarifications after your consultation
                   </li>
-<li className="description-level">
-                  Job offering pool            
-                  </li>
+                    <li className="description-level">
+                    Job offering pool            
+                    </li>
                   </ul>
 
 
@@ -126,7 +156,7 @@ export const MainLevelTwo = () => {
                             <label className="label-level" > languages  </label>
                         </div>
                     </div>
-                     <button className="button-level-two" onClick={purchaseLevel}>PAY</button>
+                     <button className="button-level-two" disabled={!canPurchase} onClick={purchaseLevel}>PAY</button>
 
                   </div>
 
