@@ -104,9 +104,9 @@ export const MainLevelThree = () => {
                   <li className="description-level">
                   48 hours online chat after the consultation
                   </li>
-                  <Link to='/jobs'><li className="description-level">
+                  <li className="description-level">
                   Job offering pool
-                  </li></Link>
+                  </li>
                   <li className="description-level">
                   Opportunity to complete entire EB3 program from 9999$
                   </li>            

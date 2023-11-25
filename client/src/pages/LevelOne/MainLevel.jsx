@@ -1,7 +1,7 @@
 import React from "react";
 
-import "../pages/LevelOne/LevelOne.css";
-import axios from "../api/axios";
+import "../LevelOne/LevelOne.css";
+import axios from "../../api/axios";
 import {toast} from 'react-toastify'
 import { useNavigate } from "react-router-dom";
 

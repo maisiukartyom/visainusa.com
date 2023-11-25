@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import {Link} from 'react-router-dom';
-import "../pages/LevelOne/LevelOne.css";
+import "../LevelOne/LevelOne.css";
 import { useNavigate } from "react-router-dom";
-import axios from "../api/axios";
+import axios from "../../api/axios";
 import {toast} from 'react-toastify';
-import TextBlocktwo from "./TextBlocktwo";
+import TextBlocktwo from "../../components/TextBlocktwo";
 
 
 

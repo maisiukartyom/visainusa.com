@@ -3140,7 +3140,7 @@ padding: auto;
 	}
 }
 
-@media (max-width:635px){
+@media (max-width:636px){
 	.place {
 padding: auto;
 		flex: auto;
@@ -3155,6 +3155,9 @@ padding: auto;
 		text-align: center;
 	}
 
+	.level-future:hover{
+		transform: none;
+	}
 	#second-text {
 		font-size: 28px;
 	}

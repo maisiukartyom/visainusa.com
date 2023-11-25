@@ -47,6 +47,7 @@ export const Admin = () => {
     return(
         verified && 
         <div className="center-screen">
+            <Link to="/"><span className="header-logo"><img src={"/images/logo.png"} alt="logo" width={70} height={94}/></span></Link>
             <Link className="header-nav-item item-button-l login-l"
             to="/adminChat">
                 Chats
@@ -57,6 +58,10 @@ export const Admin = () => {
             <Link className="header-nav-item item-button-l login-l" to="/addJob">
                 Add job
             </Link>
+            <Link className="header-nav-item item-button-l login-l" to="/jobs">
+                Jobs pool
+            </Link>
         </div>
+     
     )
 }
