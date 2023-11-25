@@ -260,6 +260,7 @@ margin-right: 10px;
 	background-position-x: center;
 	filter: grayscale(0.2);
 	position: relative;
+	width: 100%;
 	height: 50vh;
 }
 
@@ -271,6 +272,7 @@ margin-right: 10px;
 	background-position-x: center;
 	filter: grayscale(0.2);
 	position: relative;
+	width: 100%;
 	height: 20vh;
 }
 
@@ -416,6 +418,7 @@ a {
 	position: relative;
 	border-radius: 8px;
 	margin-bottom: 10%;
+	padding: 20px;
 
 }
 
@@ -434,7 +437,7 @@ a {
 	background-position-x: center;
 	background-size: cover;
 	width: 455px;
-max-height:2500px;
+max-height:3000px;
 	cursor: pointer;
 	box-shadow: 0px 0px 8px 4px #b5b3b3;
 	text-align: justify;
@@ -453,7 +456,7 @@ overflow: hidden;
 	background-position-x: center;
 	background-size: cover;
 	width: 650px;
-max-height: 2500px;
+max-height: 3000px;
 	cursor: pointer;
 	box-shadow: 0px 0px 8px 4px #b5b3b3;
 	text-align: justify;
@@ -530,10 +533,11 @@ border-bottom-left-radius: 6px;
 	font-size: 16px;
 	cursor: pointer;
 	position: relative;
-	left: 50%;
-	transform: translate(-50%, 0);
+	/* left: 50%;
+	transform: translate(-50%, 0); */
+	left: 25%;
 	bottom: 30px;
-margin-bottom: -4%;
+	margin-bottom: -4%;
 	position: absolute;
 }
 
@@ -620,8 +624,16 @@ margin-right: auto;
 font-weight: 600;
 	color: var(--color);
 	font-size: 26px;
+}
 
-
+.coming-bonus-two{
+	background: none;
+	border: 3px solid #CF3549;
+font-weight: 600;
+	color: var(--deep-dark);
+	font-family: 'Merriweather', serif;
+	font-size: 19px;
+	padding: 8px;
 }
 .description-future {
 	display: flex;
@@ -1619,7 +1631,7 @@ margin-left: 0%;
 		word-spacing: 2px;
 		word-break: initial;
 	}
-		.fly {
+		.fly-text {
 		position: absolute;
 		top: 18%;
 		text-align: center;
@@ -1758,7 +1770,7 @@ margin-left: 0%;
 		word-spacing: -1px;
 
 	}
-		.fly {
+		.fly-text {
 		position: absolute;
 		top: 18%;
 		text-align: center;
@@ -1799,68 +1811,29 @@ margin-left: 0%;
 	}
 }
 
-@media screen and (max-width: 1150px) {
-	
-	.photoMain{
-		height: 850px;
-	}
-	.item-buttons {
-		font-size: 18px;
-		padding: 18px 35px;
-		text-align: center;
-	}
-
-	.header-nav-items{
-		  font-weight: 700;
-		  font-size: 20px;
-		  padding: 10px 21px;
+@media screen and (max-width: 1155x) {
+	.header-nav{
+		position: fixed;
+		top: 0;
+		left: -225px;
+		display: flex;
+		flex-direction: column;
+		width: 220px;
+		height: 100%;
+		background-color: var(--light-color);
+		box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.25);
+		transition: transform 0.3s linear;
+		
 	  }
-	.text{
-		word-spacing: -1px;
-
-	}
-		.fly {
-		position: absolute;
-		top: 18%;
-		text-align: center;
-	}
-.description{
-	word-spacing: 6px;
-}
-	.center{
-		text-align: center;
-		margin-left: -6%;
-	}
-
 	
-.contacts-map {
-	display: flex;
-	flex-direction: column;
-}
-.align{
-margin-top: 10%;
-max-height: 500px;
-
-}
-.cont{
-	display: flex;
-	flex-direction: column;
-	height: 380px;
-
-	}
-	.contact-name{
-text-align: center;
-	}
-	.link-column{
-		display: flex;
-flex-direction: row;
-margin-bottom: 10%;
-margin-left: 0%;
-
-	}
-}
-@media screen and (max-width: 1080px) {
+	  .header-nav.active{
+		transform: translateX(100%);
+	  }
 	
+	
+	.header-level{
+		z-index: 1;
+	}
 	.photoMain{
 		height: 850px;
 	}
@@ -1890,7 +1863,96 @@ margin-left: 0%;
 		word-spacing: -1px;
 
 	}
-		.fly {
+		.fly-text {
+		position: absolute;
+		top: 18%;
+		text-align: center;
+	}
+.description{
+	word-spacing: 6px;
+}
+	.center{
+		text-align: center;
+		margin-left: -6%;
+	}
+
+	
+.contacts-map {
+	display: flex;
+	flex-direction: column;
+}
+.align{
+margin-top: 10%;
+max-height: 500px;
+
+}
+.cont{
+	display: flex;
+	flex-direction: column;
+	height: 380px;
+
+	}
+	.contact-name{
+text-align: center;
+	}
+	.link-column{
+		display: flex;
+flex-direction: row;
+margin-bottom: 10%;
+margin-left: 0%;
+}
+}
+@media screen and (max-width: 1080px) {
+	.header-nav{
+		position: fixed;
+		top: 0;
+		left: -225px;
+		display: flex;
+		flex-direction: column;
+		width: 220px;
+		height: 100%;
+		background-color: var(--light-color);
+		box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.25);
+		transition: transform 0.3s linear;
+			  }
+	
+	  .header-nav.active{
+		transform: translateX(100%);
+	  }
+	
+	.header-level{
+		z-index: 1;
+	}
+	.photoMain{
+		height: 850px;
+	}
+	.item-buttons {
+		font-family: 'Roboto', sans-serif;
+		font-weight: 100;
+		font-size: 18px;
+		text-decoration: none;
+		color: var(--dark-color);
+		padding: 18px 35px;
+		text-align: center;
+	}
+
+	.header-nav-items{
+		line-height: 1;
+		font-family: 'Roboto', sans-serif;
+		  font-weight: 700;
+		  font-size: 20px;
+		  text-decoration: none;
+		  color: var(--dark-color);
+		  padding: 10px 16px;
+		align-items: center;
+		cursor: pointer;
+		  transition: transform .5s;
+	  }
+	.text{
+		word-spacing: -1px;
+
+	}
+		.fly-text {
 		position: absolute;
 		top: 18%;
 		text-align: center;
@@ -1932,6 +1994,25 @@ margin-left: 0%;
 }
 
 @media screen and (max-width: 1025px) {
+	.header-nav{
+		position: fixed;
+		top: 0;
+		left: -225px;
+		display: flex;
+		flex-direction: column;
+		width: 220px;
+		height: 100%;
+		background-color: var(--light-color);
+		box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.25);
+		transition: transform 0.3s linear;
+		
+	  }
+	
+	  .header-nav.active{
+		transform: translateX(100%);
+	  }
+	
+	
 	.header-level{
 		z-index: 1;
 	}
@@ -1977,6 +2058,25 @@ margin-top: -14%;
 }
 
 @media screen and (max-width: 1000px) {
+	
+	
+	.header-nav{
+		position: fixed;
+		top: 0;
+		left: -225px;
+		display: flex;
+		flex-direction: column;
+		width: 220px;
+		height: 100%;
+		background-color: var(--light-color);
+		box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.25);
+		transition: transform 0.3s linear;
+		
+	  }
+	
+	  .header-nav.active{
+		transform: translateX(100%);
+	  }
 	.header-level{
 		z-index: 1;
 	}
@@ -3040,7 +3140,7 @@ padding: auto;
 	}
 }
 
-@media (max-width:635px){
+@media (max-width:636px){
 	.place {
 padding: auto;
 		flex: auto;
@@ -3055,6 +3155,9 @@ padding: auto;
 		text-align: center;
 	}
 
+	.level-future:hover{
+		transform: none;
+	}
 	#second-text {
 		font-size: 28px;
 	}
@@ -3248,6 +3351,14 @@ padding: auto;
 .level-future{
 	width: 540px;
 	height: 550px;
+}
+
+.level-future:hover{
+	transform: none;
+}
+
+.levellev:hover{
+	transform: none;
 }
 .coming{
 	margin-right: -6%;
@@ -5205,7 +5316,7 @@ padding: auto;
 		}
 		.levellev{
 			width: 270px;
-			height: 1260px;
+			height: 1400px;
 		}
 		.level-paid{
 			width: 270px;

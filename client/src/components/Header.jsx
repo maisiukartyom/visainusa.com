@@ -72,7 +72,7 @@ export const Header = () => {
         verified &&
         <>
             <header className="header-level">
-            <Link to="/"><span className="header-logo"><img src="images/logo.png" alt="logo" width={70} height={94}/></span></Link>
+            <Link to="/"><span className="header-logo"><img src={"/images/logo.png"} alt="logo" width={70} height={94}/></span></Link>
             <nav className={`header-nav ${isOpen? "active" : ""}`}>
                 <ul className="header-nav-list">
                     <Link to="/aboutus"><li className="header-nav-item">About Us</li></Link>
@@ -110,15 +110,8 @@ export const Header = () => {
                         </Link> */}
 
                         {
-                        isAdmin && <>
-                            <Link className="header-nav-item item-button-l login-l"
-                            to="/adminChat">
-                                Chats
-                            </Link>
-                            <Link className="header-nav-item item-button-l login-l" to="/adminDashboard">
-                                Dashboard
-                            </Link>
-                        </>
+                        isAdmin && 
+                            <Link className="header-nav-item item-button-l login-l" to="/admin">Admin</Link>
                         }
 
                         <li className="header-nav-item item-button-l sign-l welcome">Welcome {chatUser.email}</li>
@@ -134,7 +127,7 @@ export const Header = () => {
             </nav>
             <button className="header-menu-button"
             onClick={() => setOpen(!isOpen)}
-            >< img src="images/menu.png" alt="menu"  width={24} height={24} /></button>
+            >< img src="/images/menu.png" alt="menu"  width={24} height={24} /></button>
         </header>
         {
           verified && !isAdmin && user && <SupportEngine user={chatUser} />

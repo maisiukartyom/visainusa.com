@@ -124,6 +124,7 @@ margin-left: auto;
 	display: flex;
 	flex-direction: column;
 	max-width: 700px;
+	max-height: 5000px;
   }
 .all-text-about3{
 	background-color: var(--light-color);

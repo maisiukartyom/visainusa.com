@@ -44,35 +44,35 @@ organization after working in an entry-level role ​</li>
       <li className="par-benefits-employer">No employment agency recurring fee, unique
       and untapped labor pool, long-lasting solution​</li>
       <li className="par-benefits-employer">Cost saving model for 1 year:​</li>
-      <li className="par-benefits-employer cost-emp"><img src="images/cost.jpg" alt="table" className="cost-table"/>​</li>
+       <li className="par-benefits-employer cost-emp"><img src="/images/cost.jpg" alt="table" className="cost-table" />​</li> 
          </ul>
    </div>
    <div className="photo-block-employer">
-   <div className="photo-ben" ><img src="images/benefits.jpg" alt="benefits" width={500} height={450}/></div>
+   <div className="photo-ben" ><img src="/images/benefits.jpg" alt="benefits" width={500} height={450}/></div>
 
    </div>
    </div>
-   <div className="hr"></div>
+   <div className="hr-emp"></div>
 
       <div className="documents">
          <div className="doc-table">
       <h2 className="h2-employer-table">PERM LABOR CERTIFICATION PROCESS FOR THE U.S.
 EMPLOYERS</h2>
          <div className="table">
-            <img src="images/Perm.jpg" alt="photo" className="perm"/>
+            <img src="/images/Perm.jpg" alt="photo" className="perm"/>
                   </div>
             </div>
             </div>
 
 
-            <div className="hr"></div>
+            <div className="hr-emp"></div>
 
       <div className="table-time">
          <div className="doc-table">
       <h2 className="h2-table">TIMELINE AND MILESTONES FOR EB3 UNSKILLED CATEGORY</h2>
       <p className="text-table-time">the chart doesn't reflect any audit, request for evidence and retrogression, the retrogression could impact timing depending on the priority date</p>
          <div className="table-time">
-      <img src="images/table.jpg" alt="table" className="time"/>
+      <img src="/images/table.jpg" alt="table" className="time"/>
             </div>
             </div>
             </div>

@@ -2,12 +2,13 @@ import React, {useState} from 'react';
 import { Header } from '../../components/Header';
 import Footer from '../../components/Footer';
 import "../LevelOne/LevelOne.css";
-import { MainLevelTwo } from '../../components/MainLevelTwo';
+import { MainLevelTwo } from './MainLevelTwo';
 import {Link} from 'react-router-dom';
 import { useEffect } from 'react';
 import axios from '../../api/axios';
 import Calendly from '../../components/Calendly/Calendly';
 import {toast} from 'react-toastify';
+import { MainLevelTwoPaid } from './MainLevelTwoPaid';
 
 
 const LevelTwo = () => {
@@ -52,7 +53,7 @@ const LevelTwo = () => {
         <div >
             <Header />
             {
-                hasLevel? <div>Level 2 is purchased!</div> : <MainLevelTwo/>
+                hasLevel? <MainLevelTwoPaid /> : <MainLevelTwo/>
             }
             <Footer />
             {hasLevel && !user.isAdmin && <Calendly userEmail={user.email} userName={user.name} />}

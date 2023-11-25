@@ -52,7 +52,7 @@ const   Main = ({user}) => {
     <>
       <div className="main">
         <div className="titrecenter">
-          <p className="titre titre-bottom" data-aos="fade-up">
+          <p className="titre titre-bottom" id="advantages" data-aos="fade-up">
             Our Advantages
           </p>
         </div>
@@ -286,8 +286,20 @@ const   Main = ({user}) => {
               <p className="description-future ">
               What should I do in case of refusal?
               </p>
-              <p className="description-future description-future-finaly ">
+              <p className="description-future ">
               How do I start my EB3 journey?
+              </p>
+              <p className="description-future ">
+              I worked unauthorized, can I apply for the EB3 unskilled?
+              </p>
+              <p className="description-future ">
+              What is Retrogression and Visa Bulletin? 
+              </p>
+              <p className="description-future ">
+              When can I drop my F status?
+              </p>
+              <p className="description-future description-future-finaly">
+              Can I adjust my status to EB3 unskilled?
               </p>
                           </div>
 
@@ -309,8 +321,8 @@ const   Main = ({user}) => {
               ((user.level && user.level < 2) || !user.level) &&
             <>
             <div className="price-all">
-            <p className="appliName-levelOne-del price-all">$200</p>
-                {hasInfo && <p className="appliName-level-two price-all">${levelsInfo[1].cost}</p>}
+            <p className="appliName-levelOne-del price-all">$500</p>
+              {hasInfo && <p className="appliName-level-two price-all">${levelsInfo[1].cost}</p>}
                 </div>
               </>
 }
@@ -318,20 +330,26 @@ const   Main = ({user}) => {
               <p className="description-future ">
               Personal consultation (60 mins) on English, Spanish or Russian languages
               </p>
+              <p className="coming-bonus">
+              Our services include:
+              </p>
               <p className="description-future">
-              Deep analysis of your particular situation 
+              In-depth insights into the EB3 unskilled program
               </p>
               <p className="description-future ">
-              Step-by-step description to obtain green card
+              Deep analysis of your specific situation
+              </p>
+              <p className="description-future ">
+              Step-by-step guidance on obtaining a green card
               </p>
               <p className="description-future ">
               General information about other immigration programs in the U.S.
               </p>
               <p className="description-future ">
-              24 hours online chat after the consultation
+              Enjoy 24/7 online chat support for any additional questions or clarifications after your consultation
               </p>
-              <p className="description-future description-future-finaly">
-              Personal assistant (create account, helping with job selection, accompanying during your process) at BDV Solutions agency. We are BDV Solutions ambassador
+              <p className="coming-bonus-two description-future-finaly">
+              As an extra bonus, you'll enjoy exclusive access to a specially tailored job offering pool for EB3 unskilled applicants. Get a head start on your application journey – start applying today!  
               </p>
 
                           </div>
@@ -347,7 +365,7 @@ const   Main = ({user}) => {
               user.level >= 3 && <p className="coming-newDesign">Paid</p>
             }
             <h2 className="appliName-future">Level 3</h2>
-            <h3 className="appliName-names">"Self immigration with no overpriced assistance"</h3>
+            <h3 className="appliName-names">"Smart immigration with no overpriced assistance"</h3>
             { 
               ((user.level && user.level < 3) || !user.level) &&
             <>
@@ -367,12 +385,13 @@ const   Main = ({user}) => {
               <p className="description-future ">
               Access to instruction of immigration forms as I-140, I-485, I-765, I-131 and DS-260
               </p>
-              <p className="description-future ">
+ <p className="description-future ">
               List of EB3 unskilled agencies
               </p>
               <p className="description-future ">
               48 hours online chat after the consultation
               </p>
+
               <p className="description-future ">
               Opportunity to complete entire EB3 program from $9999
               </p>
@@ -440,8 +459,8 @@ const Testimonials = () => {
                     <p className="titre" data-aos="fade-up">Testimonials</p>
                 </div>
                 <section className="product">
-                    <button className="pre-btn"><img src="images/left-arrow.png" alt="arrow" width="20" height="20" /></button>
-                    <button className="nxt-btn"><img src="images/right-arrow.png" alt="arrow" width="20" height="20" /></button>
+                    <button className="pre-btn"><img src="/images/left-arrow.png" alt="arrow" width="20" height="20" /></button>
+                    <button className="nxt-btn"><img src="/images/right-arrow.png" alt="arrow" width="20" height="20" /></button>
                     <div className="product-container">
                         <div className="product-card">
                             <div className="product-info">
@@ -542,25 +561,25 @@ const Contacts = () => {
                <div className="cont">
 
   <div className="align">
-               <h4 class="contact-name">Contacts</h4>
+               <h4 class="contact-name" id="contact">Contacts</h4>
                 <div className="number-phone">
-               <img src="images/number.png" alt="phone" width={20} height={20} />
+               <img src="/images/number.png" alt="phone" width={20} height={20} />
                <p class="number">+1 864 748 9898</p>
                               </div>
                               <div className="number-phone">
-               <img src="images/mail.png" alt="phone" width={26} height={20} />
+               <img src="/images/mail.png" alt="phone" width={26} height={20} />
                <a href="mailto:eb3unskilled@visainusa.com" class="number" >eb3unskilled@visainusa.com</a>
                               </div>
                               <br></br>
                <div className="number-phone">
-               <img src="images/home.png" alt="phone" width={30} height={20} />
+               <img src="/images/home.png" alt="phone" width={30} height={20} />
                <p class="number" >"Visa in USA" Limited Liability Company"
  6650 Rivers Ave Suite 105, North Charleston, South Carolina, 29406</p>
                               </div>
                               </div>
                               <div className="link-column">
-                              <a href="https://web.telegram.org/k/#1269872668" target="_blank"><img className="link-margin" src="images/telegram.png" alt="telegram" width="38" height="38" /></a>
-                        <a href="https://web.whatsapp.com/" target="_blank"><img className="link-margin" src="images/whatsapp.png" alt="whatsapp" width="38" height="38" /></a>
+                              <a href="https://web.telegram.org/k/#79168070961" target="_blank"><img className="link-margin" src="images/telegram.png" alt="telegram" width="38" height="38" /></a>
+                        <a href="https://web.whatsapp.com/#79168070961" target="_blank"><img className="link-margin" src="images/whatsapp.png" alt="whatsapp" width="38" height="38" /></a>
                         </div>
                </div>
             </div>
@@ -583,11 +602,11 @@ const Partners = () => {
                 <div>
                     <div className="logo-partners">
                         <div className="teachbk">
-                            <a href="https://teachbk.com/usa-immigration/" target="_blank" ><img src="images/logo-teachBK.png" alt="logo" width="200" height="60" className="friend" /></a>
+                            <a href="https://teachbk.com/usa-immigration/" target="_blank" ><img src="/images/logo-teachBK.png" alt="logo" width="200" height="60" className="friend" /></a>
                             <p className="teach">all about political asylum</p>
                         </div>
                         <div className="teachbk">
-                            <a href="https://rubic.us/" target="_blank" ><img src="images/logo-rubic.svg" alt="logo" width="200" height="60" className="friend" /></a>
+                            <a href="https://rubic.us/" target="_blank" ><img src="/images/logo-rubic.svg" alt="logo" width="200" height="60" className="friend" /></a>
                             <p className=" teach">all about life in the USA</p>
                         </div>
                     </div>
@@ -602,21 +621,19 @@ const Footer = () => {
         <>
             <footer id="contacts" className=" footer">
                 <div className="aboutUs">
-                    <a href="#">
                         <h4 className="parr4 light-color">About Us</h4>
-                    </a>
-                    <a href="#">
+                    <Link to="/aboutus">
                         <p className="grey marg">Our team</p>
-                    </a>
-                    <a href="#">
+                    </Link>
+                    <a href="#advantages">
                         <p className="grey marg">Advantages</p>
                     </a>
                 </div>
                 <div className="contacts ">
                     <h4 className="parr4 light-color">Services</h4>
-                    <a href="#">
+                    <Link to="/abouteb3">
                         <p className="grey marg">EB-3 Unskilled Visa</p>
-                    </a>
+                    </Link>
                     <a href="#pricing">
                         <p className="grey marg">Pricing</p>
                     </a>
@@ -631,7 +648,7 @@ const Footer = () => {
                     <div className="links">
                         <a href="https://web.telegram.org/k/#@eb3usa" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/telegram.png?v=1698341412493" alt="telegram" width="38" height="38" /></a>
                         <a href="#" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/facebook.png?v=1698341176410" alt="facebook" width="38" height="38" /></a>
-                        <a href="#" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/instagram.png?v=1698341213474" alt="instagram" width="38" height="38" /></a>
+                        <a href="https://instagram.com/eb3.visa?igshid=MzMyNGUyNmU2YQ==" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/instagram.png?v=1698341213474" alt="instagram" width="38" height="38" /></a>
                         <a href="https://www.youtube.com/@EB3unskilled" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/youtube.png?v=1698341435865" alt="youtube" width="38" height="38" /></a>
                     </div>
                 </div>

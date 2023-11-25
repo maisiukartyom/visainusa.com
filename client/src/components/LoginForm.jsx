@@ -129,7 +129,7 @@ const validate = () => {
         <div className="app-wrapper-main-log">
             <div className="app-wrapper-loginn">
             <div className="logoForm">
-            <Link to="/"><img src="images/logo.png" alt="logo" width={70} height={94}/></Link> 
+            <Link to="/"><img src="/images/logo.png" alt="logo" width={70} height={94}/></Link> 
         </div>
                 <div>
                     <h2 className="title">Log in</h2>
@@ -154,7 +154,7 @@ const validate = () => {
                         <button className="submit">Log in</button>
                     </div>
                 </form>
-                {sendLink && <div><button onClick={sendEmail}><h3>Resend verification link</h3></button></div> }
+                {sendLink && <div><button style={{marginTop: "10px", backgroundColor: "green"}} className="submit" onClick={sendEmail}>send email</button></div> }
                     </div>
         </div>
     )

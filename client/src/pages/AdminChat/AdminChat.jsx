@@ -12,7 +12,7 @@ const AdminChat = () => {
     useEffect(() => {
         const verifyCookie = async (level, forAdmin) => {
             try{
-                const user = await axios.post("auth/verify",
+                await axios.post("auth/verify",
                     {
                         requiredLevel: level,
                         forAdmin: forAdmin
@@ -21,10 +21,6 @@ const AdminChat = () => {
                         withCredentials: true
                     }
                 )
-                // setUser({email: user.data.email, 
-                //     level: user.data.level, 
-                //     name: user.data.fullname, 
-                //     isAdmin: user.data.isAdmin})
                 setVerified(true)
             }
             catch (err){
