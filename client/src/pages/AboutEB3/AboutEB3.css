@@ -43,7 +43,6 @@ padding: 60px;
 	font-weight: 600;
 	color: var(--dark-color);
 	font-family: 'Merriweather', serif;
-	word-spacing: 14px;
 	text-align: justify;
     max-width: 660px;
 margin-left: auto;
@@ -54,7 +53,6 @@ margin-left: auto;
 	font-weight: 600;
 	color: var(--dark-color);
 	font-family: 'Merriweather', serif;
-	word-spacing: 14px;
 	text-align: justify;
     max-width: 660px;
 }
