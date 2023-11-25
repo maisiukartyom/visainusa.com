@@ -4,9 +4,11 @@ const mongoose = require('mongoose')
 
 const addJob = async (req, res) => {
     try {
-        const { position, location, state, wage, description, coverImage, images } = req.body;
+        const { position, location, state, wage, description, coverImage } = req.body;
 
-        const newJobPosition = new JobPosition({position, location, wage, state, description, coverImage, images});
+        const images = req.body.images.filter((value) => value !== "");
+        const agencies = req.body.agencies.filter((value) => value !== "");
+        const newJobPosition = new JobPosition({position, location, wage, state, description, coverImage, images, agencies});
     
         await newJobPosition.save();
     
@@ -49,5 +51,30 @@ const getJob = async (req, res) => {
   }
 }
 
+const deleteJob = async (req, res) => {
+  try{
+    const {id} = req.body;
+    await JobPosition.deleteOne({_id: mongoose.Types.ObjectId(id)});
+    res.sendStatus(202);
+  }
+  catch{
+    res.sendStatus(403);
+  }
+}
 
-module.exports = {addJob, getJobs, getJob}
+const updateJob = async (req, res) => {
+  try{
+    const {id} = req.query;
+
+    const images = req.body.images.filter((value) => value !== "");
+    const agencies = req.body.agencies.filter((value) => value !== "");
+
+    await JobPosition.updateOne({_id: id}, {...req.body, images, agencies});
+    res.sendStatus(203);
+  }
+  catch(err){
+    res.sendStatus(403);
+  }
+}
+
+module.exports = {addJob, getJobs, getJob, deleteJob, updateJob}

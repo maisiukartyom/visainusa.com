@@ -106,18 +106,11 @@ export const HeaderForMain = (props) => {
                         Profile
                     </Link> */}
                     {
-                        isAdmin && <>
-                        <Link className="header-nav-item item-button-l login-l"
-                        to="/adminChat">
-                            Chats
-                        </Link>
-                        <Link className="header-nav-item item-button-l login-l" to="/adminDashboard">
-                            Dashboard
-                        </Link>
-                    </>
+                        isAdmin && 
+                        <Link className="header-nav-item item-button-l login-l" to="/admin">Admin</Link>
                     }
 
-                    <li className="header-nav-item item-button-l sign-l welcome">Welcome {email}</li>
+                    <li className="header-nav-item sign-l welcome">Welcome {email}</li>
                     <div
                         className = "header-nav-item item-button-l sign-l"
                         onClick={logout}

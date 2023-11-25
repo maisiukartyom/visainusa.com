@@ -6,15 +6,50 @@ import axios from '../../api/axios';
 import  './Jobs.css';
 import { useNavigate } from 'react-router-dom';
 import {toast} from 'react-toastify';
+import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
+import 'react-horizontal-scrolling-menu/dist/styles.css';
+
 
 const allStates = ['SC','CO','MN','NC','NY','AZ','FL','IN','OH','NJ',
 'DE','ND','MI','MO','KS','GA','UT','WA','ID','NV','NM','TX','AR','TN'];
+
+const fullStates = ["South Carolina (SC)",
+  "Colorado (CO)",
+  "Minnesota (MN)",
+  "North Carolina (NC)",
+  "New York (NY)",
+  "Arizona (AZ)",
+  "Florida (FL)",
+  "Indiana (IN)",
+  "Ohio (OH)",
+  'New Jersey (NJ)',
+  'Delaware (DE)',
+  'North Dakota (ND)',
+  'Michigan (MI)',
+  'Missouri (MO)',
+  'Kansas (KS)',
+  'Georgia (GA)',
+  'Utah (UT)',
+  'Washington (WA)',
+  'Idaho (ID)',
+  'Nevada (NV)',
+  'New Mexico (NM)',
+  'Texas (TX)',
+  'Arkansas (AR)',
+  "Tennessee (TN)"]
+
+  const statesMap = {};
+
+  for (let i = 0; i < allStates.length; i++) {
+    statesMap[allStates[i]] = fullStates[i];
+  }
 
 const Jobs = () => {
     const [selectedStates, setSelectedStates] = useState([]);
     const [jobsData, setJobsData] = useState([{}]);
     const [isFetched, setIsFetched] = useState(false);
     const [isChecked, setIsChecked] = useState(false);
+    const [isAdmin, setIsAdmin] = useState(false);
 
     const navigate = useNavigate();
 
@@ -61,13 +96,14 @@ const Jobs = () => {
     useEffect(() => {
       const checkLevel = async () => {
         try{
-            await axios.post("/auth/verify", 
+            const res = await axios.post("/auth/verify", 
             {
                requiredLevel: 2
             },
             {
                withCredentials: true
             })
+            setIsAdmin(res.data.isAdmin)
             setIsChecked(true)
         }
         catch{
@@ -86,8 +122,37 @@ const Jobs = () => {
     }
       checkLevel();
       fetchJobsData()
-    }, [selectedStates])
+    }, [selectedStates]);
 
+
+    const deleteJob = async (id) => {
+      try{
+        await axios.post("/jobs/deleteJob", {id});
+        toast.success("Deleted job", {
+          position: "top-center",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          progress: undefined,
+          theme: "light",
+          });
+        fetchJobsData()
+      }
+      catch(err){
+        toast.error("Couldn't delet the job", {
+          position: "top-center",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          progress: undefined,
+          theme: "light",
+          });
+      }
+    }
 
     return (
         isChecked &&
@@ -200,49 +265,39 @@ const Jobs = () => {
                                        
               {isFetched && jobsData.map((state, index) => (
                 <div>
-                  <h2>{state.state}</h2>
-                  {/* <div style={{
-                    position: "absolute",
-                    top: "50px",
-                    transform: "translateY(-50%)",
-                    cursor: "pointer",
-                    fontSize: "24px",
-                    color: "#333",
-                    left: "0px"
-                  }} onClick={scrollContainer(-150)}>←</div> */}
-                  <div style={{display: "flex", 
-                    gap: "3%",
-                    overflowX: "auto",
-                    whiteSpace: "nowrap",
-                    padding: "10px"
-                  }}>
-                    {state.jobPositions.map((job, index) => (
-                        <div >
-                          <div className='card-employer'>
-                            <div className='pad-emp'>
-                            <p className='location-emp'>{job.location}</p>
-                            <div className='img-emp'>
-                            <img className='img-page'  src={job.coverImage} alt={job.state} width={300} height={350}/>
-                            </div>
-                            <div className='img-emp'>
-                            <h3 className='job'>{job.position}</h3>
-                            <p className='job'>${job.wage}/hr</p>
-                              <Link to={`/jobinfo/${job._id}`}><button className='btn-job'>Read more</button></Link>
-                            </div>
+
+                    {state.jobPositions.length > 0 && 
+                    <ScrollMenu 
+                    Header={<h2 style={{textAlign: "center"}}>{statesMap[state.state]}</h2>}>
+                      {state.jobPositions.map((job, index) => (
+                          <div style={{marginTop: "10px", marginBottom: "10px", marginLeft: "15px"}}>
+                              <div className='card-employer'>
+                                <div className='pad-emp'>
+                                  <p className='location-emp'>{job.location}</p>
+                                  <div className='img-emp'>
+                                    <img className='img-page'  src={job.coverImage} alt={job.state} width={300} height={350}/>
+                                  </div>
+                                  <div className='img-emp'>
+                                    <h3 className='job'>{job.position}</h3>
+                                    <p className='job'>${job.wage}/hr</p>
+                                    <Link rel='noopener noreferrer' target='_blank' to={`/jobinfo/${job._id}`}><button className='btn-job'>Read more</button></Link>
+                                    {isAdmin && 
+                                      <div>
+                                        <button 
+                                        style={{marginTop: "5px", backgroundColor: "red"}}
+                                        className='btn-job'
+                                        onClick={() => deleteJob(job._id)}>Delete</button>
+                                        <Link to={`/jobEdit/${job._id}`}><button 
+                                        style={{marginTop: "5px", backgroundColor: "green"}}
+                                        className='btn-job'>Edit</button></Link>
+                                      </div>
+                                    }
+                                  </div>
+                                </div>
                             </div>
                           </div>
-                        </div>
-
-                    ))}
-                  </div>
-                  {/* <div style={{
-                    position: "absolute",
-                    top: "50px",
-                    transform: "translateY(-50%)",
-                    cursor: "pointer",
-                    fontSize: "24px",
-                    color: "#333",
-                    right: "0px"}} onClick={scrollContainer(150)}>→</div> */}
+                      ))}
+                    </ScrollMenu>}
                 </div>
               ))}
             <Footer />

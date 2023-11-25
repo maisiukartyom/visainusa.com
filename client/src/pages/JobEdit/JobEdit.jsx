@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
-import axios from '../api/axios';
+import axios from '../../api/axios';
 import styled from 'styled-components';
 import {toast} from 'react-toastify';
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+
+import '../Jobs/Jobs.css';
 
 // Container styles
 const FormContainer = styled.form`
@@ -102,74 +105,135 @@ const FormAddButton = styled.button`
 `;
 
 
-const AddJob = () => {
-  const [fields, setFields] = useState(
-    { "Location": '', 
-      "Wage": '',
-      "Job duties": '',
-      "Estimated filling date": ''
-    });
+const EditJob = () => {
+    const [fields, setFields] = useState({});
+    const [coverUrl, setCoverUrl] = useState('');
+    const [imageUrls, setImageUrls] = useState(['']);
+    const [verified, setVerified] = useState(false);
+    const [isFetched, setIsFetched] = useState(false);
+    const [agenciesUrls, setAgenciesUrls] = useState(['']);
 
-  const [coverUrl, setCoverUrl] = useState('');
-  const [imageUrls, setImageUrls] = useState(['']);
-  const [agenciesUrls, setAgenciesUrls] = useState(['']);
-  const [verified, setVerified] = useState(false)
-  const navigate = useNavigate();
+    const navigate = useNavigate();
+    const [jobData, setJobData] = useState({
+        position: '',
+        location: '',
+        state: '',
+        wage: '',
+        description: ''
+    })
 
-  const formik = useFormik({
-    initialValues: {
-      position: '',
-      location: '',
-      state: '',
-      wage: '',
-      description: ''
-    },
+    const {id} = useParams();
 
-    onSubmit: async (values) => {
-      const formData = {
-        position: values.position,
-        location: values.location,
-        state: values.state,
-        wage: values.wage,
-        description: fields,
-        coverImage: coverUrl,
-        images: imageUrls,
-        agencies: agenciesUrls
+
+  useEffect(() => {
+    const verifyCookie = async (level, forAdmin) => {
+      try{
+          await axios.post("auth/verify",
+              {
+                  requiredLevel: level,
+                  forAdmin: forAdmin
+              },
+              {
+                  withCredentials: true
+              }
+          )
+          setVerified(true)
       }
-
-      try {
-        await axios.post('/jobs/addJob', formData);
-        setCoverUrl('');
-        setImageUrls(['']);
-        setAgenciesUrls(['']);
-        toast.success("Position has been added!", {
-          position: "top-center",
-          autoClose: 4000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: false,
-          progress: undefined,
-          theme: "light",
-          });
-      } catch (error) {
-        toast.error("Couldn't add new position!", {
-          position: "top-center",
-          autoClose: 4000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: false,
-          progress: undefined,
-          theme: "light",
-          });
+      catch (err){
+          toast.error("You're not an admin!",{
+              position: "top-center",
+              autoClose: 6000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: false,
+              draggable: false,
+              progress: undefined,
+              theme: "light",
+              }
+            )
+        navigate("/")
       }
-    },
-  });
+    }
+    const getJob = async () => {
+        try{
+            const res = await axios.get(`/jobs/getJob?id=${id}`);
+            setJobData({
+                position: res.data.position,
+                location: res.data.location,
+                state: res.data.state,
+                wage: res.data.wage,
+                description: res.data.description
+            });
+            setCoverUrl(res.data.coverImage);
+            setImageUrls(res.data.images);
+            setAgenciesUrls(res.data.agencies);
+            setFields(res.data.description);
+            setIsFetched(true);
+        }
+        catch{
+                
+        }
+    }
 
-  const handleFileChange = (event) => {
-    setCoverUrl(event.target.value);
+    verifyCookie(0, true);
+    getJob();
+  }, []);
+
+  const handleChange = (e) => {
+    setJobData({
+        ...jobData,
+        [e.target.name]: e.target.value
+    })
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try{
+        await axios.post(`/jobs/updateJob?id=${id}`, {
+            position: jobData.position,
+            location: jobData.location,
+            state: jobData.state,
+            wage: jobData.wage,
+            description: fields,
+            coverImage: coverUrl,
+            images: imageUrls,
+            agencies: agenciesUrls
+        });
+        navigate(-1);
+        toast.success("Updated job", {
+            position: "top-center",
+            autoClose: 4000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: "light",
+            });
+    }
+    catch(err){
+        toast.error("Couldn't update the job", {
+            position: "top-center",
+            autoClose: 4000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: "light",
+            });
+    };
+
+    console.log({
+        position: jobData.position,
+        location: jobData.location,
+        state: jobData.state,
+        wage: jobData.wage,
+        description: jobData.description,
+        coverImage: coverUrl,
+        images: imageUrls
+    })
+  }
 
   const handleUrlChange = (index, value, type) => {
     if (type === "image"){
@@ -223,42 +287,10 @@ const AddJob = () => {
     setFields(newFields);
   };
 
-  useEffect(() => {
-    const verifyCookie = async (level, forAdmin) => {
-      try{
-          await axios.post("auth/verify",
-              {
-                  requiredLevel: level,
-                  forAdmin: forAdmin
-              },
-              {
-                  withCredentials: true
-              }
-          )
-          setVerified(true)
-      }
-      catch (err){
-          toast.error("You're not an admin!",{
-              position: "top-center",
-              autoClose: 6000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: false,
-              draggable: false,
-              progress: undefined,
-              theme: "light",
-              }
-            )
-        navigate("/")
-      }
-    }
-    verifyCookie(0, true)
-  })
-
   return (
-    verified &&
+    verified && isFetched &&
     <div style={{flexDirection: "row", display: "flex"}}>
-      <FormContainer onSubmit={formik.handleSubmit}>
+      <FormContainer onSubmit={handleSubmit}>
         <div>
           <FormLabel  htmlFor="position">Position</FormLabel >
           <FormInput 
@@ -266,8 +298,8 @@ const AddJob = () => {
             id="position"
             name="position"
             required
-            onChange={formik.handleChange}
-            value={formik.values.position}
+            onChange={(e) => handleChange(e)}
+            value={jobData.position}
             placeholder="Enter position name"
           />
         </div>
@@ -279,8 +311,8 @@ const AddJob = () => {
             id="location"
             name="location"
             required
-            onChange={formik.handleChange}
-            value={formik.values.location}
+            onChange={(e) => handleChange(e)}
+            value={jobData.location}
             placeholder="Enter location"
           />
         </div>
@@ -291,8 +323,8 @@ const AddJob = () => {
             id="state"
             name="state"
             required
-            onChange={formik.handleChange}
-            value={formik.values.state}
+            onChange={(e) => handleChange(e)}
+            value={jobData.state}
           >
             <option value="" label="Select a state" />
             <option value="SC" label="South Carolina (SC)" />
@@ -329,8 +361,8 @@ const AddJob = () => {
             id="wage"
             name="wage"
             required
-            onChange={formik.handleChange}
-            value={formik.values.wage}
+            onChange={(e) => handleChange(e)}
+            value={jobData.wage}
             placeholder="Enter wage"
           />
         </div>
@@ -362,7 +394,7 @@ const AddJob = () => {
               >
                 Add Field
               </FormAddButton>
-        </div>
+            </div>
 
         <div>
           <FormLabel  htmlFor="cover">Cover</FormLabel >
@@ -371,7 +403,7 @@ const AddJob = () => {
             name="cover"
             required
             value={coverUrl}
-            onChange={handleFileChange} 
+            onChange={(e) => setCoverUrl(e.target.value)} 
             placeholder="Cover image URL"/>
         </div>
           <div>
@@ -426,16 +458,16 @@ const AddJob = () => {
 
         <FormButton  type="submit">Submit</FormButton >
       </FormContainer >
-      <div>
+        <div>
             <div style={{marginTop: "15px"}} className='card-employer'>
                 <div className='pad-emp'>
-                    <p className='location-emp'>{formik.values.location}</p>
+                    <p className='location-emp'>{jobData.location}</p>
                     <div className='img-emp'>
-                    <img className='img-page'  src={coverUrl} alt={formik.values.state} width={300} height={350}/>
+                    <img className='img-page'  src={coverUrl} alt={jobData.state} width={300} height={350}/>
                     </div>
                     <div className='img-emp'>
-                    <h3 className='job'>{formik.values.position}</h3>
-                    <p className='job'>${formik.values.wage}/hr</p>
+                    <h3 className='job'>{jobData.position}</h3>
+                    <p className='job'>${jobData.wage}/hr</p>
                     </div>
                 </div>
             </div>
@@ -443,7 +475,7 @@ const AddJob = () => {
             <div style={{marginTop: "15px"}} className="crew-main">
                 <div className='text-job-ny'>
                     <div className="big-text-main">
-                        <h3 className="crew-one">{formik.values.position}</h3>
+                        <h3 className="crew-one">{jobData.position}</h3>
                         {
                         Object.entries(fields).map(([key, value]) => 
                             (<p className="job-mini">- {key}: {value}</p>)
@@ -458,4 +490,4 @@ const AddJob = () => {
   );
 };
 
-export default AddJob;
+export default EditJob;

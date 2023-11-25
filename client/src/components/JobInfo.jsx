@@ -7,12 +7,15 @@ import { useParams } from "react-router-dom";
 import axios from "../api/axios";
 import {toast} from 'react-toastify';
 import { useNavigate } from "react-router-dom";
+import {Link} from 'react-router-dom';
+
 
 const JobInfo = () => {
 
     const [jobInfo, setJobInfo] = useState(null);
     const [isFetched, setIsFetched] = useState(false);
     const [isChecked, setIsChecked] = useState(false);
+    const [isAdmin, setIsAdmin] = useState(false);
 
     const navigate = useNavigate();
 
@@ -31,14 +34,15 @@ const JobInfo = () => {
         }
         const checkLevel = async () => {
             try{
-                await axios.post("/auth/verify", 
+                const res = await axios.post("/auth/verify", 
                 {
                    requiredLevel: 2
                 },
                 {
                    withCredentials: true
                 })
-                setIsChecked(true)
+                setIsChecked(true);
+                setIsAdmin(res.data.isAdmin);
             }
             catch{
                 navigate("/");
@@ -57,35 +61,43 @@ const JobInfo = () => {
         
         checkLevel();
         getJob();
-    }, [])
+    }, []);
 
    return (
+    
         isChecked && 
         <div >
         <Header/>
         {isFetched && 
-        (<div className="job-info">
+        (
+        
+        <div className="job-info">
         <div className="job-img">
-        <Slider images={jobInfo.images}/>
-
+            <Slider images={jobInfo.images}/>
         </div>
         <div className="crew-main">
         <div className="text-job-ny">
             <div className="big-text-main">
             <h3 className="crew-one">{jobInfo.position}</h3>
-            <p className="job">{jobInfo.description}</p>
-            {/* <p className="job">Job Details for Dishwasher:</p>
-            <p className="job-mini">- Location: East Northport, NY</p>
-            <p className="job-mini">- Wage: $15.00 /hr</p>
-
-            <p className="big-text job-mini">- Job Duties: Your responsibilities will include taking orders, preparing food items, operating the cash register,
-                maintaining a clean and organized work area, and providing friendly and efficient service to all customers.</p>
-
-            <p className="job-mini">- Estimated filing date: Late January 2024</p> */}
-
-        <div className="btn-dis">
-            <button className="btn-job">Apply now</button>
+            <p className="job">Job Details:</p>
+            {
+                Object.entries(jobInfo.description).map(([key, value]) => 
+                    (<p className="job-mini">- {key}: {value}</p>)
+                )
+            }
+        {jobInfo.agencies.map((agency, index) => (<a rel='noopener noreferrer' target='_blank' href={agency}>{agency}</a>))}
+            <div className="btn-dis">
+                <button className="btn-job">Apply now</button>
             </div>
+            {isAdmin && 
+                <div className="btn-dis">
+                    <div>
+                        <Link to={`/jobEdit/${jobInfo._id}`}><button 
+                        style={{marginTop: "5px", backgroundColor: "green"}}
+                        className='btn-job'>Edit</button></Link>
+                    </div>
+                </div>
+                }
             </div>
             </div>
         </div>

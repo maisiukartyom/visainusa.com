@@ -216,7 +216,9 @@ align-items: center;
     padding: 80px;
 }
 
-
+.big-text-main{
+    overflow-wrap: break-word;
+}
 
 .crew-one{
 text-align: center;

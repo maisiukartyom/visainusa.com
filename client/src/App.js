@@ -24,6 +24,8 @@ import CallForm from './components/CallForm/CallForm';
 import Jobs from './pages/Jobs/Jobs';
 import JobInfo from './components/JobInfo';
 import AddJob from './components/AddJob';
+import { Admin } from './pages/Admin/Admin';
+import EditJob from './pages/JobEdit/JobEdit';
 
 function App() {
   // console.log("Rendered!")
@@ -59,7 +61,9 @@ function App() {
           <Route path="/abouteb3" element={<AboutEB3 />} />
           <Route path="/jobs" element={<Jobs />} />
           <Route path="/jobinfo/:id" element={<JobInfo/>} />
+          <Route path="/jobEdit/:id" element={<EditJob/>} />
           <Route path='/addJob' element={<AddJob/>}/>
+          <Route path='/admin' element={<Admin/>}/>
           <Route path='/youtube' component={() => {
                       window.location.href = 'https://www.youtube.com/@EB3unskilled'
                   }}/>
