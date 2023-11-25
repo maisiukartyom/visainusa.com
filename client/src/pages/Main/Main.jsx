@@ -12,6 +12,7 @@ import CallForm from "../../components/CallForm/CallForm";
 
 
 
+
 const Main = ({user}) => {
 
   const {state} = useLocation();
@@ -27,7 +28,7 @@ const Main = ({user}) => {
     <>
       <div className="main">
         <div className="titrecenter">
-          <p className="titre titre-bottom" data-aos="fade-up">
+          <p className="titre titre-bottom" id="advantages" data-aos="fade-up">
             Our Advantages
           </p>
         </div>
@@ -261,8 +262,20 @@ const Main = ({user}) => {
               <p className="description-future ">
               What should I do in case of refusal?
               </p>
-              <p className="description-future description-future-finaly ">
+              <p className="description-future ">
               How do I start my EB3 journey?
+              </p>
+              <p className="description-future ">
+              I worked unauthorized, can I apply for the EB3 unskilled?
+              </p>
+              <p className="description-future ">
+              What is Retrogression and Visa Bulletin? 
+              </p>
+              <p className="description-future ">
+              When can I drop my F status?
+              </p>
+              <p className="description-future description-future-finaly">
+              Can I adjust my status to EB3 unskilled?
               </p>
                           </div>
 
@@ -524,7 +537,7 @@ const Contacts = () => {
                <div className="cont">
 
   <div className="align">
-               <h4 class="contact-name">Contacts</h4>
+               <h4 class="contact-name" id="contact">Contacts</h4>
                 <div className="number-phone">
                <img src="images/number.png" alt="phone" width={20} height={20} />
                <p class="number">+1 864 748 9898</p>
@@ -541,8 +554,8 @@ const Contacts = () => {
                               </div>
                               </div>
                               <div className="link-column">
-                              <a href="https://web.telegram.org/k/#1269872668" target="_blank"><img className="link-margin" src="images/telegram.png" alt="telegram" width="38" height="38" /></a>
-                        <a href="https://web.whatsapp.com/" target="_blank"><img className="link-margin" src="images/whatsapp.png" alt="whatsapp" width="38" height="38" /></a>
+                              <a href="https://web.telegram.org/k/#79168070961" target="_blank"><img className="link-margin" src="images/telegram.png" alt="telegram" width="38" height="38" /></a>
+                        <a href="https://web.whatsapp.com/#79168070961" target="_blank"><img className="link-margin" src="images/whatsapp.png" alt="whatsapp" width="38" height="38" /></a>
                         </div>
                </div>
             </div>
@@ -584,21 +597,19 @@ const Footer = () => {
         <>
             <footer id="contacts" className=" footer">
                 <div className="aboutUs">
-                    <a href="#">
                         <h4 className="parr4 light-color">About Us</h4>
-                    </a>
-                    <a href="#">
+                    <Link to="/aboutus">
                         <p className="grey marg">Our team</p>
-                    </a>
-                    <a href="#">
+                    </Link>
+                    <a href="#advantages">
                         <p className="grey marg">Advantages</p>
                     </a>
                 </div>
                 <div className="contacts ">
                     <h4 className="parr4 light-color">Services</h4>
-                    <a href="#">
+                    <Link to="/abouteb3">
                         <p className="grey marg">EB-3 Unskilled Visa</p>
-                    </a>
+                    </Link>
                     <a href="#pricing">
                         <p className="grey marg">Pricing</p>
                     </a>
@@ -613,7 +624,7 @@ const Footer = () => {
                     <div className="links">
                         <a href="https://web.telegram.org/k/#@eb3usa" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/telegram.png?v=1698341412493" alt="telegram" width="38" height="38" /></a>
                         <a href="#" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/facebook.png?v=1698341176410" alt="facebook" width="38" height="38" /></a>
-                        <a href="#" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/instagram.png?v=1698341213474" alt="instagram" width="38" height="38" /></a>
+                        <a href="https://instagram.com/eb3.visa?igshid=MzMyNGUyNmU2YQ==" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/instagram.png?v=1698341213474" alt="instagram" width="38" height="38" /></a>
                         <a href="https://www.youtube.com/@EB3unskilled" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/youtube.png?v=1698341435865" alt="youtube" width="38" height="38" /></a>
                     </div>
                 </div>

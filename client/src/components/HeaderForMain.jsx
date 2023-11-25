@@ -70,7 +70,7 @@ export const HeaderForMain = (props) => {
                 <ul className="header-nav-list">
                 <Link to="/aboutus"><li className="header-nav-items">About Us</li></Link>
                     <a href="/#testimonials"><li className="header-nav-items">Testimonials</li></a>
-                    <a href="/#contacts"><li className="header-nav-items">Contacts</li></a>
+                    <a href="/#contact"><li className="header-nav-items">Contacts</li></a>
                     <Link to="/newdesign"><li className="header-nav-items">Pricing</li></Link>
                     <Link to="/foremployer"><li className="header-nav-items employer">For the U.S. employer</li></Link>
                     {/* Only show if not authorized */}
