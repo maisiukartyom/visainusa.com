@@ -30,7 +30,7 @@ const sendLink = async (req, res) => {
             if (err){
                 return res.sendStatus(400);
             }
-            const url = `https://visainusa-api.onrender.com/auth/confirmEmail/${emailToken}`;
+            const url = `${process.env.URL_API}/auth/confirmEmail/${emailToken}`;
             transporter.sendMail({
                 to: email,
                 subject: "Confirm email",
@@ -70,7 +70,7 @@ const handleNewUser = async (req, res) => {
             process.env.EMAIL_SECRET,
             { expiresIn: '5h' },
             (err, emailToken) => {
-                const url = `https://visainusa-api.onrender.com/auth/confirmEmail/${emailToken}`;
+                const url = `${process.env.URL_API}/auth/confirmEmail/${emailToken}`;
                 transporter.sendMail({
                     to: email,
                     subject: "Confirm email",

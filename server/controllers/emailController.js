@@ -132,8 +132,7 @@ const sendResetPassword = async (req, res) => {
                 if (err){
                     return res.sendStatus(400);
                 }
-                //const url = `https://visainusa-api.onrender.com/auth/confirmReset/${emailToken}`;
-                const url = `http://localhost:3500/auth/confirmReset/${emailToken}`;
+                const url = `${process.env.URL_API}/auth/confirmReset/${emailToken}`;
                 transporter.sendMail({
                     to: email,
                     subject: "Link to password reset",

@@ -110,7 +110,7 @@ const confirmEmail = async (req, res) => {
         res.sendStatus(404);
     }
 
-    return res.redirect('https://visainusa.vercel.app/login')
+    return res.redirect(`${process.env.URL_CLIENT}/login`)
 }
 
 const setPassword = async (req, res) => {
@@ -137,8 +137,7 @@ const confirmReset = async (req, res) => {
                 return res.sendStatus(401);
             }
 
-            //return res.redirect(`https://visainusa.vercel.app/resetPassword/${req.params.token}`);
-            return res.redirect(`http://localhost:3000/resetPassword/${req.params.token}`);
+            return res.redirect(`${process.env.URL_CLIENT}/resetPassword/${req.params.token}`);
         });
         
     }
