@@ -30,7 +30,7 @@ const getLevelCost = async (req, res) => {
     const level = req.body.level;
     const currLevel = await Level.findOne({levelNumber: level});
 
-    res.json({cost: currLevel.cost});
+    res.json({cost: currLevel.cost, originalCost: currLevel.originalCost});
   }
   catch(err){
     res.sendStatus(403);
@@ -56,18 +56,6 @@ const handlePayment = async (req, res) => {
     try {
       const currLevel = await Level.findOne({levelNumber: level});
       const priceTotal = currLevel.cost;
-      // let priceTotal;
-      // switch (level){
-      //   case 1:
-      //     priceTotal = 25;
-      //     break;
-      //   case 2:
-      //     priceTotal = 50;
-      //     break;
-      //   case 3:
-      //     priceTotal = 1000;
-      //     break;
-      // }
 
       const finalSum = priceTotal;
 

@@ -6,6 +6,8 @@ import {toast} from 'react-toastify'
 import { useNavigate } from 'react-router-dom';
 import TransactionList from './TransactionList';
 import LevelList from './LevelList';
+import ButtonBack from '../Admin/ButtonBack';
+import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
   const [users, setUsers] = useState([]);
@@ -92,7 +94,10 @@ const Dashboard = () => {
 
   return (
     isVerified &&
-    <>
+    <>  
+        <Link to='/admin'>
+          <ButtonBack>ADMIN</ButtonBack>
+        </Link>
         <div style={{display: "flex", flexDirection: "row", justifyContent: "center"}}>
         <div style={{flex: 1}}>
           <h1 style={{textAlign: "center"}}>Users</h1>

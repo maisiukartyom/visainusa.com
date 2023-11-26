@@ -113,4 +113,38 @@ const confirmEmail = async (req, res) => {
     return res.redirect('https://visainusa.vercel.app/login')
 }
 
-module.exports = { handleLogin, userVerification, handleLogout, confirmEmail };
+const setPassword = async (req, res) => {
+    try{
+        const {token, password} = req.body;
+        jwt.verify(token, process.env.EMAIL_SECRET, async(err, data) => {
+            if (err){
+                return res.sendStatus(403);
+            }
+            const newPassword = await bcrypt.hash(password, 10);
+            await User.findOneAndUpdate({email: data.email}, {password: newPassword});
+            res.sendStatus(201);
+        })
+    }
+    catch(err){
+        res.sendStatus(405);
+    }
+}
+
+const confirmReset = async (req, res) => {
+    try{
+        jwt.verify(req.params.token, process.env.EMAIL_SECRET, async (err, data) => {
+            if (err){
+                return res.sendStatus(401);
+            }
+
+            //return res.redirect(`https://visainusa.vercel.app/resetPassword/${req.params.token}`);
+            return res.redirect(`http://localhost:3000/resetPassword/${req.params.token}`);
+        });
+        
+    }
+    catch(err){
+        return res.sendStatus(402);
+    }
+}
+
+module.exports = { handleLogin, userVerification, handleLogout, confirmEmail, setPassword, confirmReset };

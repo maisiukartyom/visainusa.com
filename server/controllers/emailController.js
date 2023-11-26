@@ -1,13 +1,17 @@
 var nodemailer = require('nodemailer');
+const jwt = require('jsonwebtoken');
+const User = require('../model/User')
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
+  secure: true,
   host: 'smtp.gmail.com',
   port: 587,
   auth: {
     user: 'EB3unskilled@gmail.com',
     pass: 'muzh frte fruc uslx'
-  }
+  },
+  tls : { rejectUnauthorized: false }
   // auth: {
   //   user: 'artyom.majsyuk@gmail.com',
   //   pass: 'uaqx lsln boij einl'
@@ -112,4 +116,46 @@ const handleSendPhone = async (req, res) => {
     });
 }
 
-module.exports = {handleSendEmail, handleSendEmployer, handleSendPhone}
+const sendResetPassword = async (req, res) => {
+  try{
+      const {email} = req.body;
+      try{
+        const user = await User.findOne({email});
+        if (user.confirmed){
+          jwt.sign(
+            { 
+                "email": email
+             },
+            process.env.EMAIL_SECRET,
+            { expiresIn: '5h' },
+            (err, emailToken) => {
+                if (err){
+                    return res.sendStatus(400);
+                }
+                //const url = `https://visainusa-api.onrender.com/auth/confirmReset/${emailToken}`;
+                const url = `http://localhost:3500/auth/confirmReset/${emailToken}`;
+                transporter.sendMail({
+                    to: email,
+                    subject: "Link to password reset",
+                    html: `<h2>You have 5 hours to reset your password:</h2>
+                            <a href="${url}">${url}</a>`
+                });
+                return res.sendStatus(200);
+            }
+          );
+        }
+        else{
+          res.sendStatus(407);
+        }
+      }
+      catch(err){
+        res.sendStatus(406);
+      }
+  }
+  catch(err){
+      console.log(err)
+      res.sendStatus(406);
+  }
+}
+
+module.exports = {handleSendEmail, handleSendEmployer, handleSendPhone, sendResetPassword}

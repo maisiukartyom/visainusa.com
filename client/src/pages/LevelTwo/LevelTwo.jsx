@@ -56,7 +56,7 @@ const LevelTwo = () => {
                 hasLevel? <MainLevelTwoPaid /> : <MainLevelTwo/>
             }
             <Footer />
-            {hasLevel && !user.isAdmin && <Calendly userEmail={user.email} userName={user.name} />}
+            {hasLevel && <Calendly userEmail={user.email} userName={user.name} />}
         </div>
     )
   }

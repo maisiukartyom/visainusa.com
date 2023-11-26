@@ -49,7 +49,6 @@ const useForm = (submitForm) =>{
                         withCredentials: true
                     }
                 );
-                // toast.success("", {
                 //     position: "top-center",
                 //     autoClose: 3000,
                 //     hideProgressBar: false,
@@ -71,7 +70,6 @@ const useForm = (submitForm) =>{
                     });
                 
                 navigate("/login", {state: {previousPath: pathname}})
-                //submitForm(true);
             }
             catch(err){
                 let errorMessage = ""

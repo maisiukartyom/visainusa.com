@@ -3,6 +3,8 @@ import SupportAdmin from "../../components/SupportAdmin";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {toast} from 'react-toastify';
+import ButtonBack from "../Admin/ButtonBack";
+import { Link } from "react-router-dom";
 
 const AdminChat = () => {
 
@@ -43,7 +45,7 @@ const AdminChat = () => {
 
     return (
         verified &&
-        <>
+        <>  
             <SupportAdmin />
         </>
     )

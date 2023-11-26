@@ -4,6 +4,8 @@ import axios from '../api/axios';
 import styled from 'styled-components';
 import {toast} from 'react-toastify';
 import { useNavigate } from "react-router-dom";
+import ButtonBack from '../pages/Admin/ButtonBack';
+import { Link } from 'react-router-dom';
 
 // Container styles
 const FormContainer = styled.form`
@@ -257,204 +259,210 @@ const AddJob = () => {
 
   return (
     verified &&
-    <div style={{flexDirection: "row", display: "flex"}}>
-      <FormContainer onSubmit={formik.handleSubmit}>
-        <div>
-          <FormLabel  htmlFor="position">Position</FormLabel >
-          <FormInput 
-            type="text"
-            id="position"
-            name="position"
-            required
-            onChange={formik.handleChange}
-            value={formik.values.position}
-            placeholder="Enter position name"
-          />
-        </div>
+    <>
+      <Link to='/admin'>
+        <ButtonBack>ADMIN</ButtonBack>
+      </Link>
+      <div style={{flexDirection: "row", display: "flex"}}>
+        <FormContainer onSubmit={formik.handleSubmit}>
+          <div>
+            <FormLabel  htmlFor="position">Position</FormLabel >
+            <FormInput 
+              type="text"
+              id="position"
+              name="position"
+              required
+              onChange={formik.handleChange}
+              value={formik.values.position}
+              placeholder="Enter position name"
+            />
+          </div>
 
-        <div>
-          <FormLabel  htmlFor="location">Location</FormLabel >
-          <FormInput 
-            type="text"
-            id="location"
-            name="location"
-            required
-            onChange={formik.handleChange}
-            value={formik.values.location}
-            placeholder="Enter location"
-          />
-        </div>
+          <div>
+            <FormLabel  htmlFor="location">Location</FormLabel >
+            <FormInput 
+              type="text"
+              id="location"
+              name="location"
+              required
+              onChange={formik.handleChange}
+              value={formik.values.location}
+              placeholder="Enter location"
+            />
+          </div>
 
-        <div>
-          <FormLabel  htmlFor="state">State</FormLabel >
-          <FormSelect 
-            id="state"
-            name="state"
-            required
-            onChange={formik.handleChange}
-            value={formik.values.state}
-          >
-            <option value="" label="Select a state" />
-            <option value="SC" label="South Carolina (SC)" />
-            <option value="CO" label="Colorado (CO)" />
-            <option value="MN" label="Minnesota (MN)" />
-            <option value="NC" label="North Carolina (NC)" />
-            <option value="NY" label="New York (NY)" />
-            <option value="AZ" label="Arizona (AZ)" />
-            <option value="FL" label="Florida (FL)" />
-            <option value="IN" label="Indiana (IN)" />
-            <option value="OH" label="Ohio (OH)" />
-            <option value="NJ" label="New Jersey (NJ)" />
-            <option value="DE" label="Delaware (DE)" />
-            <option value="ND" label="North Dakota (ND)" />
-            <option value="MI" label="Michigan (MI)" />
-            <option value="MO" label="Missouri (MO)" />
-            <option value="KS" label="Kansas (KS)" />
-            <option value="GA" label="Georgia (GA)" />
-            <option value="UT" label="Utah (UT)" />
-            <option value="WA" label="Washington (WA)" />
-            <option value="ID" label="Idaho (ID)" />
-            <option value="NV" label="Nevada (NV)" />
-            <option value="NM" label="New Mexico (NM)" />
-            <option value="TX" label="Texas (TX)" />
-            <option value="AR" label="Arkansas (AR)" />
-            <option value="TN" label="Tennessee (TN)" />
-          </FormSelect >
-        </div>
+          <div>
+            <FormLabel  htmlFor="state">State</FormLabel >
+            <FormSelect 
+              id="state"
+              name="state"
+              required
+              onChange={formik.handleChange}
+              value={formik.values.state}
+            >
+              <option value="" label="Select a state" />
+              <option value="SC" label="South Carolina (SC)" />
+              <option value="CO" label="Colorado (CO)" />
+              <option value="MN" label="Minnesota (MN)" />
+              <option value="NC" label="North Carolina (NC)" />
+              <option value="NY" label="New York (NY)" />
+              <option value="AZ" label="Arizona (AZ)" />
+              <option value="FL" label="Florida (FL)" />
+              <option value="IN" label="Indiana (IN)" />
+              <option value="OH" label="Ohio (OH)" />
+              <option value="NJ" label="New Jersey (NJ)" />
+              <option value="DE" label="Delaware (DE)" />
+              <option value="ND" label="North Dakota (ND)" />
+              <option value="MI" label="Michigan (MI)" />
+              <option value="MO" label="Missouri (MO)" />
+              <option value="KS" label="Kansas (KS)" />
+              <option value="GA" label="Georgia (GA)" />
+              <option value="UT" label="Utah (UT)" />
+              <option value="WA" label="Washington (WA)" />
+              <option value="ID" label="Idaho (ID)" />
+              <option value="NV" label="Nevada (NV)" />
+              <option value="NM" label="New Mexico (NM)" />
+              <option value="TX" label="Texas (TX)" />
+              <option value="AR" label="Arkansas (AR)" />
+              <option value="TN" label="Tennessee (TN)" />
+            </FormSelect >
+          </div>
 
-        <div>
-          <FormLabel  htmlFor="wage">Wage</FormLabel >
-          <FormInput 
-            type="text"
-            id="wage"
-            name="wage"
-            required
-            onChange={formik.handleChange}
-            value={formik.values.wage}
-            placeholder="Enter wage"
-          />
-        </div>
+          <div>
+            <FormLabel  htmlFor="wage">Wage</FormLabel >
+            <FormInput 
+              type="text"
+              id="wage"
+              name="wage"
+              required
+              onChange={formik.handleChange}
+              value={formik.values.wage}
+              placeholder="Enter wage"
+            />
+          </div>
 
-        <FormLabel>Description</FormLabel>
-        <div style={{overflowY: "scroll", maxHeight: "350px", border: "1px solid black", padding: "10px"}}>
-              {Object.entries(fields).map(([fieldName, value]) => (
-                <div key={fieldName}>
-                  <FormLabel>{fieldName}</FormLabel>
-                  <FormTextArea
-                    type="text"
-                    placeholder={`Enter ${fieldName}`}
-                    value={value}
-                    onChange={(event) => handleInputChange(fieldName, event)}
+          <FormLabel>Description</FormLabel>
+          <div style={{overflowY: "scroll", maxHeight: "350px", border: "1px solid black", padding: "10px"}}>
+                {Object.entries(fields).map(([fieldName, value]) => (
+                  <div key={fieldName}>
+                    <FormLabel>{fieldName}</FormLabel>
+                    <FormTextArea
+                      type="text"
+                      placeholder={`Enter ${fieldName}`}
+                      value={value}
+                      onChange={(event) => handleInputChange(fieldName, event)}
+                    />
+                    <FormRemoveButton type="button" onClick={() => handleRemoveField(fieldName)}>
+                      Remove
+                    </FormRemoveButton>
+                  </div>
+                ))}
+                <FormAddButton
+                  type="button"
+                  onClick={() => {
+                    const fieldName = prompt('Enter field name:');
+                    if (fieldName) {
+                      handleAddField(fieldName);
+                    }
+                  }}
+                >
+                  Add Field
+                </FormAddButton>
+          </div>
+
+          <div>
+            <FormLabel  htmlFor="cover">Cover</FormLabel >
+            <FormInput  type="url" 
+              id="cover" 
+              name="cover"
+              required
+              value={coverUrl}
+              onChange={handleFileChange} 
+              placeholder="Cover image URL"/>
+          </div>
+            <div>
+              <FormLabel >Images</FormLabel >
+
+              {imageUrls.map((url, index) => (
+                <div key={index} style={{display: 'flex', gap: '5px'}} >
+                  <FormInput 
+                    type="url"
+                    value={url}
+                    onChange={(e) => handleUrlChange(index, e.target.value, "image")}
+                    placeholder={`Image URL ${index + 1}`}
                   />
-                  <FormRemoveButton type="button" onClick={() => handleRemoveField(fieldName)}>
-                    Remove
-                  </FormRemoveButton>
+
+                  {imageUrls.length > 1 && (
+                    <FormRemoveButton type="button" onClick={() => handleRemoveInput(index, "image")}>
+                      Remove
+                    </FormRemoveButton >
+                  )}
                 </div>
               ))}
-              <FormAddButton
-                type="button"
-                onClick={() => {
-                  const fieldName = prompt('Enter field name:');
-                  if (fieldName) {
-                    handleAddField(fieldName);
-                  }
-                }}
-              >
-                Add Field
-              </FormAddButton>
-        </div>
 
+              <FormAddButton  type="button" onClick={() => handleAddInput("image")}>
+                Add
+              </FormAddButton >
+            </div>
+
+            <div>
+              <FormLabel >Agencies</FormLabel >
+
+              {agenciesUrls.map((url, index) => (
+                <div key={index} style={{display: 'flex', gap: '5px'}} >
+                  <FormInput 
+                    type="url"
+                    value={url}
+                    onChange={(e) => handleUrlChange(index, e.target.value, "agency")}
+                    placeholder={`Agency URL ${index + 1}`}
+                  />
+
+                  {agenciesUrls.length > 1 && (
+                    <FormRemoveButton type="button" onClick={() => handleRemoveInput(index, "agency")}>
+                      Remove
+                    </FormRemoveButton >
+                  )}
+                </div>
+              ))}
+
+              <FormAddButton  type="button" onClick={() => handleAddInput("agency")}>
+                Add
+              </FormAddButton >
+            </div>
+
+          <FormButton  type="submit">Submit</FormButton >
+        </FormContainer >
         <div>
-          <FormLabel  htmlFor="cover">Cover</FormLabel >
-          <FormInput  type="url" 
-            id="cover" 
-            name="cover"
-            required
-            value={coverUrl}
-            onChange={handleFileChange} 
-            placeholder="Cover image URL"/>
-        </div>
-          <div>
-            <FormLabel >Images</FormLabel >
-
-            {imageUrls.map((url, index) => (
-              <div key={index} style={{display: 'flex', gap: '5px'}} >
-                <FormInput 
-                  type="url"
-                  value={url}
-                  onChange={(e) => handleUrlChange(index, e.target.value, "image")}
-                  placeholder={`Image URL ${index + 1}`}
-                />
-
-                {imageUrls.length > 1 && (
-                  <FormRemoveButton type="button" onClick={() => handleRemoveInput(index, "image")}>
-                    Remove
-                  </FormRemoveButton >
-                )}
+              <div style={{marginTop: "15px"}} className='card-employer'>
+                  <div className='pad-emp'>
+                      <p className='location-emp'>{formik.values.location}</p>
+                      <div className='img-emp'>
+                      <img className='img-page'  src={coverUrl} alt={formik.values.state} width={300} height={350}/>
+                      </div>
+                      <div className='img-emp'>
+                      <h3 className='job'>{formik.values.position}</h3>
+                      <p className='job'>${formik.values.wage}/hr</p>
+                      </div>
+                  </div>
               </div>
-            ))}
 
-            <FormAddButton  type="button" onClick={() => handleAddInput("image")}>
-              Add
-            </FormAddButton >
-          </div>
-
-          <div>
-            <FormLabel >Agencies</FormLabel >
-
-            {agenciesUrls.map((url, index) => (
-              <div key={index} style={{display: 'flex', gap: '5px'}} >
-                <FormInput 
-                  type="url"
-                  value={url}
-                  onChange={(e) => handleUrlChange(index, e.target.value, "agency")}
-                  placeholder={`Agency URL ${index + 1}`}
-                />
-
-                {agenciesUrls.length > 1 && (
-                  <FormRemoveButton type="button" onClick={() => handleRemoveInput(index, "agency")}>
-                    Remove
-                  </FormRemoveButton >
-                )}
+              <div style={{marginTop: "15px"}} className="crew-main">
+                  <div className='text-job-ny'>
+                      <div className="big-text-main">
+                          <h3 className="crew-one">{formik.values.position}</h3>
+                          {
+                          Object.entries(fields).map(([key, value]) => 
+                              (<p className="job-mini">- {key}: {value}</p>)
+                              )
+                          }
+                          {agenciesUrls.map((agency, index) => (<a rel='noopener noreferrer' target='_blank' href={agency}>{agency}</a>))}
+                      </div>
+                  </div>
               </div>
-            ))}
-
-            <FormAddButton  type="button" onClick={() => handleAddInput("agency")}>
-              Add
-            </FormAddButton >
           </div>
-
-        <FormButton  type="submit">Submit</FormButton >
-      </FormContainer >
-      <div>
-            <div style={{marginTop: "15px"}} className='card-employer'>
-                <div className='pad-emp'>
-                    <p className='location-emp'>{formik.values.location}</p>
-                    <div className='img-emp'>
-                    <img className='img-page'  src={coverUrl} alt={formik.values.state} width={300} height={350}/>
-                    </div>
-                    <div className='img-emp'>
-                    <h3 className='job'>{formik.values.position}</h3>
-                    <p className='job'>${formik.values.wage}/hr</p>
-                    </div>
-                </div>
-            </div>
-
-            <div style={{marginTop: "15px"}} className="crew-main">
-                <div className='text-job-ny'>
-                    <div className="big-text-main">
-                        <h3 className="crew-one">{formik.values.position}</h3>
-                        {
-                        Object.entries(fields).map(([key, value]) => 
-                            (<p className="job-mini">- {key}: {value}</p>)
-                            )
-                        }
-                        {agenciesUrls.map((agency, index) => (<a rel='noopener noreferrer' target='_blank' href={agency}>{agency}</a>))}
-                    </div>
-                </div>
-            </div>
-        </div>
-  </div>
+    </div>
+    </>
+    
   );
 };
 

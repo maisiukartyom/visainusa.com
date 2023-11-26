@@ -1,11 +1,29 @@
 //import { CLIENT_ID } from '../utils/config'
 import React, { useEffect, useState } from "react" ;
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import axios from '../api/axios';
 import { useLocation, useNavigate } from 'react-router-dom';
 import SupportEngine from "./SupportEngine";
 import {toast} from 'react-toastify'
 import { PayPalButton } from 'react-paypal-button-v2';
+import styled from 'styled-components';
+
+const ButtonBack = styled.button`
+  background-color: #032144;
+  color: white; 
+  padding: 10px 20px; 
+  font-size: 16px; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer;
+
+  &:hover {
+    background-color: #244B7A; 
+  }
+
+  position: absolute;
+  top: 20px;
+  left: 20px;
+`;
 
 const Payment = () => {
     const navigate = useNavigate();
@@ -180,15 +198,17 @@ const Payment = () => {
         })
     }
 
+
     return (
         isVerified &&
         <div>
-        <h2>Payment for LEVEL {state.levelToPurchase}. You are ready to pay ${state.price}!</h2>
-        <PayPalButton
-            createOrder={createOrder}
-            onApprove={onApprove}
-        ></PayPalButton>
-        <p><strong>If you experience trouble with payment from Russia or Belarus, you can ask your friends or relatives who have VISA/MASTERCARD to make payment on your behalf, we will accept such payments. <br/>Second option is to make payments to Sberbank account by phone number</strong></p>
+            <ButtonBack onClick={() => navigate(-1)}>Back</ButtonBack>
+            <h2>Payment for LEVEL {state.levelToPurchase}. You are ready to pay ${state.price}!</h2>
+            <PayPalButton
+                createOrder={createOrder}
+                onApprove={onApprove}
+            ></PayPalButton>
+            <p><strong>If you experience trouble with payment from Russia or Belarus, you can ask your friends or relatives who have VISA/MASTERCARD to make payment on your behalf, we will accept such payments. <br/>Second option is to make payments to Sberbank account by phone number</strong></p>
         </div>
 
     );

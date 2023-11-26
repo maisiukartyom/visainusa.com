@@ -4,7 +4,8 @@ import "../pages/LevelOne/LevelOne.css";
 import axios from "../api/axios";
 import {toast} from "react-toastify";
 import SupportEngine from "./SupportEngine";
-import '../pages/NewDesign.css'
+import '../pages/NewDesign.css';
+import CallForm from "./CallForm/CallForm";
 
 
 export const Header = () => {
@@ -130,7 +131,11 @@ export const Header = () => {
             >< img src="/images/menu.png" alt="menu"  width={24} height={24} /></button>
         </header>
         {
-          verified && !isAdmin && user && <SupportEngine user={chatUser} />
+          verified && !isAdmin && user && 
+          <>
+            <CallForm />
+            <SupportEngine user={chatUser} />
+          </> 
         }
         </>
         

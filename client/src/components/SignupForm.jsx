@@ -36,8 +36,8 @@ const SignupForm = ({ submitForm }) => {
                         {errors.email && <p className="error">{errors.email}</p>}
                     </div>
                     <div className="email-log">
-                    <div className="start">
-                        <label className="label-log">Password</label>
+                        <div className="start">
+                            <label className="label-log">Password</label>
                         </div>
                         <input className="input-log" autoComplete="current-password" type="password" name="password" value={values.password} onChange={handleChange}/>
                         {errors.password && <p className="error">{errors.password}</p>}
