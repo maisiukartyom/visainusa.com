@@ -158,6 +158,7 @@ const handlePaypalTransactionComplete = async (req, res) => {
                   paymentID: result.purchase_units[0].payments.captures[0].id,
                   status: result.status,
                   buyerEmail: email,
+                  description: `Level ${level}`,
                   createTime: result.purchase_units[0].payments.captures[0].create_time,
                   updateTime: result.purchase_units[0].payments.captures[0].update_time,
                   amount: result.purchase_units[0].payments.captures[0].amount.value,
