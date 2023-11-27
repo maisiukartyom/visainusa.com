@@ -5,6 +5,7 @@ import Footer from '../../components/Footer';
 
 
 import "./ForEmployer.css";
+import Contacts from '../../components/Contacts';
 
 
 const ForEmployer = () => {
@@ -13,6 +14,7 @@ const ForEmployer = () => {
         <div >
             <Header />
             <MainEmployer />
+            <Contacts/>
             <Footer />
         </div>
     )

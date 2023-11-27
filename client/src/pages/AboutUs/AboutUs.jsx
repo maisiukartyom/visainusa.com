@@ -6,6 +6,7 @@ import Footer from '../../components/Footer';
 
 import "../AboutUs/AboutUs.css";
 import AboutUsMain from '../../components/AboutUsMain';
+import Contacts from '../../components/Contacts';
 
 
 const AbotUs = () => {
@@ -14,6 +15,7 @@ const AbotUs = () => {
         <div >
             <Header />
 <AboutUsMain />
+<Contacts/>
   <Footer />
         </div>
     )

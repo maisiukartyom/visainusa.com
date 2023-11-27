@@ -146,7 +146,7 @@ export const MainLevelTwo = () => {
                 </div> 
             </div>
 
-                           <div className="button-level2">
+                           {/* <div className="button-level2">
                            <div  >
                         <label className="label-level" > Provided information available in  </label>
                         <div className="mt-level">
@@ -158,7 +158,7 @@ export const MainLevelTwo = () => {
                     </div>
                      <button className="button-level-two" disabled={!canPurchase} onClick={purchaseLevel}>PAY</button>
 
-                  </div>
+                  </div> */}
 
 </div>
 </div>

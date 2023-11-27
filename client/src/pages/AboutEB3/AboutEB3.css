@@ -299,7 +299,6 @@ width: 100%;
 			.text-abouteb3
 			{
 				font-size: 18px;
-				word-spacing: 11px;
 				max-width: 660px;
 			}
 	}
@@ -343,7 +342,6 @@ width: 100%;
 			.text-abouteb3
 			{
 				font-size: 18px;
-				word-spacing: 11px;
 				max-width: 660px;
 			}
 	}
@@ -388,7 +386,9 @@ width: 380px;
 		.h2-abouteb3{
 			font-size: 30px;
 		}
-		
+		.text-abouteb3{
+			word-spacing: 1px;
+		}
 	.abouteb3-text{
 		max-width: 310px;
 		height: 100%;
@@ -439,8 +439,15 @@ padding: 16px;
 .text-abouteb3
 {
 	font-size: 18px;
-	word-spacing: 8px;
     max-width: 660px;
 }
 	  }
   
+	  @media all and (max-width:286px){
+		.text-abouteb3
+		{
+			font-size: 18px;
+			word-spacing: -2px;
+			max-width: 660px;
+		}
+	  }

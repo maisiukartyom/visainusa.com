@@ -1,0 +1,97 @@
+.youtube-levelApply{
+    width: 800px;
+      height: 450px;
+    border-radius: 10px;
+      align-self: center;
+    margin-bottom: 10%;
+      box-shadow: 0 0 4px 4px rgba(21, 1, 202, 0.25);
+    
+    }
+
+    .text-levelApply{
+        font-size: 20px;
+        font-weight: 600;
+        max-width:1250px;
+        max-height: 5000px;
+        text-align: justify;
+        color: var(--deep-dark);
+        font-family: 'Merriweather', serif;
+        line-height: 32px;
+        padding: 20px;
+        margin-top: -2%;
+    }
+
+    .text-levelA{
+        font-size: 20px;
+        font-weight: 600;
+        max-width:1250px;
+        max-height: 5000px;
+        text-align: justify;
+        color: var(--deep-dark);
+        font-family: 'Merriweather', serif;
+        line-height: 32px;
+        padding: 20px;
+        margin-top: -4%;
+    }
+
+.btn-Applynow{
+    display: flex;
+    justify-content: center;
+}
+.btn-apply{
+    border: none;
+	background: var(--main-color);
+	border-radius: 10px;
+	width: 240px;
+	height: 50px;
+	color: var(--light-color);
+	font-weight: 600;
+	text-transform: uppercase;
+	font-size: 16px;
+	cursor: pointer;
+    margin-bottom: 5%;
+}
+
+.btn-apply:hover {
+	background: var(--dark-color);
+	color: var(--light-color);
+}
+    @media (max-width:786px){
+        .youtube-levelApply{
+            width: 100%;
+            height: 380px;
+            padding: 10px;
+        }
+    }
+
+    @media (max-width:586px){
+        .youtube-levelApply{
+            width: 100%;
+            height: 360px;
+            padding: 10px;
+        }
+    }
+    @media (max-width:486px){
+        .youtube-levelApply{
+            width: 100%;
+            height: 340px;
+            padding: 10px;
+        }
+    }
+
+    @media (max-width:386px){
+        .youtube-levelApply{
+            width: 100%;
+            height: 310px;
+            padding: 10px;
+        }
+    }
+
+    
+    @media (max-width:286px){
+        .youtube-levelApply{
+            width: 100%;
+            height: 220px;
+            padding: 10px;
+        }
+    }

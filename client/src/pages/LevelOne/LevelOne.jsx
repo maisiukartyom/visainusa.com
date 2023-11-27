@@ -6,6 +6,7 @@ import Footer from '../../components/Footer';
 import "./LevelOne.css";
 import axios from '../../api/axios';
 import { MainLevelPaid } from './MainLevelPaid';
+import Contacts from '../../components/Contacts';
 
 
 
@@ -51,6 +52,7 @@ const LevelOne = () => {
           <Header />
           {/* {hasLevel? <MainLevelPaid /> : <MainLevel />} */}
           <MainLevelPaid />
+          <Contacts/>
           <Footer />
       </div>
   )

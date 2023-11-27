@@ -295,6 +295,37 @@ const AddJob = () => {
             value={formik.values.state}
           >
             <option value="" label="Select a state" />
+            <option value="AL" label="Alabama (AL)" />
+            <option value="AK" label="Alaska (AK)" />
+            <option value="AS" label="American Samoa (AS)" />
+            <option value="CA" label="California (CA)" />
+            <option value="CO" label="Connecticut (CO)" />
+            <option value="DE" label="Delaware (DE)" />
+            <option value="DC" label="District of Columbia (DC)" />
+            <option value="GU" label="Guam (GU)" />
+            <option value="HI" label="Hawaii (HI)" />
+            <option value="IL" label="Illinois (IL)" />
+            <option value="KY" label="Kentucky (KY)" />
+            <option value="LA" label="Louisiana (LA)" />
+            <option value="ME" label="Maine (ME)" />
+            <option value="MD" label="Maryland (MD)" />
+            <option value="MA" label="Massachusetts (MA)" />
+            <option value="MS" label="Mississippi (MS)" />
+            <option value="MT" label="Montana (MT)" />
+            <option value="NH" label="New Hampshire (NH)" />
+            <option value="NP" label="Northern Mariana Islands (NP)" />
+            <option value="OK" label="Oklahoma (OK)" />
+            <option value="OR" label="Oregon (OR)" />
+            <option value="PA" label="Pennsylvania (PA)" />
+            <option value="PR" label="Puerto Rico (PR)" />
+            <option value="RI" label="Rhode Island (RI)" />
+            <option value="SD" label="South Dakota (SD)" />
+            <option value="VT" label="Vermont (VT)" />
+            <option value="VA" label="Virginia (VA)" />
+            <option value="VI" label="Virgin Islands (VI)" />
+            <option value="WV" label="West Virginia (WV)" />
+            <option value="WI" label="Wisconsin (WI)" />
+            <option value="WY" label="Wyoming (WY)" />
             <option value="SC" label="South Carolina (SC)" />
             <option value="CO" label="Colorado (CO)" />
             <option value="MN" label="Minnesota (MN)" />

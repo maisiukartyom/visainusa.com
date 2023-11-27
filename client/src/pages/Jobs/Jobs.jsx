@@ -8,35 +8,72 @@ import { useNavigate } from 'react-router-dom';
 import {toast} from 'react-toastify';
 import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
 import 'react-horizontal-scrolling-menu/dist/styles.css';
+import Contacts from '../../components/Contacts';
 
 
-const allStates = ['SC','CO','MN','NC','NY','AZ','FL','IN','OH','NJ',
-'DE','ND','MI','MO','KS','GA','UT','WA','ID','NV','NM','TX','AR','TN'];
+const allStates = ['AL', 'AK', 'AZ', 'AR', 'AS', 'CA', 'CO', 'CT', 'DE', 'DC', 'FL', 'GA', 'GU', 'HI','ID','IL', 'IN', 'IA',
+'KS', 'KY', 'LA','ME','MD','MA','MI','MN','MS','MO','MT','NE', 'NV','NH','NJ', 'NM','NY','NC','ND','NP','OH',
+'OK','OR','PA', 'PR','RI','SC','SD', 'TN','TX','TT','UT','VT','VA','VI','WA','WV','WI','WY',]
 
-const fullStates = ["South Carolina (SC)",
-  "Colorado (CO)",
-  "Minnesota (MN)",
-  "North Carolina (NC)",
-  "New York (NY)",
-  "Arizona (AZ)",
-  "Florida (FL)",
-  "Indiana (IN)",
-  "Ohio (OH)",
-  'New Jersey (NJ)',
-  'Delaware (DE)',
-  'North Dakota (ND)',
-  'Michigan (MI)',
-  'Missouri (MO)',
-  'Kansas (KS)',
-  'Georgia (GA)',
-  'Utah (UT)',
-  'Washington (WA)',
-  'Idaho (ID)',
-  'Nevada (NV)',
-  'New Mexico (NM)',
-  'Texas (TX)',
-  'Arkansas (AR)',
-  "Tennessee (TN)"]
+
+const fullStates = ["Alabama (AL)",
+"Alaska (AK)",
+"Arizona (AZ)",
+"Arkansas (AR)",
+"American Samoa (AS)",
+"California (CA)",
+"Colorado (CO)",
+"Connecticut (CT)",
+"Delaware (DE)",
+"District of Columbia (DC)",
+"Florida (FL)",
+'Georgia (GA)',
+"Guam (GU)",
+"Hawaii (HI)",
+'Idaho (ID)',
+"Illinois (IL)",
+"Indiana (IN)",
+"Iowa (IA)",
+'Kansas (KS)',
+"Kentucky (KY)",
+"Louisiana (LA)",
+"Maine (ME)",
+"Maryland (MD)",
+"Massachusetts	 (MA)",
+'Michigan (MI)',
+"Minnesota (MN)",
+"Mississippi (MS)",
+'Missouri (MO)',
+"Montana (MT)",
+"Nebraska (NE)",
+'Nevada (NV)',
+"New Hampshire (NH)",
+'New Jersey (NJ)',
+'New Mexico (NM)',
+"New York (NY)",
+"North Carolina (NC)",
+'North Dakota (ND)',
+"Northern Mariana Islands	(NP)",
+"Ohio (OH)",
+"Oklahoma (OK)",
+"Oregon (OR)",
+"Pennsylvania (PA)",
+"Puerto Rico	(PR)",
+"Rhode Island (RI)",
+"South Carolina (SC)",
+"South Dakota	(SD)",
+"Tennessee (TN)",
+'Texas (TX)',  
+"Trust Territories	(TT)",
+'Utah (UT)',  
+"Vermont (VT)",
+"Virginia (VA)",
+"Virgin Islands (VI)",  
+'Washington (WA)',
+"West Virginia	 (WV)",
+  "Wisconsin (WI)	",
+  "Wyoming (WY)",
+  ]
 
   const statesMap = {};
 
@@ -179,92 +216,189 @@ const Jobs = () => {
               <h3 className="choose-state ">Choose state</h3>             
               <div className='states-all'>
               <img src='./images/america.png' className='map-states' alt='america' width={700} height={400}/>
-
-        <div className='states-right'>
+<div className='mob-states'>
+  <div className='state-one'>
+        <div className='states-left'>
+          
           <div className=" st b">
           <input type="checkbox" id='selectAll' onChange={toggleCheckboxes}/>Choose all
           </div>
             <div className="st" >
-          <input  type="checkbox" checked={selectedStates.includes('SC')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="SC"/>South Carolina (SC)
+          <input  type="checkbox" checked={selectedStates.includes('AL')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="AL"/>Alabama (AL)
           </div>
           <div className="st" >
+          <input  type="checkbox" checked={selectedStates.includes('AK')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="AK"/>Alaska (AK)
+          </div>
+          <div className="st" >
+          <input  type="checkbox" checked={selectedStates.includes('AZ')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="AZ"/>Arizona (AZ)
+          </div>
+          <div  className="st">
+          <input  type="checkbox" checked={selectedStates.includes('AR')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="AR"/>Arkansas (AR)
+          </div>
+          <div className="st">
+            <input  type="checkbox" checked={selectedStates.includes('AS')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="AS"/>American Samoa (AS)
+          </div>
+          <div className="st">
+          <input   type="checkbox" checked={selectedStates.includes('CA')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="CA"/>California (CA)
+          </div>
+          <div  className="st">
           <input  type="checkbox" checked={selectedStates.includes('CO')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="CO"/>Colorado (CO)
           </div>
-          <div className="st" >
-          <input  type="checkbox" checked={selectedStates.includes('MN')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="MN"/>Minnesota (MN)
-          </div>
           <div  className="st">
-          <input  type="checkbox" checked={selectedStates.includes('NC')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="NC"/>North Carolina (NC)
-          </div>
-          <div className="st">
-            <input  type="checkbox" checked={selectedStates.includes('NY')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="NY"/>New York (NY)
-          </div>
-          <div className="st">
-          <input   type="checkbox" checked={selectedStates.includes('AZ')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="AZ"/>Arizona (AZ)
-          </div>
-          <div  className="st">
-          <input  type="checkbox" checked={selectedStates.includes('FL')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="FL"/>Florida (FL)
-          </div>
-          <div  className="st">
-          <input  type="checkbox" checked={selectedStates.includes('IN')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="IN"/>Indiana (IN)
-          </div>
-          <div  className="st">
-          <input  type="checkbox" checked={selectedStates.includes('OH')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="OH"/>Ohio (OH)
-          </div>
-          <div  className="st">
-          <input  type="checkbox" checked={selectedStates.includes('NJ')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="NJ"/>New Jersey (NJ)
+          <input  type="checkbox" checked={selectedStates.includes('CT')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="CT"/>Connecticut (CT)
           </div>
           <div  className="st">
           <input  type="checkbox" checked={selectedStates.includes('DE')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="DE"/>Delaware (DE)
           </div>
           <div  className="st">
-          <input  type="checkbox" checked={selectedStates.includes('ND')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="ND"/>	North Dakota (ND)
+          <input  type="checkbox" checked={selectedStates.includes('DC')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="DC"/>District of Columbia (DC)
+          </div>
+          <div  className="st">
+          <input  type="checkbox" checked={selectedStates.includes('FL')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="FL"/>Florida (FL)
+          </div>
+          <div  className="st">
+          <input  type="checkbox" checked={selectedStates.includes('GA')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="GA"/>	Georgia (GA)
           </div>
           </div>
-          <div className='states-left'>
+          
+          <div className='states-right'>
           <div className="st" >
+          <input  type="checkbox" checked={selectedStates.includes('GU')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="GU"/>Guam (GU)
+          </div>
+          <div className="st" >
+          <input  type="checkbox" checked={selectedStates.includes('HI')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="HI"/>Hawaii (HI)
+          </div>
+          <div className="st" >
+          <input  type="checkbox" checked={selectedStates.includes('ID')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="ID"/>Idaho (ID)
+          </div>
+          <div className="st">
+          <input   type="checkbox" checked={selectedStates.includes('IL')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="IL"/>Illinois (IL)
+          </div>
+          <div  className="st">
+          <input  type="checkbox" checked={selectedStates.includes('IN')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="IN"/>Indiana (IN)
+          </div>
+          <div  className="st">
+          <input  type="checkbox" checked={selectedStates.includes('KS')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="KS"/>Kansas (KS)
+          </div>
+          <div  className="st">
+          <input  type="checkbox" checked={selectedStates.includes('KY')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="KY"/>Kentucky (KY)
+          </div>
+          <div  className="st">
+          <input  type="checkbox" checked={selectedStates.includes('LA')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="LA"/>Louisiana (LA)
+          </div>
+          <div  className="st">
+          <input  type="checkbox" checked={selectedStates.includes('ME')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="ME"/>Maine (ME)
+          </div>
+          <div  className="st">
+          <input  type="checkbox" checked={selectedStates.includes('MD')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="MD"/>Maryland (MD)
+          </div>
+          <div  className="st">
+          <input  type="checkbox" checked={selectedStates.includes('MA')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="MA"/>Massachusetts	(MA)
+          </div>
+          <div  className="st">
           <input  type="checkbox" checked={selectedStates.includes('MI')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="MI"/>Michigan (MI)
           </div>
           <div className="st" >
-          <input  type="checkbox" checked={selectedStates.includes('MO')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="MO"/>Missouri (MO)
+          <input  type="checkbox" checked={selectedStates.includes('MN')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="MN"/>Minnesota (MN)
           </div>
           <div className="st" >
-          <input  type="checkbox" checked={selectedStates.includes('KS')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="KS"/>Kansas (KS)
+          <input  type="checkbox" checked={selectedStates.includes('MS')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="MS"/>Mississippi (MS)
+          </div>
+          </div>
+          </div>
+          <div className='state-two'>
+          <div className='states-left'>
+          
+          <div className="st" >
+          <input  type="checkbox" checked={selectedStates.includes('MO')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="MO"/>Missouri (MO)
           </div>
           <div className="st">
-          <input   type="checkbox" checked={selectedStates.includes('GA')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="GA"/>Georgia (GA)
-          </div>
-          <div  className="st">
-          <input  type="checkbox" checked={selectedStates.includes('UT')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="UT"/>Utah (UT)
-          </div>
-          <div  className="st">
-          <input  type="checkbox" checked={selectedStates.includes('WA')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="WA"/>Washington (WA)
-          </div>
-          <div  className="st">
-          <input  type="checkbox" checked={selectedStates.includes('ID')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="ID"/>Idaho (ID)
+          <input   type="checkbox" checked={selectedStates.includes('MT')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="MT"/>Montana (MT)
           </div>
           <div  className="st">
           <input  type="checkbox" checked={selectedStates.includes('NV')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="NV"/>Nevada (NV)
           </div>
           <div  className="st">
+          <input  type="checkbox" checked={selectedStates.includes('NH')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="NH"/>New Hampshire (NH)
+          </div>
+          <div  className="st">
+          <input  type="checkbox" checked={selectedStates.includes('NJ')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="NJ"/>New Jersey (NJ)
+          </div>
+          <div  className="st">
           <input  type="checkbox" checked={selectedStates.includes('NM')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="NM"/>New Mexico (NM)
+          </div>
+          <div  className="st">
+          <input  type="checkbox" checked={selectedStates.includes('NY')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="NY"/>New York (NY)
+          </div>
+          <div  className="st">
+          <input  type="checkbox" checked={selectedStates.includes('NP')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="NP"/>Northern Mariana Islands	(NP)
+          </div>
+          <div  className="st">
+          <input  type="checkbox" checked={selectedStates.includes('OK')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="OK"/>Oklahoma (OK)
+          </div>
+          <div  className="st">
+          <input  type="checkbox" checked={selectedStates.includes('OR')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="TN"/>Oregon (OR)
+          </div>
+          <div className="st" >
+          <input  type="checkbox" checked={selectedStates.includes('PA')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="PA"/>Pennsylvania (PA)
+          </div>
+          <div className="st" >
+          <input  type="checkbox" checked={selectedStates.includes('PR')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="PR"/>Puerto Rico	(PR)
+          </div>
+          <div className="st" >
+          <input  type="checkbox" checked={selectedStates.includes('RI')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="RI"/>Rhode Island (RI)
+          </div>
+          </div>
+
+          <div className='states-right'>
+          
+            
+          
+          <div  className="st">
+          <input  type="checkbox" checked={selectedStates.includes('SC')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="SC"/>South Carolina (SC)
+          </div>
+          <div className="st">
+            <input  type="checkbox" checked={selectedStates.includes('SD')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="SD"/>South Dakota	(SD)
+          </div>
+          <div className="st">
+          <input   type="checkbox" checked={selectedStates.includes('TN')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="TN"/>Tennessee (TN)
           </div>
           <div  className="st">
           <input  type="checkbox" checked={selectedStates.includes('TX')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="TX"/>Texas (TX)
           </div>
           <div  className="st">
-          <input  type="checkbox" checked={selectedStates.includes('AR')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="AR"/>Arkansas (AR)
+          <input  type="checkbox" checked={selectedStates.includes('UT')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="UT"/>Utah (UT)
           </div>
           <div  className="st">
-          <input  type="checkbox" checked={selectedStates.includes('TN')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="TN"/>Tennessee (TN)
+          <input  type="checkbox" checked={selectedStates.includes('VT')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="VT"/>Vermont (VT)
+          </div>
+          <div  className="st">
+          <input  type="checkbox" checked={selectedStates.includes('VA')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="VA"/>Virginia (VA)
+          </div>
+          <div  className="st">
+          <input  type="checkbox" checked={selectedStates.includes('VI')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="VI"/>Virgin Islands (VI)
+          </div>
+          <div  className="st">
+          <input  type="checkbox" checked={selectedStates.includes('WA')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="WA"/>	Washington (WA)
+          </div>
+          <div  className="st">
+          <input  type="checkbox" checked={selectedStates.includes('WV')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="WV"/>	West Virginia	 (WV)
+          </div>
+          <div  className="st">
+          <input  type="checkbox" checked={selectedStates.includes('WI')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="WI"/>	Wisconsin (WI)
+          </div>
+          <div  className="st">
+          <input  type="checkbox" checked={selectedStates.includes('WY')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="WY"/>	Wyoming (WY)
+          </div>
           </div>
           </div>
           </div>
         </div>
+        </div>
         {/* <button>SHOW</button> */}
                                        
               {isFetched && jobsData.map((state, index) => (
-                <div>
+                <div className='cards'>
 
                     {state.jobPositions.length > 0 && 
                     <ScrollMenu 
@@ -300,6 +434,7 @@ const Jobs = () => {
                     </ScrollMenu>}
                 </div>
               ))}
+              <Contacts/>
             <Footer />
         </div>
     )

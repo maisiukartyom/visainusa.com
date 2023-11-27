@@ -86,9 +86,9 @@ const JobInfo = () => {
                 )
             }
         {jobInfo.agencies.map((agency, index) => (<a rel='noopener noreferrer' target='_blank' href={agency}>{agency}</a>))}
-            <div className="btn-dis">
+            <Link to='/applynow'><div className="btn-dis">
                 <button className="btn-job">Apply now</button>
-            </div>
+            </div></Link>
             {isAdmin && 
                 <div className="btn-dis">
                     <div>

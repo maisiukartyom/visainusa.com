@@ -156,7 +156,11 @@ display: block;
 	}
   }
 
-  @media (max-width:286px){}
-  .appliName-levelOne-free{
-	font-size: 24px;
+  @media (max-width:286px){
+	.appliName-levelOne-free{
+		font-size: 24px;
+	  }
+	  .level-paid{
+		width: 270px;
+	  }
   }

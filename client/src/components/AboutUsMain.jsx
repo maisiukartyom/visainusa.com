@@ -143,29 +143,7 @@ education, and in developing my small business.  ... "
             </div>
           </div>
           </div>
-          <div className="Alexander">
-          <div className="first-team">
-            <img src="/images/Alexsandr.jpg" alt="photo" width={370} height={400} className="photo-team"/>
-            <h3 className="name-team">Alexander </h3>
-            <h4 className="when">Applied for EB3 unskilled in 2017 </h4>
-            <h4 className="when-CP">Went through Consular processing</h4>
-            <div className="hr-aboutus"></div>
-            <div>
-            <TextBlock className="text-Alexey" title="The reason to chose the US as a future place of living was revealed a
-             long time ago, in my childhood. When I was a schoolboy, I was pretty good at English and had a dream to become an
-              interpreter. As a matter of fact, I reached the aim and got my linguistic education. The next step was to find a 
-              job and a possible way to move to the U.S.
-             I've been searching for options on how to arrange legal immigration for me and my family.
-             ..." description=" Once I came across a program called EB3 unskilled, which actually was introduced in the 1990s,
-              but started gaining popularity only several years ago, in my opinion. I have studied its terms and conditions to 
-              check if I was eligible. We managed to pass through all the necessary immigration steps, in spite of COVID-19, an
-               American embassy in Moscow shutting down, several administrative procedures,  and even filing a lawsuit against USCIS.
-                At the end, all members
-              of my family obtained their immigration visas and ultimately Green Cards.
-        " />
-            </div>
-          </div>
-          </div>
+
 </div>
          </div>
          

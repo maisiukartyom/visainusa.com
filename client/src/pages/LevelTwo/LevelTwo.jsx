@@ -9,6 +9,7 @@ import axios from '../../api/axios';
 import Calendly from '../../components/Calendly/Calendly';
 import {toast} from 'react-toastify';
 import { MainLevelTwoPaid } from './MainLevelTwoPaid';
+import Contacts from '../../components/Contacts';
 
 
 const LevelTwo = () => {
@@ -55,6 +56,7 @@ const LevelTwo = () => {
             {
                 hasLevel? <MainLevelTwoPaid /> : <MainLevelTwo/>
             }
+            <Contacts/>
             <Footer />
             {hasLevel && !user.isAdmin && <Calendly userEmail={user.email} userName={user.name} />}
         </div>
