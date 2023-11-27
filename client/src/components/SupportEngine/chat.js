@@ -5,10 +5,10 @@ export const styles = {
         // Border
         borderRadius: '50%',
         // Background 
-        backgroundImage: `url(/images/red_bgr.jpg)`, 
+        backgroundImage: `url(/images/chat.png)`, 
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
-        backgroundSize: '200px',
+        backgroundSize: '84px',
         // Size
         width: '84px',
         height: '84px',
