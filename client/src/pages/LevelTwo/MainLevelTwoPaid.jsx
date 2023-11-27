@@ -1,52 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {Link} from 'react-router-dom';
 import "../LevelOne/LevelOne.css";
-import { useNavigate } from "react-router-dom";
-import axios from "../../api/axios";
-import {toast} from 'react-toastify';
 import TextBlocktwo from "../../components/TextBlocktwo";
 
-
-
 export const MainLevelTwoPaid = () => {
-
-   const navigate = useNavigate();
-
-   const purchaseLevel = async () => {
-      try {
-         await axios.post("/payment/verify", 
-         {
-            level: 2
-         },
-         {
-            withCredentials: true
-         })
-
-         navigate("/payment", {state: {levelToPurchase: 2, price: 50}});
-      }
-      catch(err){
-         let errorMessage = "";
-         if (!err?.response) {
-             errorMessage = 'No Server Response'
-         } else if (err.response?.status === 401) {
-             errorMessage = 'You already have this level!'
-         }
-         else if (err.response?.status === 403) {
-            errorMessage = 'You are not authorized! Please login or sign up to make purchase!'
-         } 
-
-         toast.error(errorMessage, {
-            position: "top-center",
-            autoClose: 10000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: false,
-            draggable: false,
-            progress: undefined,
-            theme: "light"}
-         )
-      }
-   }
 
     return(
       <div>

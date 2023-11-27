@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useFormik } from 'formik';
 import axios from '../api/axios';
 import styled from 'styled-components';
@@ -6,6 +6,9 @@ import {toast} from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 import ButtonBack from '../pages/Admin/ButtonBack';
 import { Link } from 'react-router-dom';
+import { AdminEditor } from '../components/Editor';
+import JoditEditor from "jodit-react";
+import 'draft-js/dist/Draft.css';
 
 // Container styles
 const FormContainer = styled.form`
@@ -113,6 +116,7 @@ const AddJob = () => {
     });
 
   const [coverUrl, setCoverUrl] = useState('');
+  const [description, setDescription] = useState();
   const [imageUrls, setImageUrls] = useState(['']);
   const [agenciesUrls, setAgenciesUrls] = useState(['']);
   const [verified, setVerified] = useState(false)
@@ -133,7 +137,7 @@ const AddJob = () => {
         location: values.location,
         state: values.state,
         wage: values.wage,
-        description: fields,
+        description: description,
         coverImage: coverUrl,
         images: imageUrls,
         agencies: agenciesUrls
@@ -341,35 +345,6 @@ const AddJob = () => {
             />
           </div>
 
-          <FormLabel>Description</FormLabel>
-          <div style={{overflowY: "scroll", maxHeight: "350px", border: "1px solid black", padding: "10px"}}>
-                {Object.entries(fields).map(([fieldName, value]) => (
-                  <div key={fieldName}>
-                    <FormLabel>{fieldName}</FormLabel>
-                    <FormTextArea
-                      type="text"
-                      placeholder={`Enter ${fieldName}`}
-                      value={value}
-                      onChange={(event) => handleInputChange(fieldName, event)}
-                    />
-                    <FormRemoveButton type="button" onClick={() => handleRemoveField(fieldName)}>
-                      Remove
-                    </FormRemoveButton>
-                  </div>
-                ))}
-                <FormAddButton
-                  type="button"
-                  onClick={() => {
-                    const fieldName = prompt('Enter field name:');
-                    if (fieldName) {
-                      handleAddField(fieldName);
-                    }
-                  }}
-                >
-                  Add Field
-                </FormAddButton>
-          </div>
-
           <div>
             <FormLabel  htmlFor="cover">Cover</FormLabel >
             <FormInput  type="url" 
@@ -450,17 +425,15 @@ const AddJob = () => {
                   <div className='text-job-ny'>
                       <div className="big-text-main">
                           <h3 className="crew-one">{formik.values.position}</h3>
-                          {
-                          Object.entries(fields).map(([key, value]) => 
-                              (<p className="job-mini">- {key}: {value}</p>)
-                              )
-                          }
+                          <p className="job">Job Details:</p>
+                          {description && <div className='job-mini' dangerouslySetInnerHTML={{ __html: description }}></div>}
                           {agenciesUrls.map((agency, index) => (<a rel='noopener noreferrer' target='_blank' href={agency}>{agency}</a>))}
                       </div>
                   </div>
               </div>
           </div>
     </div>
+        <AdminEditor setDescription={setDescription}/>
     </>
     
   );

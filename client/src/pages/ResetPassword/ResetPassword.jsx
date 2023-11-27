@@ -24,9 +24,36 @@ export const ResetPassword = () => {
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         if (values.password === values.repeated){
-            try{
-                await axios.post('/auth/setPassword', {token, password: values.password});
-                toast.success("Password has been reset!", {
+            if (/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(values.password)){
+                try{
+                    await axios.post('/auth/setPassword', {token, password: values.password});
+                    toast.success("Password has been reset!", {
+                        position: "top-center",
+                        autoClose: 6000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: false,
+                        draggable: false,
+                        progress: undefined,
+                        theme: "light",
+                    });
+                    navigate("/login");
+                }
+                catch(err){
+                    toast.error("Reset token is invalid", {
+                        position: "top-center",
+                        autoClose: 6000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: false,
+                        draggable: false,
+                        progress: undefined,
+                        theme: "light",
+                    });
+                }
+            }
+            else{
+                toast.warning("Password should have min 6 characters, letters and numbers!", {
                     position: "top-center",
                     autoClose: 6000,
                     hideProgressBar: false,
@@ -36,20 +63,8 @@ export const ResetPassword = () => {
                     progress: undefined,
                     theme: "light",
                 });
-                navigate("/login");
             }
-            catch(err){
-                toast.error("Couldn't reset password!", {
-                    position: "top-center",
-                    autoClose: 6000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: false,
-                    draggable: false,
-                    progress: undefined,
-                    theme: "light",
-                });
-            }
+            
         }
         else{
             toast.warning("Passwords should match!", {
