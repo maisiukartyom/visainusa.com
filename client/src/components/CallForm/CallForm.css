@@ -123,6 +123,7 @@ justify-content: center;
 .expanded-form h2 {
   text-align: center;
   margin-bottom: 20px;
+  max-width: 280px;
 }
 
 .close-form {
@@ -147,6 +148,7 @@ margin-bottom: 20px;
 .form-group {
 flex-direction: column;
 margin-bottom: 15px;
+max-width: 280px;
 }
 
 .label-phone {
@@ -161,6 +163,10 @@ font-size: 16px;
 border-radius: 3px;
 border: 1px solid #ccc;
 margin-left: 0px;
+}
+
+.input-ph{
+  width: 100%;
 }
 
 .button-phone {
@@ -212,4 +218,36 @@ background-color: #0056b3;
 
 .form-toggle:hover {
   background-color: var(--main-color);
+}
+@media (max-width:806px){
+  .input-phone{
+    max-width: 220px;
+  }
+
+  .button-phone{
+    max-width: 220px;
+  }
+
+  .input-ph{
+    max-width: 220px;
+  }
+}
+
+@media (max-width:286px){
+  .input-phone{
+    max-width: 220px;
+  }
+
+  .button-phone{
+    max-width: 220px;
+  }
+
+  .input-ph{
+    max-width: 220px;
+  }
+  .expanded-form {
+margin-left: -5%;
+width: 275px;
+    }
+  
 }
