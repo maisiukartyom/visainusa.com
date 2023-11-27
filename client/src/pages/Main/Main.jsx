@@ -469,76 +469,133 @@ const Testimonials = () => {
                     <div className="product-container">
                         <div className="product-card">
                             <div className="product-info">
+                              <div className=" star">
                                 <p className="name">Francisco R.</p>
+                                <div className="stars-auto">
+                                <img className="stars" src="images/star-all.png" alt="star" width={100} height={20}/>
+
+                                </div>
+                                </div>
                                 <p className="review">"I had the pleasure of working with this team for my EB3 unskilled process, and
                                  I can't express how grateful I am. Their first-hand experience and extensive knowledge helped to find solutions when my EB3 unskilled case got stuck in the USCIS. Thanks to their expertise, I now hold a U.S. permanent resident card. Highly recommended!"</p>
                             </div>
                         </div>
                         <div className="product-card">
                             <div className="product-info">
+                            <div className=" star">
                                 <p className="name">Maria S.</p>
+                                <div className="stars-auto">
+                                <img className="stars" src="images/star-hulf.png" alt="star" width={100} height={20}/>
+
+                                                                </div>
+                                </div>
                                 <p className="review">"I can't thank this team enough for their incredible support during my EB3 unskilled application. Their unique knowledge and personal involvement in each step of the process made a huge difference.
                                  They provided fast response for a reasonable price." </p>
                             </div>
                         </div>
                         <div className="product-card">
                             <div className="product-info">
+                            <div className=" star">
                                 <p className="name">David L.</p>
+                                <div className="stars-auto">
+                                <img className="stars" src="images/star-hulf.png" alt="star" width={100} height={20}/>
+                                </div>
+                                                                </div>
                                 <p className="review">"I was fortunate to have this team on my side for my EB3 journey. Their dedication and commitment were evident, and I couldn't be happier with the results. If you're considering the EB3 unskilled route, don't hesitate to reach out to them."</p>
                             </div>
                         </div>
                         <div className="product-card">
                             <div className="product-info">
+                            <div className=" star">
                                 <p className="name">Carl S.</p>
+                                <div className="stars-auto">
+                                <img className="stars" src="images/star-all.png" alt="star" width={100} height={20}/>
+                                </div>
+                                                                </div>
                                 <p className="review">"Working with this team was a game-changer for my EB3 unskilled visa journey. Their deep understanding of the program and their ability to simplify complex procedures were invaluable. They were not just consultants; they were partners in my success.
                                  I wholeheartedly endorse their services to anyone seeking reliable guidance."</p>
                             </div>
                         </div>
                         <div className="product-card">
                             <div className="product-info">
+                            <div className=" star">
                                 <p className="name">Oksana P.</p>
+                                <div className="stars-auto">
+                                <img className="stars" src="images/star-all.png" alt="star" width={100} height={20}/>
+                                </div>
+                                </div>
                                 <p className="review">"I was skeptical before approaching them, but during the first consultation they laid out all the aspects of the EB3 Unskilled workers program in a very simple manner and we came up with a list of pros and cons.
                                  Now I have a better understanding of all the options I have."</p>
                             </div>
                         </div>
                         <div className="product-card">
                             <div className="product-info">
+                            <div className=" star">
                                 <p className="name">Maxim F.</p>
+                                <div className="stars-auto">
+                                <img className="stars" src="images/star-hulf.png" alt="star" width={100} height={20}/>
+                                </div>
+                                </div>
                                 <p className="review">"I couldn't have sorted out the complexities of the EB3 unskilled visa process without the expertise of this team. 
                                 Their in-depth knowledge and personalized guidance made me confident I overcome."</p>
                             </div>
                         </div>
                         <div className="product-card">
                             <div className="product-info">
+                            <div className=" star">
                                 <p className="name">Anton P.</p>
+                                <div className="stars-auto">
+                                <img className="stars" src="images/star-all.png" alt="star" width={100} height={20}/>
+                                </div>
+                                </div>
                                 <p className="review">"I highly recommend this team to anyone seeking assistance with their EB3 unskilled visa application.
                                  Their professionalism and attention to detail are unparalleled."</p>
                             </div>
                         </div>
                         <div className="product-card">
                             <div className="product-info">
+                            <div className=" star">
                                 <p className="name">Mario A.</p>
+                                <div className="stars-auto">
+                                <img className="stars" src="images/star-all.png" alt="star" width={100} height={20}/>
+                                </div>
+                                </div>
                                 <p className="review">"I was supposed to apply for H1B, but when found these guys who answered my questions about EB3 unskilled visa
                                 I came to the conclusion that EB3 is the faster way to reach green card."</p>
                             </div>
                         </div>
                         <div className="product-card">
                             <div className="product-info">
+                            <div className=" star">
                                 <p className="name">Sergey K.</p>
+                                <div className="stars-auto">
+                                <img className="stars" src="images/star-hulf.png" alt="star" width={100} height={20}/>
+                                </div>
+                                </div>
                                 <p className="review">"I was lost in the EB3 application process until I found this team.
                                  Their unique first-hand experience made all the difference. Thanks!"</p>
                             </div>
                         </div>
                         <div className="product-card">
                             <div className="product-info">
+                            <div className=" star">
                                 <p className="name">Lucas R.</p>
+                                <div className="stars-auto">
+                                <img className="stars" src="images/star-all.png" alt="star" width={100} height={20}/>
+                                </div>
+                                </div>
                                 <p className="review">"The team's expertise in EB3 unskilled visas is truly impressive. 
                                  I couldn't have asked for a better support."</p>
                             </div>
                         </div>
                         <div className="product-card">
                             <div className="product-info">
+                            <div className=" star">
                                 <p className="name">Anna L.</p>
+                                <div className="stars-auto">
+                                <img className="stars" src="images/star-all.png" alt="star" width={100} height={20}/>
+                                </div>
+                                </div>
                                 <p className="review">"I reached out to this team when I needed help with my EB3 case, and it was the best decision I made.
                                  Their personalized approach, combined with their vast knowledge, gave me the confidence I needed to succeed."</p>
                             </div>
@@ -594,36 +651,37 @@ const Contacts = () => {
 }
 
 
-const Partners = () => {
-    return (
-        <>
-<div className="vie-mini"></div>
-            <div className="partners" >
-                <div id="#partners" >
-                    <br/>
-                    <br/>
-                    <p className="titre-partners" >Our friends </p>
-                </div>
-                <div>
-                    <div className="logo-partners">
-                        <div className="teachbk">
-                            <a href="https://teachbk.com/usa-immigration/" target="_blank" ><img src="/images/logo-teachBK.png" alt="logo" width="200" height="60" className="friend" /></a>
-                            <p className="teach">all about political asylum</p>
-                        </div>
-                        <div className="teachbk">
-                            <a href="https://rubic.us/" target="_blank" ><img src="/images/logo-rubic.svg" alt="logo" width="200" height="60" className="friend" /></a>
-                            <p className=" teach">all about life in the USA</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </>
-    )
-}
+// const Partners = () => {
+//     return (
+//         <>
+//             <div className="partners" >
+//                 <div id="#partners" >
+//                     <br/>
+//                     <br/>
+//                     <p className="titre-partners" >Our friends </p>
+//                 </div>
+//                 <div>
+//                     <div className="logo-partners">
+//                         <div className="teachbk">
+//                             <a href="https://teachbk.com/usa-immigration/" target="_blank" ><img src="/images/logo-teachBK.png" alt="logo" width="200" height="60" className="friend" /></a>
+//                             <p className="teach">all about political asylum</p>
+//                         </div>
+//                         <div className="teachbk">
+//                             <a href="https://rubic.us/" target="_blank" ><img src="/images/logo-rubic.svg" alt="logo" width="200" height="60" className="friend" /></a>
+//                             <p className=" teach">all about life in the USA</p>
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+//         </>
+//     )
+// }
 
 const Footer = () => {
+
     return (
         <>
+<hr className="hr-contact"></hr>
             <footer id="contacts" className=" footer">
                 <div className="aboutUs">
                         <h4 className="parr4 light-color">About Us</h4>
@@ -652,8 +710,7 @@ const Footer = () => {
                 <div className="contacts ">
                     <div className="links">
                         <a href="https://web.telegram.org/k/#@eb3usa" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/telegram.png?v=1698341412493" alt="telegram" width="38" height="38" /></a>
-                        <a href="#" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/facebook.png?v=1698341176410" alt="facebook" width="38" height="38" /></a>
-                        <a href="https://instagram.com/eb3.visa?igshid=MzMyNGUyNmU2YQ==" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/instagram.png?v=1698341213474" alt="instagram" width="38" height="38" /></a>
+                                                <a href="https://instagram.com/eb3.visa?igshid=MzMyNGUyNmU2YQ==" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/instagram.png?v=1698341213474" alt="instagram" width="38" height="38" /></a>
                         <a href="https://www.youtube.com/@EB3unskilled" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/youtube.png?v=1698341435865" alt="youtube" width="38" height="38" /></a>
                     </div>
                 </div>
@@ -751,7 +808,6 @@ const Index = () => {
         <Main user={user} />
         <Testimonials />
         <Contacts />
-        <Partners />
         <Footer />
         {
           isVerified && !isAdmin && isUser &&           

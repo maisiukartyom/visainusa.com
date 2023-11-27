@@ -28,6 +28,8 @@ import { Admin } from './pages/Admin/Admin';
 import EditJob from './pages/JobEdit/JobEdit';
 import { ResetPassword } from './pages/ResetPassword/ResetPassword';
 import { AdminEditor, MyEditor } from './components/Editor';
+import ApplyNow from './components/ApplyNow/ApplyNow';
+
 
 function App() {
   // console.log("Rendered!")
@@ -68,6 +70,7 @@ function App() {
           <Route path='/admin' element={<Admin/>}/>
           <Route path='/resetPassword/:token' element={<ResetPassword/>}/>
 
+          <Route path='/applynow' element={<ApplyNow/>}/>
           <Route path='/youtube' component={() => {
                       window.location.href = 'https://www.youtube.com/@EB3unskilled'
                   }}/>

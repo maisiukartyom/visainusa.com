@@ -73,7 +73,7 @@ const CallForm = () => {
       <div className="form-group">
         <PhoneInput 
         inputStyle={{width: "100%"}}
-        className=""
+        className="input-ph"
         country={'us'}
         value={phoneNumber}
         onChange={handlePhoneChange}

@@ -44,9 +44,11 @@ export const MainLevelTwoPaid = () => {
                   <li className="description-level">
                   Enjoy 24/7 online chat support for any additional questions or clarifications after your consultation
                   </li>
-                  <Link to='/jobs'><li className="  link-job">
+
+                  <Link to='/jobs'><button className="btn-pool">
                   Job offering pool            
-                  </li></Link>
+                  </button></Link>
+
                   </ul>
 
 
@@ -58,17 +60,7 @@ export const MainLevelTwoPaid = () => {
                 </div> 
             </div>
 
-                           <div className="button-level2">
-                           <div  >
-                        <label className="label-level" > Provided information available in  </label>
-                        <div className="mt-level">
-                            <input className="test"  type="radio" name="question8" id="answerEight" value="yes"/>English
-                            <input className="test"  type="radio" name="question8" value="no"/>Russian
-                            <input className="test"  type="radio" name="question8" value="no"/>Spanish 
-                            <label className="label-level" > languages  </label>
-                        </div>
-                    </div>
-                  </div>
+                           
 
 </div>
 </div>

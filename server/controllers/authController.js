@@ -75,7 +75,12 @@ const userVerification = (req, res) => {
             if (user) {
 
                 if (user.isAdmin){
-                    return res.status(200).json({email: user.email, level: user.level, name: user.fullname, isAdmin: user.isAdmin})
+                    return res.status(200).json({email: user.email, 
+                        level: user.level, 
+                        name: user.fullname, 
+                        isAdmin: user.isAdmin,
+                        phoneNumber: user.phoneNumber
+                        })
                 }
                 
                 if (forAdmin && !data.isAdmin){
@@ -86,7 +91,11 @@ const userVerification = (req, res) => {
                 }
 
                 if (data.level >= requiredLevel){
-                    return res.status(200).json({email: user.email, level: user.level, name: user.fullname, isAdmin: user.isAdmin})
+                    return res.status(200).json({email: user.email, 
+                        level: user.level, 
+                        name: user.fullname, 
+                        isAdmin: user.isAdmin,
+                        phoneNumber: user.phoneNumber})
                 }
                 else{
                     return res.sendStatus(403)

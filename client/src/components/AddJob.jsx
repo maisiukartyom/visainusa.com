@@ -108,12 +108,6 @@ const FormAddButton = styled.button`
 
 
 const AddJob = () => {
-  const [fields, setFields] = useState(
-    { "Location": '', 
-      "Wage": '',
-      "Job duties": '',
-      "Estimated filling date": ''
-    });
 
   const [coverUrl, setCoverUrl] = useState('');
   const [description, setDescription] = useState();
@@ -209,26 +203,6 @@ const AddJob = () => {
     }
   };
 
-  const handleInputChange = (fieldName, event) => {
-    setFields({
-      ...fields,
-      [fieldName]: event.target.value
-    });
-  };
-
-  const handleAddField = (fieldName) => {
-    setFields({
-      ...fields,
-      [fieldName]: ''
-    });
-  };
-
-  const handleRemoveField = (fieldName) => {
-    const newFields = { ...fields };
-    delete newFields[fieldName];
-    setFields(newFields);
-  };
-
   useEffect(() => {
     const verifyCookie = async (level, forAdmin) => {
       try{
@@ -295,42 +269,68 @@ const AddJob = () => {
             />
           </div>
 
-          <div>
-            <FormLabel  htmlFor="state">State</FormLabel >
-            <FormSelect 
-              id="state"
-              name="state"
-              required
-              onChange={formik.handleChange}
-              value={formik.values.state}
-            >
+        <div>
+          <FormLabel  htmlFor="state">State</FormLabel >
+          <FormSelect 
+            id="state"
+            name="state"
+            required
+            onChange={formik.handleChange}
+            value={formik.values.state}
+          >
               <option value="" label="Select a state" />
-              <option value="SC" label="South Carolina (SC)" />
-              <option value="CO" label="Colorado (CO)" />
-              <option value="MN" label="Minnesota (MN)" />
-              <option value="NC" label="North Carolina (NC)" />
-              <option value="NY" label="New York (NY)" />
+              <option value="AL" label="Alabama (AL)" />
+              <option value="AK" label="Alaska (AK)" />
               <option value="AZ" label="Arizona (AZ)" />
-              <option value="FL" label="Florida (FL)" />
-              <option value="IN" label="Indiana (IN)" />
-              <option value="OH" label="Ohio (OH)" />
-              <option value="NJ" label="New Jersey (NJ)" />
-              <option value="DE" label="Delaware (DE)" />
-              <option value="ND" label="North Dakota (ND)" />
-              <option value="MI" label="Michigan (MI)" />
-              <option value="MO" label="Missouri (MO)" />
-              <option value="KS" label="Kansas (KS)" />
-              <option value="GA" label="Georgia (GA)" />
-              <option value="UT" label="Utah (UT)" />
-              <option value="WA" label="Washington (WA)" />
-              <option value="ID" label="Idaho (ID)" />
-              <option value="NV" label="Nevada (NV)" />
-              <option value="NM" label="New Mexico (NM)" />
-              <option value="TX" label="Texas (TX)" />
               <option value="AR" label="Arkansas (AR)" />
+              <option value="CA" label="California (CA)" />
+              <option value="CO" label="Colorado (CO)" />
+              <option value="CT" label="Connecticut (CT)" />
+              <option value="DE" label="Delaware (DE)" />
+              <option value="FL" label="Florida (FL)" />
+              <option value="GA" label="Georgia (GA)" />
+              <option value="HI" label="Hawaii (HI)" />
+              <option value="ID" label="Idaho (ID)" />
+              <option value="IL" label="Illinois (IL)" />
+              <option value="IN" label="Indiana (IN)" />
+              <option value="IA" label="Iowa (IA)" />
+              <option value="KS" label="Kansas (KS)" />
+              <option value="KY" label="Kentucky (KY)" />
+              <option value="LA" label="Louisiana (LA)" />
+              <option value="ME" label="Maine (ME)" />
+              <option value="MD" label="Maryland (MD)" />
+              <option value="MA" label="Massachusetts	(MA)" />
+              <option value="MI" label="Michigan (MI)" />
+              <option value="MN" label="Minnesota (MN)" />
+              <option value="MS" label="Mississippi (MS)" />
+              <option value="MO" label="Missouri (MO)" />
+              <option value="MT" label="Montana (MT)" />
+              <option value="NE" label="Nebraska (NE)" />
+              <option value="NV" label="Nevada (NV)" />
+              <option value="NH" label="New Hampshire (NH)" />
+              <option value="NJ" label="New Jersey (NJ)" />
+              <option value="NM" label="New Mexico (NM)" />
+              <option value="NY" label="New York (NY)" />
+              <option value="NC" label="North Carolina (NC)" />
+              <option value="ND" label="North Dakota (ND)" />
+              <option value="OH" label="Ohio (OH)" />
+              <option value="OK" label="Oklahoma (OK)" />
+              <option value="OR" label="Oregon (OR)" />
+              <option value="PA" label="Pennsylvania (PA)" />
+              <option value="RI" label="Rhode Island (RI)" />
+              <option value="SC" label="South Carolina (SC)" />
+              <option value="SD" label="South Dakota (SD)" />
               <option value="TN" label="Tennessee (TN)" />
-            </FormSelect >
-          </div>
+              <option value="TX" label="Texas (TX)" />
+              <option value="UT" label="Utah (UT)" />
+              <option value="VT" label="Vermont (VT)" />
+              <option value="VA" label="Virginia (VA)" />
+              <option value="WA" label="Washington (WA)" />
+              <option value="WV" label="West Virginia	(WV)" />
+              <option value="WI" label="Wisconsin (WI)" />
+              <option value="WY" label="Wyoming (WY)" />
+          </FormSelect >
+        </div>
 
           <div>
             <FormLabel  htmlFor="wage">Wage</FormLabel >

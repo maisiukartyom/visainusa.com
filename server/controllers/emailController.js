@@ -157,4 +157,36 @@ const sendResetPassword = async (req, res) => {
   }
 }
 
-module.exports = {handleSendEmail, handleSendEmployer, handleSendPhone, sendResetPassword}
+const sendContract = async (req, res) => {
+  try{
+    const {email, phoneNumber, fullname} = req.body;
+
+    const htmlContent = `
+    <h2>User ${email} has requested to send him a contract to support the EB3 unskilled case</h2>
+    <p><strong>Name:</strong> ${fullname}</p>
+    <p><strong>Phone:</strong> ${phoneNumber}</p>
+    `;
+
+    const mailOptions = {
+      // from: 'artyom.majsyuk@gmail.com',
+      to: 'maisiukartyom@gmail.com',
+      from: 'EB3unskilled@gmail.com',
+      //to: 'EB3unskilled@visainusa.com',
+      subject: `Contract request`,
+      html: htmlContent
+    };
+
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        res.status(500).json({'message': error.message});
+      } else {
+          res.sendStatus(200);
+      }
+    });
+  }
+  catch(err){
+    res.sendStatus(403);
+  }
+}
+
+module.exports = {handleSendEmail, handleSendEmployer, handleSendPhone, sendResetPassword, sendContract}
