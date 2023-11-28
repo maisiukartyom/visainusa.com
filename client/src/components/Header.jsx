@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Link, useLocation} from 'react-router-dom';
 import "../pages/LevelOne/LevelOne.css";
+import "../pages/NewDesign.css";
 import axios from "../api/axios";
 import {toast} from "react-toastify";
 import SupportEngine from "./SupportEngine";
@@ -115,7 +116,7 @@ export const Header = () => {
                             <Link className="header-nav-item item-button-l login-l" to="/admin">Admin</Link>
                         }
 
-                        <li className="header-nav-item item-button-l sign-l welcome">Welcome {chatUser.email}</li>
+                        <li className="header-nav-item welcome  wel ">Welcome {chatUser.email}</li>
                         <div
                             className="header-nav-item item-button-l sign-l"
                             onClick={logout}

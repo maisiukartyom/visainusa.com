@@ -35,7 +35,7 @@ export const MainLevelPaid = () => {
                           </div>
                           </div>
                           
-                          <div className='videoLev'>
+
                           <div>
                           <div className='levelone-text-red'>
           <iframe    src="https://www.youtube.com/embed/LVU1Ws2f5UA?si=by2bJFSsqETyH9FV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
@@ -107,8 +107,7 @@ export const MainLevelPaid = () => {
                           </div>
 
 
-                          </div>
-                          <div className='videoLev'>
+
                           <div>
                           <div className='levelone-text'>
           <iframe    src="https://www.youtube.com/embed/Ra87FAgFclA?si=f1PviHFjKNM2fAL-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
@@ -126,7 +125,7 @@ export const MainLevelPaid = () => {
             Schedule a call with us to receive more details. All our experts have personally gone through the EB3 process and are well-equipped to assist you."/>
                           </div>
                           </div>
-                          </div>
+
                           
                           <div>
                           <div className='levelone-text-red'>
@@ -238,7 +237,7 @@ export const MainLevelPaid = () => {
                           </div> 
                           </div>
                           </div>
-                          {/* <div>
+                           <div>
           <div className='levelone-text'>
           <iframe    src="https://www.youtube.com/embed/q3nw5Y4eqIg?si=M1kIhIxr_eMbAghw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
           clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen className="youtube-levelone"></iframe> 
@@ -249,11 +248,10 @@ export const MainLevelPaid = () => {
             However, applicants must be at least 18 years old, have a clean legal   ..." description=" record without any violations of U.S. laws and regulations, and pass a medical examination. It's crucial to note immigration policies are subject to change. For initial assessment of pre-eligibility, you can use the tool on the main page."/>
                           </div> 
                           </div>
-                          </div> */}
+                          </div> 
                           
-                          
-                          </div>
-                           <div className='videoLev'>
+
+
               <div>
           <div className='levelone-text-bottom'>
           <iframe    src="https://www.youtube.com/embed/5xy9vZnWBAQ?si=y8edB37RtYLaQDL-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
@@ -280,11 +278,12 @@ export const MainLevelPaid = () => {
           <p className='text-levelOneMain'>What is EB3 unskilled visa category?</p>
           <hr className='hr-levelone-white'></hr>
           <div>
-          
+                                    
+          </div>
                           </div> 
                           </div>
                           </div>
-                          </div> 
+
             </div>
 
       </div>

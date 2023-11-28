@@ -110,7 +110,7 @@ export const HeaderForMain = (props) => {
                         <Link className="header-nav-item item-button-l login-l" to="/admin">Admin</Link>
                     }
 
-                    <li className="header-nav-item sign-l welcome">Welcome {email}</li>
+<li className="header-nav-item sign-l welcome wel">Welcome {email}</li>
                     <div
                         className = "header-nav-item item-button-l sign-l"
                         onClick={logout}
