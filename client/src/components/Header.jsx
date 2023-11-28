@@ -133,9 +133,12 @@ export const Header = () => {
         {
           verified && !isAdmin && user && 
           <>
-            <CallForm />
             <SupportEngine user={chatUser} />
           </> 
+        }
+        {
+          !isAdmin &&
+          <CallForm />
         }
         </>
         

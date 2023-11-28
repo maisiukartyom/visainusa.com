@@ -260,158 +260,157 @@ const   Main = ({user}) => {
             {
               user.level >= 1 && <p className="coming-newDesign">Paid</p>
             } */}
-            <Link to='/levelone'>
-              <div className={"level-paid"}>
-              {/* <p className="coming-newDesign">Paid</p> */}
-              <h2 className="appliName-future">Level 1</h2>
-              
-              <>
-                  <p className="appliName-levelOne price">FREE</p>
-                </>
-              <div className="text-discription-future">
-                <p className="description-future ">
-                What is EB3 unskilled visa category?
-                </p>
-                <p className="description-future">
-                How does EB3 unskilled visa work?
-                </p>
-                <p className="description-future ">
-                How long does it take to get the U.S. permanent resident card?
-                </p>
-                <p className="description-future ">
-                Am I eligible for EB3 unskilled visa?
-                </p>
-                <p className="description-future">
-                How much does EB3 unskilled cost? 
-                </p>
-                <p className="description-future ">
-                What should I do in case of refusal?
-                </p>
-                <p className="description-future ">
-                How do I start my EB3 journey?
-                </p>
-                <p className="description-future ">
-                I worked unauthorized, can I apply for the EB3 unskilled?
-                </p>
-                <p className="description-future ">
-                What is Retrogression and Visa Bulletin? 
-                </p>
-                <p className="description-future ">
-                When can I drop my F status?
-                </p>
-                <p className="description-future description-future-finaly">
-                Can I adjust my status to EB3 unskilled?
-                </p>
-                            </div>
 
-                            <div className="center-level">
-                <Link to='/levelone'>
-                  <button className="btn-levels">CHOOSE</button>
-                </Link>
-                </div>
-            </div>
-            </Link>
+<div className={"level-paid"}>
+            {/* <p className="coming-newDesign">Paid</p> */}
+            <h2 className="appliName-future">Level 1</h2>
             
-
-            <Link to='/leveltwo'>
-              <div className={user.level >= 2 ? "level-paid" : "levellev"}>
-              {
-                  user.level >= 2 && <p className="coming-newDesign">Paid</p>
-                }
-                <h2 className="appliName-future">Level 2</h2>
-                <h3 className="appliName-names">"Immigration with no mistake"</h3>
-                { 
-                  ((user.level && user.level < 2) || !user.level) &&
-                <>
-                <div className="price-all">
-                {hasInfo && <p className="appliName-levelOne-del price-all">${levelsInfo[1].originalCost}</p>}
-                  {hasInfo && <p className="appliName-level-two price-all">${levelsInfo[1].cost}</p>}
-                    </div>
-                  </>
-    }
-                <div className="text-discription-future">
-                  <p className="description-future ">
-                  Personal consultation (60 mins) on English, Spanish or Russian languages
-                  </p>
-                  <p className="coming-bonus">
-                  Our services include:
-                  </p>
-                  <p className="description-future">
-                  In-depth insights into the EB3 unskilled program
-                  </p>
-                  <p className="description-future ">
-                  Deep analysis of your specific situation
-                  </p>
-                  <p className="description-future ">
-                  Step-by-step guidance on obtaining a green card
-                  </p>
-                  <p className="description-future ">
-                  General information about other immigration programs in the U.S.
-                  </p>
-                  <p className="description-future ">
-                  Enjoy 24/7 online chat support for any additional questions or clarifications after your consultation
-                  </p>
-                  <p className="coming-bonus-two description-future-finaly">
-                  As an extra bonus, you'll enjoy exclusive access to a specially tailored job offering pool for EB3 unskilled applicants. Get a head start on your application journey – start applying today!  
-                  </p>
-
-                              </div>
-                              <div className="center-level">
-                  <Link to='/leveltwo'>
-                  <button className="btn-levels  ">CHOOSE</button>
-                  </Link>
-                  </div>
+            <>
+                <p className="appliName-levelOne price">FREE</p>
+              </>
+              <Link to='/levelone'>
+            <div className="text-discription-future">
+              <p className="description-future ">
+              What is EB3 unskilled visa category?
+              </p>
+              <p className="description-future">
+              How does EB3 unskilled visa work?
+              </p>
+              <p className="description-future ">
+              How long does it take to get the U.S. permanent resident card?
+              </p>
+              <p className="description-future ">
+              Am I eligible for EB3 unskilled visa?
+              </p>
+              <p className="description-future">
+              How much does EB3 unskilled cost? 
+              </p>
+              <p className="description-future ">
+              What should I do in case of refusal?
+              </p>
+              <p className="description-future ">
+              How do I start my EB3 journey?
+              </p>
+              <p className="description-future ">
+              I worked unauthorized, can I apply for the EB3 unskilled?
+              </p>
+              <p className="description-future ">
+              What is Retrogression and Visa Bulletin? 
+              </p>
+              <p className="description-future ">
+              When can I drop my F status?
+              </p>
+              <p className="description-future description-future-finaly">
+              Can I adjust my status to EB3 unskilled?
+              </p>
+                          </div></Link>
+<div className="lev-btn">
+                          <div className="center-level">
+              <Link to='/levelone'>
+                <button className="btn-levels">CHOOSE</button>
+              </Link>
               </div>
-            </Link>
-          
-            <Link to='/levelthree'>
-            <div className={user.level >= 3 ? "level-paid" : "levellev"}>
-            {
-                user.level >= 3 && <p className="coming-newDesign">Paid</p>
-              }
-              <h2 className="appliName-future">Level 3</h2>
-              <h3 className="appliName-names">"Smart immigration with no overpriced assistance"</h3>
-              { 
-                ((user.level && user.level < 3) || !user.level) &&
-              <>
-              <div className="price-all">
-              {hasInfo && <p className="appliName-levelOne-del price-all">${levelsInfo[2].originalCost}</p>}
-                {hasInfo && <p className="appliName-level-two price-all">${levelsInfo[2].cost}</p>}
-                  </div>
-                </>
-  }
-              <div className="text-discription-future">
-                <p className="description-future ">
-                Access to more than 1000 U.S. employers’ database (script of pitch included)
-                </p>
-                <p className="description-future">
-                Access to more than 25 U.S. immigration attorneys’ database 
-                </p>
-                <p className="description-future ">
-                Access to instruction of immigration forms as I-140, I-485, I-765, I-131 and DS-260
-                </p>
-  <p className="description-future ">
-                List of EB3 unskilled agencies
-                </p>
-                <p className="description-future ">
-                48 hours online chat after the consultation
-                </p>
+              </div>
+          </div>
 
-                <p className="description-future ">
-                Opportunity to complete entire EB3 program from $9999
-                </p>
-                <p className="coming-bonus">Extra bonus!</p>
-                <p className="description-future description-future-finaly "> Be prepared to immerse in English language environment 
-                (3 x 30 mins speaking club for you and your kids)
-                </p>
-                <div className="center-level">
-                  <Link to='/levelthree'>
-                      <button className="btn-levels ">CHOOSE</button>
-                  </Link>
-                  </div>
+
+<div className={user.level >= 2 ? "level-paid" : "levellev"}>
+          {
+              user.level >= 2 && <p className="coming-newDesign">Paid</p>
+            }
+            <h2 className="appliName-future">Level 2</h2>
+            <h3 className="appliName-names">"Immigration with no mistake"</h3>
+            { 
+              ((user.level && user.level < 2) || !user.level) &&
+            <>
+            <div className="price-all">
+            <p className="appliName-levelOne-del price-all">$500</p>
+              {hasInfo && <p className="appliName-level-two price-all">${levelsInfo[1].cost}</p>}
                 </div>
+              </>
+}
+<Link to='/leveltwo'><div className="text-discription-future">
+              <p className="description-future ">
+              Personal consultation (60 mins) on English, Spanish or Russian languages
+              </p>
+              <p className="coming-bonus">
+              Our services include:
+              </p>
+              <p className="description-future">
+              In-depth insights into the EB3 unskilled program
+              </p>
+              <p className="description-future ">
+              Deep analysis of your specific situation
+              </p>
+              <p className="description-future ">
+              Step-by-step guidance on obtaining a green card
+              </p>
+              <p className="description-future ">
+              General information about other immigration programs in the U.S.
+              </p>
+              <p className="description-future ">
+              Enjoy 24/7 online chat support for any additional questions or clarifications after your consultation
+              </p>
+              <p className="coming-bonus-two description-future-finaly">
+              As an extra bonus, you'll enjoy exclusive access to a specially tailored job offering pool for EB3 unskilled applicants. Get a head start on your application journey – start applying today!  
+              </p>
+
+                          </div></Link>
+                          <div className="center-level">
+              <Link to='/leveltwo'>
+              <button className="btn-levels  ">CHOOSE</button>
+              </Link>
+              </div>
+          </div>
+
+
+          <div className={user.level >= 3 ? "level-paid" : "levellev"}>
+          {
+              user.level >= 3 && <p className="coming-newDesign">Paid</p>
+            }
+            <h2 className="appliName-future">Level 3</h2>
+            <h3 className="appliName-names">"Smart immigration with no overpriced assistance"</h3>
+            { 
+              ((user.level && user.level < 3) || !user.level) &&
+            <>
+            <div className="price-all">
+            <p className="appliName-levelOne-del price-all">$1500</p>
+              {hasInfo && <p className="appliName-level-two price-all">${levelsInfo[2].cost}</p>}
                 </div>
-            </Link>
+              </>
+}
+<Link to='/levelthree'><div className="text-discription-future">
+              <p className="description-future ">
+              Access to more than 1000 U.S. employers’ database (script of pitch included)
+              </p>
+              <p className="description-future">
+              Access to more than 25 U.S. immigration attorneys’ database 
+              </p>
+              <p className="description-future ">
+              Access to instruction of immigration forms as I-140, I-485, I-765, I-131 and DS-260
+              </p>
+ <p className="description-future ">
+              List of EB3 unskilled agencies
+              </p>
+              <p className="description-future ">
+              48 hours online chat after the consultation
+              </p>
+
+              <p className="description-future ">
+              Opportunity to complete entire EB3 program from $9999
+              </p>
+              <p className="coming-bonus">Extra bonus!</p>
+              <p className="description-future description-future-finaly "> Be prepared to immerse in English language environment 
+              (3 x 30 mins speaking club for you and your kids)
+</p>
+<div className="center-level">
+                          <Link to='/levelthree'>
+              <button className="btn-levels ">CHOOSE</button>
+              </Link>
+              </div>
+                          </div></Link>
+
+          </div>
 
           {/* Change the classNames once are made! */}
           <div className="level-future ">
@@ -812,9 +811,12 @@ const Index = () => {
         {
           isVerified && !isAdmin && isUser &&           
           <>
-            <CallForm />
             <SupportEngine user={user} />
           </>  
+        }
+        {
+          !isAdmin &&
+          <CallForm />
         }
     </>
   );
