@@ -17,7 +17,9 @@
   position: relative;
 
 }
-
+.wel{
+	overflow: hidden;
+  }
 .header-logo{
   font-size: 20px;
   line-height:1 ;
@@ -113,7 +115,17 @@ margin-bottom: 20px;
     color: var(--light-color);
 }
 
+.welcome {
+  background-color: transparent;
+  color: var(--main-color);
+font-size: 20px;
+font-weight: bold;
+  -webkit-animation: pulsing 2s infinite;
+  animation: pulsing 2s infinite;
 
+text-align: start;
+
+}
 
 
 
@@ -1126,9 +1138,7 @@ margin-bottom: 3%;
   .youtube-leveltwo{
     width: 100%;
   }
-  .welcome{
-  max-width: 50px;
-  }
+
 }
 @media (max-width: 740px) {
   .footer-column-f {

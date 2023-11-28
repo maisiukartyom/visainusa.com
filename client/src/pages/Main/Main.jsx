@@ -410,7 +410,7 @@ const   Main = ({user}) => {
                           </div></Link>
 
           </div>
-
+<div className="grid-future">
           {/* Change the classNames once are made! */}
           <div className="level-future ">
             <p className="coming">Coming Q4 2024</p>
@@ -448,6 +448,7 @@ const   Main = ({user}) => {
                           </div>
                       </div>
           
+        </div>
         </div>
       </div>
     </>

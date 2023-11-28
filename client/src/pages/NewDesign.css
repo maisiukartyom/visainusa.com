@@ -118,7 +118,12 @@ display: block;
 	font-weight: bold;
     -webkit-animation: pulsing 2s infinite;
     animation: pulsing 2s infinite;
+
+	text-align: start;
+
   }
+
+
   
 @-webkit-keyframes pulsing {
     0% {
@@ -154,13 +159,23 @@ display: block;
 	.level-paid:hover{
 		transform: none;
 	}
+	
   }
+  @media (max-width:386px){
 
+	  .coming-newDesign{
+		margin-right: -15%;
+	  }
+  }
   @media (max-width:286px){
 	.appliName-levelOne-free{
 		font-size: 24px;
 	  }
 	  .level-paid{
 		width: 270px;
+	  }
+
+	  .coming-newDesign{
+		margin-right: -15%;
 	  }
   }
