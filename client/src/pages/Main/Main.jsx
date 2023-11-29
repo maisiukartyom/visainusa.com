@@ -8,6 +8,7 @@ import { MainPhoto } from "../../components/MainPhoto";
 import SupportEngine from "../../components/SupportEngine";
 import axios from "../../api/axios";
 import {toast} from 'react-toastify';
+import { Header } from "../../components/Header";
 
 
 const   Main = ({user}) => {
@@ -142,7 +143,7 @@ const   Main = ({user}) => {
             </a>
           </div>
           <div className="place blue" data-aos="zoom-in-up">
-            <a href="#">
+            <Link to="/aboutus">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="70"
@@ -183,7 +184,7 @@ const   Main = ({user}) => {
               <p className="grey text">
               All members of our team have personally completed the EB3 unskilled program and received green cards. We have unique first-hand knowledge of EB3 program and ready to assit you! 
               </p>
-            </a>
+            </Link>
           </div>
           <div className="place light" data-aos="zoom-in-up">
             <svg
@@ -408,48 +409,52 @@ const   Main = ({user}) => {
               </Link>
               </div>
                           </div></Link>
-
+                          </div>
           </div>
 <div className="grid-future">
           {/* Change the classNames once are made! */}
-          <div className="level-future ">
+          <div className="level-future-bot ">
+          <div className="text-future-bot">
             <p className="coming">Coming Q4 2024</p>
             <h2 className="appliName-future">Level 4</h2>
             <h3 className="appliName-names">"Turnkey package"</h3>
               <>
               {hasInfo && <p className="appliName-levelOne price">${levelsInfo[3].cost}</p>}
               </>
-            <div className="text-discription-future">
-              <p className="description-future ">
+            <div className="text-discription-future-bot">
+              <p className="description-future-bot ">
               List of the U.S. employers who are ready to file the Labor Certificate and make the petition for Green Card to start your EB3 process
               </p>
-              <p className="description-future">
+              <p className="description-future-bot">
               Attorney and government fees are included 
               </p>
-              <p className="description-future description-future-finaly">
+              <p className="description-future-bot description-future-finaly-bot">
               24/7 online support 
               </p>
+</div>
 
                           </div>
             
           </div>
-          <div className="level-future ">
+          <div className="level-future-bot ">
+            <div className="text-future-bot">
           <p className="coming">Coming Q4 2024</p>
             <h2 className="appliName-future">Level 5</h2>
             <h3 className="appliName-names">"VIP package"</h3>
               {hasInfo && <p className="appliName-levelOne price">${levelsInfo[4].cost}</p>}
-            <div className="text-discription-future">
+            <div className="text-discription-future-bot">
               <p className="description-future ">
               We will find the U.S. employer based on your request (location, field of business, wage level, etc)
               </p>
-              <p className="description-future description-future-finaly">
+              <p className="description-future description-future-finaly-bot">
               Welcome settlement service not limited as rental house, airport pickup, open SSN and bank account, drive license, kids enrollment in school, kindergarten, state tour
               </p>
+              </div>
                           </div>
                       </div>
           
         </div>
-        </div>
+
       </div>
     </>
   );
@@ -713,7 +718,10 @@ const Footer = () => {
                         <a href="https://www.youtube.com/@EB3unskilled" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/youtube.png?v=1698341435865" alt="youtube" width="38" height="38" /></a>
                     </div>
                 </div>
+                
             </footer>
+            <div className="created"><p className="we-creat">Created by</p></div>
+            <div className="created-we"><p className="we"> Olya Safronova</p> <p className="we">and</p><p className="we"> Artsiom Maisiuk</p> </div>
         </>
     )
 }
@@ -803,6 +811,7 @@ const Index = () => {
   return (
     <>
         {/* <HeaderForMain /> */}
+
         <MainPhoto logout={logout} />
         <Main user={user} />
         <Testimonials />

@@ -16,6 +16,7 @@ export const Header = () => {
     const [isAdmin, setIsAdmin] = useState(false)
     const [verified, setVerified] = useState(false)
     const [chatUser, setChatUser] = useState({})
+    
 
     const logout = async () => {
         await axios.get("/auth/logout", {
@@ -72,27 +73,27 @@ export const Header = () => {
     return (
         verified &&
         <>
-            <header className="header-level">
+            <header className="header-level" >
             <Link to="/"><span className="header-logo"><img src={"/images/logo.png"} alt="logo" width={70} height={94}/></span></Link>
-            <nav className={`header-nav ${isOpen? "active" : ""}`}>
-                <ul className="header-nav-list">
-                    <Link to="/aboutus"><li className="header-nav-item">About Us</li></Link>
-                    <Link to="/" state={{hash: "testimonials"}}><li className="header-nav-item">Testimonials</li></Link>
-                    <Link to="/" state={{hash: "contacts"}}><li className="header-nav-item">Contacts</li></Link>
-                    <Link to="/" state={{hash: "pricing"}}><li className="header-nav-item">Pricing</li></Link>
-                    <Link to="/foremployer"><li className="header-nav-item employer">For the U.S. employer</li></Link>
+            <nav className={`header-nav ${isOpen? "active" : ""}`} >
+   <ul className="header-nav-list" >
+                    <Link to="/aboutus"><li className="header-nav-items">About Us</li></Link>
+                    <Link to="/" state={{hash: "testimonials"}}><li className="header-nav-items">Testimonials</li></Link>
+                    <Link to="/" state={{hash: "contacts"}}><li className="header-nav-items">Contacts</li></Link>
+                    <Link to="/" state={{hash: "pricing"}}><li className="header-nav-items">Pricing</li></Link>
+                    <Link to="/foremployer"><li className="header-nav-items employer">For the U.S. employer</li></Link>
                     {
                         !user && 
                         <>
                         <Link
-                            className="header-nav-item item-button-l login-l"
+                            className="header-nav-items item-buttons login-l"
                             to="/login"
                             state={{previousPath: pathname}}
                         >
                         Log in
                         </Link>
                         <Link
-                            className="header-nav-item item-button-l sign-l"
+                            className="header-nav-items item-buttons sign-l"
                             to="/signup"
                         >
                         Sign up
@@ -112,12 +113,12 @@ export const Header = () => {
 
                         {
                         isAdmin && 
-                            <Link className="header-nav-item item-button-l login-l" to="/admin">Admin</Link>
+                            <Link className="header-nav-items item-buttons login-l" to="/admin">Admin</Link>
                         }
 
-                        <li className="header-nav-item welcome  wel ">Welcome {chatUser.email}</li>
+                        <li className="header-nav-items welcome  ">Welcome {chatUser.email}</li>
                         <div
-                            className="header-nav-item item-button-l sign-l"
+                            className="header-nav-items item-buttons sign-l"
                             onClick={logout}
                         >
                             Logout

@@ -428,6 +428,24 @@ button:active {
 }
 
 
+@media all and (max-width:806px) {
+    
+    .text-employer
+    {
+
+      text-align: start;
+	  word-spacing: 2px;
+    }
+  
+    .par-benefits-employer{
+      text-align: start;
+
+    }
+    .text-summary{
+  text-align: start;
+
+    }
+  }
 
 @media all and (max-width:800px) {
 	.photo-block-employer {
