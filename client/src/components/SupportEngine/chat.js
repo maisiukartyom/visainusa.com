@@ -12,6 +12,7 @@ export const styles = {
         // Size
         width: '84px',
         height: '84px',
+        zIndex: '10000',
     },
     avatarHello: { 
         // Position
@@ -33,6 +34,7 @@ export const styles = {
         position: 'fixed',
         bottom: '116px',
         right: '24px',
+        zIndex: '10000',
         // Size
         width: '420px',
         height: '530px',

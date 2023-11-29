@@ -24,7 +24,7 @@ export const ResetPassword = () => {
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         if (values.password === values.repeated){
-            if (/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(values.password)){
+            if (/^(?=.*[A-Za-z])(?=.*\d).{6,}$/.test(values.password)){
                 try{
                     await axios.post('/auth/setPassword', {token, password: values.password});
                     toast.success("Password has been reset!", {
