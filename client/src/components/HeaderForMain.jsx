@@ -122,12 +122,12 @@ export const HeaderForMain = (props) => {
                     </Link> */}
                     {
                         isAdmin && 
-                        <Link className="header-nav-item item-button-l login-l" to="/admin">Admin</Link>
+                        <Link className="header-nav-items item-buttons login-l" to="/admin">Admin</Link>
                     }
 
-<li className="header-nav-item sign-l welcome wel">Welcome {email}</li>
+<li className="header-nav-items  welcome ">Welcome {email}</li>
                     <div
-                        className = "header-nav-item item-button-l sign-l"
+                        className = "header-nav-items item-buttons sign-l"
                         onClick={logout}
                     >
                         Logout

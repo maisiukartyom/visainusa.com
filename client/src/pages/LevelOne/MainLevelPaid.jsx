@@ -264,7 +264,7 @@ export const MainLevelPaid = () => {
           <div className='levelone-text-bottom'>
           <iframe    src="https://www.youtube.com/embed/Bhfd_OnstY4?si=Gc4NJYzFBUjew1IR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
           clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen className="youtube-levelone"></iframe> 
-          <p className='text-levelOneMain'>What is EB3 unskilled visa category?</p>
+          <p className='text-levelOneMain'>How does the EB3 unskilled program work for the U. S. employer ?</p>
           <hr className='hr-levelone-white'></hr>
           <div>
           
@@ -275,7 +275,7 @@ export const MainLevelPaid = () => {
           <div className='levelone-text-bottom'>
           <iframe    src="https://www.youtube.com/embed/ATr7QhmtlGY?si=0eOG2yi7qo0x4N2t" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
           clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen className="youtube-levelone"></iframe> 
-          <p className='text-levelOneMain'>What is EB3 unskilled visa category?</p>
+          <p className='text-levelOneMain'>How can you legally earn money in the USA while in student or tourist status?</p>
           <hr className='hr-levelone-white'></hr>
           <div>
                                     

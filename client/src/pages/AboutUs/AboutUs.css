@@ -202,6 +202,24 @@ text-align: justify;
     }
   }
 
+  @media all and (max-width:806px) {
+    
+    .text-aboutus
+    {
+
+      text-align: start;
+    }
+  
+    .text-Alexey{
+      text-align: start;
+
+    }
+    .text-Alexey-more{
+  text-align: start;
+
+    }
+  }
+
   @media (max-width:765px){
   
     .text-aboutus{

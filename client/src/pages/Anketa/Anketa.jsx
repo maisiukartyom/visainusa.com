@@ -207,13 +207,15 @@ const Anketa = () => {
                             <input className="test input-anketa"  type="radio" name="question13" id="answerThirteen" value="no"/>No
                         </div>
                     </div>
+                    
                     <label className="check">
-                            <input className="check-box" type="checkbox" checked={isChecked} onChange={handleCheckboxChange}  />
+                        <div>
+                            <input className="check-box" type="checkbox" checked={isChecked} onChange={handleCheckboxChange}  /></div>
                             <p className="mini-text">«LLC “Visa in USA” is not an immigration law firm and does not provide legal advices on the selection of immigration programs, filling out immigration petitions and employment in the United States. Consultations are of an informational nature. All information presented on www.visainusa.com are taken from open official sources of USCIS/DOL».</p>
                     </label>
-                    <div className="btn-center" >
+
                     <button className="btn-level-anketa" >Determine your eligibility</button>
-                    </div>
+
             </form>
             {
                 isPopUpOpen && <PopUpForm onClose={closePopUp}/>

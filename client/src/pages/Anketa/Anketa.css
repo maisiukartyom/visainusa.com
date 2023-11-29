@@ -33,9 +33,12 @@
 	display: flex;
 	justify-content: center;
 	border: 1px #CF3549 solid;
-	padding: 6px;
+	padding: 2px;
 	
 }
+
+
+  
 	.mini-text{
 		font-size: 12px;
 		word-spacing: 6px;
@@ -48,9 +51,7 @@
 	margin-bottom: 20px;
 }
 
-.btn-center{
-	margin: auto;
-}
+
 .label {
 	font-family: 'Merriweather', serif;
 	font-size: 18px;
@@ -81,10 +82,7 @@
 	padding: 30px;
 }
 
-.btn{
-	display: flex;
-	justify-content: center;
-}
+
 .btn-level-anketa {
 	border: none;
 	background: var(--main-color);
@@ -98,9 +96,13 @@
 	cursor: pointer;
 	margin-top: 20px;
 	align-self: center;
+	margin-left: auto;
+	margin-right: auto;
 
 }
-
+.chek-box{
+	width: 10px;
+}
 .btn-level-anketa:hover {
 	background: var(--dark-color);
 	color: var(--light-color);

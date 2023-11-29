@@ -11,10 +11,15 @@ export const MainPhoto = ({logout}) => {
         <div>
        <div className="center-text">
       <div className="fly-text">
+        <div className="first-text">
       <p id="first-text" >EB3 unskilled program</p>
+      </div>
+      <div className="second-text">
        <p id="second-text" >All our team got green cards through it </p>
+       </div>
+       <div className="third-text">
         <p id="third-text">We do know how to assist your case</p>
-
+</div>
               <div className="buttons-main">
               <Link to="./abouteb3">
                    <button className="btn-abouteb3">About EB3</button>
