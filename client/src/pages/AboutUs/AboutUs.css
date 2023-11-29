@@ -93,6 +93,7 @@ margin-top: 5%;
   font-size: 14px;
   font-weight: 600;
   font-family: 'Merriweather', serif;
+  cursor: pointer;
 }
 
 .when, .when-CP{

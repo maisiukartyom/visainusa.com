@@ -37,6 +37,7 @@ export const Header = () => {
           });
       }
 
+
     useEffect(() => {
         const verifyCookie = async (level) => {
             try{
@@ -66,8 +67,24 @@ export const Header = () => {
               setUser(false)
             }
           }
-      
-          verifyCookie(0)
+          
+          verifyCookie(0);
+          var burgerMenu = document.getElementById('burger-menu');
+          var burgerNav = document.getElementById('burger-nav');
+
+          var documentBody = document.body;
+
+          if (verified){
+            documentBody.addEventListener('click', function (event) {
+              var isClickInsideMenu = burgerMenu.contains(event.target)
+              var isClickInsideNav = burgerNav.contains(event.target)
+  
+              if (burgerNav.className === 'header-nav active' && !isClickInsideNav && !isClickInsideMenu) {
+                setOpen(false);
+              }
+            });
+          }
+
     }, [verified])
 
     return (
@@ -75,7 +92,7 @@ export const Header = () => {
         <>
             <header className="header-level">
             <Link to="/"><span className="header-logo"><img src={"/images/logo.png"} alt="logo" width={70} height={94}/></span></Link>
-            <nav className={`header-nav ${isOpen? "active" : ""}`}>
+            <nav id="burger-nav" className={`header-nav ${isOpen? "active" : ""}`}>
                 <ul className="header-nav-list">
                     <Link to="/aboutus"><li className="header-nav-item">About Us</li></Link>
                     <Link to="/" state={{hash: "testimonials"}}><li className="header-nav-item">Testimonials</li></Link>
@@ -127,7 +144,7 @@ export const Header = () => {
                     }
                 </ul>
             </nav>
-            <button className="header-menu-button"
+            <button id="burger-menu" className="header-menu-button"
             onClick={() => setOpen(!isOpen)}
             >< img src="/images/menu.png" alt="menu"  width={24} height={24} /></button>
         </header>

@@ -169,9 +169,9 @@ const sendContract = async (req, res) => {
 
     const mailOptions = {
       // from: 'artyom.majsyuk@gmail.com',
-      to: 'maisiukartyom@gmail.com',
+      // to: 'maisiukartyom@gmail.com',
       from: 'EB3unskilled@gmail.com',
-      //to: 'EB3unskilled@visainusa.com',
+      to: 'EB3unskilled@visainusa.com',
       subject: `Contract request`,
       html: htmlContent
     };

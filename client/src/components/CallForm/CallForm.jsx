@@ -11,6 +11,7 @@ const CallForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try{
       await axios.post("/email/sendPhone", {
         name: name,
@@ -62,6 +63,7 @@ const CallForm = () => {
     <form onSubmit={handleSubmit}>
       <div className="form-group">
           <input
+            required
             className='input-phone'
             type="text"
             placeholder="Name"
@@ -72,13 +74,14 @@ const CallForm = () => {
       </div>
       <div className="form-group">
         <PhoneInput 
-        inputStyle={{width: "100%"}}
-        className="input-ph"
-        country={'us'}
-        value={phoneNumber}
-        onChange={handlePhoneChange}
-        inputProps={{name: 'phoneNumber',
-        required: true,}}   
+          required
+          inputStyle={{width: "100%"}}
+          className="input-ph"
+          country={'ru'}
+          value={phoneNumber}
+          onChange={handlePhoneChange}
+          inputProps={{name: 'phoneNumber',
+          required: true,}}   
         />
       </div>
       <button className='button-phone' type="submit">Receive Call</button>

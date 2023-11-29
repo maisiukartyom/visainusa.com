@@ -61,14 +61,29 @@ export const HeaderForMain = (props) => {
         }
         }
 
-        verifyCookie(0)
+        verifyCookie(0);
+        var burgerMenu = document.getElementById('burger-menu');
+        var burgerNav = document.getElementById('burger-nav');
+
+        var documentBody = document.body;
+
+        if (verified){
+        documentBody.addEventListener('click', function (event) {
+            var isClickInsideMenu = burgerMenu.contains(event.target)
+            var isClickInsideNav = burgerNav.contains(event.target)
+
+            if (burgerNav.className === 'header-nav active' && !isClickInsideNav && !isClickInsideMenu) {
+            setOpen(false);
+            }
+        });
+        }
     }, [verified])
 
     return (
         verified &&
         <header className="header-level">
             <Link to="/"><span className="header-logo"><img src="images/logo-white.png" alt="logo" width={70} height={94}/></span></Link>
-            <nav className={`header-nav ${isOpen? "active" : ""}`}>
+            <nav id="burger-nav" className={`header-nav ${isOpen? "active" : ""}`}>
                 <ul className="header-nav-list">
                 <Link to="/aboutus"><li className="header-nav-items">About Us</li></Link>
                     <a href="/#testimonials"><li className="header-nav-items">Testimonials</li></a>
@@ -121,7 +136,7 @@ export const HeaderForMain = (props) => {
                 }
                 </ul>
             </nav>
-            <button className="header-menu-button"
+            <button id="burger-menu" className="header-menu-button"
                 onClick={() => setOpen(!isOpen)}
             >< img src="/images/menu.png" alt="menu"  width={24} height={24} /></button>
         </header>

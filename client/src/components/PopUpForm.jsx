@@ -133,7 +133,7 @@ const PopUpForm = ({ onClose }) => {
             <PhoneInput 
               inputStyle={{width: "100%"}}
               className=""
-              country={'us'}
+              country={'ru'}
               value={phoneNumber}
               onChange={handlePhoneChange}
               inputProps={{name: 'phoneNumber',

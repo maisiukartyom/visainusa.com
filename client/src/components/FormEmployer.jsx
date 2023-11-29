@@ -59,18 +59,18 @@ const FormEmployer = () =>  {
                     });
             }
         }
-        else{
-            toast.warning("Form filled incorrect!", {
-                position: "top-center",
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: false,
-                draggable: false,
-                progress: undefined,
-                theme: "light",
-                });
-        }
+        // else{
+        //     toast.warning("Form filled incorrect!", {
+        //         position: "top-center",
+        //         autoClose: 3000,
+        //         hideProgressBar: false,
+        //         closeOnClick: true,
+        //         pauseOnHover: false,
+        //         draggable: false,
+        //         progress: undefined,
+        //         theme: "light",
+        //         });
+        // }
     }
 
     const validate = () => {
@@ -120,14 +120,14 @@ const FormEmployer = () =>  {
                             <label htmlFor="email" className="label-log-sum">Company name</label>
                             </div>
                             <input required value={company} className="input-log-sum" onChange={(e) => setCompany(e.target.value)}/>
-                            {/* {errors.company && <p className="error">{errors.company}</p>} */}
+                            {errors.company && <p className="error">{errors.company}</p>}
                         </div>
                         <div className="email-log-sum">
                             <div className="start">
                             <label htmlFor="email" className="label-log-sum">Email</label>
                             </div>
                             <input required value={email} className="input-log-sum" type="email" onChange={(e) => setEmail(e.target.value)}/>
-                            {/* {errors.email && <p className="error">{errors.email}</p>} */}
+                            {errors.email && <p className="error">{errors.email}</p>}
                         </div>
 
                         <div className="email-log-sum">
@@ -142,7 +142,7 @@ const FormEmployer = () =>  {
                                 inputProps={{name: 'phoneNumber',
                                             required: true,}}   
                                 />
-                            {/* {errors.phoneNumber && <p className="error-phone-left">{errors.phoneNumber}</p>}    */}
+                            {errors.phoneNumber && <p className="error-phone-left">{errors.phoneNumber}</p>}   
                         </div>
 
                         <div className="email-log-sum">
