@@ -773,8 +773,6 @@ margin: 6px;
 	font-weight: 400;
 	text-align: start;
 	font-family: 'Merriweather', serif;
-	margin-top: 4%;
-
 
 }
 
@@ -4736,7 +4734,9 @@ padding: auto;
 
 }
 	
-
+.review{
+	margin-top: 5%;
+}
 	.titre{
 		font-size: 26px;
 	}
