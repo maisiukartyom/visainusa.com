@@ -4,13 +4,15 @@ import { HeaderForMain } from "./HeaderForMain";
 import {Link} from 'react-router-dom';
 
 
-export const MainPhoto = ({logout}) => {
+export const MainPhoto = ({isUser, logout}) => {
     return(
-        <div className="photoMain">
-            <HeaderForMain logout = {logout}/>
-        <div>
-       <div className="center-text">
-      <div className="fly-text">
+      <>
+      {isUser && <HeaderForMain isUser={isUser} logout = {logout}/>}      
+      {   !isUser && <div className="photoMain">
+        <HeaderForMain isUser={isUser} logout = {logout}/>
+     <div>
+        <div className="center-text">
+        <div className="fly-text">
         <div className="first-text">
       <p id="first-text" >EB3 unskilled program</p>
       </div>
@@ -19,7 +21,7 @@ export const MainPhoto = ({logout}) => {
        </div>
        <div className="third-text">
         <p id="third-text">We do know how to assist your case</p>
-</div>
+      </div>
               <div className="buttons-main">
               <Link to="./abouteb3">
                    <button className="btn-abouteb3">About EB3</button>
@@ -30,6 +32,7 @@ export const MainPhoto = ({logout}) => {
           </div>
         </div>
         </div>
-        </div>
+        </div>}
+      </>
     )
 }

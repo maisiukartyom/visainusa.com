@@ -10,9 +10,10 @@ import axios from "../../api/axios";
 import {toast} from 'react-toastify';
 import CallForm from "../../components/CallForm/CallForm";
 import { Header } from "../../components/Header";
+import { HeaderForMain } from "../../components/HeaderForMain";
 
 
-const   Main = ({user}) => {
+const   Main = ({isUser, user}) => {
 
   const {state} = useLocation();
   const [levelsInfo, setLevelsInfo] = useState([]);
@@ -22,7 +23,6 @@ const   Main = ({user}) => {
     const getLevelsCosts = async () => {
       try{
         const levels = await axios.get("/payment/getLevelsCosts");
-        console.log(levels.data.levels)
         setLevelsInfo(levels.data.levels);
         setHasInfo(true);
       }
@@ -53,7 +53,8 @@ const   Main = ({user}) => {
   return (
     <>
       <div className="main">
-        <div className="titrecenter">
+        {!isUser && <>
+          <div className="titrecenter">
           <p className="titre titre-bottom" id="advantages" data-aos="fade-up">
             Our Advantages
           </p>
@@ -245,6 +246,8 @@ const   Main = ({user}) => {
         <a id="competans"></a>
         <div className="vie"></div>
         <a id="adresse"></a>
+        </>
+        }
 
 
 
@@ -262,13 +265,14 @@ const   Main = ({user}) => {
               user.level >= 1 && <p className="coming-newDesign">Paid</p>
             } */}
 
-<div className={"level-paid"}>
+            <div className={"level-paid"}>
             {/* <p className="coming-newDesign">Paid</p> */}
             <h2 className="appliName-future">Level 1</h2>
             
-            <>
+            <div className="price-all">
+          {hasInfo && <p className="appliName-levelOne-del price-all">${levelsInfo[0].originalCost}</p>}
                 <p className="appliName-levelOne price">FREE</p>
-              </>
+              </div>
               <Link to='/levelone'>
             <div className="text-discription-future">
               <p className="description-future ">
@@ -325,7 +329,7 @@ const   Main = ({user}) => {
               ((user.level && user.level < 2) || !user.level) &&
             <>
             <div className="price-all">
-            <p className="appliName-levelOne-del price-all">$500</p>
+            {hasInfo && <p className="appliName-levelOne-del price-all">${levelsInfo[1].originalCost}</p>}
               {hasInfo && <p className="appliName-level-two price-all">${levelsInfo[1].cost}</p>}
                 </div>
               </>
@@ -375,7 +379,7 @@ const   Main = ({user}) => {
               ((user.level && user.level < 3) || !user.level) &&
             <>
             <div className="price-all">
-            <p className="appliName-levelOne-del price-all">$1500</p>
+            {hasInfo && <p className="appliName-levelOne-del price-all">${levelsInfo[2].originalCost}</p>}
               {hasInfo && <p className="appliName-level-two price-all">${levelsInfo[2].cost}</p>}
                 </div>
               </>
@@ -682,7 +686,7 @@ const Contacts = () => {
 //     )
 // }
 
-const Footer = () => {
+const Footer = ({isUser}) => {
 
     return (
         <>
@@ -693,9 +697,9 @@ const Footer = () => {
                     <Link to="/aboutus">
                         <p className="grey marg">Our team</p>
                     </Link>
-                    <a href="#advantages">
+                    {!isUser && <a href="#advantages">
                         <p className="grey marg">Advantages</p>
-                    </a>
+                    </a>}
                 </div>
                 <div className="contacts ">
                     <h4 className="parr4 light-color">Services</h4>
@@ -706,12 +710,12 @@ const Footer = () => {
                         <p className="grey marg">Pricing</p>
                     </a>
                 </div>
-                <div className="contacts ">
+{  !isUser &&              <div className="contacts ">
                     <h4 className="parr4 light-color">Success Stories</h4>
                     <a href="#testimonials">
                         <p className="grey marg">Testimonials</p>
                     </a>
-                </div>
+                </div>}
                 <div className="contacts ">
                     <div className="links">
                         <a href="https://t.me/eb3usa" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/telegram.png?v=1698341412493" alt="telegram" width="38" height="38" /></a>
@@ -804,20 +808,20 @@ const Index = () => {
 
   const logout = () => {
     setUser({})
-    setIsVerified(false)
     setIsAdmin(false)
     setIsUser(false)
   }
 
   return (
+    isVerified &&
     <>
-        {/* <HeaderForMain /> */}
+        {/* <HeaderForMain logout = {logout}/> */}
 
-        <MainPhoto logout={logout} />
-        <Main user={user} />
-        <Testimonials />
+        <MainPhoto isUser={isUser} logout={logout} />
+        <Main isUser={isUser} user={user} />
+        {!isUser && <Testimonials />}
         <Contacts />
-        <Footer />
+        <Footer isUser={isUser} />
         {
           isVerified && !isAdmin && isUser &&           
           <>

@@ -96,7 +96,7 @@ export const Header = () => {
             <nav id="burger-nav" className={`header-nav ${isOpen? "active" : ""}`}>
                 <ul className="header-nav-list">
                     <Link to="/aboutus"><li className="header-nav-item">About Us</li></Link>
-                    <Link to="/" state={{hash: "testimonials"}}><li className="header-nav-item">Testimonials</li></Link>
+                    {!user && <Link to="/" state={{hash: "testimonials"}}><li className="header-nav-item">Testimonials</li></Link>}
                     <Link to="/" state={{hash: "contacts"}}><li className="header-nav-item">Contacts</li></Link>
                     <Link to="/" state={{hash: "pricing"}}><li className="header-nav-item">Pricing</li></Link>
                     <Link to="/foremployer"><li className="header-nav-item employer">For the U.S. employer</li></Link>

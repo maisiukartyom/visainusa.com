@@ -86,7 +86,7 @@ export const HeaderForMain = (props) => {
             <nav id="burger-nav" className={`header-nav ${isOpen? "active" : ""}`}>
                 <ul className="header-nav-list">
                 <Link to="/aboutus"><li className="header-nav-items">About Us</li></Link>
-                    <a href="/#testimonials"><li className="header-nav-items">Testimonials</li></a>
+                    {!props.isUser && <a href="/#testimonials"><li className="header-nav-items">Testimonials</li></a>}
                     <a href="/#contacts"><li className="header-nav-items">Contacts</li></a>
                     <a href="/#pricing"><li className="header-nav-items">Pricing</li></a>
                     <Link to="/foremployer"><li className="header-nav-items employer">For the U.S. employer</li></Link>
