@@ -4,7 +4,7 @@ import axios from "../api/axios.js";
 import {toast} from 'react-toastify';
 import { useNavigate, useLocation } from "react-router-dom";
 
-const useForm = (submitForm) =>{
+const useForm = (agreed) => {
     const navigate = useNavigate();
     const {pathname} = useLocation()
     const [values, setValues] = useState({
@@ -12,7 +12,7 @@ const useForm = (submitForm) =>{
         email: "",
         age: "",
         phoneNumber: "",
-        password: "",
+        password: ""
     });
 
     const [errors, setErrors] = useState({});
@@ -33,6 +33,20 @@ const useForm = (submitForm) =>{
         event.preventDefault();
         const curErrors = validation(values)
         setErrors(validation(values));
+        console.log(agreed)
+        if (!agreed){
+            toast.warning("Please agree to terms and conditions!", {
+                position: "top-center",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                progress: undefined,
+                theme: "light",
+                });
+            setDataIsCorrect(false)
+        }
 
         if (Object.values(curErrors).every(value => value === "")){
             setDataIsCorrect(true);

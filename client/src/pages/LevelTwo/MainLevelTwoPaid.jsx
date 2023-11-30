@@ -9,8 +9,8 @@ export const MainLevelTwoPaid = () => {
       <div>
       <div className="text-leveltwo">
       <h2 className="h2-level">Level 2</h2>
-      <TextBlocktwo className="text-levelTwo" title="Thank you for choosing Level 2! To schedule the call with one of our experts, it's as easy as clicking on the 'Schedule the call' button below on this page. Choose a time slot that suits you,
-       answer a few questions, and list any concerns you'd like to discuss during the call.  ..." description="This helps us tailor the conversation to your specific needs and ensures that you get the most out of your consultation. We're here to assist you on your immigration journey. If you encounter any issues with scheduling,
+      <TextBlocktwo className="text-levelTwo" title="Thank you for choosing Level 2! To schedule a call with one of our experts, it's as easy as clicking on the 'Schedule the Call' button below on this page. Choose a time slot that suits you,
+       answer a few questions, and list any concerns you'd like to discuss during the call.  ..." description="his helps us tailor the conversation to your specific needs and ensures that you get the most out of your consultation. We're here to assist you on your immigration journey. If you encounter any issues with scheduling,
         feel free to chat with us or give us a call. We're here to help! 
         " />
       

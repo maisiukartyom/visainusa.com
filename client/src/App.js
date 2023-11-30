@@ -32,6 +32,8 @@ import ApplyNow from './components/ApplyNow/ApplyNow';
 import { useState } from 'react';
 import "./App.css"
 
+
+
 function App() {
   // console.log("Rendered!")
 
@@ -102,7 +104,7 @@ function App() {
           <Route path="/leveltwo" element={<LevelTwo />} />
           <Route path="/levelthree" element={<LevelThree />} />
           <Route path="/foremployer" element={<ForEmployer />} />
-          <Route path="/payment" element={<Payment />} />
+          <Route path="/payment" element={<Payment/>} />
           <Route path="/aboutus" element={<AbotUs />} />
           <Route path="/abouteb3" element={<AboutEB3 />} />
           <Route path="/jobs" element={<Jobs />} />
@@ -110,6 +112,7 @@ function App() {
           <Route path="/jobEdit/:id" element={<EditJob/>} />
           <Route path='/addJob' element={<AddJob/>}/>
           <Route path='/admin' element={<Admin/>}/>
+
           <Route path='/resetPassword/:token' element={<ResetPassword/>}/>
 
           <Route path='/applynow' element={<ApplyNow/>}/>

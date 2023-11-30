@@ -1,53 +1,67 @@
 .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10000;
-  }
-  
-  .modal-content {
-    background: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    max-width: 400px;
-    width: 100%;
-  }
-  
-  .modal-content p {
-    margin-bottom: 10px;
-  }
-  
-  .modal-content label {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  .modal-content button {
-    padding: 10px 15px;
-    background: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    display: block;
-    margin: 0 auto; /* Размещаем кнопку по центру блока */
-  }
-  
-  .modal-content button:disabled {
-    background: #ccc;
-    cursor: not-allowed;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
 
-  .disclaimer-text {
-    border: 2px solid red; /* Добавляем красную рамку для внутреннего текста */
-    padding: 10px;
-    border-radius: 5px;
-    box-sizing: border-box; /* Учитываем ширину рамки внутри блока */
-    margin-bottom: 10px;
-  }
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.modal-content p {
+  margin-bottom: 10px;
+}
+
+.modal-content label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.modal-content button {
+  padding: 10px 15px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto; /* Размещаем кнопку по центру блока */
+}
+
+.modal-content button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.disclaimer-text {
+  border: 2px solid red; /* Добавляем красную рамку для внутреннего текста */
+  padding: 10px;
+  border-radius: 5px;
+  box-sizing: border-box; /* Учитываем ширину рамки внутри блока */
+  margin-bottom: 10px;
+}
+
+.agreement-text{
+  border: 2px solid red; /* Добавляем красную рамку для внутреннего текста */
+  padding: 10px;
+  border-radius: 5px;
+  box-sizing: border-box; /* Учитываем ширину рамки внутри блока */
+  margin-bottom: 10px;
+  overflow-y: scroll;
+  max-height: 350px;
+}
+
+.agreement{
+  max-width: 700px;
+}
