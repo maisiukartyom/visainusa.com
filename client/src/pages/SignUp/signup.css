@@ -1,146 +1,197 @@
-  :root {
-      --main-color: #244B7A;
-      --color: #CF3549;
-      --light-color: #ffffff;
-      --dark-color: #032144;
-      --deep-dark: #011226;
-  }
-  
-  .logoForm-sign{
-
- text-align: center;
- margin-top: 1%;
-  }
-  .container-sign{
-      display: flex;
-      justify-content: center;
-      padding: 60px;
-  }
-
-  .react-tel-input .form-control {
-    width: none;
+:root {
+  --main-color: #244B7A;
+  --color: #CF3549;
+  --light-color: #ffffff;
+  --dark-color: #032144;
+  --deep-dark: #011226;
 }
 
-  .app-wrapper-main-signnn{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100vh;
-    width: 100% ;
-  }
-  .form-wrapper-sign{
-    width: 100%;
-  }
-  .app-wrapper-sign{
-    background-color: #ffffff;
-    max-height: 1000px;
-    padding: 40px;
-    border: 3px #244B7A solid;
-    align-self: center;
-  }
+.logoForm-sign{
+
+text-align: center;
+margin-top: 1%;
+}
+.container-sign{
+  display: flex;
+  justify-content: center;
+  padding: 60px;
+}
+
+.react-tel-input .form-control {
+width: none;
+}
+
+.app-wrapper-main-signnn{
+display: flex;
+flex-direction: column;
+justify-content: center;
+height: 100vh;
+width: 100% ;
+}
+.form-wrapper-sign{
+width: 100%;
+}
+.app-wrapper-sign{
+background-color: #ffffff;
+max-height: 1000px;
+padding: 40px;
+border: 3px #244B7A solid;
+align-self: center;
+}
 
 
-  
-  .title{
-    color: var(--dark-color);
-    text-align: center;
-    font-size: 32px;
-    margin: 0px 0px 40px 0px;
-  }
-  
+
+.title{
+color: var(--dark-color);
+text-align: center;
+font-size: 32px;
+margin: 0px 0px 40px 0px;
+}
 
 
 
 
-  .error{
-    color: var(--color);
-    font-weight: 600;
+
+.error{
+color: var(--color);
+font-weight: 600;
 margin-left: 30px;
 margin-top: -1px;
-  }
+}
 
-  .error-left{
-    color: var(--color);
+.error-left{
+color: var(--color);
 margin-left: 20px;
 margin-top: -1px;
 font-weight: 600;
 
+}
+.submit{
+display: flex;
+justify-content: center;
+text-transform: uppercase;
+border-radius: 10px;
+border: none;
+  width: 240px;
+  height: 50px;
+font-size: 18px;
+color: #ffffff;
+padding: 10px 60px;
+background-color: var(--main-color);
+margin: auto;
+outline: none;
+cursor: pointer;
+transition: all 0.1s;
+
+}
+
+button:active{
+transform: translate(2px);
+}
+
+.fom-succes{
+display: flex;
+justify-content: center;
+text-align: center;
+margin-top: 250px;
+min-width: 370px;
+color: #0619e6;
+}
+
+
+
+
+.check-sign{
+display: flex;
+justify-content: center;
+padding: 2px;
+max-width: 380px;
+
+}
+
+.mini-text-sign{
+font-size: 16px;
+word-spacing: 6px;
+margin-left: 8px;
+text-decoration: underline;
+}
+
+.login-here{
+display: flex;
+justify-content: center;
+}
+
+.here{
+font-size: 12px;
+margin-left: 20%;
+text-decoration: underline;
+color: var(--dark-color);
+}
+.here-log{
+
+font-size: 16px;
+margin-left: 20%;
+text-decoration: underline;
+color: var(--dark-color);
+}
+
+
+.mini-text-log{
+font-size: 16px;
+word-spacing: 2px;
+
+}
+
+.mini-text-sign{
+font-size: 12px;
+word-spacing: 2px;
+text-decoration: none;
+
+}
+
+
+@media all and (max-width:498px){
+.mini-text-sign{
+margin-left: -2%;
+}
+}
+@media all and (max-width:478px){
+.mini-text-sign{
+  margin-left: -4%;
+}
   }
-  .submit{
-    display: flex;
-    justify-content: center;
-    text-transform: uppercase;
-    border-radius: 10px;
-    border: none;
-      width: 240px;
-      height: 50px;
-    font-size: 18px;
-    color: #ffffff;
-    padding: 10px 60px;
-    background-color: var(--main-color);
-    margin: auto;
-    outline: none;
-    cursor: pointer;
-    transition: all 0.1s;
-  
-  }
-  
-  button:active{
-    transform: translate(2px);
-  }
-  
-  .fom-succes{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    margin-top: 250px;
-    min-width: 370px;
-    color: #0619e6;
-  }
-  
-  
+
+@media all and (max-width:406px){
+
+.app-wrapper-sign{
+width: 100%;
+padding: 10px;
+}
+}
+
+@media all and (max-width:366px){
+
+.app-wrapper-sign{
+width: 100%;
+
+}
+}
+@media all and (max-width:346px){
+
+.app-wrapper-sign{
+width: 100%;
+padding: 10px;
+}
+}
+@media all and (max-width:286px){
+
+.app-wrapper-sign{
+width: 100%;
 
 
-  .check-sign{
-    display: flex;
-    justify-content: center;
-  padding: 2px;
-  max-width: 380px;
-    
-  }
-  
-  
+}
+}
 
-
-
-  @media all and (max-width:406px){
-
-    .app-wrapper-sign{
-  width: 100%;
-  padding: 10px;
-    }
-  }
-  
-  @media all and (max-width:366px){
-
-    .app-wrapper-sign{
-  width: 100%;
-
-    }
-  }
-  @media all and (max-width:346px){
-
-    .app-wrapper-sign{
-  width: 100%;
-  padding: 10px;
-    }
-  }
-  @media all and (max-width:286px){
-
-    .app-wrapper-sign{
-  width: 100%;
-
-
-    }
-  }
-
+.terms{
+  cursor: pointer;
+}

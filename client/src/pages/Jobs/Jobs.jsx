@@ -211,13 +211,15 @@ const Jobs = () => {
               <h3 className="choose-state ">Choose state</h3>             
               <div className='states-all'>
               <img src='./images/america.png' className='map-states' alt='america' width={700} height={400}/>
-<div className='mob-states'>
+              <div className='choose-all-st'>
+              <div className=" st b">
+          <input type="checkbox" id='selectAll' onChange={toggleCheckboxes}/>Choose all states
+          </div>
+          </div>
+
+<div className='mob-states state-none'>
   <div className='state-one'>
         <div className='states-left'>
-          
-          <div className=" st b">
-          <input type="checkbox" id='selectAll' onChange={toggleCheckboxes}/>Choose all
-          </div>
             <div className="st" >
           <input  type="checkbox" checked={selectedStates.includes('AL')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="AL"/>Alabama (AL)
           </div>

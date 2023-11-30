@@ -95,14 +95,14 @@ export const HeaderForMain = (props) => {
                     !user && 
                     <>
                     <Link
-                        className="header-nav-items item-buttons login-l"
+                        className="header-nav-items item-buttonss login-l"
                         to="/login"
                         state={{previousPath: pathname}}
                     >
                     Log in
                     </Link>
                     <Link
-                        className = "header-nav-items item-buttons sign-l"
+                        className = "header-nav-items item-buttonss sign-l"
                         to="/signup"
                     >
                     Sign up

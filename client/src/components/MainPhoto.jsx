@@ -36,7 +36,6 @@ export const MainPhoto = ({isUser, logout}) => {
         <HeaderForMain isUser={isUser} logout = {logout}/>
      <div>
         <div className="center-text">
-        <div className="fly-text">
         <div className="first-text">
       <p id="first-text" >EB3 unskilled program</p>
       </div>
@@ -53,7 +52,6 @@ export const MainPhoto = ({isUser, logout}) => {
                  <Link to="/survey" className="btn-level-top">
                  <button className="btn-level-anketa-l">Determine your eligibility</button></Link>
               </div>
-          </div>
         </div>
         </div>
         </div>}
