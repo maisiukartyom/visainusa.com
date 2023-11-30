@@ -17,9 +17,17 @@
   position: relative;
 
 }
-.wel{
-	overflow: hidden;
-  }
+
+.item-buttonss {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  font-size: 10px;
+  text-decoration: none;
+  color: var(--dark-color);
+  padding: 18px 40px;
+  word-wrap: break-word;
+}
+
 .header-logo{
   font-size: 20px;
   line-height:1 ;
@@ -37,20 +45,20 @@
   list-style-type: none;
 }
 
-.header-nav-item{
+.header-nav-items{
   line-height: 1;
   font-family: 'Roboto', sans-serif;
     font-weight: 700;
     font-size: 24px;
     text-decoration: none;
     color: var(--dark-color);
-    padding: 10px 20px;
+    padding: 10px 14px;
   align-items: center;
   cursor: pointer;
     transition: transform .5s;
 }
 
-.header-nav-item:hover {
+.header-nav-items:hover {
     color: var(--color);
     -ms-transform: scale3d(1.1, 1.1, 1.1);
     -webkit-transform: scale3d(1.1, 1.1, 1.1);
@@ -103,6 +111,7 @@ margin-bottom: 20px;
 
 .employer{
   color: var(--color);
+word-wrap: break-word;
 }
 .employer:hover{
   color: var(--dark-color);
@@ -122,12 +131,14 @@ font-size: 20px;
 font-weight: bold;
   -webkit-animation: pulsing 2s infinite;
   animation: pulsing 2s infinite;
-
+word-wrap: break-word;
 text-align: start;
 
 }
 
-
+.first-text, .second-text, .third-text{
+	word-wrap: break-word;
+}
 
 
 /*first block*/
@@ -562,6 +573,24 @@ margin-bottom: 3%;
       justify-content: center;
     }
     } 
+
+
+
+    @media (max-width:1385px) {
+
+    .header-nav-items{
+      line-height: 1;
+      font-family: 'Roboto', sans-serif;
+        font-weight: 700;
+        font-size: 20px;
+        text-decoration: none;
+        padding: 10px 14px;
+      align-items: center;
+      cursor: pointer;
+        transition: transform .5s;
+    }
+
+  }
   @media (max-width:1265px) {
     .header-nav{
       position: fixed;
@@ -589,7 +618,7 @@ margin-bottom: 3%;
   
     }
   
-    .header-nav-item{
+    .header-nav-items{
       text-align: center;
       align-items: center;
       font-weight: 600;
@@ -644,7 +673,7 @@ margin-bottom: 3%;
   
     }
   
-    .header-nav-item{
+    .header-nav-items{
       text-align: center;
       align-items: center;
       font-weight: 600;
@@ -837,7 +866,7 @@ margin-bottom: 3%;
       padding: 10px;
     }
     }
-  @media (max-width:1155px) {
+  @media (max-width:1156px) {
     .header-nav{
       position: fixed;
       top: 0;

@@ -108,10 +108,58 @@ font-weight: 600;
   max-width: 380px;
     
   }
+
+  .mini-text-sign{
+		font-size: 16px;
+		word-spacing: 6px;
+		margin-left: 8px;
+    text-decoration: underline;
+	}
   
-  
+  .login-here{
+    display: flex;
+    justify-content: center;
+  }
+
+  .here{
+    font-size: 12px;
+margin-left: 20%;
+    text-decoration: underline;
+    color: var(--dark-color);
+  }
+  .here-log{
+
+    font-size: 16px;
+    margin-left: 20%;
+    text-decoration: underline;
+    color: var(--dark-color);
+  }
 
 
+  .mini-text-log{
+		font-size: 16px;
+		word-spacing: 2px;
+    
+	}
+  
+  .mini-text-sign{
+		font-size: 12px;
+		word-spacing: 2px;
+    text-decoration: none;
+    
+	}
+  
+
+  @media all and (max-width:498px){
+.mini-text-sign{
+  margin-left: -2%;
+}
+  }
+  @media all and (max-width:478px){
+    .mini-text-sign{
+      margin-left: -4%;
+    }
+      }
 
   @media all and (max-width:406px){
 

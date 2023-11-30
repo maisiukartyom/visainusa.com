@@ -197,6 +197,10 @@ function LoginForm(props)  {
                     <div>
                         <button className="submit">Log in</button>
                     </div>
+                    <div className="login-here">
+                    <p className="mini-text-log">Sign up please click </p>
+                    <Link to="/signup"><p className="here-log">here</p></Link>
+                    </div>
                 </form>
                 {sendLink && <div><button style={{marginTop: "10px", backgroundColor: "green"}} className="submit" onClick={sendEmail}>send email</button></div> }
                 {forgot && <form onSubmit={resetPassword}>

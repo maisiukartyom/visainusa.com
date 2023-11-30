@@ -416,7 +416,7 @@ const   Main = ({user}) => {
           {/* Change the classNames once are made! */}
           <div className="level-future-bot ">
           <div className="text-future-bot">
-            <p className="coming">Coming Q4 2024</p>
+            <p className="coming">Coming in Q4 2024</p>
             <h2 className="appliName-future">Level 4</h2>
             <h3 className="appliName-names">"Turnkey package"</h3>
               <>
@@ -439,7 +439,7 @@ const   Main = ({user}) => {
           </div>
           <div className="level-future-bot ">
             <div className="text-future-bot">
-          <p className="coming">Coming Q4 2024</p>
+          <p className="coming">Coming in Q4 2024</p>
             <h2 className="appliName-future">Level 5</h2>
             <h3 className="appliName-names">"VIP package"</h3>
               {hasInfo && <p className="appliName-levelOne price">${levelsInfo[4].cost}</p>}
@@ -630,8 +630,8 @@ const Contacts = () => {
   <div className="align">
                <h4 class="contact-name" id="contact">Contacts</h4>
                 <div className="number-phone">
-               <img src="/images/number.png" alt="phone" width={20} height={20} />
-               <p class="number">+1 864 748 9898</p>
+               
+               <a className="number" href='tel:+1 864 748 9898'><img src="/images/number.png" alt="phone" width={20} height={20} />+1 864 748 9898</a>
                               </div>
                               <div className="number-phone">
                <img src="/images/mail.png" alt="phone" width={26} height={20} />
@@ -645,8 +645,8 @@ const Contacts = () => {
                               </div>
                               </div>
                               <div className="link-column">
-                              <a href="https://web.telegram.org/k/#79168070961" target="_blank"><img className="link-margin" src="images/telegram.png" alt="telegram" width="38" height="38" /></a>
-                        <a href="https://web.whatsapp.com/#79168070961" target="_blank"><img className="link-margin" src="images/whatsapp.png" alt="whatsapp" width="38" height="38" /></a>
+                              <a href="https://t.me/eb3visainusa" target="_blank"><img className="link-margin" src="images/telegram.png" alt="telegram" width="38" height="38" /></a>
+                              <a href="tel:+79168070961WhatsApp" target="_blank"> <img className="link-margin" src="images/whatsapp.png" alt="whatsapp" width="38" height="38" /></a>
                         </div>
                </div>
             </div>
@@ -719,7 +719,7 @@ const Footer = () => {
                         <a href="https://www.youtube.com/@EB3unskilled" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/youtube.png?v=1698341435865" alt="youtube" width="38" height="38" /></a>
                     </div>
                 </div>
-                
+
             </footer>
             <div className="created"><p className="we-creat">Created by</p></div>
             <div className="created-we"><p className="we"> Olya Safronova</p> <p className="we">and</p><p className="we"> Artsiom Maisiuk</p> </div>

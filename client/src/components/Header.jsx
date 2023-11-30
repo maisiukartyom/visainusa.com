@@ -9,6 +9,7 @@ import '../pages/NewDesign.css';
 import CallForm from "./CallForm/CallForm";
 
 
+
 export const Header = () => {
 
     const {pathname} = useLocation();
@@ -95,23 +96,23 @@ export const Header = () => {
             <Link to="/"><span className="header-logo"><img src={"/images/logo.png"} alt="logo" width={70} height={94}/></span></Link>
             <nav id="burger-nav" className={`header-nav ${isOpen? "active" : ""}`}>
                 <ul className="header-nav-list">
-                    <Link to="/aboutus"><li className="header-nav-item">About Us</li></Link>
-                    <Link to="/" state={{hash: "testimonials"}}><li className="header-nav-item">Testimonials</li></Link>
-                    <Link to="/" state={{hash: "contacts"}}><li className="header-nav-item">Contacts</li></Link>
-                    <Link to="/" state={{hash: "pricing"}}><li className="header-nav-item">Pricing</li></Link>
-                    <Link to="/foremployer"><li className="header-nav-item employer">For the U.S. employer</li></Link>
+                    <Link to="/aboutus"><li className="header-nav-items">About Us</li></Link>
+                    <Link to="/" state={{hash: "testimonials"}}><li className="header-nav-items">Testimonials</li></Link>
+                    <Link to="/" state={{hash: "contacts"}}><li className="header-nav-items">Contacts</li></Link>
+                    <Link to="/" state={{hash: "pricing"}}><li className="header-nav-items">Pricing</li></Link>
+                    <Link to="/foremployer"><li className="header-nav-items employer">For the U.S. employer</li></Link>
                     {
                         !user && 
                         <>
                         <Link
-                            className="header-nav-items item-buttons login-l"
+                            className="header-nav-items item-buttonss login-l"
                             to="/login"
                             state={{previousPath: pathname}}
                         >
                         Log in
                         </Link>
                         <Link
-                            className="header-nav-items item-buttons sign-l"
+                            className="header-nav-items item-buttonss sign-l"
                             to="/signup"
                         >
                         Sign up

@@ -66,9 +66,13 @@ const SignupForm = ({ submitForm }) => {
                     <div>
                     <label className="check-sign">
                             <input  type="checkbox" />
-                            <p className="mini-text">I read and accept term and conditions</p>
+                            <p className="mini-text-sign">I read and accept term and conditions</p>
                     </label>
                         <button className="submit">Sign Up</button>
+                    </div>
+                    <div className="login-here">
+                    <p className="mini-text-sign">If you have already signed up, please log in </p>
+                    <Link to="/login"><p className="here">here</p></Link>
                     </div>
                 </form>
             

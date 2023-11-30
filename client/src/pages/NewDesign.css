@@ -126,10 +126,13 @@ display: block;
 	font-weight: bold;
     -webkit-animation: pulsing 2s infinite;
     animation: pulsing 2s infinite;
-
+word-wrap: break-word;
 	text-align: start;
+	margin-left: -1%;
 
   }
+
+
 
 
   
