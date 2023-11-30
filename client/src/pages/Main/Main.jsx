@@ -2,18 +2,15 @@ import "./main.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
-import { gsap } from "gsap";
 import {Link, useLocation} from 'react-router-dom';
 import { MainPhoto } from "../../components/MainPhoto";
 import SupportEngine from "../../components/SupportEngine";
 import axios from "../../api/axios";
 import {toast} from 'react-toastify';
 import CallForm from "../../components/CallForm/CallForm";
-import { Header } from "../../components/Header";
-import { HeaderForMain } from "../../components/HeaderForMain";
 
 
-const   Main = ({isUser, user}) => {
+const  Main = ({isUser, user}) => {
 
   const {state} = useLocation();
   const [levelsInfo, setLevelsInfo] = useState([]);
@@ -737,24 +734,6 @@ const Index = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
 
-  const fly = () => {
-    if (window.innerWidth >= 1370) {
-      gsap.from("#first-text", { x: 1500, duration: 0.8, ease: "power1.out" });
-      gsap.from("#second-text", {
-        x: 1500,
-        duration: 0.8,
-        ease: "power1.out",
-        delay: 0.5,
-      });
-      gsap.from("#third-text", {
-        x: 1500,
-        duration: 0.8,
-        ease: "power1.out",
-        delay: 0.9,
-      });
-    } 
-  };
-
   useEffect(() => {
     const verifyCookie = async (level) => {
       try{
@@ -802,7 +781,6 @@ const Index = () => {
         })
     })
     AOS.init();
-    fly();
     verifyCookie(0)
   }, []);
 
@@ -813,6 +791,7 @@ const Index = () => {
   }
 
   return (
+    
     isVerified &&
     <>
         {/* <HeaderForMain logout = {logout}/> */}

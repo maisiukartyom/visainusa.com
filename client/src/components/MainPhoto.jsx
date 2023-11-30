@@ -1,10 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../pages/Main/main.css"
 import { HeaderForMain } from "./HeaderForMain";
 import {Link} from 'react-router-dom';
+import { gsap } from "gsap";
 
 
 export const MainPhoto = ({isUser, logout}) => {
+
+  const fly = () => {
+    if (window.innerWidth >= 1370) {
+      gsap.from("#first-text", { x: 1500, duration: 0.8, ease: "power1.out" });
+      gsap.from("#second-text", {
+        x: 1500,
+        duration: 0.8,
+        ease: "power1.out",
+        delay: 0.5,
+      });
+      gsap.from("#third-text", {
+        x: 1500,
+        duration: 0.8,
+        ease: "power1.out",
+        delay: 0.9,
+      });
+    } 
+    };
+
+    useEffect(() => {
+      fly();
+    }, [isUser])
+
     return(
       <>
       {isUser && <HeaderForMain isUser={isUser} logout = {logout}/>}      

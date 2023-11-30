@@ -33,8 +33,6 @@ import { useState } from 'react';
 import "./App.css"
 
 function App() {
-  // console.log("Rendered!")
-
   const { pathname, state } = useLocation();
 
   useEffect(() => {
