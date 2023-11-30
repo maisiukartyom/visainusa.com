@@ -29,7 +29,8 @@ import EditJob from './pages/JobEdit/JobEdit';
 import { ResetPassword } from './pages/ResetPassword/ResetPassword';
 import { AdminEditor, MyEditor } from './components/Editor';
 import ApplyNow from './components/ApplyNow/ApplyNow';
-
+import { useState } from 'react';
+import "./App.css"
 
 function App() {
   // console.log("Rendered!")
@@ -40,10 +41,51 @@ function App() {
     if (!state){
       window.scrollTo(0, 0)
     }
-  }, [pathname, state])
+
+    if (localStorage.getItem('agreementShown')) {
+      setAgreed(true);
+      setShowModal(false);
+    }
+  }, [pathname, state]);
+
+
+  const [showModal, setShowModal] = useState(
+    !localStorage.getItem('agreementShown')
+  );
+  const [agreed, setAgreed] = useState(false);
+
+  const handleAgree = () => {
+    setAgreed(true);
+    setShowModal(false);
+    localStorage.setItem('agreementShown', 'true');
+  };
 
   return (
     <>
+          {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <p className='disclaimer-text'>
+              Disclaimer: "Visa in USA" LLC is not a law firm and does not
+              provide legal advice. No information on www.visainusa.com
+              constitutes legal advice nor is evidence of an attorney-client
+              relationship. To get legal advice, please get in touch with an
+              immigration attorney.
+            </p>
+            <label>
+              <input
+                type="checkbox"
+                checked={agreed}
+                onChange={() => setAgreed(!agreed)}
+              />
+              I read and agree
+            </label>
+            <button disabled={!agreed} onClick={handleAgree}>
+              Continue
+            </button>
+          </div>
+        </div>
+      )}
         {/* <CallForm /> */}
         <Routes>
         <Route path="/" element={<Layout />}>

@@ -420,7 +420,7 @@ const   Main = ({isUser, user}) => {
           {/* Change the classNames once are made! */}
           <div className="level-future-bot ">
           <div className="text-future-bot">
-            <p className="coming">Coming Q4 2024</p>
+            <p className="coming">Coming IN Q4 2024</p>
             <h2 className="appliName-future">Level 4</h2>
             <h3 className="appliName-names">"Turnkey package"</h3>
               <>
@@ -443,7 +443,7 @@ const   Main = ({isUser, user}) => {
           </div>
           <div className="level-future-bot ">
             <div className="text-future-bot">
-          <p className="coming">Coming Q4 2024</p>
+          <p className="coming">Coming IN Q4 2024</p>
             <h2 className="appliName-future">Level 5</h2>
             <h3 className="appliName-names">"VIP package"</h3>
               {hasInfo && <p className="appliName-levelOne price">${levelsInfo[4].cost}</p>}
@@ -726,7 +726,7 @@ const Footer = ({isUser}) => {
                 
             </footer>
             <div className="created"><p className="we-creat">Created by</p></div>
-            <div className="created-we"><p className="we"> Olya Safronova</p> <p className="we">and</p><p className="we"> Artsiom Maisiuk</p> </div>
+            <div className="created-we"><p className="we"> Olya Safronova</p> <p className="we">and</p><a href="https://github.com/maisiukartyom"><p className="we"> Artsiom Maisiuk</p></a> </div>
         </>
     )
 }

@@ -37,8 +37,9 @@ const Footer = () => {
                       <a href="https://www.youtube.com/@EB3unskilled" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/youtube.png?v=1698341435865" alt="youtube" width="38" height="38" /></a>
                   </div>
               </div>
-              <div className="created">Created by Olya Safronova and Artyom </div>
           </footer>
+          <div className="created"><p className="we-creat">Created by</p></div>
+            <div className="created-we"><p className="we"> Olya Safronova</p> <p className="we">and</p><a href="https://github.com/maisiukartyom"><p className="we"> Artsiom Maisiuk</p></a> </div>
       </>
   )
 }
