@@ -9,7 +9,6 @@ import '../pages/NewDesign.css';
 import CallForm from "./CallForm/CallForm";
 
 
-
 export const Header = () => {
 
     const {pathname} = useLocation();

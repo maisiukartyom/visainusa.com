@@ -6,7 +6,6 @@ import SupportEngine from "./SupportEngine";
 import {toast} from 'react-toastify'
 import { PayPalButton } from 'react-paypal-button-v2';
 import styled from 'styled-components';
-import  "../components/Payment/Payment.css"
 
 const ButtonBack = styled.button`
   background-color: #032144;

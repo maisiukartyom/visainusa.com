@@ -7,7 +7,6 @@ import {toast} from 'react-toastify'
 import { useEffect } from "react";
 
 
-
 export const HeaderForMain = (props) => {
 
     const [isOpen, setOpen] = useState();

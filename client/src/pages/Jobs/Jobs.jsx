@@ -199,7 +199,7 @@ const Jobs = () => {
                  not affiliated with or represent any of the U.S. employers featured on this page.
                   You can apply for any job directly through the EB3 agency website, which offers sponsors.
                    Alternatively, you can apply here by clicking the 'Apply Now' button. Please be aware that, in this case,
-                    in addition to the EB3 agency price, there is a charge of $999 until March 2024(originally valued at $1500) for highly experienced personal assistant services. 
+                    in addition to the EB3 agency price, there is a charge of $1,500 for highly experienced personal assistant services. 
                     These assistants have firsthand knowledge and have personally gone through the EB3 unskilled process, obtaining green cards.
                      We will support you from the initial stages until you receive your green card, offering a range of services,
                  including but not limited to unlimited non-legal consultations.</p>
@@ -218,12 +218,8 @@ const Jobs = () => {
           </div>
 
 <div className='mob-states state-none'>
-
   <div className='state-one'>
         <div className='states-left'>
-          
-
-
             <div className="st" >
           <input  type="checkbox" checked={selectedStates.includes('AL')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="AL"/>Alabama (AL)
           </div>

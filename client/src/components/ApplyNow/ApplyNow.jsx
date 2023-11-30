@@ -14,6 +14,7 @@ import TextBlockA from "../TextBlockA";
 const ApplyNow = () => {
     const [verified, setVerified] = useState(false);
     const [user, setUser] = useState({});
+    const [isUser, setIsUser] = useState(false)
 
     const navigate = useNavigate();
 
@@ -36,6 +37,7 @@ const ApplyNow = () => {
             //  else if (user.data.level < level){
             //   setHasLevel(false)
             //  }
+            setIsUser(true)
              setUser({email: user.data.email, phoneNumber: user.data.phoneNumber, name: user.data.name})
              setVerified(true)
            }
@@ -129,7 +131,7 @@ const ApplyNow = () => {
 
         </div>
         <Contacts/>
-            <Footer/>
+            <Footer isUser={isUser}/>
         </div>
     )
 }

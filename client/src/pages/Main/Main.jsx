@@ -10,7 +10,7 @@ import {toast} from 'react-toastify';
 import CallForm from "../../components/CallForm/CallForm";
 
 
-const   Main = ({isUser, user}) => {
+const  Main = ({isUser, user}) => {
 
   const {state} = useLocation();
   const [levelsInfo, setLevelsInfo] = useState([]);
@@ -631,8 +631,8 @@ const Contacts = () => {
   <div className="align">
                <h4 class="contact-name" id="contact">Contacts</h4>
                 <div className="number-phone">
-               
-               <a className="number" href='tel:+1 864 748 9898'><img src="/images/number.png" alt="phone" width={20} height={20} />+1 864 748 9898</a>
+                <a className="number" href='tel:+1 864 748 9898'>
+                  <img src="/images/number.png" alt="phone" width={20} height={20} />+1 864 748 9898</a>
                               </div>
                               <div className="number-phone">
                <img src="/images/mail.png" alt="phone" width={26} height={20} />
@@ -646,8 +646,8 @@ const Contacts = () => {
                               </div>
                               </div>
                               <div className="link-column">
-                              <a href="https://t.me/eb3visainusa" target="_blank"><img className="link-margin" src="images/telegram.png" alt="telegram" width="38" height="38" /></a>
-                              <a href="tel:+79168070961WhatsApp" target="_blank"> <img className="link-margin" src="images/whatsapp.png" alt="whatsapp" width="38" height="38" /></a>
+                              <a href="t.me/eb3visainusa" target="_blank"><img className="link-margin" src="images/telegram.png" alt="telegram" width="38" height="38" /></a>
+                        <a href="tel:+79168070961WhatsApp" target="_blank"><img className="link-margin" src="images/whatsapp.png" alt="whatsapp" width="38" height="38" /></a>
                         </div>
                </div>
             </div>
@@ -720,7 +720,7 @@ const Footer = ({isUser}) => {
                         <a href="https://www.youtube.com/@EB3unskilled" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/youtube.png?v=1698341435865" alt="youtube" width="38" height="38" /></a>
                     </div>
                 </div>
-
+                
             </footer>
             <div className="created"><p className="we-creat">Created by</p></div>
             <div className="created-we"><p className="we"> Olya Safronova</p> <p className="we">and</p><a href="https://github.com/maisiukartyom"><p className="we"> Artsiom Maisiuk</p></a> </div>
@@ -791,6 +791,7 @@ const Index = () => {
   }
 
   return (
+    
     isVerified &&
     <>
         {/* <HeaderForMain logout = {logout}/> */}

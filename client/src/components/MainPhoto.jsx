@@ -53,7 +53,6 @@ export const MainPhoto = ({isUser, logout}) => {
                  <Link to="/survey" className="btn-level-top">
                  <button className="btn-level-anketa-l">Determine your eligibility</button></Link>
               </div>
-
         </div>
         </div>
         </div>}
