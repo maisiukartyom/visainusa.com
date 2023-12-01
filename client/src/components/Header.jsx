@@ -96,7 +96,7 @@ export const Header = () => {
             <Link to="/"><span className="header-logo"><img src={"/images/logo.png"} alt="logo" width={70} height={94}/></span></Link>
             <nav id="burger-nav" className={`header-nav ${isOpen? "active" : ""}`}>
                 <ul className="header-nav-list">
-                    <Link to="/aboutus"><li className="header-nav-items">About Us</li></Link>
+                    <Link to="/aboutus"><li className="header-nav-items about-us-main">About Us</li></Link>
                     <Link to="/" state={{hash: "testimonials"}}><li className="header-nav-items">Testimonials</li></Link>
                     <Link to="/" state={{hash: "contacts"}}><li className="header-nav-items">Contacts</li></Link>
                     <Link to="/" state={{hash: "pricing"}}><li className="header-nav-items">Pricing</li></Link>
@@ -105,14 +105,14 @@ export const Header = () => {
                         !user && 
                         <>
                         <Link
-                            className="header-nav-items item-buttonss login-l"
+                            className=" item-buttonss-login login-l"
                             to="/login"
                             state={{previousPath: pathname}}
                         >
                         Log in
                         </Link>
                         <Link
-                            className="header-nav-items item-buttonss sign-l"
+                            className=" item-buttonss sign-l"
                             to="/signup"
                         >
                         Sign up
@@ -132,12 +132,12 @@ export const Header = () => {
 
                         {
                         isAdmin && 
-                            <Link className="header-nav-items item-buttons login-l" to="/admin">Admin</Link>
+                            <Link className=" item-buttonss login-l" to="/admin">Admin</Link>
                         }
 
-                        <li className="header-nav-items welcome  ">Welcome {chatUser.email}</li>
+                        <li className="wel-email welcome  ">Welcome {chatUser.email}</li>
                         <div
-                            className="header-nav-items item-buttons sign-l"
+                            className=" item-buttonss sign-l"
                             onClick={logout}
                         >
                             Logout

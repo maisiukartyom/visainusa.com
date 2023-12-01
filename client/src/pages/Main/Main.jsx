@@ -274,35 +274,38 @@ const   Main = ({user}) => {
               <p className="description-future ">
               What is EB3 unskilled visa category?
               </p>
-              <p className="description-future">
-              How does EB3 unskilled visa work?
-              </p>
-              <p className="description-future ">
-              How long does it take to get the U.S. permanent resident card?
-              </p>
               <p className="description-future ">
               Am I eligible for EB3 unskilled visa?
               </p>
               <p className="description-future">
               How much does EB3 unskilled cost? 
               </p>
-              <p className="description-future ">
-              What should I do in case of refusal?
+              <p className="description-future">
+              How does EB3 unskilled visa work?
               </p>
               <p className="description-future ">
               How do I start my EB3 journey?
               </p>
               <p className="description-future ">
+              How long does it take to get the U.S. permanent resident card?
+              </p>
+              <p className="description-future description-future">
+              Can I adjust my status to EB3 unskilled?
+              </p>
+              <p className="description-future ">
+              What should I do in case of refusal?
+              </p>
+              <p className="description-future ">
               I worked unauthorized, can I apply for the EB3 unskilled?
               </p>
               <p className="description-future ">
-              What is Retrogression and Visa Bulletin? 
+              How to move from political asylum to EB3 unskilled?
               </p>
               <p className="description-future ">
-              When can I drop my F status?
+              How does the EB3 unskilled program work for the U. S. employer ?
               </p>
               <p className="description-future description-future-finaly">
-              Can I adjust my status to EB3 unskilled?
+              How can you legally earn money in the USA while in student or tourist status?
               </p>
                           </div></Link>
 <div className="lev-btn">

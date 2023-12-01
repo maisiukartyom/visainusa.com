@@ -45,13 +45,14 @@ export const MainLevelTwoPaid = () => {
                   Enjoy 24/7 online chat support for any additional questions or clarifications after your consultation
                   </li>
 
-                  <Link to='/jobs'><button className="btn-pool">
-                  Job offering pool            
-                  </button></Link>
 
                   </ul>
 
-
+                  <div className="button-pool">
+                  <Link to='/jobs'><button className="btn-pool">
+                  Job offering pool            
+                  </button></Link>
+                  </div>
                 </div>
 
 <div className="video-level">
