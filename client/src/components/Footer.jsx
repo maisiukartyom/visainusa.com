@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 
 
 
-const Footer = () => {
+const Footer = ({isUser}) => {
   return (
       <>
           <footer id="contacts" className=" footer">
@@ -24,12 +24,12 @@ const Footer = () => {
                       <p className="grey marg">Pricing</p>
                       </Link> 
               </div>
-               <div className="contacts ">
+               {/* <div className="contacts ">
                   <h4 className="parr4 light-color">Success Stories</h4>
                   <Link to="/" state={{hash: "testimonials"}}>
                       <p className="grey marg">Testimonials</p>
                       </Link> 
-              </div> 
+              </div>  */}
               <div className="contacts ">
                   <div className="links">
                       <a href="https://t.me/eb3usa" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/telegram.png?v=1698341412493" alt="telegram" width="38" height="38" /></a>
@@ -37,10 +37,9 @@ const Footer = () => {
                       <a href="https://www.youtube.com/@EB3unskilled" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/youtube.png?v=1698341435865" alt="youtube" width="38" height="38" /></a>
                   </div>
               </div>
-             
           </footer>
           <div className="created"><p className="we-creat">Created by</p></div>
-            <div className="created-we"><p className="we"> Olya Safronova</p> <p className="we">and</p><p className="we"> Artsiom Maisiuk</p> </div>
+            <div className="created-we"><p className="we"> Olya Safronova</p> <p className="we">and</p><a href="https://github.com/maisiukartyom"><p className="we"> Artsiom Maisiuk</p></a> </div>
       </>
   )
 }

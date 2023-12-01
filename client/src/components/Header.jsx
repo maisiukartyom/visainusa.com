@@ -9,7 +9,6 @@ import '../pages/NewDesign.css';
 import CallForm from "./CallForm/CallForm";
 
 
-
 export const Header = () => {
 
     const {pathname} = useLocation();
@@ -96,8 +95,8 @@ export const Header = () => {
             <Link to="/"><span className="header-logo"><img src={"/images/logo.png"} alt="logo" width={70} height={94}/></span></Link>
             <nav id="burger-nav" className={`header-nav ${isOpen? "active" : ""}`}>
                 <ul className="header-nav-list">
-                    <Link to="/aboutus"><li className="header-nav-items about-us-main">About Us</li></Link>
-                    <Link to="/" state={{hash: "testimonials"}}><li className="header-nav-items">Testimonials</li></Link>
+                    <Link to="/aboutus"><li className="header-nav-items">About Us</li></Link>
+                    {!user && <Link to="/" state={{hash: "testimonials"}}><li className="header-nav-items">Testimonials</li></Link>}
                     <Link to="/" state={{hash: "contacts"}}><li className="header-nav-items">Contacts</li></Link>
                     <Link to="/" state={{hash: "pricing"}}><li className="header-nav-items">Pricing</li></Link>
                     <Link to="/foremployer"><li className="header-nav-items employer">For the U.S. employer</li></Link>

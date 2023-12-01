@@ -6,7 +6,7 @@ import {toast} from 'react-toastify'
 
 const Anketa = () => {
 
-    const [answers, setAnswers] = useState(Array(13).fill(''));
+    const [answers, setAnswers] = useState(Array(15).fill(''));
     const [isPopUpOpen, setIsPopUpOpen] = useState(false);
 
     const openPopUp = () => {
@@ -207,18 +207,20 @@ const Anketa = () => {
                             <input className="test input-anketa"  type="radio" name="question13" id="answerThirteen" value="no"/>No
                         </div>
                     </div>
+
                     <div className="thirteen" value={answers[13]} onChange={e => handleAnswerChange(13, e.target.value)}>
-                        <label className="label"value="" ><b>14.</b> Are you willing to commit to working in an unskilled position for the U.S. employer who will sponsor you for the permanent resident card, with a minimum commitment of 12 months? </label>
+                        <label className="label"value="" ><b>14.</b>  Are you willing to commit to working in an unskilled position for the U.S. employer who will sponsor you for the permanent resident card, with a minimum commitment of 12 months? </label>
                         <div className="mt">
-                            <input className="test input-anketa"  type="radio" name="question13"  value="yes"/>Yes
-                            <input className="test input-anketa"  type="radio" name="question13" id="answerThirteen" value="no"/>No
+                            <input className="test input-anketa"  type="radio" name="question14"  value="yes"/>Yes
+                            <input className="test input-anketa"  type="radio" name="question14" id="answerFourteen" value="no"/>No
                         </div>
                     </div>
+
                     <div className="thirteen" value={answers[14]} onChange={e => handleAnswerChange(14, e.target.value)}>
-                        <label className="label"value="" ><b>15.</b>   Have you ever violated any laws or regulations in your home country? </label>
+                        <label className="label"value="" ><b>15.</b>  Have you ever violated any laws or regulations in your home country? </label>
                         <div className="mt">
-                            <input className="test input-anketa"  type="radio" name="question13"  value="yes"/>Yes
-                            <input className="test input-anketa"  type="radio" name="question13" id="answerThirteen" value="no"/>No
+                            <input className="test input-anketa"  type="radio" name="question15"  value="yes"/>Yes
+                            <input className="test input-anketa"  type="radio" name="question15" id="answerFifteen" value="no"/>No
                         </div>
                     </div>
                     

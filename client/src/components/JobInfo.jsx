@@ -16,6 +16,7 @@ const JobInfo = () => {
     const [isFetched, setIsFetched] = useState(false);
     const [isChecked, setIsChecked] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
+    const [isUser, setIsUser] = useState(false);
 
     const navigate = useNavigate();
 
@@ -42,6 +43,7 @@ const JobInfo = () => {
                    withCredentials: true
                 })
                 setIsChecked(true);
+                setIsUser(true);
                 setIsAdmin(res.data.isAdmin);
             }
             catch{
@@ -100,7 +102,7 @@ const JobInfo = () => {
         </div>
         </div>)}
 
-        <Footer/>
+        <Footer isUser={isUser} />
         </div>
     )
 }

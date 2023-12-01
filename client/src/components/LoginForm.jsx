@@ -198,13 +198,13 @@ function LoginForm(props)  {
                         <button className="submit">Log in</button>
                     </div>
                     <div className="login-here">
-                    <p className="mini-text-log">Sign up please click </p>
-                    <Link to="/signup"><p className="here-log">here</p></Link>
+                        <p className="mini-text-log">Sign up please click </p>
+                        <Link to="/signup"><p className="here-log">here</p></Link>
                     </div>
                 </form>
                 {sendLink && <div><button style={{marginTop: "10px", backgroundColor: "green"}} className="submit" onClick={sendEmail}>send email</button></div> }
                 {forgot && <form onSubmit={resetPassword}>
-                    <input style={{marginTop: "10px"}} required type="email" value={forResetEmail} placeholder="Email to reset password" className="input-log" name="forResetEmail" type="email" onChange={(e) => setForResetEmail(e.target.value)} />
+                    <input style={{marginTop: "10px"}} required value={forResetEmail} placeholder="Email to reset password" className="input-log" name="forResetEmail" type="email" onChange={(e) => setForResetEmail(e.target.value)} />
                     <button style={{marginTop: "10px", backgroundColor: "green"}} className="submit">Forgot password</button>
                     </form>}
                 </div>

@@ -2,17 +2,15 @@ import "./main.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
-import { gsap } from "gsap";
 import {Link, useLocation} from 'react-router-dom';
 import { MainPhoto } from "../../components/MainPhoto";
 import SupportEngine from "../../components/SupportEngine";
 import axios from "../../api/axios";
 import {toast} from 'react-toastify';
 import CallForm from "../../components/CallForm/CallForm";
-import { Header } from "../../components/Header";
 
 
-const   Main = ({user}) => {
+const  Main = ({isUser, user}) => {
 
   const {state} = useLocation();
   const [levelsInfo, setLevelsInfo] = useState([]);
@@ -22,7 +20,6 @@ const   Main = ({user}) => {
     const getLevelsCosts = async () => {
       try{
         const levels = await axios.get("/payment/getLevelsCosts");
-        console.log(levels.data.levels)
         setLevelsInfo(levels.data.levels);
         setHasInfo(true);
       }
@@ -53,7 +50,8 @@ const   Main = ({user}) => {
   return (
     <>
       <div className="main">
-        <div className="titrecenter">
+        {!isUser && <>
+          <div className="titrecenter">
           <p className="titre titre-bottom" id="advantages" data-aos="fade-up">
             Our Advantages
           </p>
@@ -245,6 +243,8 @@ const   Main = ({user}) => {
         <a id="competans"></a>
         <div className="vie"></div>
         <a id="adresse"></a>
+        </>
+        }
 
 
 
@@ -262,13 +262,14 @@ const   Main = ({user}) => {
               user.level >= 1 && <p className="coming-newDesign">Paid</p>
             } */}
 
-<div className={"level-paid"}>
+            <div className={"level-paid"}>
             {/* <p className="coming-newDesign">Paid</p> */}
             <h2 className="appliName-future">Level 1</h2>
             
-            <>
+            <div className="price-all">
+          {hasInfo && <p className="appliName-levelOne-del price-all">${levelsInfo[0].originalCost}</p>}
                 <p className="appliName-levelOne price">FREE</p>
-              </>
+              </div>
               <Link to='/levelone'>
             <div className="text-discription-future">
               <p className="description-future ">
@@ -328,7 +329,7 @@ const   Main = ({user}) => {
               ((user.level && user.level < 2) || !user.level) &&
             <>
             <div className="price-all">
-            <p className="appliName-levelOne-del price-all">$500</p>
+            {hasInfo && <p className="appliName-levelOne-del price-all">${levelsInfo[1].originalCost}</p>}
               {hasInfo && <p className="appliName-level-two price-all">${levelsInfo[1].cost}</p>}
                 </div>
               </>
@@ -378,7 +379,7 @@ const   Main = ({user}) => {
               ((user.level && user.level < 3) || !user.level) &&
             <>
             <div className="price-all">
-            <p className="appliName-levelOne-del price-all">$1500</p>
+            {hasInfo && <p className="appliName-levelOne-del price-all">${levelsInfo[2].originalCost}</p>}
               {hasInfo && <p className="appliName-level-two price-all">${levelsInfo[2].cost}</p>}
                 </div>
               </>
@@ -633,8 +634,8 @@ const Contacts = () => {
   <div className="align">
                <h4 class="contact-name" id="contact">Contacts</h4>
                 <div className="number-phone">
-               
-               <a className="number" href='tel:+1 864 748 9898'><img src="/images/number.png" alt="phone" width={20} height={20} />+1 864 748 9898</a>
+                <a className="number" href='tel:+1 864 748 9898'>
+                  <img src="/images/number.png" alt="phone" width={20} height={20} />+1 864 748 9898</a>
                               </div>
                               <div className="number-phone">
                <img src="/images/mail.png" alt="phone" width={26} height={20} />
@@ -648,8 +649,8 @@ const Contacts = () => {
                               </div>
                               </div>
                               <div className="link-column">
-                              <a href="https://t.me/eb3visainusa" target="_blank"><img className="link-margin" src="images/telegram.png" alt="telegram" width="38" height="38" /></a>
-                              <a href="tel:+79168070961WhatsApp" target="_blank"> <img className="link-margin" src="images/whatsapp.png" alt="whatsapp" width="38" height="38" /></a>
+                              <a href="t.me/eb3visainusa" target="_blank"><img className="link-margin" src="images/telegram.png" alt="telegram" width="38" height="38" /></a>
+                        <a href="tel:+79168070961WhatsApp" target="_blank"><img className="link-margin" src="images/whatsapp.png" alt="whatsapp" width="38" height="38" /></a>
                         </div>
                </div>
             </div>
@@ -685,7 +686,7 @@ const Contacts = () => {
 //     )
 // }
 
-const Footer = () => {
+const Footer = ({isUser}) => {
 
     return (
         <>
@@ -696,9 +697,9 @@ const Footer = () => {
                     <Link to="/aboutus">
                         <p className="grey marg">Our team</p>
                     </Link>
-                    <a href="#advantages">
+                    {!isUser && <a href="#advantages">
                         <p className="grey marg">Advantages</p>
-                    </a>
+                    </a>}
                 </div>
                 <div className="contacts ">
                     <h4 className="parr4 light-color">Services</h4>
@@ -709,12 +710,12 @@ const Footer = () => {
                         <p className="grey marg">Pricing</p>
                     </a>
                 </div>
-                <div className="contacts ">
+{  !isUser &&              <div className="contacts ">
                     <h4 className="parr4 light-color">Success Stories</h4>
                     <a href="#testimonials">
                         <p className="grey marg">Testimonials</p>
                     </a>
-                </div>
+                </div>}
                 <div className="contacts ">
                     <div className="links">
                         <a href="https://t.me/eb3usa" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/telegram.png?v=1698341412493" alt="telegram" width="38" height="38" /></a>
@@ -722,10 +723,10 @@ const Footer = () => {
                         <a href="https://www.youtube.com/@EB3unskilled" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/youtube.png?v=1698341435865" alt="youtube" width="38" height="38" /></a>
                     </div>
                 </div>
-
+                
             </footer>
             <div className="created"><p className="we-creat">Created by</p></div>
-            <div className="created-we"><p className="we"> Olya Safronova</p> <p className="we">and</p><p className="we"> Artsiom Maisiuk</p> </div>
+            <div className="created-we"><p className="we"> Olya Safronova</p> <p className="we">and</p><a href="https://github.com/maisiukartyom"><p className="we"> Artsiom Maisiuk</p></a> </div>
         </>
     )
 }
@@ -735,24 +736,6 @@ const Index = () => {
   const [isUser, setIsUser] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
-
-  const fly = () => {
-    if (window.innerWidth >= 1370) {
-      gsap.from("#first-text", { x: 1500, duration: 0.8, ease: "power1.out" });
-      gsap.from("#second-text", {
-        x: 1500,
-        duration: 0.8,
-        ease: "power1.out",
-        delay: 0.5,
-      });
-      gsap.from("#third-text", {
-        x: 1500,
-        duration: 0.8,
-        ease: "power1.out",
-        delay: 0.9,
-      });
-    } 
-  };
 
   useEffect(() => {
     const verifyCookie = async (level) => {
@@ -801,26 +784,26 @@ const Index = () => {
         })
     })
     AOS.init();
-    fly();
     verifyCookie(0)
   }, []);
 
   const logout = () => {
     setUser({})
-    setIsVerified(false)
     setIsAdmin(false)
     setIsUser(false)
   }
 
   return (
+    
+    isVerified &&
     <>
-        {/* <HeaderForMain /> */}
+        {/* <HeaderForMain logout = {logout}/> */}
 
-        <MainPhoto logout={logout} />
-        <Main user={user} />
-        <Testimonials />
+        <MainPhoto isUser={isUser} logout={logout} />
+        <Main isUser={isUser} user={user} />
+        {!isUser && <Testimonials />}
         <Contacts />
-        <Footer />
+        <Footer isUser={isUser} />
         {
           isVerified && !isAdmin && isUser &&           
           <>
