@@ -3,6 +3,7 @@ const User = require('../model/User');
 const Level = require('../model/Level')
 const jwt = require('jsonwebtoken');
 const paypal = require('@paypal/checkout-server-sdk');
+const stripe = require('stripe')(process.env.STRIPE_SECRET);
 
 const clientId = process.env.PAYPAL_CLIENT_ID;
 const clientSecret = process.env.PAYPAL_SECRET_KEY;
@@ -153,7 +154,7 @@ const handlePaypalTransactionComplete = async (req, res) => {
                   currency: result.purchase_units[0].payments.captures[0].amount.currency_code,
                 })
 
-                res.cookie('jwt', accessToken, { httpOnly: true, secure: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 }).json(resJson);;
+                res.cookie('jwt', accessToken, { httpOnly: true, secure: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 }).json(resJson);
               }
               catch (err){
                 console.log(err)
@@ -207,7 +208,103 @@ const handleGetTransactions = async (req, res) => {
   res.json(transactions);
 }
 
+const createIntent = async (req, res) => {
+  try{
+    const token = req.cookies.jwt;
+    const level = req.body.level;
+    const currLevel = await Level.findOne({levelNumber: level});
+    const priceTotal = currLevel.cost * 100;
+
+    jwt.verify(
+      token,
+      process.env.ACCESS_TOKEN_SECRET,
+      async (err, data) => {
+          if (err) {
+            res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true });
+            return res.sendStatus(403);
+          }
+          const email = data.email;
+
+          try{
+            const user = await User.findOne({email})
+
+            if (user){
+              const paymentIntent = await stripe.paymentIntents.create({
+                amount: priceTotal,
+                currency: "usd",
+                automatic_payment_methods: {
+                  enabled: true,
+                },
+                // payment_method_types: ['card']
+              });
+  
+              res.json({ clientSecret: paymentIntent.client_secret, email })
+            }
+            else{
+              res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true });
+              res.status(500)
+            }
+          }
+          catch (err){
+            console.log(err)
+            res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true });
+            res.status(500).json({ error: err.message });
+          }
+      }
+    );
+  }
+  catch(err){
+    console.log(err)
+    res.status(500).json({ error: err.message });
+  }
+}
+
+const success = async (req, res) => {
+  try{
+    const level = req.body.level;
+    const token = req.cookies.jwt;
+
+    jwt.verify(
+      token,
+      process.env.ACCESS_TOKEN_SECRET,
+      async (err, data) => {
+          if (err) {
+            res.clearCookie('jwt', { httpOnly: true, sameSite: 'None', secure: true });
+            return res.sendStatus(403);
+          }
+          const email = data.email;
+
+          try{
+            const user = await User.findOneAndUpdate({email}, {level})
+
+            const accessToken = jwt.sign(
+              { 
+                  "email": email,
+                  "isAdmin": user.isAdmin,
+                  "level": level
+               },
+              process.env.ACCESS_TOKEN_SECRET,
+              { expiresIn: '1d' }
+            );
+
+            res.cookie('jwt', accessToken, { httpOnly: true, secure: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 });
+
+            res.sendStatus(200)
+          }
+          catch (err){
+            console.log(err)
+            res.status(500).json({ error: err.message });
+          }
+      }
+    );
+  }
+  catch(err){
+    console.log(err)
+    res.status(500).json({ error: err.message });
+  }
+}
+
 module.exports = {handlePayment, handleVerify, 
   handlePaypalTransactionComplete, 
   handleGetTransactions, getLevelCost,
-  getLevelsCosts, updateLevels}
+  getLevelsCosts, updateLevels, createIntent, success}

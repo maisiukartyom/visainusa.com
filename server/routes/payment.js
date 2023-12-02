@@ -11,5 +11,6 @@ router.get('/getTransactions', paymentController.handleGetTransactions);
 router.post('/getLevelCost', paymentController.getLevelCost);
 router.get('/getLevelsCosts', paymentController.getLevelsCosts);
 router.post('/updateLevels', paymentController.updateLevels);
-
+router.post('/create-payment-intent', paymentController.createIntent);
+router.post('/success', paymentController.success);
 module.exports = router;

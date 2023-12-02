@@ -2,11 +2,15 @@
 import React, { useEffect, useState } from "react" ;
 import axios from '../api/axios';
 import { useLocation, useNavigate } from 'react-router-dom';
-import SupportEngine from "./SupportEngine";
 import {toast} from 'react-toastify'
 import { PayPalButton } from 'react-paypal-button-v2';
 import styled from 'styled-components';
 import "./Payment/Payment.css";
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+import { CheckoutForm } from "./CheckoutForm";
+
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE);
 
 const ButtonBack = styled.button`
   background-color: #032144;
@@ -30,10 +34,37 @@ const ButtonBack = styled.button`
 const Payment = () => {
     const navigate = useNavigate();
     const [isVerified, setIsVerified] = useState(false);
+    const [clientSecret, setClientSecret] = useState('');
     const {state} = useLocation();
 
 
     useEffect(() => {
+        async function createIntent(requiredLevel){
+            try{
+                const res = await axios.post("/payment/create-payment-intent",
+                {
+                    level: requiredLevel
+                },
+                {
+                    withCredentials: true
+                });
+                setClientSecret(res.data.clientSecret)
+            }
+            catch(err){
+                toast.error("Couldn't create payment intent!",{
+                    position: "top-center",
+                    autoClose: 6000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    progress: undefined,
+                    theme: "light",
+                    }    
+                )
+                navigate(-1);
+            }
+        }
         async function verifyCookie(requiredLevel) {
             try{
                 const user = await axios.post("auth/verify",
@@ -43,7 +74,7 @@ const Payment = () => {
                 {
                     withCredentials: true
                 })
-
+                setIsVerified(true)
             }
             catch(err){
                 toast.error("You are not authorized!",{
@@ -81,7 +112,8 @@ const Payment = () => {
 
         }
         else{
-            setIsVerified(true)
+            setIsVerified(true);
+            createIntent(state.levelToPurchase);
         }
     }, [])
 
@@ -201,6 +233,15 @@ const Payment = () => {
         })
     }
 
+    const appearance = {
+        theme: 'stripe',
+      };
+
+      const options = {
+        clientSecret,
+        appearance,
+      };
+
 
     return (
         isVerified &&
@@ -210,13 +251,18 @@ const Payment = () => {
             <h2 className="pay-level">Payment for LEVEL {state.levelToPurchase}. You are ready to pay ${state.price}!</h2>
             <div className="btn-pay">
 
-            <PayPalButton className="paypal-button"
-                createOrder={createOrder}
-                onApprove={onApprove}
-            ></PayPalButton>
+                <PayPalButton className="paypal-button"
+                    createOrder={createOrder}
+                    onApprove={onApprove}
+                ></PayPalButton>
 
 
-                        </div>
+            </div>
+            {        clientSecret && (
+                <Elements options={options} stripe={stripePromise}>
+                    <CheckoutForm secret={clientSecret} level={state.levelToPurchase} />
+                </Elements>
+            )}
                         <div className="checkpay">
                         <div className="border-pay">
             
@@ -257,6 +303,8 @@ const Payment = () => {
                         </div>
                         </div>
                         </div>
+
+        
     );
 }
 
