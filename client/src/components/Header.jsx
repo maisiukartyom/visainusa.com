@@ -104,14 +104,14 @@ export const Header = () => {
                         !user && 
                         <>
                         <Link
-                            className="header-nav-items item-buttonss login-l"
+                            className=" item-buttonss-login login-l"
                             to="/login"
                             state={{previousPath: pathname}}
                         >
                         Log in
                         </Link>
                         <Link
-                            className="header-nav-items item-buttonss sign-l"
+                            className=" item-buttonss sign-l"
                             to="/signup"
                         >
                         Sign up
@@ -131,12 +131,12 @@ export const Header = () => {
 
                         {
                         isAdmin && 
-                            <Link className="header-nav-items item-buttons login-l" to="/admin">Admin</Link>
+                            <Link className=" item-buttonss login-l" to="/admin">Admin</Link>
                         }
 
-                        <li className="header-nav-items welcome  ">Welcome {chatUser.email}</li>
+                        <li className="wel-email welcome  ">Welcome {chatUser.email}</li>
                         <div
-                            className="header-nav-items item-buttons sign-l"
+                            className=" item-buttonss sign-l"
                             onClick={logout}
                         >
                             Logout

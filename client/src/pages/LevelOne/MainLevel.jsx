@@ -57,19 +57,22 @@ export const MainLevel = () => {
                   What is EB3 unskilled visa category?
                   </li>
                   <li className="description-level">
-                  How does EB3 unskilled visa work?
-                  </li>
-                  <li className="description-level">
-
-                  How long does it take to get the U.S.  permanent resident card? 
-                  </li>
-
-                  <li className="description-level">
                   Am I eligible for EB3 unskilled visa?
                   </li>
                   <li className="description-level">
                   How much does EB3 unskilled cost?
                   </li>
+                  <li className="description-level">
+
+How long does it take to get the U.S.  permanent resident card? 
+</li>
+                  <li className="description-level">
+                  How does EB3 unskilled visa work?
+                  </li>
+
+
+
+
                   <li className="description-level">
                   What should I do in case of refusal?
                   </li>

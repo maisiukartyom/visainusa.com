@@ -131,6 +131,25 @@ display: block;
 
   }
 
+  .about-us-main{
+	width: 150px;
+  }
+  .sign-l{
+	margin-left: -3%;
+  }
+  .wel-email{
+  
+	  font-family: 'Roboto', sans-serif;
+		font-weight: 100;
+		font-size: 24px;
+		text-decoration: none;
+		color: var(--color);
+		padding: 10px 14px;
+  text-align: center;
+	  cursor: pointer;
+		transition: transform .5s;
+	}
+
 
   
 @-webkit-keyframes pulsing {

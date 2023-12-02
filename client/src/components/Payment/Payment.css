@@ -1,0 +1,119 @@
+
+
+.payment-center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.pay-level{
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    margin-bottom: 8%;
+    color: var(--dark-color);
+    font-size: 26px;
+}
+.pay{
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+}
+.pay-text{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin-top: -2%;
+   
+}
+.btn-pay{
+    display: flex;
+    justify-content: center;
+
+}
+
+.paypal-button{
+
+}
+.checkpay{
+    display: flex;
+    justify-content: center;
+}
+.border-pay{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 850px;
+    border: 2px #244B7A solid;
+    padding:10px;
+}
+.mainpay{
+    display: flex;
+    justify-content: center;
+}
+.pay-name{
+    max-width: 480px;
+    font-family: 'Merriweather', serif;
+    text-align: justify;
+    word-spacing: 1px;
+    font-size: 14px;
+    color: var(--deep-dark);
+    font-weight: 600;
+   
+}
+
+.check-choose{
+    display: flex;
+    justify-content: space-between;
+    max-width: 1050px;
+
+}
+.padding-pay{
+    padding: 16px;
+}
+.check-infoone{
+    font-family: 'Merriweather', serif;
+    text-align: justify;
+    word-spacing: 1px;
+    font-size: 14px;
+    color: var(--deep-dark);
+    max-width: 310px;
+
+}
+.check-infotwo{
+    font-family: 'Merriweather', serif;
+    text-align: justify;
+    word-spacing: 1px;
+    font-size: 14px;
+    color: var(--deep-dark);
+    max-width: 310px;
+}
+
+.pay-desc{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+.text-pay{
+    max-width: 700px;
+    text-align: justify;
+    word-spacing: 1px;
+    font-family: 'Merriweather', serif;
+    font-size: 14px;
+    color: var(--deep-dark);
+    font-weight: 400;
+   line-height: 22px;
+}
+
+@media (max-width:546px){
+    .check-choose{
+        display: flex;
+flex-direction: column;
+    
+    }
+
+    .pay-level{
+        font-size: 20px;
+        margin-top: 60px;
+    }
+
+}
+

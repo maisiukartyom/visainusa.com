@@ -4,10 +4,20 @@ export const MainLevelPaid = () => {
     return(
         <div className="text-levelonee">
           <h2 className="h2-level">Level 1</h2>
+          
           <div className='border-text'>
           <p className='text-level-important'>Disclaimer: "Visa in USA" LLC is not a law firm and does not provide legal advice. No information on www.visainusa.com constitutes legal advice nor is evidence of an attorney-client relationship. To get legal advice please get in touch with an immigration attorney.</p>
-          </div>
+                   </div>
 
+                   <div className='LinksER'>
+                   <p className='Text-Link' >Do you want to gather more information about EB3 unskilled, feel free to join to : </p>
+
+                  
+                   <div className='links-chatt'>
+                   <a href="https://t.me/eb3unskilledusa" target="_blank"><button className='en'> English-speaking EB3 online community </button></a>
+                   <a href="https://t.me/eb3usa" target="_blank"><button className='ru'> Russian-speaking EB3 online community </button></a>
+                   </div>
+                   </div>
           <div className="video-level-one">
             <div className='videoLev'>
               <div>
@@ -17,8 +27,8 @@ export const MainLevelPaid = () => {
           <p className='text-levelOneMain'>What is EB3 unskilled visa category?</p>
           <hr className='hr-levelone'></hr>
           <div>
-          <TextBlockone className="text-levelOne"  title=" Obtaining green card through EB3 unskilled is accessible to many, as it doesn't necessitate a specific level of education, previous job experience, or English proficiency.
-            However, applicants must be at least 18 years old, have a clean legal   ..." description=" record without any violations of U.S. laws and regulations, and pass a medical examination. It's crucial to note immigration policies are subject to change. For initial assessment of pre-eligibility, you can use the tool on the main page."/>
+          <TextBlockone className="text-levelOne"  title=" Put simply, the EB-3 unskilled visa is your pathway to obtaining a 10-year permanent residency (green card) in the United States. To apply for the EB-3 unskilled category, you need a U.S. employer to sponsor your petition (I-140).
+           Upon      ..." description=" petition approval, the foreign national can apply for an immigrant visa (I-551) at a U.S. embassy in their home country or file an adjustment of status (I-485) with the USCIS if the applicant resides within the U.S."/>
                           </div> 
                           </div>
                           </div>
@@ -36,6 +46,18 @@ export const MainLevelPaid = () => {
                           </div>
                           
 
+
+                          <div>
+                          <div className='levelone-text'>
+                          <iframe src="https://www.youtube.com/embed/6TcS4XGSLyw?si=tYs0BtlzHAJuZTYT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" className="youtube-levelone" allowfullscreen></iframe>
+          <p className='text-levelOneMain'>How much does EB3 unskilled cost?</p>
+          <hr className='hr-levelone'></hr>
+          <div>
+          <TextBlockone className="text-levelOne"  title=" The cost can vary for different agencies, with a median threshold in the market around $20,000. For a more cost-effective approach, consider our Level 3, which we call self-immigration with no overpriced assistance.  ..." description="  For just $599, you gain access to a pool of hundreds of U.S. employers who may be experiencing unskilled labor shortages and could potentially become your sponsor. You'll receive a template for an email and presentation to assist you in finding a U.S. employer independently. Moreover, you will receive a curated list of immigration attorneys who can assist your sponsor with the PERM process and help draft, review, and file your immigration forms.
+Additionally, you'll be provided with step-by-step instructions for self-filing immigration forms, with the option to consult with a lawyer for a final check before submission to USCIS. Level 3 also includes a 60-minute personal consultation with one of our immigration experts."/>
+                          </div>
+                          </div>
+                          </div>
                           <div>
                           <div className='levelone-text-red'>
           <iframe    src="https://www.youtube.com/embed/LVU1Ws2f5UA?si=by2bJFSsqETyH9FV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
@@ -62,32 +84,6 @@ export const MainLevelPaid = () => {
                           </div>
                           </div>
                           </div>
-                          <div>
-                          <div className='levelone-text'>
-                          <iframe src="https://www.youtube.com/embed/6TcS4XGSLyw?si=tYs0BtlzHAJuZTYT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" className="youtube-levelone" allowfullscreen></iframe>
-          <p className='text-levelOneMain'>How much does EB3 unskilled cost?</p>
-          <hr className='hr-levelone'></hr>
-          <div>
-          <TextBlockone className="text-levelOne"  title=" Here's a general overview of how the EB3 unskilled program works:
-
-          An employer in the U.S. offers a job to a foreign national for an unskilled position.The U.S. employer
-          must obtain a labor certification from the U.S. Department of Labor. ..." description="  This involves demonstrating that there are no U.S. workers
-            available for the position and that hiring the foreign worker will not adversely affect 
-          the wages and working conditions of similarly employed U.S. workers.
-
-          Once the labor certification is approved, the U.S. employer files Form I-140, Immigrant Petition for Alien Worker, on behalf of the foreign worker with USCIS. This petition establishes that the foreign worker meets the eligibility criteria for the EB-3 unskilled category.
-
-          Visa Bulletin and Priority Date: Due to annual numerical limits on immigrant visas, there may be a waiting period.
-          The foreign national is assigned a priority date, and they can track visa availability through the Visa Bulletin published by the U.S. Department of State.
-
-          Immigrant Visa Application or Adjustment of Status:
-          Once the Priority Date becomes current, the foreign national can either apply for an immigrant visa at a U.S. embassy in their home country or file an adjustment of status with USCIS if they are already in the U.S.
-
-          Upon approval of the immigrant visa or adjustment of status, the foreign national becomes a U.S. permanent resident and is issued a green card. Contact our experts to receive guidance on the application process."/>
-                          </div>
-                          </div>
-                          </div>
-
                           <div>
           <div className='levelone-text'>
           <iframe    src="https://www.youtube.com/embed/Dunv6PH8oX8?si=o7GlSxZpNjdjsRl6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
@@ -126,23 +122,6 @@ export const MainLevelPaid = () => {
                           </div>
                           </div>
 
-                          
-                          <div>
-                          <div className='levelone-text-red'>
-          <iframe    src="https://www.youtube.com/embed/suNWpzlncSI?si=Mzt7pxUGO1oxlrGM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
-          clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen className="youtube-levelone"></iframe> 
-          <p className='text-levelOneMain'>What should I do in case of refusal?</p>
-          <hr className='hr-levelone'></hr>
-          <TextBlockone className="text-levelOne"  title=" In general, if you have never violated any U.S. laws or regulations, there is typically no need to worry about being denied. However, it is an immigration process, and no one can give a 100% guarantee.
-            Rejection may occur due to your 
-              ..." description="sponsor's  fault or your own circumstances. First, carefully review the rejection letter to understand the specific reasons for the refusal. Consult an Immigration Attorney, 
-              they can determine if you may have the option to appeal the decision." description1=" You may be refused:" description2="
-          1) if you have serious health problems, as you will be required to undergo a medical examination before the immigration interview.
-           Immigrants and refugees must undergo a medical exam as part of the immigration process for entry into the United States or adjustment of immigration status. The medical exam includes screening for any illness defined as a communicable disease of public health significance. The exams are conducted by doctors both in other countries and in the United States. Doctors who screen applicants outside of the United States are called 'panel physicians,' while those screening applicants in the United States are called 'civil surgeons.' Communicable diseases of public health significance that can prevent entry to the United States fall into three categories. Immigrants and refugees will not be allowed to enter the United States if they are detected with any of the following diseases listed in 42 CFR part 34: active tuberculosis, infectious syphilis, gonorrhea, and infectious leprosy (Hansen’s disease). Quarantinable communicable diseases, designated by Presidential Executive Order, include cholera, diphtheria, infectious tuberculosis, plague, smallpox, yellow fever, viral hemorrhagic fevers, severe acute respiratory syndromes, and influenza caused by novel or re-emergent influenza viruses (pandemic flu). Communicable diseases may pose a public health emergency of international concern if they meet certain risk factors and either pose a threat of being imported into the U.S. or affect the health of the U.S. population. Moreover, communicable diseases for which a single case requires notification to the World Health Organization (WHO) as an event that may constitute a public health emergency of international concern include pandemic flu, polio, 
-          SARS, and smallpox. Source: CDC Immigrant Refugee Health."  description3="2) If, during the immigration interview, the immigration officer doubts your commitment to fulfill the 12-month obligation. In such a situation, if the officer asks you general questions like, 'Why did you decide to apply for the EB3 unskilled visa?' and your response is, 'I don't know what the EB3 visa is,' it may raise concerns about your understanding and commitment to the visa category. Or if the officer asks you questions such as, 'Who is your sponsor, where will you work, and what are your job duties?' and your response is, 'I do not know who my sponsor is, and I don't know that I need to work there,' it could raise serious concerns during the immigration interview. It's crucial to have a thorough understanding of your sponsor, job details, and the terms of your visa application. Being uninformed about such essential aspects may negatively impact the officer's assessment of your eligibility for the EB3 unskilled visa. It's important to be well-prepared for the interview and have a clear understanding of the visa you are applying for, as well as your intentions and obligations associated with it." description4=" 3) If your sponsor encounters issues such as no longer requiring unskilled workers, losing the ability to pay your salary for 12 months, or selling the business, it could potentially impact your EB3 unskilled visa application. In such situations, it's important to promptly address the changes and assess the impact on your visa application. You may need to notify the relevant authorities and explore potential solutions, such as finding a new sponsor or employer who can fulfill the required conditions. Pending the I-485 form for more than 6 months gives you the right to switch to a new sponsor and not start your EB3 process from scratch. The ability to switch sponsors would depend on various factors, and it's essential to consider the specifics of your situation. If you are considering changing sponsors during the I-485 process, you should be aware of the following: maintaining Eligibility - ensure that you continue to meet the eligibility criteria for the EB3 unskilled category. New Sponsor's Involvement - the new sponsor would need to file a new I-140 petition on your behalf. Priority Date - the priority date established with the initial I-140 petition may still be relevant. When switching sponsors, the new I-140 petition should have a current priority date or be in a category with a current priority date. Consistency with Original Petition - the new employment should align with the job offer presented in the original petition, and the new sponsor 
-          should be willing to assume the obligations of the previous sponsor."/>
-                          </div>
-                          </div>
                           <div>
           <div className='levelone-text-red'>
           <iframe    src="https://www.youtube.com/embed/ERKuxdmO5lg?si=jI086a8QiWwtO7oZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
@@ -150,11 +129,13 @@ export const MainLevelPaid = () => {
           <p className='text-levelOneMain'>Can I adjust my status to EB3 unskilled?</p>
           <hr className='hr-levelone'></hr>
           <div>
-          <TextBlockone className="text-levelOne"  title=" Disclaimer: 'Visa in US' LLC is not a law firm and does not provide legal advice.
-            No information on www.visainusa.com constitutes legal advice nor is evidence of an attorney-client relationship. To get legal
-            advice please get in touch with an     ..." description="immigration attorney." description1=" Visitor status (B1/B2) provides
-             three pathways to apply for EB3 unskilled:
-            1. Adjustment of status (AOS): If you are in the U.S. on B status, completing the entire adjustment of status 
+          <TextBlockone className="text-levelOne"  title=" U.S. law and regulation allow certain foreign nationals who are
+           eligible to get their green card without having to leave the U.S. to adjust their non-immigration status to the
+            EB3 unskilled  if they are   ..." description=" already in the United States. To gather more information on whether 
+            it is possible to apply for the EB3 unskilled visa from pending asylum status, or U4U, TPS, or other non-immigrant 
+            visas such as B, F, J, and more, please refer to the article below this video." descriptionn1=" Visitor status (B1/B2) provides
+             three pathways to apply for EB3 unskilled:"
+             description1=" 1. Adjustment of status (AOS): If you are in the U.S. on B status, completing the entire adjustment of status 
             (AOS) from within the U.S. might not be possible. B status allows you to stay in the U.S. for up to 6 months,
              while AOS may take 2-4 years. You can attempt to extend B status for an additional 6 months, but it may still
               not be sufficient. You can apply for EB3 unskilled while you have valid B status and change your B status to 
@@ -237,15 +218,42 @@ export const MainLevelPaid = () => {
                           </div> 
                           </div>
                           </div>
-                           <div>
-          <div className='levelone-text'>
-          <iframe    src="https://www.youtube.com/embed/q3nw5Y4eqIg?si=M1kIhIxr_eMbAghw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
+                          <div>
+                          <div className='levelone-text-red'>
+          <iframe    src="https://www.youtube.com/embed/suNWpzlncSI?si=Mzt7pxUGO1oxlrGM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
           clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen className="youtube-levelone"></iframe> 
-          <p className='text-levelOneMain'>What is EB3 unskilled visa category?</p>
+          <p className='text-levelOneMain'>What should I do in case of refusal?</p>
+          <hr className='hr-levelone'></hr>
+          <TextBlockone className="text-levelOne"  title=" In general, if you have never violated any U.S. laws or regulations, there is typically no need to worry about being denied. However, it is an immigration process, and no one can give a 100% guarantee.
+            Rejection may occur due to your 
+              ..." description="sponsor's  fault or your own circumstances. First, carefully review the rejection letter to understand the specific reasons for the refusal. Consult an Immigration Attorney, 
+              they can determine if you may have the option to appeal the decision." description1=" You may be refused:" description2="
+          1) if you have serious health problems, as you will be required to undergo a medical examination before the immigration interview.
+           Immigrants and refugees must undergo a medical exam as part of the immigration process for entry into the United States or adjustment of immigration status. The medical exam includes screening for any illness defined as a communicable disease of public health significance. The exams are conducted by doctors both in other countries and in the United States. Doctors who screen applicants outside of the United States are called 'panel physicians,' while those screening applicants in the United States are called 'civil surgeons.' Communicable diseases of public health significance that can prevent entry to the United States fall into three categories. Immigrants and refugees will not be allowed to enter the United States if they are detected with any of the following diseases listed in 42 CFR part 34: active tuberculosis, infectious syphilis, gonorrhea, and infectious leprosy (Hansen’s disease). Quarantinable communicable diseases, designated by Presidential Executive Order, include cholera, diphtheria, infectious tuberculosis, plague, smallpox, yellow fever, viral hemorrhagic fevers, severe acute respiratory syndromes, and influenza caused by novel or re-emergent influenza viruses (pandemic flu). Communicable diseases may pose a public health emergency of international concern if they meet certain risk factors and either pose a threat of being imported into the U.S. or affect the health of the U.S. population. Moreover, communicable diseases for which a single case requires notification to the World Health Organization (WHO) as an event that may constitute a public health emergency of international concern include pandemic flu, polio, 
+          SARS, and smallpox. Source: CDC Immigrant Refugee Health."  description3="2) If, during the immigration interview, the immigration officer doubts your commitment to fulfill the 12-month obligation. In such a situation, if the officer asks you general questions like, 'Why did you decide to apply for the EB3 unskilled visa?' and your response is, 'I don't know what the EB3 visa is,' it may raise concerns about your understanding and commitment to the visa category. Or if the officer asks you questions such as, 'Who is your sponsor, where will you work, and what are your job duties?' and your response is, 'I do not know who my sponsor is, and I don't know that I need to work there,' it could raise serious concerns during the immigration interview. It's crucial to have a thorough understanding of your sponsor, job details, and the terms of your visa application. Being uninformed about such essential aspects may negatively impact the officer's assessment of your eligibility for the EB3 unskilled visa. It's important to be well-prepared for the interview and have a clear understanding of the visa you are applying for, as well as your intentions and obligations associated with it." description4=" 3) If your sponsor encounters issues such as no longer requiring unskilled workers, losing the ability to pay your salary for 12 months, or selling the business, it could potentially impact your EB3 unskilled visa application. In such situations, it's important to promptly address the changes and assess the impact on your visa application. You may need to notify the relevant authorities and explore potential solutions, such as finding a new sponsor or employer who can fulfill the required conditions. Pending the I-485 form for more than 6 months gives you the right to switch to a new sponsor and not start your EB3 process from scratch. The ability to switch sponsors would depend on various factors, and it's essential to consider the specifics of your situation. If you are considering changing sponsors during the I-485 process, you should be aware of the following: maintaining Eligibility - ensure that you continue to meet the eligibility criteria for the EB3 unskilled category. New Sponsor's Involvement - the new sponsor would need to file a new I-140 petition on your behalf. Priority Date - the priority date established with the initial I-140 petition may still be relevant. When switching sponsors, the new I-140 petition should have a current priority date or be in a category with a current priority date. Consistency with Original Petition - the new employment should align with the job offer presented in the original petition, and the new sponsor 
+          should be willing to assume the obligations of the previous sponsor."/>
+                          </div>
+                          </div>
+
+                           <div>
+          <div className='levelone-text-red'>
+          <iframe    src="https://www.youtube.com/embed/LiaLKhQQ6mA?si=shCT7oIdXvxfuSzn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
+          clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen className="youtube-levelone"></iframe> 
+          <p className='text-levelOneMain'>I worked unauthorized, can I apply for the EB3 unskilled?</p>
           <hr className='hr-levelone'></hr>
           <div>
-          <TextBlockone className="text-levelOne"  title=" Obtaining green card through EB3 unskilled is accessible to many, as it doesn't necessitate a specific level of education, previous job experience, or English proficiency.
-            However, applicants must be at least 18 years old, have a clean legal   ..." description=" record without any violations of U.S. laws and regulations, and pass a medical examination. It's crucial to note immigration policies are subject to change. For initial assessment of pre-eligibility, you can use the tool on the main page."/>
+          <TextBlockone className="text-levelOne"  title=" If you have worked without authorization in the U.S. for less than 180 days, it should not be troublesome,
+          as it is not considered unauthorized work.   ..." description=" If you have worked without authorization in the U.S. for more than 180 days, it could negatively impact your immigration case. To apply for EB3 unskilled through the Adjustment of Status pathway (inside the U.S.), you would need to depart and re-enter the U.S (a valid passport and a valid visa are mandatory) to 'fix' the unauthorized work. Once you re-enter the U.S., 
+          the unauthorized work 'clock' will reset, allowing you to apply for the green card." descriptionn1="Another option, if you prefer not to re-enter the U.S., is to apply for EB3 unskilled through the consular processing pathway, even if you are inside the U.S. This means that once your Labor Certification and I-140 are approved, you will need to leave the U.S. and apply for the green
+           card (DS-260) from outside." description1="Any job performed without authorization is considered unauthorized, irrespective of whether taxes were paid. Furthermore, receiving payment in cash for any job within the U.S. or performing tasks remotely, including but not limited to teaching, accounting, or coding, for a company located outside of the U.S. without the proper authorization is also deemed unauthorized work. While volunteering is generally allowed, 
+           taking on positions typically held by paid employees is generally prohibited."description2="However, even without a work permit,
+            there are certain options available:" description3= "1) You can establish or buy a legal entity. However, you must hire someone with a valid Employment Authorization Document (EAD) to work in your company, as you cannot be involved in the daily routine business activities. In this
+             capacity,  you can only receive income as a beneficiary." description4="2) You can make financial investments for capital generation, such as investing in stocks or bonds and being involved passively as an investor, without participating in productive work for the company. It's important to note
+              that actively engaging in the day-to-day operations of a business or participating in active Forex trading is
+               not allowed." description5="It's crucial to be honest and transparent about your immigration history when
+                applying for the EB3 unskilled visa. USCIS may require you to disclose any unauthorized employment, and failure
+                 to do so could have serious consequences, including visa denials or even removal from the U.S." description6="It is crucial to be honest and transparent about your immigration history when applying for the EB3 unskilled visa. USCIS may require you to disclose any unauthorized employment, and failure to do so could have serious consequences, including visa denials or even removal
+                  from the U.S" />
                           </div> 
                           </div>
                           </div> 
@@ -257,6 +265,7 @@ export const MainLevelPaid = () => {
           <iframe    src="https://www.youtube.com/embed/5xy9vZnWBAQ?si=y8edB37RtYLaQDL-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
           clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen className="youtube-levelone"></iframe> 
           <p className='text-levelOneMain'>How to move from political asylum to EB3 unskilled?</p>
+          <hr className='hr-levelone-white'></hr>
 
                           </div>
                           </div>

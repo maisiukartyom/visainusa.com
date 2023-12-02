@@ -6,23 +6,25 @@ import SupportEngine from "./SupportEngine";
 import {toast} from 'react-toastify'
 import { PayPalButton } from 'react-paypal-button-v2';
 import styled from 'styled-components';
+import "./Payment/Payment.css";
 
 const ButtonBack = styled.button`
   background-color: #032144;
   color: white; 
-  padding: 10px 20px; 
+  padding: 10px 10px; 
   font-size: 16px; 
   border: none; 
   border-radius: 5px; 
   cursor: pointer;
+  font-size:12px;
 
   &:hover {
     background-color: #244B7A; 
   }
 
   position: absolute;
-  top: 20px;
-  left: 20px;
+  top: 12px;
+  left: 12px;
 `;
 
 const Payment = () => {
@@ -201,16 +203,59 @@ const Payment = () => {
 
     return (
         isVerified &&
-        <div>
-            <ButtonBack onClick={() => navigate(-1)}>Back</ButtonBack>
-            <h2>Payment for LEVEL {state.levelToPurchase}. You are ready to pay ${state.price}!</h2>
-            <PayPalButton
+        <div className="pay">
+        <div className="payment-center">
+            <ButtonBack className="back-btn" onClick={() => navigate(-1)}>Back</ButtonBack>
+            <h2 className="pay-level">Payment for LEVEL {state.levelToPurchase}. You are ready to pay ${state.price}!</h2>
+            <div className="btn-pay">
+
+            <PayPalButton className="paypal-button"
                 createOrder={createOrder}
                 onApprove={onApprove}
             ></PayPalButton>
-            <p><strong>If you experience trouble with payment from Russia or Belarus, you can ask your friends or relatives who have VISA/MASTERCARD to make payment on your behalf, we will accept such payments. <br/>Second option is to make payments to Sberbank account by phone number</strong></p>
-        </div>
 
+
+                        </div>
+                        <div className="checkpay">
+                        <div className="border-pay">
+            
+<div className="mainpay"><p className="pay-name">Recipient Bank:  Bank of America
+<p>Address:  N.A.,222 Broadway, New York, NY, 10038</p>
+<p>Currency:  U.S. dollar</p>
+Purpose of the payment:  Consulting service</p>
+</div>
+<div className="check-choose">
+    <div className="padding-pay">
+<p className="check-infoone"><p ><strong>for payment OUTSIDE of the U.S.  </strong></p>
+<hr></hr>
+<p><strong>Account Number:</strong>  2230 3175 3873</p>
+<p ><strong>Routing Number(ABA):</strong>  053 904 483</p>
+<p ><strong>Wire Routing Number (ABA):</strong>  026 009 593</p>
+<p ><strong>SWIFT Code:</strong> BOFAUS3N</p>
+<p ><strong>Address:</strong>  521 Laxton Rd, Greer, SC, USA, 29651</p>
+<p ><strong>Phone: </strong>  +1 864 748 9898</p>
+<p ><strong>Name: </strong> Elena IVANOVA</p></p>
+
+</div>
+<div className="padding-pay">
+<p className="check-infotwo"><p><strong>for payment INSIDE of the U.S.  </strong></p>
+<hr></hr>
+<p><strong>Account Number:</strong>  2230 3175 3873</p>
+<p ><strong>Routing Number(ABA):</strong>  053 904 483</p>
+<p ><strong>Title on Account:</strong>  VISA IN USA LIMITED LIABILITY COMPANY</p>
+<p ><strong>Address:</strong> 521 Laxton Rd, Greer, SC, USA, 29651</p>
+<p ><strong>Phone:</strong>  +1 864 748 9898</p>
+<p ><strong>Name: </strong>  Elena IVANOVA</p></p>
+
+</div>
+</div>
+</div>
+            </div>
+                        <div className="pay-text">
+            <p className="text-pay"><strong>If you experience trouble with payment from Russia or Belarus, you can ask your friends or relatives who have VISA/MASTERCARD to make payment on your behalf, we will accept such payments. <br/>Second option is to make payments to Sberbank account by phone number</strong></p>
+        </div>
+        </div>
+        </div>
     );
 }
 

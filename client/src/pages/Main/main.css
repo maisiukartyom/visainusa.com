@@ -90,7 +90,7 @@ html {
   margin-bottom: 20px;
   
   }
-  
+
   .item-buttons {
 	  font-family: 'Roboto', sans-serif;
 	  font-weight: 100;
@@ -5926,13 +5926,14 @@ padding: auto;
 		display: flex;
 		flex-direction: column;
 		padding: 30px;
+		margin-left: auto;
+margin-right: auto;
 
 	}
 
 	.btn-level-anketa-l{
 		margin-top: 10px;
-margin-left: auto;
-margin-right: auto;
+
 	}
 	.btn-abouteb3{
 		color: var(--light-color);

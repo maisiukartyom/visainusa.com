@@ -94,20 +94,23 @@ export const HeaderForMain = (props) => {
                {
                     !user && 
                     <>
+
                     <Link
-                        className="header-nav-items item-buttonss login-l"
+                        className=" item-buttonss-login login-l mar-left"
                         to="/login"
                         state={{previousPath: pathname}}
                     >
                     Log in
                     </Link>
                     <Link
-                        className = "header-nav-items item-buttonss sign-l"
+                        className = " item-buttonss  sign-l mar-right"
                         to="/signup"
                     >
                     Sign up
                     </Link>
+
                     </>
+
                 }
                 {
                     user &&
@@ -122,12 +125,12 @@ export const HeaderForMain = (props) => {
                     </Link> */}
                     {
                         isAdmin && 
-                        <Link className="header-nav-items item-buttons login-l" to="/admin">Admin</Link>
+                        <Link className=" item-buttonss login-l" to="/admin">Admin</Link>
                     }
 
-<li className="header-nav-items  welcome ">Welcome {email}</li>
+<li className="wel-email-main  welcome ">Welcome {email}</li>
                     <div
-                        className = "header-nav-items item-buttons sign-l"
+                        className = " item-buttonss sign-l"
                         onClick={logout}
                     >
                         Logout
