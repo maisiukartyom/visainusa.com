@@ -9,8 +9,10 @@ function LoginForm(props)  {
     const navigate = useNavigate();
     const {state} = useLocation();
     const [sendLink, setSendLink] = useState(false);
+    const [forgot, setForgot] = useState(false);
 
-    const [email, setEmail] = useState('')
+    const [email, setEmail] = useState('');
+    const [forResetEmail, setForResetEmail] = useState('');
     const [password, setPassword] = useState('')
     const [errors, setErrors] = useState([]);
 
@@ -76,12 +78,13 @@ function LoginForm(props)  {
                     });
             }
             catch (err){
-                console.log(err)
                 let errorMessage = "";
                 if (!err?.response) {
                     errorMessage = 'No Server Response'
                 } else if (err.response?.status === 401) {
-                    errorMessage = 'Invalid credentials!'
+                    errorMessage = 'Invalid credentials!';
+                    setForgot(true);
+                    setForResetEmail(email);
                 } 
                 else if (err.response?.status === 402){
                     errorMessage = 'Please verify your email!';
@@ -103,27 +106,68 @@ function LoginForm(props)  {
                     })
             }
         }
-}
-
-const validate = () => {
-    const error = {};
-
-    if(!email) {
-        error.email = "Email is required";
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
-        error.email = "Invalid email!";
-    } else {
-        error.email = "";
     }
 
-    if(!password) {
-        error.password = "Password is required";
-    } else {
-        error.password = "";
+    const validate = () => {
+        const error = {};
+
+        if(!email) {
+            error.email = "Email is required";
+        } else if (!/\S+@\S+\.\S+/.test(email)) {
+            error.email = "Invalid email!";
+        } else {
+            error.email = "";
+        }
+
+        if(!password) {
+            error.password = "Password is required";
+        } else {
+            error.password = "";
+        }
+
+        return error;
     }
 
-    return error;
-}
+    const resetPassword = async (e) => {
+        e.preventDefault();
+        try{
+            await axios.post("/email/sendResetPassword", {email: forResetEmail});
+            toast.success("Check email for reset link!", {
+                position: "top-center",
+                autoClose: 6000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                progress: undefined,
+                theme: "light",
+                })
+        }
+        catch(err){
+            let errorMessage = "";
+            if (!err?.response) {
+                errorMessage = 'No Server Response'
+            } else if (err.response?.status === 406) {
+                errorMessage = 'User with such email is not registered!';
+            }
+            else if (err.response?.status === 407) {
+                errorMessage = 'This email is not verified yet!';
+            }
+            else{
+                errorMessage = "Couldn't send reset link!";
+            }
+            toast.error(errorMessage, {
+                position: "top-center",
+                autoClose: 6000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                progress: undefined,
+                theme: "light",
+                })
+        }
+    }
 
     return (
         <div className="app-wrapper-main-log">
@@ -153,9 +197,17 @@ const validate = () => {
                     <div>
                         <button className="submit">Log in</button>
                     </div>
+                    <div className="login-here">
+                        <p className="mini-text-log">Sign up please click </p>
+                        <Link to="/signup"><p className="here-log">here</p></Link>
+                    </div>
                 </form>
                 {sendLink && <div><button style={{marginTop: "10px", backgroundColor: "green"}} className="submit" onClick={sendEmail}>send email</button></div> }
-                    </div>
+                {forgot && <form onSubmit={resetPassword}>
+                    <input style={{marginTop: "10px"}} required value={forResetEmail} placeholder="Email to reset password" className="input-log" name="forResetEmail" type="email" onChange={(e) => setForResetEmail(e.target.value)} />
+                    <button style={{marginTop: "10px", backgroundColor: "green"}} className="submit">Forgot password</button>
+                    </form>}
+                </div>
         </div>
     )
 }

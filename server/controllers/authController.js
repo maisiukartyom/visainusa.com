@@ -75,7 +75,12 @@ const userVerification = (req, res) => {
             if (user) {
 
                 if (user.isAdmin){
-                    return res.status(200).json({email: user.email, level: user.level, name: user.fullname, isAdmin: user.isAdmin})
+                    return res.status(200).json({email: user.email, 
+                        level: user.level, 
+                        name: user.fullname, 
+                        isAdmin: user.isAdmin,
+                        phoneNumber: user.phoneNumber
+                        })
                 }
                 
                 if (forAdmin && !data.isAdmin){
@@ -86,7 +91,11 @@ const userVerification = (req, res) => {
                 }
 
                 if (data.level >= requiredLevel){
-                    return res.status(200).json({email: user.email, level: user.level, name: user.fullname, isAdmin: user.isAdmin})
+                    return res.status(200).json({email: user.email, 
+                        level: user.level, 
+                        name: user.fullname, 
+                        isAdmin: user.isAdmin,
+                        phoneNumber: user.phoneNumber})
                 }
                 else{
                     return res.sendStatus(403)
@@ -110,7 +119,40 @@ const confirmEmail = async (req, res) => {
         res.sendStatus(404);
     }
 
-    return res.redirect('https://visainusa.vercel.app/login')
+    return res.redirect(`${process.env.URL_CLIENT}/login`)
 }
 
-module.exports = { handleLogin, userVerification, handleLogout, confirmEmail };
+const setPassword = async (req, res) => {
+    try{
+        const {token, password} = req.body;
+        jwt.verify(token, process.env.EMAIL_SECRET, async(err, data) => {
+            if (err){
+                return res.sendStatus(403);
+            }
+            const newPassword = await bcrypt.hash(password, 10);
+            await User.findOneAndUpdate({email: data.email}, {password: newPassword});
+            res.sendStatus(201);
+        })
+    }
+    catch(err){
+        res.sendStatus(405);
+    }
+}
+
+const confirmReset = async (req, res) => {
+    try{
+        jwt.verify(req.params.token, process.env.EMAIL_SECRET, async (err, data) => {
+            if (err){
+                return res.sendStatus(401);
+            }
+
+            return res.redirect(`${process.env.URL_CLIENT}/resetPassword/${req.params.token}`);
+        });
+        
+    }
+    catch(err){
+        return res.sendStatus(402);
+    }
+}
+
+module.exports = { handleLogin, userVerification, handleLogout, confirmEmail, setPassword, confirmReset };

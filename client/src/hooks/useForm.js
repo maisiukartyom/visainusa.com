@@ -3,8 +3,9 @@ import validation from "../utils/validation.js";
 import axios from "../api/axios.js";
 import {toast} from 'react-toastify';
 import { useNavigate, useLocation } from "react-router-dom";
+import {formatPhoneNumberIntl} from 'react-phone-number-input'
 
-const useForm = (submitForm) =>{
+const useForm = (agreed) => {
     const navigate = useNavigate();
     const {pathname} = useLocation()
     const [values, setValues] = useState({
@@ -12,7 +13,7 @@ const useForm = (submitForm) =>{
         email: "",
         age: "",
         phoneNumber: "",
-        password: "",
+        password: ""
     });
 
     const [errors, setErrors] = useState({});
@@ -23,16 +24,29 @@ const useForm = (submitForm) =>{
             [event.target.name]: event.target.value,
         });
     }
-    const handlePhoneChange = (value, country, event) => {
+    const handlePhoneChange = (value) => {
         setValues({
             ...values,
-            [event.target.name]: value
+            phoneNumber: value
         })
     }
     const handleFormSubmit = (event) => {
         event.preventDefault();
         const curErrors = validation(values)
         setErrors(validation(values));
+        if (!agreed){
+            toast.warning("Please agree to terms and conditions!", {
+                position: "top-center",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                progress: undefined,
+                theme: "light",
+                });
+            setDataIsCorrect(false)
+        }
 
         if (Object.values(curErrors).every(value => value === "")){
             setDataIsCorrect(true);
@@ -42,6 +56,7 @@ const useForm = (submitForm) =>{
     useEffect( () => {
         const register = async () => {
             try {
+                values.phoneNumber = formatPhoneNumberIntl(values.phoneNumber);
                 const result = await axios.post("/register",
                     JSON.stringify(values),
                     {
@@ -49,16 +64,6 @@ const useForm = (submitForm) =>{
                         withCredentials: true
                     }
                 );
-                // toast.success("", {
-                //     position: "top-center",
-                //     autoClose: 3000,
-                //     hideProgressBar: false,
-                //     closeOnClick: true,
-                //     pauseOnHover: false,
-                //     draggable: false,
-                //     progress: undefined,
-                //     theme: "light",
-                //     });
                 toast.success("Email verification link has been sent!", {
                     position: "top-center",
                     autoClose: 7000,
@@ -71,7 +76,6 @@ const useForm = (submitForm) =>{
                     });
                 
                 navigate("/login", {state: {previousPath: pathname}})
-                //submitForm(true);
             }
             catch(err){
                 let errorMessage = ""

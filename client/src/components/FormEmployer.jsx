@@ -1,16 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import PhoneInput from "react-phone-input-2";
 import '../../src/pages/ForEmployer/ForEmployer.css';
 import axios from "../api/axios";
 import {toast} from 'react-toastify'
+import PhoneInput, {isValidPhoneNumber, formatPhoneNumberIntl} from 'react-phone-number-input'
+import 'react-phone-number-input/style.css'
+
 
 const FormEmployer = () =>  {
-    
-    const handlePhoneChange = (value) => {
-        setPhoneNumber(value)
-    }
 
     const [email, setEmail] = useState('')
     const [company, setCompany] = useState('')
@@ -25,7 +23,7 @@ const FormEmployer = () =>  {
             try{
                 await axios.post("/email/sendEmployerInfo", {
                     email: email,
-                    phoneNumber: phoneNumber,
+                    phoneNumber: formatPhoneNumberIntl(phoneNumber),
                     company: company,
                     comment: comment
                 })
@@ -59,18 +57,18 @@ const FormEmployer = () =>  {
                     });
             }
         }
-        else{
-            toast.warning("Form filled incorrect!", {
-                position: "top-center",
-                autoClose: 3000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: false,
-                draggable: false,
-                progress: undefined,
-                theme: "light",
-                });
-        }
+        // else{
+        //     toast.warning("Form filled incorrect!", {
+        //         position: "top-center",
+        //         autoClose: 3000,
+        //         hideProgressBar: false,
+        //         closeOnClick: true,
+        //         pauseOnHover: false,
+        //         draggable: false,
+        //         progress: undefined,
+        //         theme: "light",
+        //         });
+        // }
     }
 
     const validate = () => {
@@ -92,8 +90,8 @@ const FormEmployer = () =>  {
             error.company = ""
         }
 
-        if (!phoneNumber) {
-            error.phoneNumber = "Phone number is required"
+        if (!phoneNumber || !isValidPhoneNumber(phoneNumber)) {
+            error.phoneNumber = "Phone number is invalid"
         }
         else{
             error.phoneNumber = ""
@@ -120,29 +118,27 @@ const FormEmployer = () =>  {
                             <label htmlFor="email" className="label-log-sum">Company name</label>
                             </div>
                             <input required value={company} className="input-log-sum" onChange={(e) => setCompany(e.target.value)}/>
-                            {/* {errors.company && <p className="error">{errors.company}</p>} */}
+                            {errors.company && <p className="error">{errors.company}</p>}
                         </div>
                         <div className="email-log-sum">
                             <div className="start">
                             <label htmlFor="email" className="label-log-sum">Email</label>
                             </div>
                             <input required value={email} className="input-log-sum" type="email" onChange={(e) => setEmail(e.target.value)}/>
-                            {/* {errors.email && <p className="error">{errors.email}</p>} */}
+                            {errors.email && <p className="error">{errors.email}</p>}
                         </div>
 
                         <div className="email-log-sum">
                             <div className="start">
                                 <label htmlFor="email" className="label-log-sum">Phone number</label>
                             </div>
-                            <PhoneInput 
-                                className=""
-                                country={'us'}
+                                <PhoneInput
+                                international
+                                countryCallingCodeEditable={false}
+                                defaultCountry="US"
                                 value={phoneNumber}
-                                onChange={handlePhoneChange}
-                                inputProps={{name: 'phoneNumber',
-                                            required: true,}}   
-                                />
-                            {/* {errors.phoneNumber && <p className="error-phone-left">{errors.phoneNumber}</p>}    */}
+                                onChange={setPhoneNumber}/>
+                            {errors.phoneNumber && <p className="error-phone-left">{errors.phoneNumber}</p>}   
                         </div>
 
                         <div className="email-log-sum">

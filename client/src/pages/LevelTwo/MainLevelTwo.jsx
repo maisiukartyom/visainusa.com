@@ -94,7 +94,7 @@ export const MainLevelTwo = () => {
                 Don't miss the opportunity to gain valuable insights, ask questions, and set yourself on the right path. 
                 Please note that no statements made during the upcoming consultation constitute legal advice or establish 
                 an attorney-client relationship. Visa in USA  Limited Liability Company is not a law firm and cannot provide legal advice. 
-                To schedule a call with one of our experts, please click on the 'Pay' button below. You'll be directed to the payment page to complete your transaction.
+                To schedule the call with one of our experts, please click on the 'Pay' button below. You'll be directed to the payment page to complete your transaction.
              After payment, you'll be granted access to our calendar for booking the call. Thank you!
         " />
       
@@ -146,7 +146,7 @@ export const MainLevelTwo = () => {
                 </div> 
             </div>
 
-                           <div className="button-level2">
+                           {/* <div className="button-level2">
                            <div  >
                         <label className="label-level" > Provided information available in  </label>
                         <div className="mt-level">
@@ -156,9 +156,12 @@ export const MainLevelTwo = () => {
                             <label className="label-level" > languages  </label>
                         </div>
                     </div>
-                     <button className="button-level-two" disabled={!canPurchase} onClick={purchaseLevel}>PAY</button>
-
-                  </div>
+                  </div> */}
+                  
+                  <div className="button-level2">
+                    <button className="button-level-two" disabled={!canPurchase} onClick={purchaseLevel}>PAY</button>
+                </div>
+                  
 
 </div>
 </div>

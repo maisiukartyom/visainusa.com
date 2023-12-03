@@ -1,17 +1,18 @@
 export const styles = {
     chatWithMeButton: {
         cursor: 'pointer',
-        boxShadow: '0px 0px 16px 6px rgba(0, 0, 0, 0.33)',
+        boxShadow: '0px 0px 16px 2px rgba(0, 0, 0, 0.33)',
         // Border
         borderRadius: '50%',
         // Background 
-        backgroundImage: `url(/images/red_bgr.jpg)`, 
+        backgroundImage: `url(/images/chat.png)`, 
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
-        backgroundSize: '200px',
+        backgroundSize: '84px',
         // Size
         width: '84px',
         height: '84px',
+        zIndex: '10000',
     },
     avatarHello: { 
         // Position
@@ -33,6 +34,7 @@ export const styles = {
         position: 'fixed',
         bottom: '116px',
         right: '24px',
+        zIndex: '10000',
         // Size
         width: '420px',
         height: '530px',

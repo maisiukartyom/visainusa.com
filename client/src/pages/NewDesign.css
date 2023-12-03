@@ -3,7 +3,7 @@
 .coming-newDesign{
     background-color: var(--color);
 	padding: 20px;
-	margin-right: -11%;
+	margin-right: -8%;
 	margin-top: -2%;
 	width: 180px;
 	color: var(--light-color);
@@ -16,6 +16,9 @@
 }
 
 .level-paid {
+
+
+	
 	flex-direction: column;
 	justify-content: center;
 	border-radius: 8px;
@@ -25,13 +28,16 @@
 		background-position-x: center;
 	background-size: cover;
 	width: 455px;
-min-height: 100%;
+	max-height: 20000px;
 	cursor: pointer;
 	box-shadow: 0px 0px 8px 6px #75e675;
-	text-align: justify;
+	text-align: start;
 	position: relative;
 	margin-bottom: 8%;
-overflow: hidden;
+word-wrap: break-word;
+
+
+	
 
 }
 .level-item{
@@ -44,10 +50,18 @@ overflow: hidden;
 		margin-bottom: 10%;
 		cursor: pointer;
 }
-
+.description-future{
+	word-wrap: break-word;
+}
 .level-paid:hover {
 	transform: scale(1.1);
 }
+.text-description-future{
+		max-height: 20850px;
+		width: 100%;
+		word-wrap: break-word;
+		}
+	
 
 .btn-levels-paid {
 
@@ -69,7 +83,12 @@ overflow: hidden;
 	position: absolute;
 }
 
+.text-discription-future {
 
+	width: 100%;
+	margin-bottom: 1%;
+	word-wrap: break-word;
+	}
 
 
 .center-level{
@@ -107,35 +126,59 @@ display: block;
 	font-weight: bold;
     -webkit-animation: pulsing 2s infinite;
     animation: pulsing 2s infinite;
+
+	text-align: start;
+
   }
+
+  .about-us-main{
+	width: 150px;
+  }
+  .sign-l{
+	margin-left: -3%;
+  }
+  .wel-email{
+  
+	  font-family: 'Roboto', sans-serif;
+		font-weight: 100;
+		font-size: 24px;
+		text-decoration: none;
+		color: var(--color);
+		padding: 10px 14px;
+  text-align: center;
+	  cursor: pointer;
+		transition: transform .5s;
+	}
+
+
   
 @-webkit-keyframes pulsing {
     0% {
-      -webkit-transform: scale(0.8, 0.8);
-      transform: scale(0.8, 0.8)
+      -webkit-transform: scale(0.6, 0.6);
+      transform: scale(0.6, 0.6)
     }
     50% {
-      -webkit-transform: scale(1.0, 1.0);
-      transform: scale(1.0, 1.0);
+      -webkit-transform: scale(0.7, 0.7);
+      transform: scale(0.7, 0.7);
     }
     100% {
-      -webkit-transform: scale(0.8, 0.8);
-      transform: scale(0.8, 0.8);
+      -webkit-transform: scale(0.6, 0.6);
+      transform: scale(0.6, 0.6);
     }
   }
   
   @keyframes pulsing {
     0% {
-      -webkit-transform: scale(0.8, 0.8);
-      transform: scale(0.8, 0.8)
+      -webkit-transform: scale(0.6, 0.6);
+      transform: scale(0.6, 0.6)
     }
     50% {
-      -webkit-transform: scale(1.0, 1.0);
-      transform: scale(1.0, 1.0);
+      -webkit-transform: scale(0.7, 0.7);
+      transform: scale(0.7, 0.7);
     }
     100% {
-      -webkit-transform: scale(0.8, 0.8);
-      transform: scale(0.8, 0.8);
+      -webkit-transform: scale(0.6, 0.6);
+      transform: scale(0.6, 0.6);
     }
   }
 
@@ -143,9 +186,23 @@ display: block;
 	.level-paid:hover{
 		transform: none;
 	}
+	
   }
+  @media (max-width:386px){
 
-  @media (max-width:286px){}
-  .appliName-levelOne-free{
-	font-size: 24px;
+	  .coming-newDesign{
+		margin-right: -15%;
+	  }
+  }
+  @media (max-width:286px){
+	.appliName-levelOne-free{
+		font-size: 24px;
+	  }
+	  .level-paid{
+		width: 270px;
+	  }
+
+	  .coming-newDesign{
+		margin-right: -15%;
+	  }
   }

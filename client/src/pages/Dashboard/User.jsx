@@ -130,7 +130,6 @@ const User = ({ user, update }) => {
             <option value={3}>3</option>
           </select>
         </p>
-        <p>Admin: {isAdmin ? 'Yes' : 'No'}</p>
       </UserInfo>
       <ActionButtons>
         <UpdateButton onClick={handleUpdateClick}>Update Level</UpdateButton>

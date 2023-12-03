@@ -41,13 +41,12 @@
 .text-aboutus{
   font-size: 20px;
 	font-weight: 600;
-  max-width:1150px;
+  max-width:1250px;
   max-height: 5000px;
   text-align: justify;
 	color: var(--deep-dark);
 	font-family: 'Merriweather', serif;
-	word-spacing: 14px;
-  line-height: 32px;
+  line-height: 34px;
 }
 .team{
   display: flex;
@@ -94,6 +93,7 @@ margin-top: 5%;
   font-size: 14px;
   font-weight: 600;
   font-family: 'Merriweather', serif;
+  cursor: pointer;
 }
 
 .when, .when-CP{
@@ -199,6 +199,24 @@ text-align: justify;
   
     .text-aboutus{
       max-width:750px;
+    }
+  }
+
+  @media all and (max-width:806px) {
+    
+    .text-aboutus
+    {
+
+      text-align: start;
+    }
+  
+    .text-Alexey{
+      text-align: start;
+
+    }
+    .text-Alexey-more{
+  text-align: start;
+
     }
   }
 

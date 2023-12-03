@@ -1,3 +1,5 @@
+import {isValidPhoneNumber} from 'react-phone-number-input'
+
 const validation = (values) => {
 
     let errors={};
@@ -19,8 +21,8 @@ const validation = (values) => {
 
     if(!values.password){
         errors.password="Password is required"
-    } else if (!/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(values.password)) {
-        errors.password = "Password should have min 8 letters, special symbol, upper and lower caseletter and a number!";
+    } else if (!/^(?=.*[A-Za-z])(?=.*\d).{6,}$/.test(values.password)) {
+        errors.password = "Password should have min 6 characters, letters and numbers!";
     }
     else{
         errors.password = ""
@@ -36,8 +38,8 @@ const validation = (values) => {
         errors.age = ""
     }
 
-    if (!values.phoneNumber){
-        errors.phoneNumber = "Phone number is required"
+    if (!values.phoneNumber || !isValidPhoneNumber(values.phoneNumber)){
+        errors.phoneNumber = "Phone number is invalid"
     }
     else{
         errors.phoneNumber = ""

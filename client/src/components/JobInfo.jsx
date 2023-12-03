@@ -16,6 +16,7 @@ const JobInfo = () => {
     const [isFetched, setIsFetched] = useState(false);
     const [isChecked, setIsChecked] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
+    const [isUser, setIsUser] = useState(false);
 
     const navigate = useNavigate();
 
@@ -42,6 +43,7 @@ const JobInfo = () => {
                    withCredentials: true
                 })
                 setIsChecked(true);
+                setIsUser(true);
                 setIsAdmin(res.data.isAdmin);
             }
             catch{
@@ -80,15 +82,12 @@ const JobInfo = () => {
             <div className="big-text-main">
             <h3 className="crew-one">{jobInfo.position}</h3>
             <p className="job">Job Details:</p>
-            {
-                Object.entries(jobInfo.description).map(([key, value]) => 
-                    (<p className="job-mini">- {key}: {value}</p>)
-                )
-            }
-        {jobInfo.agencies.map((agency, index) => (<a rel='noopener noreferrer' target='_blank' href={agency}>{agency}</a>))}
-            <div className="btn-dis">
+            {jobInfo.description && <div className='job-mini' dangerouslySetInnerHTML={{ __html: jobInfo.description }}></div>}
+
+            {jobInfo.agencies.map((agency, index) => (<a rel='noopener noreferrer' target='_blank' href={agency}>{agency}</a>))}
+            <Link to='/applynow'><div className="btn-dis">
                 <button className="btn-job">Apply now</button>
-            </div>
+            </div></Link>
             {isAdmin && 
                 <div className="btn-dis">
                     <div>
@@ -103,7 +102,7 @@ const JobInfo = () => {
         </div>
         </div>)}
 
-        <Footer/>
+        <Footer isUser={isUser} />
         </div>
     )
 }

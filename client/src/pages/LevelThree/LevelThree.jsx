@@ -5,6 +5,7 @@ import "../LevelOne/LevelOne.css";
 import { MainLevelThree } from '../../components/MainLevelThree';
 import axios from '../../api/axios';
 import Calendly from '../../components/Calendly/Calendly';
+import Contacts from '../../components/Contacts';
 
 
 const LevelThree = () => {
@@ -48,6 +49,7 @@ const LevelThree = () => {
         <div >
             <Header />
             {hasLevel? <div>Level 3 is purchased!</div> : <MainLevelThree />}
+            <Contacts/>
             <Footer />
             {hasLevel && <Calendly userEmail={user.email} userName={user.name} />}
         </div>

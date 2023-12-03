@@ -1,4 +1,3 @@
-import Info from "../../components/InfoForm"
 import Form from "../../components/Form"
 import "./signup.css"
 

@@ -1,58 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {Link} from 'react-router-dom';
 import "../LevelOne/LevelOne.css";
-import { useNavigate } from "react-router-dom";
-import axios from "../../api/axios";
-import {toast} from 'react-toastify';
 import TextBlocktwo from "../../components/TextBlocktwo";
 
-
-
 export const MainLevelTwoPaid = () => {
-
-   const navigate = useNavigate();
-
-   const purchaseLevel = async () => {
-      try {
-         await axios.post("/payment/verify", 
-         {
-            level: 2
-         },
-         {
-            withCredentials: true
-         })
-
-         navigate("/payment", {state: {levelToPurchase: 2, price: 50}});
-      }
-      catch(err){
-         let errorMessage = "";
-         if (!err?.response) {
-             errorMessage = 'No Server Response'
-         } else if (err.response?.status === 401) {
-             errorMessage = 'You already have this level!'
-         }
-         else if (err.response?.status === 403) {
-            errorMessage = 'You are not authorized! Please login or sign up to make purchase!'
-         } 
-
-         toast.error(errorMessage, {
-            position: "top-center",
-            autoClose: 10000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: false,
-            draggable: false,
-            progress: undefined,
-            theme: "light"}
-         )
-      }
-   }
 
     return(
       <div>
       <div className="text-leveltwo">
       <h2 className="h2-level">Level 2</h2>
-      <TextBlocktwo className="text-levelTwo" title="Thank you for choosing Level 2! To schedule a call with one of our experts, it's as easy as clicking on the 'Schedule a Call' button below on this page. Choose a time slot that suits you,
+      <TextBlocktwo className="text-levelTwo" title="Thank you for choosing Level 2! To schedule a call with one of our experts, it's as easy as clicking on the 'Schedule the Call' button below on this page. Choose a time slot that suits you,
        answer a few questions, and list any concerns you'd like to discuss during the call.  ..." description="his helps us tailor the conversation to your specific needs and ensures that you get the most out of your consultation. We're here to assist you on your immigration journey. If you encounter any issues with scheduling,
         feel free to chat with us or give us a call. We're here to help! 
         " />
@@ -87,12 +44,15 @@ export const MainLevelTwoPaid = () => {
                   <li className="description-level">
                   Enjoy 24/7 online chat support for any additional questions or clarifications after your consultation
                   </li>
-                  <Link to='/jobs'><li className="  link-job">
-                  Job offering pool            
-                  </li></Link>
+
+
                   </ul>
 
-
+                  <div className="button-pool">
+                  <Link to='/jobs'><button className="btn-pool">
+                  Job offering pool            
+                  </button></Link>
+                  </div>
                 </div>
 
 <div className="video-level">
@@ -101,17 +61,7 @@ export const MainLevelTwoPaid = () => {
                 </div> 
             </div>
 
-                           <div className="button-level2">
-                           <div  >
-                        <label className="label-level" > Provided information available in  </label>
-                        <div className="mt-level">
-                            <input className="test"  type="radio" name="question8" id="answerEight" value="yes"/>English
-                            <input className="test"  type="radio" name="question8" value="no"/>Russian
-                            <input className="test"  type="radio" name="question8" value="no"/>Spanish 
-                            <label className="label-level" > languages  </label>
-                        </div>
-                    </div>
-                  </div>
+                           
 
 </div>
 </div>

@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import './CallForm.css';
 import axios from '../../api/axios';
 import {toast} from 'react-toastify';
-import PhoneInput from 'react-phone-input-2';
+import PhoneInput, {isValidPhoneNumber, formatPhoneNumberIntl} from 'react-phone-number-input'
+import 'react-phone-number-input/style.css'
 
 const CallForm = () => {
   const [formVisible, setFormVisible] = useState(false);
@@ -11,13 +12,45 @@ const CallForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try{
-      await axios.post("/email/sendPhone", {
-        name: name,
-        phone: phoneNumber
-      })
 
-      toast.success("We'll be in touch soon!", {
+
+    if (phoneNumber!=="" && isValidPhoneNumber(phoneNumber)){
+      try{
+        await axios.post("/email/sendPhone", {
+          name: name,
+          phone: formatPhoneNumberIntl(phoneNumber)
+        })
+  
+        toast.success("We'll be in touch soon!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          progress: undefined,
+          theme: "light",
+          });
+  
+        setFormVisible(false)
+      }
+      catch{
+        toast.error("Couldn't send your information", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          progress: undefined,
+          theme: "light",
+          });
+      }
+      setName('');
+      setPhoneNumber('');
+    }
+    else{
+      toast.warning("Phone number is invalid!", {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -27,32 +60,13 @@ const CallForm = () => {
         progress: undefined,
         theme: "light",
         });
-
-      setFormVisible(false)
     }
-    catch{
-      toast.error("Couldn't send your information", {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: false,
-        progress: undefined,
-        theme: "light",
-        });
-    }
-    setName('');
-    setPhoneNumber('');
+    
   };
 
   const toggleForm = () => {
     setFormVisible(!formVisible);
   };
-
-  const handlePhoneChange = (value) => {
-    setPhoneNumber(value)
-}
 
   return (
     formVisible? (<div className="expanded-form">
@@ -62,6 +76,7 @@ const CallForm = () => {
     <form onSubmit={handleSubmit}>
       <div className="form-group">
           <input
+            required
             className='input-phone'
             type="text"
             placeholder="Name"
@@ -71,15 +86,12 @@ const CallForm = () => {
           />
       </div>
       <div className="form-group">
-        <PhoneInput 
-        inputStyle={{width: "100%"}}
-        className=""
-        country={'us'}
-        value={phoneNumber}
-        onChange={handlePhoneChange}
-        inputProps={{name: 'phoneNumber',
-        required: true,}}   
-        />
+        <PhoneInput
+          international
+          countryCallingCodeEditable={false}
+          defaultCountry="RU"
+          value={phoneNumber}
+          onChange={setPhoneNumber}/>
       </div>
       <button className='button-phone' type="submit">Receive Call</button>
     </form>

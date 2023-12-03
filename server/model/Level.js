@@ -10,6 +10,10 @@ const levelSchema = new Schema({
     cost: {
         type: Number,
         required: true
+    },
+    originalCost:{
+        type: Number,
+        required: true
     }
 });
 

@@ -1,9 +1,10 @@
 require('dotenv').config();
+const allowedOrigins = require('./config/allowedOrigins');
 const express = require('express');
 const app = express();
 const path = require('path');
 const cors = require('cors');
-const corsOptions = require('./config/corsOptions');
+//const corsOptions = require('./config/corsOptions');
 const { logger } = require('./middleware/logEvents');
 const cookieParser = require('cookie-parser');
 const credentials = require('./middleware/credentials');
@@ -20,6 +21,11 @@ app.use(logger);
 // Handle options credentials check - before CORS!
 // and fetch cookies credentials requirement
 app.use(credentials);
+
+var corsOptions = {
+    origin: allowedOrigins,
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
 
 // Cross Origin Resource Sharing
 app.use(cors(corsOptions));

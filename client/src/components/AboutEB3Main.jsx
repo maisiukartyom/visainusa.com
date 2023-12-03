@@ -1,5 +1,6 @@
 
-import TextBlock from "./TextBlock";
+
+import TextBlockEB3 from "./TextBlockEB3";
 
 
 
@@ -41,7 +42,7 @@ const AboutEB3Main = () => {
   <div className="abouteb3-text">
     <div className="all-text-about3">
     <p className="article">Article</p>
-    <TextBlock className="all-text" title="Despite the many immigration programs offered by the United States government, employment-based programs remain the most popular choice. The EB3 visa is a category through which holders of non-immigrant visas who are already in the U.S. or foreign nationals outside of the United States can establish permanent residency in the U.S. for up to 10 years.
+    <TextBlockEB3 className="all-text" title="Despite the many immigration programs offered by the United States government, employment-based programs remain the most popular choice. The EB3 visa is a category through which holders of non-immigrant visas who are already in the U.S. or foreign nationals outside of the United States can establish permanent residency in the U.S. for up to 10 years.
 To qualify for the EB3 visa, applicants must fall into one of three subcategories: professionals, skilled workers, or unskilled workers. Professionals have at least a bachelor's degree in a specific field. Skilled workers have at least 2 years of experience, education, or training in their field, meeting job requirements specified in the labor certification. Unskilled workers must demonstrate the ability to perform unskilled labor, which requires less than 2 years of training or experience and is not of a temporary or seasonal nature. The unskilled subcategory is particularly attractive as it doesn't require a specific level of education, previous job experience, or English proficiency. In other words, almost anyone can be eligible for the EB3 unskilled visa category.  ... "
              description=" The process consists of two steps: the DOL and USCIS. In the DOL step, the U.S. employer must file a labor certification, proving that no qualified U.S. workers are available for a particular job position, therefore they need to hire a foreign worker. Once the Labor Certification is approved, the applicant can proceed with the immigrant visa application process with USCIS. This involves submitting various forms and documents, attending an immigration interview, and undergoing medical examinations. If everything proceeds smoothly, the applicant will be issued an immigrant visa, allowing them to enter the U.S. as a legal permanent resident or, if the applicant is already inside the U.S., to obtain a green card.
 

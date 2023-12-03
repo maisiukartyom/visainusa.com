@@ -2,15 +2,15 @@ import "./main.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
-import { gsap } from "gsap";
 import {Link, useLocation} from 'react-router-dom';
 import { MainPhoto } from "../../components/MainPhoto";
 import SupportEngine from "../../components/SupportEngine";
 import axios from "../../api/axios";
 import {toast} from 'react-toastify';
+import CallForm from "../../components/CallForm/CallForm";
 
 
-const   Main = ({user}) => {
+const  Main = ({isUser, user}) => {
 
   const {state} = useLocation();
   const [levelsInfo, setLevelsInfo] = useState([]);
@@ -20,7 +20,6 @@ const   Main = ({user}) => {
     const getLevelsCosts = async () => {
       try{
         const levels = await axios.get("/payment/getLevelsCosts");
-        console.log(levels.data.levels)
         setLevelsInfo(levels.data.levels);
         setHasInfo(true);
       }
@@ -51,7 +50,8 @@ const   Main = ({user}) => {
   return (
     <>
       <div className="main">
-        <div className="titrecenter">
+        {!isUser && <>
+          <div className="titrecenter">
           <p className="titre titre-bottom" id="advantages" data-aos="fade-up">
             Our Advantages
           </p>
@@ -142,7 +142,7 @@ const   Main = ({user}) => {
             </a>
           </div>
           <div className="place blue" data-aos="zoom-in-up">
-            <a href="#">
+            <Link to="/aboutus">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="70"
@@ -183,7 +183,7 @@ const   Main = ({user}) => {
               <p className="grey text">
               All members of our team have personally completed the EB3 unskilled program and received green cards. We have unique first-hand knowledge of EB3 program and ready to assit you! 
               </p>
-            </a>
+            </Link>
           </div>
           <div className="place light" data-aos="zoom-in-up">
             <svg
@@ -243,6 +243,8 @@ const   Main = ({user}) => {
         <a id="competans"></a>
         <div className="vie"></div>
         <a id="adresse"></a>
+        </>
+        }
 
 
 
@@ -260,22 +262,18 @@ const   Main = ({user}) => {
               user.level >= 1 && <p className="coming-newDesign">Paid</p>
             } */}
 
-             <div className={"level-paid"}>
+            <div className={"level-paid"}>
             {/* <p className="coming-newDesign">Paid</p> */}
             <h2 className="appliName-future">Level 1</h2>
             
-            <>
+            <div className="price-all">
+          {hasInfo && <p className="appliName-levelOne-del price-all">${levelsInfo[0].originalCost}</p>}
                 <p className="appliName-levelOne price">FREE</p>
-              </>
+              </div>
+              <Link to='/levelone'>
             <div className="text-discription-future">
               <p className="description-future ">
               What is EB3 unskilled visa category?
-              </p>
-              <p className="description-future">
-              How does EB3 unskilled visa work?
-              </p>
-              <p className="description-future ">
-              How long does it take to get the U.S. permanent resident card?
               </p>
               <p className="description-future ">
               Am I eligible for EB3 unskilled visa?
@@ -283,35 +281,45 @@ const   Main = ({user}) => {
               <p className="description-future">
               How much does EB3 unskilled cost? 
               </p>
-              <p className="description-future ">
-              What should I do in case of refusal?
+              <p className="description-future">
+              How does EB3 unskilled visa work?
               </p>
               <p className="description-future ">
               How do I start my EB3 journey?
               </p>
               <p className="description-future ">
+              How long does it take to get the U.S. permanent resident card?
+              </p>
+              <p className="description-future description-future">
+              Can I adjust my status to EB3 unskilled?
+              </p>
+              <p className="description-future ">
+              What should I do in case of refusal?
+              </p>
+              <p className="description-future ">
               I worked unauthorized, can I apply for the EB3 unskilled?
               </p>
               <p className="description-future ">
-              What is Retrogression and Visa Bulletin? 
+              How to move from political asylum to EB3 unskilled?
               </p>
               <p className="description-future ">
-              When can I drop my F status?
+              How does the EB3 unskilled program work for the U. S. employer ?
               </p>
               <p className="description-future description-future-finaly">
-              Can I adjust my status to EB3 unskilled?
+              How can you legally earn money in the USA while in student or tourist status?
               </p>
-                          </div>
-
+                          </div></Link>
+<div className="lev-btn">
                           <div className="center-level">
               <Link to='/levelone'>
                 <button className="btn-levels">CHOOSE</button>
               </Link>
               </div>
+              </div>
           </div>
 
 
-          <div className={user.level >= 2 ? "level-paid" : "levellev"}>
+<div className={user.level >= 2 ? "level-paid" : "levellev"}>
           {
               user.level >= 2 && <p className="coming-newDesign">Paid</p>
             }
@@ -321,12 +329,12 @@ const   Main = ({user}) => {
               ((user.level && user.level < 2) || !user.level) &&
             <>
             <div className="price-all">
-            <p className="appliName-levelOne-del price-all">$500</p>
+            {hasInfo && <p className="appliName-levelOne-del price-all">${levelsInfo[1].originalCost}</p>}
               {hasInfo && <p className="appliName-level-two price-all">${levelsInfo[1].cost}</p>}
                 </div>
               </>
 }
-            <div className="text-discription-future">
+<Link to='/leveltwo'><div className="text-discription-future">
               <p className="description-future ">
               Personal consultation (60 mins) on English, Spanish or Russian languages
               </p>
@@ -352,13 +360,14 @@ const   Main = ({user}) => {
               As an extra bonus, you'll enjoy exclusive access to a specially tailored job offering pool for EB3 unskilled applicants. Get a head start on your application journey – start applying today!  
               </p>
 
-                          </div>
+                          </div></Link>
                           <div className="center-level">
               <Link to='/leveltwo'>
               <button className="btn-levels  ">CHOOSE</button>
               </Link>
               </div>
           </div>
+
 
           <div className={user.level >= 3 ? "level-paid" : "levellev"}>
           {
@@ -370,12 +379,12 @@ const   Main = ({user}) => {
               ((user.level && user.level < 3) || !user.level) &&
             <>
             <div className="price-all">
-            <p className="appliName-levelOne-del price-all">$1500</p>
+            {hasInfo && <p className="appliName-levelOne-del price-all">${levelsInfo[2].originalCost}</p>}
               {hasInfo && <p className="appliName-level-two price-all">${levelsInfo[2].cost}</p>}
                 </div>
               </>
 }
-            <div className="text-discription-future">
+<Link to='/levelthree'><div className="text-discription-future">
               <p className="description-future ">
               Access to more than 1000 U.S. employers’ database (script of pitch included)
               </p>
@@ -404,48 +413,53 @@ const   Main = ({user}) => {
               <button className="btn-levels ">CHOOSE</button>
               </Link>
               </div>
+                          </div></Link>
                           </div>
-
           </div>
-
+<div className="grid-future">
           {/* Change the classNames once are made! */}
-          <div className="level-future ">
-            <p className="coming">Coming Q4 2024</p>
+          <div className="level-future-bot ">
+          <div className="text-future-bot">
+            <p className="coming">Coming in Q4 2024</p>
             <h2 className="appliName-future">Level 4</h2>
             <h3 className="appliName-names">"Turnkey package"</h3>
               <>
               {hasInfo && <p className="appliName-levelOne price">${levelsInfo[3].cost}</p>}
               </>
-            <div className="text-discription-future">
-              <p className="description-future ">
+            <div className="text-discription-future-bot">
+              <p className="description-future-bot ">
               List of the U.S. employers who are ready to file the Labor Certificate and make the petition for Green Card to start your EB3 process
               </p>
-              <p className="description-future">
+              <p className="description-future-bot">
               Attorney and government fees are included 
               </p>
-              <p className="description-future description-future-finaly">
+              <p className="description-future-bot description-future-finaly-bot">
               24/7 online support 
               </p>
+</div>
 
                           </div>
             
           </div>
-          <div className="level-future ">
-          <p className="coming">Coming Q4 2024</p>
+          <div className="level-future-bot ">
+            <div className="text-future-bot">
+          <p className="coming">Coming in Q4 2024</p>
             <h2 className="appliName-future">Level 5</h2>
             <h3 className="appliName-names">"VIP package"</h3>
               {hasInfo && <p className="appliName-levelOne price">${levelsInfo[4].cost}</p>}
-            <div className="text-discription-future">
+            <div className="text-discription-future-bot">
               <p className="description-future ">
               We will find the U.S. employer based on your request (location, field of business, wage level, etc)
               </p>
-              <p className="description-future description-future-finaly">
+              <p className="description-future description-future-finaly-bot">
               Welcome settlement service not limited as rental house, airport pickup, open SSN and bank account, drive license, kids enrollment in school, kindergarten, state tour
               </p>
+              </div>
                           </div>
                       </div>
           
         </div>
+
       </div>
     </>
   );
@@ -464,76 +478,133 @@ const Testimonials = () => {
                     <div className="product-container">
                         <div className="product-card">
                             <div className="product-info">
+                              <div className=" star">
                                 <p className="name">Francisco R.</p>
+                                <div className="stars-auto">
+                                <img className="stars" src="images/star-all.png" alt="star" width={100} height={20}/>
+
+                                </div>
+                                </div>
                                 <p className="review">"I had the pleasure of working with this team for my EB3 unskilled process, and
                                  I can't express how grateful I am. Their first-hand experience and extensive knowledge helped to find solutions when my EB3 unskilled case got stuck in the USCIS. Thanks to their expertise, I now hold a U.S. permanent resident card. Highly recommended!"</p>
                             </div>
                         </div>
                         <div className="product-card">
                             <div className="product-info">
+                            <div className=" star">
                                 <p className="name">Maria S.</p>
+                                <div className="stars-auto">
+                                <img className="stars" src="images/star-hulf.png" alt="star" width={100} height={20}/>
+
+                                                                </div>
+                                </div>
                                 <p className="review">"I can't thank this team enough for their incredible support during my EB3 unskilled application. Their unique knowledge and personal involvement in each step of the process made a huge difference.
                                  They provided fast response for a reasonable price." </p>
                             </div>
                         </div>
                         <div className="product-card">
                             <div className="product-info">
+                            <div className=" star">
                                 <p className="name">David L.</p>
+                                <div className="stars-auto">
+                                <img className="stars" src="images/star-hulf.png" alt="star" width={100} height={20}/>
+                                </div>
+                                                                </div>
                                 <p className="review">"I was fortunate to have this team on my side for my EB3 journey. Their dedication and commitment were evident, and I couldn't be happier with the results. If you're considering the EB3 unskilled route, don't hesitate to reach out to them."</p>
                             </div>
                         </div>
                         <div className="product-card">
                             <div className="product-info">
+                            <div className=" star">
                                 <p className="name">Carl S.</p>
+                                <div className="stars-auto">
+                                <img className="stars" src="images/star-all.png" alt="star" width={100} height={20}/>
+                                </div>
+                                                                </div>
                                 <p className="review">"Working with this team was a game-changer for my EB3 unskilled visa journey. Their deep understanding of the program and their ability to simplify complex procedures were invaluable. They were not just consultants; they were partners in my success.
                                  I wholeheartedly endorse their services to anyone seeking reliable guidance."</p>
                             </div>
                         </div>
                         <div className="product-card">
                             <div className="product-info">
+                            <div className=" star">
                                 <p className="name">Oksana P.</p>
+                                <div className="stars-auto">
+                                <img className="stars" src="images/star-all.png" alt="star" width={100} height={20}/>
+                                </div>
+                                </div>
                                 <p className="review">"I was skeptical before approaching them, but during the first consultation they laid out all the aspects of the EB3 Unskilled workers program in a very simple manner and we came up with a list of pros and cons.
                                  Now I have a better understanding of all the options I have."</p>
                             </div>
                         </div>
                         <div className="product-card">
                             <div className="product-info">
+                            <div className=" star">
                                 <p className="name">Maxim F.</p>
+                                <div className="stars-auto">
+                                <img className="stars" src="images/star-hulf.png" alt="star" width={100} height={20}/>
+                                </div>
+                                </div>
                                 <p className="review">"I couldn't have sorted out the complexities of the EB3 unskilled visa process without the expertise of this team. 
                                 Their in-depth knowledge and personalized guidance made me confident I overcome."</p>
                             </div>
                         </div>
                         <div className="product-card">
                             <div className="product-info">
+                            <div className=" star">
                                 <p className="name">Anton P.</p>
+                                <div className="stars-auto">
+                                <img className="stars" src="images/star-all.png" alt="star" width={100} height={20}/>
+                                </div>
+                                </div>
                                 <p className="review">"I highly recommend this team to anyone seeking assistance with their EB3 unskilled visa application.
                                  Their professionalism and attention to detail are unparalleled."</p>
                             </div>
                         </div>
                         <div className="product-card">
                             <div className="product-info">
+                            <div className=" star">
                                 <p className="name">Mario A.</p>
+                                <div className="stars-auto">
+                                <img className="stars" src="images/star-all.png" alt="star" width={100} height={20}/>
+                                </div>
+                                </div>
                                 <p className="review">"I was supposed to apply for H1B, but when found these guys who answered my questions about EB3 unskilled visa
                                 I came to the conclusion that EB3 is the faster way to reach green card."</p>
                             </div>
                         </div>
                         <div className="product-card">
                             <div className="product-info">
+                            <div className=" star">
                                 <p className="name">Sergey K.</p>
+                                <div className="stars-auto">
+                                <img className="stars" src="images/star-hulf.png" alt="star" width={100} height={20}/>
+                                </div>
+                                </div>
                                 <p className="review">"I was lost in the EB3 application process until I found this team.
                                  Their unique first-hand experience made all the difference. Thanks!"</p>
                             </div>
                         </div>
                         <div className="product-card">
                             <div className="product-info">
+                            <div className=" star">
                                 <p className="name">Lucas R.</p>
+                                <div className="stars-auto">
+                                <img className="stars" src="images/star-all.png" alt="star" width={100} height={20}/>
+                                </div>
+                                </div>
                                 <p className="review">"The team's expertise in EB3 unskilled visas is truly impressive. 
                                  I couldn't have asked for a better support."</p>
                             </div>
                         </div>
                         <div className="product-card">
                             <div className="product-info">
+                            <div className=" star">
                                 <p className="name">Anna L.</p>
+                                <div className="stars-auto">
+                                <img className="stars" src="images/star-all.png" alt="star" width={100} height={20}/>
+                                </div>
+                                </div>
                                 <p className="review">"I reached out to this team when I needed help with my EB3 case, and it was the best decision I made.
                                  Their personalized approach, combined with their vast knowledge, gave me the confidence I needed to succeed."</p>
                             </div>
@@ -563,8 +634,8 @@ const Contacts = () => {
   <div className="align">
                <h4 class="contact-name" id="contact">Contacts</h4>
                 <div className="number-phone">
-               <img src="/images/number.png" alt="phone" width={20} height={20} />
-               <p class="number">+1 864 748 9898</p>
+                <a className="number" href='tel:+1 864 748 9898'>
+                  <img src="/images/number.png" alt="phone" width={20} height={20} />+1 864 748 9898</a>
                               </div>
                               <div className="number-phone">
                <img src="/images/mail.png" alt="phone" width={26} height={20} />
@@ -578,8 +649,8 @@ const Contacts = () => {
                               </div>
                               </div>
                               <div className="link-column">
-                              <a href="https://web.telegram.org/k/#79168070961" target="_blank"><img className="link-margin" src="images/telegram.png" alt="telegram" width="38" height="38" /></a>
-                        <a href="https://web.whatsapp.com/#79168070961" target="_blank"><img className="link-margin" src="images/whatsapp.png" alt="whatsapp" width="38" height="38" /></a>
+                              <a href="t.me/eb3visainusa" target="_blank"><img className="link-margin" src="images/telegram.png" alt="telegram" width="38" height="38" /></a>
+                        <a href="tel:+79168070961WhatsApp" target="_blank"><img className="link-margin" src="images/whatsapp.png" alt="whatsapp" width="38" height="38" /></a>
                         </div>
                </div>
             </div>
@@ -589,45 +660,46 @@ const Contacts = () => {
 }
 
 
-const Partners = () => {
-    return (
-        <>
-<div className="vie-mini"></div>
-            <div className="partners" >
-                <div id="#partners" >
-                    <br/>
-                    <br/>
-                    <p className="titre-partners" >Our friends </p>
-                </div>
-                <div>
-                    <div className="logo-partners">
-                        <div className="teachbk">
-                            <a href="https://teachbk.com/usa-immigration/" target="_blank" ><img src="/images/logo-teachBK.png" alt="logo" width="200" height="60" className="friend" /></a>
-                            <p className="teach">all about political asylum</p>
-                        </div>
-                        <div className="teachbk">
-                            <a href="https://rubic.us/" target="_blank" ><img src="/images/logo-rubic.svg" alt="logo" width="200" height="60" className="friend" /></a>
-                            <p className=" teach">all about life in the USA</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </>
-    )
-}
+// const Partners = () => {
+//     return (
+//         <>
+//             <div className="partners" >
+//                 <div id="#partners" >
+//                     <br/>
+//                     <br/>
+//                     <p className="titre-partners" >Our friends </p>
+//                 </div>
+//                 <div>
+//                     <div className="logo-partners">
+//                         <div className="teachbk">
+//                             <a href="https://teachbk.com/usa-immigration/" target="_blank" ><img src="/images/logo-teachBK.png" alt="logo" width="200" height="60" className="friend" /></a>
+//                             <p className="teach">all about political asylum</p>
+//                         </div>
+//                         <div className="teachbk">
+//                             <a href="https://rubic.us/" target="_blank" ><img src="/images/logo-rubic.svg" alt="logo" width="200" height="60" className="friend" /></a>
+//                             <p className=" teach">all about life in the USA</p>
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+//         </>
+//     )
+// }
 
-const Footer = () => {
+const Footer = ({isUser}) => {
+
     return (
         <>
+<hr className="hr-contact"></hr>
             <footer id="contacts" className=" footer">
                 <div className="aboutUs">
                         <h4 className="parr4 light-color">About Us</h4>
                     <Link to="/aboutus">
                         <p className="grey marg">Our team</p>
                     </Link>
-                    <a href="#advantages">
+                    {!isUser && <a href="#advantages">
                         <p className="grey marg">Advantages</p>
-                    </a>
+                    </a>}
                 </div>
                 <div className="contacts ">
                     <h4 className="parr4 light-color">Services</h4>
@@ -638,21 +710,23 @@ const Footer = () => {
                         <p className="grey marg">Pricing</p>
                     </a>
                 </div>
-                <div className="contacts ">
+{  !isUser &&              <div className="contacts ">
                     <h4 className="parr4 light-color">Success Stories</h4>
                     <a href="#testimonials">
                         <p className="grey marg">Testimonials</p>
                     </a>
-                </div>
+                </div>}
                 <div className="contacts ">
                     <div className="links">
-                        <a href="https://web.telegram.org/k/#@eb3usa" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/telegram.png?v=1698341412493" alt="telegram" width="38" height="38" /></a>
-                        <a href="#" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/facebook.png?v=1698341176410" alt="facebook" width="38" height="38" /></a>
-                        <a href="https://instagram.com/eb3.visa?igshid=MzMyNGUyNmU2YQ==" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/instagram.png?v=1698341213474" alt="instagram" width="38" height="38" /></a>
+                        <a href="https://t.me/eb3usa" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/telegram.png?v=1698341412493" alt="telegram" width="38" height="38" /></a>
+                                                <a href="https://instagram.com/eb3.visa?igshid=MzMyNGUyNmU2YQ==" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/instagram.png?v=1698341213474" alt="instagram" width="38" height="38" /></a>
                         <a href="https://www.youtube.com/@EB3unskilled" target="_blank"><img className="link-margin" src="https://cdn.glitch.global/eed07d64-49b2-4c82-baf4-2a0def1065aa/youtube.png?v=1698341435865" alt="youtube" width="38" height="38" /></a>
                     </div>
                 </div>
+                
             </footer>
+            <div className="created"><p className="we-creat">Created by</p></div>
+            <div className="created-we"><p className="we"> Olya Safronova</p> <p className="we">and</p><a href="https://github.com/maisiukartyom"><p className="we"> Artsiom Maisiuk</p></a> </div>
         </>
     )
 }
@@ -662,24 +736,6 @@ const Index = () => {
   const [isUser, setIsUser] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
-
-  const fly = () => {
-    if (window.innerWidth >= 1370) {
-      gsap.from("#first-text", { x: 1500, duration: 0.8, ease: "power1.out" });
-      gsap.from("#second-text", {
-        x: 1500,
-        duration: 0.8,
-        ease: "power1.out",
-        delay: 0.5,
-      });
-      gsap.from("#third-text", {
-        x: 1500,
-        duration: 0.8,
-        ease: "power1.out",
-        delay: 0.9,
-      });
-    } 
-  };
 
   useEffect(() => {
     const verifyCookie = async (level) => {
@@ -728,28 +784,35 @@ const Index = () => {
         })
     })
     AOS.init();
-    fly();
     verifyCookie(0)
   }, []);
 
   const logout = () => {
     setUser({})
-    setIsVerified(false)
     setIsAdmin(false)
     setIsUser(false)
   }
 
   return (
+    
+    isVerified &&
     <>
-        {/* <HeaderForMain /> */}
-        <MainPhoto logout={logout} />
-        <Main user={user} />
-        <Testimonials />
+        {/* <HeaderForMain logout = {logout}/> */}
+
+        <MainPhoto isUser={isUser} logout={logout} />
+        <Main isUser={isUser} user={user} />
+        {!isUser && <Testimonials />}
         <Contacts />
-        <Partners />
-        <Footer />
+        <Footer isUser={isUser} />
         {
-          isVerified && !isAdmin && isUser && <SupportEngine user={user} />
+          isVerified && !isAdmin && isUser &&           
+          <>
+            <SupportEngine user={user} />
+          </>  
+        }
+        {
+          !isAdmin &&
+          <CallForm />
         }
     </>
   );

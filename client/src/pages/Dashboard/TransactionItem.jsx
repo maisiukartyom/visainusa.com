@@ -11,12 +11,13 @@ const TransactionItemWrapper = styled.div`
 `;
 
 const TransactionItem = ({ transaction }) => {
-  const { paymentID, amount, buyerEmail, status, currency, createTime, updateTime } = transaction;
+  const { paymentID, amount, buyerEmail, status, currency, createTime, updateTime, description } = transaction;
 
   return (
     <TransactionItemWrapper>
       <div>
         <p>Transaction ID: {paymentID}</p>
+        <p>Description: {description}</p>
         <p>Amount: {amount} {currency}</p>
         <p>Buyer: {buyerEmail}</p>
         <p>Status: {status}</p>

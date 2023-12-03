@@ -13,7 +13,7 @@ const LevelItemWrapper = styled.div`
 `;
 
 const LevelListWrapper = styled.div`
-  max-width: 500px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 20px;
   height: 400px; /* Fixed height with scroll */
@@ -63,6 +63,12 @@ const LevelList = () => {
         setLevelsInfo(updatedLevels);
     }
 
+    const handleOriginalCostChange = (index, newCost) => {
+        const updatedLevels = [...levelsInfo];
+        updatedLevels[index].originalCost = Number(newCost);
+        setLevelsInfo(updatedLevels);
+    }
+
     const submitLevels = async () => {
         try{
             await axios.post('/payment/updateLevels', {
@@ -94,8 +100,6 @@ const LevelList = () => {
               );
         }
     }
-
-    console.log(levelsInfo);
   
     return (
         fetched && 
@@ -108,6 +112,12 @@ const LevelList = () => {
                     type="number"
                     value={level.cost}
                     onChange={(e) => handleCostChange(index, e.target.value)}
+                />
+                    <strong>Original price:</strong>{' '}
+                    <input
+                    type="number"
+                    value={level.originalCost}
+                    onChange={(e) => handleOriginalCostChange(index, e.target.value)}
                 />
                 </LevelItemWrapper>
             ))}
