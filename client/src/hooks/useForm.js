@@ -47,9 +47,10 @@ const useForm = (agreed) => {
                 });
             setDataIsCorrect(false)
         }
-
-        if (Object.values(curErrors).every(value => value === "")){
-            setDataIsCorrect(true);
+        else{
+            if (Object.values(curErrors).every(value => value === "")){
+                setDataIsCorrect(true);
+            }
         }
     };
 
