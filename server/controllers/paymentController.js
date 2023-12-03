@@ -7,7 +7,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET);
 
 const clientId = process.env.PAYPAL_CLIENT_ID;
 const clientSecret = process.env.PAYPAL_SECRET_KEY;
-const environment = new paypal.core.SandboxEnvironment(clientId, clientSecret);
+const environment = new paypal.core.LiveEnvironment(clientId, clientSecret)
 const client = new paypal.core.PayPalHttpClient(environment);
 
 const updateLevels = async (req, res) => {

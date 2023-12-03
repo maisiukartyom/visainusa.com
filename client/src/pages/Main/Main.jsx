@@ -45,6 +45,23 @@ const  Main = ({isUser, user}) => {
       document.getElementById(state.hash).scrollIntoView();
       window.history.replaceState(null, document.title)
     }
+
+    const productContainers = [...document.querySelectorAll('.product-container')];
+    const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
+    const preBtn = [...document.querySelectorAll('.pre-btn')];
+
+    productContainers.forEach((item, i) => {
+        let containerDimensions = item.getBoundingClientRect();
+        let containerWidth = containerDimensions.width;
+
+        nxtBtn[i].addEventListener('click', () => {
+            item.scrollLeft += containerWidth;
+        })
+
+        preBtn[i].addEventListener('click', () => {
+            item.scrollLeft -= containerWidth;
+        })
+    })
   }, [state])
 
   return (
@@ -766,23 +783,6 @@ const Index = () => {
           setIsVerified(true)
       }
       }
-
-    const productContainers = [...document.querySelectorAll('.product-container')];
-    const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
-    const preBtn = [...document.querySelectorAll('.pre-btn')];
-
-    productContainers.forEach((item, i) => {
-        let containerDimensions = item.getBoundingClientRect();
-        let containerWidth = containerDimensions.width;
-
-        nxtBtn[i].addEventListener('click', () => {
-            item.scrollLeft += containerWidth;
-        })
-
-        preBtn[i].addEventListener('click', () => {
-            item.scrollLeft -= containerWidth;
-        })
-    })
     AOS.init();
     verifyCookie(0)
   }, []);
@@ -797,8 +797,6 @@ const Index = () => {
     
     isVerified &&
     <>
-        {/* <HeaderForMain logout = {logout}/> */}
-
         <MainPhoto isUser={isUser} logout={logout} />
         <Main isUser={isUser} user={user} />
         {!isUser && <Testimonials />}
