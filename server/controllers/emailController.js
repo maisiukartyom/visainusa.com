@@ -31,7 +31,6 @@ const handleSendEmail = async (req, res) => {
       const mailOptions = {
         from: 'EB3unskilled@gmail.com',
         to: 'EB3unskilled@visainusa.com',
-        // from: 'artyom.majsyuk@gmail.com',
         // to: 'maisiukartyom@gmail.com',
         subject: `Anketa response`,
         html: htmlContent
@@ -71,7 +70,6 @@ const handleSendEmployer = async (req, res) => {
     }
 
     const mailOptions = {
-      // from: 'artyom.majsyuk@gmail.com',
       // to: 'maisiukartyom@gmail.com',
       from: 'EB3unskilled@gmail.com',
       to: 'EB3unskilled@visainusa.com',
@@ -98,7 +96,6 @@ const handleSendPhone = async (req, res) => {
     `;
 
     const mailOptions = {
-      // from: 'artyom.majsyuk@gmail.com',
       // to: 'maisiukartyom@gmail.com',
       from: 'EB3unskilled@gmail.com',
       to: 'EB3unskilled@visainusa.com',
@@ -168,7 +165,6 @@ const sendContract = async (req, res) => {
     `;
 
     const mailOptions = {
-      // from: 'artyom.majsyuk@gmail.com',
       // to: 'maisiukartyom@gmail.com',
       from: 'EB3unskilled@gmail.com',
       to: 'EB3unskilled@visainusa.com',

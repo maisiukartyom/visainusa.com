@@ -285,6 +285,16 @@ justify-content: center;
 	border: 1px solid #d8d8d8;
   }
 
+.PhoneInputInput{
+	height: 32px;
+	font-size: 20px;
+	outline: none;
+  width: 100%;
+	height: 36px;
+	border-radius: 6px;
+	border: 1px solid #d8d8d8;
+}
+
 .form-wrapper-sum {
 	display: flex;
 	justify-content: center;

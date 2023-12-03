@@ -1,16 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import PhoneInput from "react-phone-input-2";
 import '../../src/pages/ForEmployer/ForEmployer.css';
 import axios from "../api/axios";
 import {toast} from 'react-toastify'
+import PhoneInput, {isValidPhoneNumber, formatPhoneNumberIntl} from 'react-phone-number-input'
+import 'react-phone-number-input/style.css'
+
 
 const FormEmployer = () =>  {
-    
-    const handlePhoneChange = (value) => {
-        setPhoneNumber(value)
-    }
 
     const [email, setEmail] = useState('')
     const [company, setCompany] = useState('')
@@ -25,7 +23,7 @@ const FormEmployer = () =>  {
             try{
                 await axios.post("/email/sendEmployerInfo", {
                     email: email,
-                    phoneNumber: phoneNumber,
+                    phoneNumber: formatPhoneNumberIntl(phoneNumber),
                     company: company,
                     comment: comment
                 })
@@ -92,8 +90,8 @@ const FormEmployer = () =>  {
             error.company = ""
         }
 
-        if (!phoneNumber) {
-            error.phoneNumber = "Phone number is required"
+        if (!phoneNumber || !isValidPhoneNumber(phoneNumber)) {
+            error.phoneNumber = "Phone number is invalid"
         }
         else{
             error.phoneNumber = ""
@@ -134,14 +132,12 @@ const FormEmployer = () =>  {
                             <div className="start">
                                 <label htmlFor="email" className="label-log-sum">Phone number</label>
                             </div>
-                            <PhoneInput 
-                                className=""
-                                country={'us'}
+                                <PhoneInput
+                                international
+                                countryCallingCodeEditable={false}
+                                defaultCountry="US"
                                 value={phoneNumber}
-                                onChange={handlePhoneChange}
-                                inputProps={{name: 'phoneNumber',
-                                            required: true,}}   
-                                />
+                                onChange={setPhoneNumber}/>
                             {errors.phoneNumber && <p className="error-phone-left">{errors.phoneNumber}</p>}   
                         </div>
 

@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import useForm from "../hooks/useForm";
-import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
+import PhoneInput from 'react-phone-number-input'
 import { useState } from "react";
+import 'react-phone-number-input/style.css'
 
 
 const SignupForm = () => {    
@@ -81,13 +81,12 @@ const SignupForm = () => {
                         <div className="start">
                             <label className="label-log ">Phone number</label>
                             </div>
-                            <PhoneInput className="input-log react-tel-input form-control"
-                                country={'ru'}
+                            <PhoneInput
+                                international
+                                countryCallingCodeEditable={false}
+                                defaultCountry="RU"
                                 value={values.phoneNumber}
-                                onChange={handlePhoneChange}
-                                inputProps={{name: 'phoneNumber',
-                                            required: true,}}   
-                                />
+                                onChange={handlePhoneChange}/>
                             {errors.phoneNumber && <p className="error-left">{errors.phoneNumber}</p>}
                         </div>
 

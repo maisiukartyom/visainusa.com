@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import axios from '../api/axios';
 import {toast} from 'react-toastify'
 import { useNavigate } from 'react-router-dom';
-import PhoneInput from 'react-phone-input-2';
+import PhoneInput, {isValidPhoneNumber, formatPhoneNumberIntl} from 'react-phone-number-input'
+import 'react-phone-number-input/style.css'
 
 const PopUpBackground = styled.div`
   position: fixed;
@@ -64,11 +65,11 @@ const PopUpForm = ({ onClose }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (email !== "" && phoneNumber !== ""){
+    if (phoneNumber !== "" && isValidPhoneNumber(phoneNumber)){
         try{
             await axios.post("/email/sendEmail", {
                 email: email,
-                phoneNumber: phoneNumber
+                phoneNumber: formatPhoneNumberIntl(phoneNumber)
             })
             toast.success('Thank you, our team will get in touch with you soon!', {
               position: "top-center",
@@ -97,7 +98,7 @@ const PopUpForm = ({ onClose }) => {
         }
     }
     else{
-        toast.warning('You should fill both email and phone number!', {
+        toast.warning('Phone number is invalid!', {
         position: "top-center",
         autoClose: 3000,
         hideProgressBar: false,
@@ -109,10 +110,6 @@ const PopUpForm = ({ onClose }) => {
         });
     }
   };
-
-  const handlePhoneChange = (value) => {
-    setPhoneNumber(value)
-}
 
   return (
     <PopUpBackground>
@@ -130,15 +127,12 @@ const PopUpForm = ({ onClose }) => {
               value={email}
               onChange={handleInputChange1}
             />
-            <PhoneInput 
-              inputStyle={{width: "100%"}}
-              className=""
-              country={'ru'}
+            <PhoneInput
+              international
+              countryCallingCodeEditable={false}
+              defaultCountry="US"
               value={phoneNumber}
-              onChange={handlePhoneChange}
-              inputProps={{name: 'phoneNumber',
-              required: true,}}   
-            />
+              onChange={setPhoneNumber}/>
             <Button>Send</Button>
         </form>
       </PopUpContent>

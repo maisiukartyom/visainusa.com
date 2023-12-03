@@ -3,6 +3,7 @@ import validation from "../utils/validation.js";
 import axios from "../api/axios.js";
 import {toast} from 'react-toastify';
 import { useNavigate, useLocation } from "react-router-dom";
+import {formatPhoneNumberIntl} from 'react-phone-number-input'
 
 const useForm = (agreed) => {
     const navigate = useNavigate();
@@ -23,17 +24,16 @@ const useForm = (agreed) => {
             [event.target.name]: event.target.value,
         });
     }
-    const handlePhoneChange = (value, country, event) => {
+    const handlePhoneChange = (value) => {
         setValues({
             ...values,
-            [event.target.name]: value
+            phoneNumber: value
         })
     }
     const handleFormSubmit = (event) => {
         event.preventDefault();
         const curErrors = validation(values)
         setErrors(validation(values));
-        console.log(agreed)
         if (!agreed){
             toast.warning("Please agree to terms and conditions!", {
                 position: "top-center",
@@ -56,6 +56,7 @@ const useForm = (agreed) => {
     useEffect( () => {
         const register = async () => {
             try {
+                values.phoneNumber = formatPhoneNumberIntl(values.phoneNumber);
                 const result = await axios.post("/register",
                     JSON.stringify(values),
                     {
@@ -63,15 +64,6 @@ const useForm = (agreed) => {
                         withCredentials: true
                     }
                 );
-                //     position: "top-center",
-                //     autoClose: 3000,
-                //     hideProgressBar: false,
-                //     closeOnClick: true,
-                //     pauseOnHover: false,
-                //     draggable: false,
-                //     progress: undefined,
-                //     theme: "light",
-                //     });
                 toast.success("Email verification link has been sent!", {
                     position: "top-center",
                     autoClose: 7000,

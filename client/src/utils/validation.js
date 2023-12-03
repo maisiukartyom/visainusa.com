@@ -1,3 +1,5 @@
+import {isValidPhoneNumber} from 'react-phone-number-input'
+
 const validation = (values) => {
 
     let errors={};
@@ -36,8 +38,8 @@ const validation = (values) => {
         errors.age = ""
     }
 
-    if (!values.phoneNumber){
-        errors.phoneNumber = "Phone number is required"
+    if (!values.phoneNumber || !isValidPhoneNumber(values.phoneNumber)){
+        errors.phoneNumber = "Phone number is invalid"
     }
     else{
         errors.phoneNumber = ""
