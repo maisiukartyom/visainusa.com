@@ -87,6 +87,7 @@ const CallForm = () => {
       </div>
       <div className="form-group">
         <PhoneInput
+          className='input-ph'
           international
           countryCallingCodeEditable={false}
           defaultCountry="RU"
