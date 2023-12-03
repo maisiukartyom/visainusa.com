@@ -35,7 +35,7 @@ const sendLink = async (req, res) => {
                 to: email,
                 subject: "Confirm email",
                 html: `<h2>You have 5 hours to confirm your email:</h2>
-                        <a href="${url}">${url}</a>`
+                        <a href="${url}">Link to verify</a>`
             });
             return res.sendStatus(200);
         }
@@ -75,7 +75,7 @@ const handleNewUser = async (req, res) => {
                     to: email,
                     subject: "Confirm email",
                     html: `<h2>You have 5 hours to confirm your email:</h2>
-                    <a href="${url}">${url}</a>`
+                    <a href="${url}">Link to verify</a>`
                 })
             }
         );

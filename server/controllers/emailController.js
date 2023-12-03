@@ -137,7 +137,7 @@ const sendResetPassword = async (req, res) => {
                     to: email,
                     subject: "Link to password reset",
                     html: `<h2>You have 5 hours to reset your password:</h2>
-                            <a href="${url}">${url}</a>`
+                            <a href="${url}">Reset link</a>`
                 });
                 return res.sendStatus(200);
             }

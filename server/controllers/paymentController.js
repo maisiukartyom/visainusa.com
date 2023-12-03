@@ -235,7 +235,7 @@ const createIntent = async (req, res) => {
                 automatic_payment_methods: {
                   enabled: true,
                 },
-                // payment_method_types: ['card']
+                description: `Level ${level} purchase`
               });
   
               res.json({ clientSecret: paymentIntent.client_secret, email })
