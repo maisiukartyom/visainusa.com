@@ -62,6 +62,7 @@ const SupportEngine = ({user}) => {
                 style={{
                     position: 'fixed',
                     bottom: '24px',
+                    zIndex: '1000',
                     right: '24px',
                 }}
             />

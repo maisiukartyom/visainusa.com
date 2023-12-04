@@ -12,7 +12,7 @@ export const styles = {
         // Size
         width: '84px',
         height: '84px',
-        zIndex: '10000',
+        //zIndex: '1000',
     },
     avatarHello: { 
         // Position
@@ -20,7 +20,7 @@ export const styles = {
         left: 'calc(-100% - 44px - 28px)', 
         top: 'calc(50% - 24px)', 
         // Layering
-        zIndex: '10000',
+        //zIndex: '10001',
         boxShadow: '0px 0px 16px 6px rgba(0, 0, 0, 0.33)',
         // Border
         padding: '12px 12px 12px 16px',
@@ -34,7 +34,7 @@ export const styles = {
         position: 'fixed',
         bottom: '116px',
         right: '24px',
-        zIndex: '10000',
+        zIndex: '10001',
         // Size
         width: '420px',
         height: '530px',

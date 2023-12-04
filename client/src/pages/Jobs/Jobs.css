@@ -144,7 +144,8 @@ padding-left: 10px; */
 
 .cards{
     display: flex;
-    justify-content: center;
+    overflow-x: auto;
+    justify-content: left;
 }
 .card-employer{
     background-color: var(--light-color);

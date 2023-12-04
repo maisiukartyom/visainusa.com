@@ -9,6 +9,7 @@ import {toast} from 'react-toastify';
 import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
 import 'react-horizontal-scrolling-menu/dist/styles.css';
 import Contacts from '../../components/Contacts';
+import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 
 
 const allStates = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI','ID','IL', 'IN', 'IA',
@@ -81,12 +82,15 @@ const Jobs = () => {
     const [isFetched, setIsFetched] = useState(false);
     const [isChecked, setIsChecked] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
+    const [status, setStatus] = useState("Unknown");
 
     const navigate = useNavigate();
 
     const fetchJobsData = async () => {
       try{
+        setStatus("Fetching")
         const res = await axios.post("/jobs/getJobs", {states: selectedStates});
+        setStatus("Fetched");
         setJobsData(res.data);
         setIsFetched(true)
       }
@@ -186,6 +190,8 @@ const Jobs = () => {
     }
 
     return (
+
+        
         isChecked &&
         <div >
             <Header />
@@ -265,7 +271,7 @@ const Jobs = () => {
           <input  type="checkbox" checked={selectedStates.includes('IN')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="IN"/>Indiana (IN)
           </div>
           <div  className="st">
-          <input  type="checkbox" checked={selectedStates.includes('IA')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="IN"/>Iowa (IA)
+          <input  type="checkbox" checked={selectedStates.includes('IA')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="IA"/>Iowa (IA)
           </div>
           <div  className="st">
           <input  type="checkbox" checked={selectedStates.includes('KS')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="KS"/>Kansas (KS)
@@ -336,7 +342,7 @@ const Jobs = () => {
           <input  type="checkbox" checked={selectedStates.includes('OK')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="OK"/>Oklahoma (OK)
           </div>
           <div  className="st">
-          <input  type="checkbox" checked={selectedStates.includes('OR')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="TN"/>Oregon (OR)
+          <input  type="checkbox" checked={selectedStates.includes('OR')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="OR"/>Oregon (OR)
           </div>
           <div className="st" >
           <input  type="checkbox" checked={selectedStates.includes('PA')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="PA"/>Pennsylvania (PA)
@@ -388,13 +394,13 @@ const Jobs = () => {
         </div>
         </div>
         {/* <button>SHOW</button> */}
-                                       
+              {status === "Fetching" && <LoadingSpinner text="Loading jobs" />}
               {isFetched && jobsData.map((state, index) => (
-                <div className='cards'>
-
-                    {state.jobPositions.length > 0 && 
-                    <ScrollMenu 
-                    Header={<h2 style={{textAlign: "center"}}>{statesMap[state.state]}</h2>}>
+                state.jobPositions.length > 0 && 
+                <>
+                  <h2 style={{textAlign: "center"}}>{statesMap[state.state]}</h2>
+                  <div className='cards'>
+                    <ScrollMenu >
                       {state.jobPositions.map((job, index) => (
                           <div style={{marginTop: "10px", marginBottom: "10px", marginLeft: "15px"}}>
                               <div className='card-employer'>
@@ -423,8 +429,9 @@ const Jobs = () => {
                             </div>
                           </div>
                       ))}
-                    </ScrollMenu>}
+                    </ScrollMenu>
                 </div>
+                </>
               ))}
               <Contacts/>
             <Footer />

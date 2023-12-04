@@ -8,7 +8,7 @@ const ChatEngine = props => {
             style={
                 {
                     height: '100%',
-                    zIndex: '100',
+                    zIndex: '1000',
                     width: '100%',
                     backgroundColor: 'white'
                 }
