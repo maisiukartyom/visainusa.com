@@ -16,7 +16,8 @@ const allStates = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', '
 'OK','OR','PA', 'RI','SC','SD', 'TN','TX','UT','VT','VA','WA','WV','WI','WY',]
 
 
-const fullStates = ["Alabama (AL)",
+const fullStates = [
+"Alabama (AL)",
 "Alaska (AK)",
 "Arizona (AZ)",
 "Arkansas (AR)",
@@ -26,7 +27,6 @@ const fullStates = ["Alabama (AL)",
 "Delaware (DE)",
 "Florida (FL)",
 'Georgia (GA)',
-"Guam (GU)",
 "Hawaii (HI)",
 'Idaho (ID)',
 "Illinois (IL)",
@@ -59,15 +59,14 @@ const fullStates = ["Alabama (AL)",
 "South Carolina (SC)",
 "South Dakota	(SD)",
 "Tennessee (TN)",
-'Texas (TX)',  
-"Trust Territories	(TT)",
+'Texas (TX)',
 'Utah (UT)',  
 "Vermont (VT)",
 "Virginia (VA)", 
 'Washington (WA)',
 "West Virginia	 (WV)",
-  "Wisconsin (WI)	",
-  "Wyoming (WY)",
+"Wisconsin (WI)	",
+"Wyoming (WY)",
   ]
 
   const statesMap = {};
