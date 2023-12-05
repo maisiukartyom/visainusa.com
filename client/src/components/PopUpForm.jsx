@@ -130,7 +130,7 @@ const PopUpForm = ({ onClose }) => {
             <PhoneInput
               international
               countryCallingCodeEditable={false}
-              defaultCountry="US"
+              defaultCountry="RU"
               value={phoneNumber}
               onChange={setPhoneNumber}/>
             <Button>Send</Button>
