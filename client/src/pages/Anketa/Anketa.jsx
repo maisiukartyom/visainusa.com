@@ -41,7 +41,11 @@ const Anketa = () => {
                     });
             }
             else{
-                if (answers.every(answer => answer === 'no')) {
+                const isAllButPenultimateNo = answers.slice(0, -2).every(answer => answer === 'no');
+                const isPenultimateYes = answers.slice(-2, -1)[0] === 'yes';
+                const isLastNo = answers.slice(-1)[0] === 'no';
+                const flag = isAllButPenultimateNo && isPenultimateYes && isLastNo
+                if (flag) {
                     toast.success(`Congratulations! You have successfully passed the questionnaire and pre-approved for EB3 unskilled program!`, {
                         position: "top-center",
                         autoClose: 10000,
@@ -64,7 +68,7 @@ const Anketa = () => {
                         });
                     
                     navigate("/", {state: {hash: "pricing"}})
-                } else if (!answers.every(answer => answer === 'no') && !answers.includes('')){
+                } else if (!flag && !answers.includes('')){
                     // toast.error("You're not eligble. Please fill in the form to contact Alexey!", {
                     //     position: "top-center",
                     //     autoClose: 6000,

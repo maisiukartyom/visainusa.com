@@ -117,7 +117,7 @@ const PopUpForm = ({ onClose }) => {
         <form onSubmit={handleSubmit}>
           <CloseButton onClick={onClose}>X</CloseButton>
             <h2>Contact us</h2>
-            <p><strong style={{color: "red"}}>It looks like you answered "YES" to one or more questions. 
+            <p><strong style={{color: "red"}}>It seems you haven't passed the pre-qualification test. 
               <br />
               Please fill in the form and we will reach out!</strong></p>
             <Input
