@@ -149,7 +149,7 @@ const FormEmployer = () =>  {
                         </div>
                         </div>
                                                 
-                        <div>
+                        <div className="btn-submit">
                             <button className="submit-send" onClick={handleSubmit}>Send</button>
                         </div>
                         </form>

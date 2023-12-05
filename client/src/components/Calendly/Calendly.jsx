@@ -2,9 +2,9 @@ import {PopupButton} from 'react-calendly';
 import './calendly.css'
 
 const calendlyButtonStyle = {
-  background: '#ffffff', 
+  background: '#CF3549', 
   position: "fixed", 
-  color: "#244B7A",
+  color: "#ffffff",
   fontFamily: "sans-serif",
   textAlign: "center",
   borderRadius: "12px",
@@ -17,7 +17,9 @@ const calendlyButtonStyle = {
   fontWeight: "bold",
   cursor: "pointer",
   fontSize: "14px",
-  border: "4px #244B7A solid"
+  fontWeigh:"700",
+  border: "none",
+  boxShadow: "0px 0px 6px 2px #353532",
 }
 
 

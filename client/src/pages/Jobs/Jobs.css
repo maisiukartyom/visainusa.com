@@ -96,34 +96,41 @@ justify-content: center;
 .state-one{
     display: flex;
     justify-content: center;
+
+
 }
 .state-two{
     display: flex;
     justify-content: center;
+
+
 }
 .map-states{
     align-self: center;
 
 }
-.mob-states{
-    display: flex;
-    justify-content: center;
-
-}
+        .mob-states{
+            display: flex;
+            justify-content: center;
+        }
 .states-right{
     margin-left: 4%;
 }
+
 .states-all{
     display: flex;
 flex-direction: column;
-justify-content: center;
+
     font-family: 'Merriweather', serif;
     font-size: 18px;
     font-weight: 700;
     margin-top: 1%;
 
 }
-
+.st-flex{
+    display: flex;
+    justify-content: center;
+}
 .st{
 margin-top: 4%;
 color: var(--deep-dark);
@@ -167,8 +174,8 @@ text-align: center;
 }
 
 .img-page{
-    box-shadow: 0px 0px 2px 2px #244B7A;
-    width:300px;
+    box-shadow: 0px 0px 2px 2px #939395;
+    width:330px;
      height:350px;
 }
 
@@ -308,10 +315,7 @@ align-items: center;
 
 
 @media screen and (max-width: 1025px){
-    .states-all{
-        display: flex;
-        flex-direction: column;
-    }
+
 
     .st{
         margin-top: 3%;
@@ -428,6 +432,9 @@ width: 100%;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+            }
+            .text-job-ny{
+                padding: 40px;
             }
             }
         @media screen and (max-width: 476px){
@@ -698,6 +705,10 @@ width: 100%;
                                }
 .st{
     font-size: 12px;
+}
+.text-job-ny{
+    max-width: 300px;
+    padding: 40px;
 }
 
                                                 }

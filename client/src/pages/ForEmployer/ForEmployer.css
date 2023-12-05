@@ -23,7 +23,10 @@ html {
 	background-size: cover;
 	background-repeat: no-repeat;
 }
-
+.emp-form{
+	display: flex;
+	justify-content: space-evenly;
+}
 .first-block-employer {
 	display: flex;
 	flex-direction: column;
@@ -31,7 +34,76 @@ html {
 	justify-content: center;
 	padding: 120px;
 }
+.link-emp-form{
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+}
 
+.block-link{
+	background-color: rgba(255,255,255,0.5);
+padding: 60px;
+}
+.text-form-click{
+	font-size: 16px;
+	font-weight: 600;
+	color: var(--dark-color);
+	font-family: 'Merriweather', serif;
+	display: flex;
+	justify-content: center;
+	max-width: 360px;
+	text-align: center;
+}
+.link-emp{
+	display: flex;
+	justify-content: center;
+	text-transform: uppercase;
+	border-radius: 10px;
+	border: none;
+	width: 240px;
+	height: 50px;
+	font-size: 17px;
+	color: #ffffff;
+	padding: 13px 60px;
+	background-color: var(--main-color);
+	margin: auto;
+	outline: none;
+	cursor: pointer;
+	transition: all 0.1s;
+	text-align: center;
+	animation-name: color;
+	animation-duration: 2s;
+	animation-iteration-count:infinite;
+
+}
+
+#formEmp{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@keyframes color {
+	from {background-color: var(--main-color);}
+	to {background-color: var(--color);}
+  }
+
+  /* .animation{
+	transition: background-color 0.3s;
+	animation: pulse 3s infinite;
+}
+@keyframes pulse {
+	0% { 
+	  transform: scale(0.8);
+	}
+  
+	50% { transform: scale(1.1);
+	}
+  
+	100% {
+	  transform: scale(0.8);
+	} 
+  } */
 .h2-employer,
 .h2-employer-light {
 	margin-top: 50px;
@@ -206,6 +278,7 @@ list-style-type: none;
 
 .summary-form {
 	display: flex;
+	justify-content: space-evenly;
 }
 .comment-form {
     width: 100%;
@@ -352,10 +425,11 @@ margin-top: -1px;
 	font-weight: 600;
 
 }
-
-.submit-send {
+.btn-submit{
 	display: flex;
 	justify-content: center;
+}
+.submit-send {
 	text-transform: uppercase;
 	border-radius: 10px;
 	border: none;
@@ -363,9 +437,8 @@ margin-top: -1px;
 	height: 50px;
 	font-size: 18px;
 	color: #ffffff;
-	padding: 10px 60px;
+	padding: 14px 60px;
 	background-color: var(--main-color);
-	margin: auto;
 	outline: none;
 	cursor: pointer;
 	transition: all 0.1s;
@@ -374,8 +447,9 @@ margin-top: -1px;
  .but-sum{
 margin-bottom: 55%;
  }
-button:active {
-	transform: translate(2px);
+ .submit-send:hover {
+	background: var(--dark-color);
+	color: var(--light-color);
 }
 
 @media all and (max-width:1280px) {
@@ -407,7 +481,16 @@ button:active {
 
 
 }
-
+@media all and (max-width:926px){
+.emp-form{
+	display: flex;
+	flex-direction: column;
+}
+.block-link{
+	margin-bottom: 10%;
+	padding: 40px;
+}
+}
 @media all and (max-width:920px) {
 	.photo-block-employer {
 		display: none;
@@ -706,4 +789,16 @@ button:active {
 	margin-top: 10%;
  }
 
+}
+@media all and (max-width:366px){
+.text-employer{
+	text-align: start;
+	word-spacing: 3px;
+}
+}
+@media all and (max-width:316px){
+	.block-link{
+		margin-bottom: 10%;
+		padding: 20px;
+	}
 }

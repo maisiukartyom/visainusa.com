@@ -93,12 +93,12 @@ const SignupForm = () => {
                         <div>
                         <label className="check-sign">
                                 <input value={agreed} onChange={() => setAgreed(!agreed)}  type="checkbox" />
-                                <p onClick={(e) => { e.preventDefault(); setShowModal(true); }} className="mini-text-sign terms">I read and accept term and conditions</p>
+                                <p onClick={(e) => { e.preventDefault(); setShowModal(true); }} className="mini-text-sign-read terms">I read and accept term and conditions</p>
                         </label>
                             <button className="submit">Sign Up</button>
                         </div>
                         <div className="login-here">
-                        <p className="mini-text-sign">If you have already signed up, please log in </p>
+                        <p className="mini-text-s">If you have already signed up, please log in </p>
                         <Link to="/login"><p className="here">here</p></Link>
                         </div>
                     </form>

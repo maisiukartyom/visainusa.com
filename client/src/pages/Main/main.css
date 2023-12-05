@@ -63,7 +63,6 @@ html {
 	  text-decoration: none;
 	  color: var(--dark-color);
 	  padding: 10px 12px;
-	align-items: center;
 	cursor: pointer;
 	  transition: transform .5s;
 
@@ -76,7 +75,7 @@ html {
 	  transform: scale3d(1.1, 1.1, 1.1);
 	  transition: 0.5s ease-in-out;
   }
-  
+
   .header-nav-item:nth-child(n + 2){
 	margin-left: 18px;
   }
@@ -559,13 +558,13 @@ border-bottom-left-radius: 6px;
 	text-transform: uppercase;
 	font-size: 16px;
 	cursor: pointer;
-	position: relative;
 	/* left: 50%;
 	transform: translate(-50%, 0); */
-	 left: 24%;
+left: 25%;
 	bottom: 30px;
 	margin-bottom: -4%;
 	position: absolute;
+
 
 }
 
@@ -618,7 +617,7 @@ border-bottom-left-radius: 6px;
 .appliName-level-two{
 	margin-top: 10px;
 	text-align: center;
-	font-size: 40px;
+	font-size: 35px;
 	font-weight: bolder;
 	color: var(--color);
 	text-transform: uppercase;
@@ -627,7 +626,7 @@ border-bottom-left-radius: 6px;
 .appliName-levelOne-del {
 	margin-top: 10px;
 	text-align: center;
-	font-size: 40px;
+	font-size: 35px;
 	font-weight: 500;
 	color: var(--dark-color);
 	text-decoration: line-through;
@@ -926,7 +925,7 @@ height: 250px;
 
 .number{
 	margin-top: 0.6%;
-	margin-left: 4%;
+	margin-left: 1.6%;
 	color: var(--light-color);
 	font-size: 16px;
 	font-weight: lighter;
@@ -1057,7 +1056,7 @@ font-family: 'Playfair Display', serif;
 	font-family: 'Playfair Display', serif;
 	color: var(--light-color);
 	font-weight: lighter;
-	align-items: center;
+margin-bottom: -0.3%;
 }
 
 @media screen and (max-width: 1920px){
@@ -3636,6 +3635,12 @@ padding: auto;
 }
 
 @media (max-width:576px){
+	.vie{
+		background-image: none;
+		background-color: #244B7A;
+		height: 10vh;
+	}
+	
 	.place {
 padding: auto;
 		flex: auto;
@@ -3941,7 +3946,9 @@ padding: auto;
 		margin-top: -1%;
 		padding: 10px;
 	}
-
+.we{
+	margin-bottom: 10%;
+}
 
 	.btn-abouteb3{
 		color: var(--light-color);
@@ -4254,7 +4261,10 @@ padding: auto;
 
 
 	.levellev{
-		width: 440px;
+		width: 445px;
+	}
+	.btn-levels{
+		left: 22%;
 	}
 .level-future{
 	width: 440px;
@@ -4323,7 +4333,11 @@ padding: auto;
 		margin-right: 3%;
 		}
 		.levellev{
-			width: 440px;
+			width: 435px;
+		}
+
+		.btn-levels{
+			left: 21%;
 		}
 .level-future{
 	width: 440px;
@@ -4395,6 +4409,9 @@ padding: auto;
 		.levellev{
 			width: 420px;
 		}
+		.btn-levels{
+			left: 21%;
+		}
 .level-future{
 	width: 430px;
 }
@@ -4437,16 +4454,12 @@ padding: auto;
 	.btn-abouteb3{
 		color: var(--light-color);
 	}
-.btn-levels{
-	left: 15%;
-}
+
 	.friend{
 		width: 120px;
 		height: 55px;
 	}
-	.appliName-names{
-		margin-left: 1%;
-	}
+
 	.appliName-levelOne-del {
 		font-size: 32px;
 	}
@@ -4480,7 +4493,10 @@ padding: auto;
 		margin-right: 6%;
 		}
 		.levellev{
-			width: 420px;
+			width: 410px;
+		}
+		.btn-levels{
+			left: 19%;
 		}
 .level-future{
 	width: 420px;
@@ -4528,7 +4544,7 @@ padding: auto;
 		height: 55px;
 	}
 	.appliName-names{
-		margin-left: 1%;
+
 	}
 	.appliName-levelOne-del {
 		font-size: 32px;
@@ -4562,7 +4578,10 @@ padding: auto;
 		margin-right: 6%;
 		}
 		.levellev{
-			width: 410px;
+			width: 400px;
+		}
+		.btn-levels{
+			left: 19%;
 		}
 .level-future{
 	width: 410px;
@@ -4640,7 +4659,10 @@ padding: auto;
 		margin-right: 10%;
 		}
 		.levellev{
-			width: 400px;
+			width: 395px;
+		}
+		.btn-levels{
+			left: 18%;
 		}
 .level-future{
 	width: 400px;
@@ -4709,7 +4731,7 @@ padding: auto;
 		height:500px;
 	}
 }
-@media (max-width:397px){
+@media (max-width:396px){
 	.place {
 padding: auto;
 		flex: auto;
@@ -4723,10 +4745,13 @@ padding: auto;
 		margin-right: 13%;
 		}
 		.levellev{
-			width: 390px;
+			width: 375px;
+		}
+		.btn-levels{
+			left: 17%;
 		}
 .level-future{
-	width: 380px;
+	width: 370px;
 }
 	
 		.titre{
@@ -4812,7 +4837,10 @@ padding: auto;
 		margin-right: 16%;
 		}
 		.levellev{
-			width: 380px;
+			width: 375px;
+		}
+		.btn-levels{
+			left: 17%;
 		}
 .level-future{
 	width: 380px;
@@ -4895,7 +4923,10 @@ padding: auto;
 		margin-right: 18%;
 		}
 		.levellev{
-			width: 370px;
+			width: 360px;
+		}
+		.btn-levels{
+			left: 16%;
 		}
 .level-future{
 	width: 370px;
@@ -4983,7 +5014,10 @@ padding: auto;
 		margin-right: 21%;
 		}
 		.levellev{
-			width: 360px;
+			width: 355px;
+		}
+		.btn-levels{
+			left: 15%;
 		}
 .level-future{
 	width: 360px;
@@ -5090,12 +5124,13 @@ padding: auto;
 		max-height: 1150px;
 		margin-right: 23%;
 		}
-		.level{
-			width: 350px;
+		.levellev{
+			width: 345px;
 		}
-		.level-paid{
-			width: 350px;
+		.btn-levels{
+			left: 14%;
 		}
+
 		.appliName-levelOne-del {
 			font-size: 32px;
 		}
@@ -5188,12 +5223,12 @@ padding: auto;
 		margin-right: 25%;
 
 		}
-		.level-lev{
-			width: 340px;
+		.levellev{
+			width: 335px;
 		}
-		.level-paid{
-			width: 340px;
-		}
+.btn-levels{
+	left: 13%;
+}
 		.appliName-levelOne-free{
 			left: 25%;
 			font-size: 22px;
@@ -5292,7 +5327,7 @@ padding: auto;
 		margin-right: 31%;
 		font-size: 12px;
 		}
-		.level{
+		.levellev{
 			width: 325px;
 		}
 		.level-paid{
@@ -5388,6 +5423,14 @@ margin-top: 26px;
 	width: 310px;
 	height:600px;
 }
+
+.we{
+font-size: 14px;
+}
+.btn-levels{
+
+	left: 13%;
+	}
 }
 @media (max-width:326px){
 	.place {
@@ -5407,11 +5450,9 @@ padding: auto;
 		font-size: 12px;
 		}
 		.levellev{
-			width: 318px;
+			width: 310px;
 		}
-		.level-paid{
-			width: 318px;
-		}
+
 
 		.appliName-levelOne-del {
 			font-size: 32px;
@@ -5466,6 +5507,7 @@ padding: auto;
 		display: flex;
 		flex-direction: column;
 		padding: 30px;
+		margin-left: 2%;
 	}
 
 
@@ -5484,10 +5526,7 @@ padding: auto;
 		font-size: 32px;
 margin-left: -32%;
 	}
-	.appliName-names {
-		margin-left: 1%;
-		max-width: 250px;
-	}
+
 	.price-del{
 		margin-left: -32%;
 	}
@@ -5516,6 +5555,10 @@ margin-top: 26px;
 	width: 300px;
 	height:620px;
 }
+.btn-levels{
+
+	left: 11%;
+	}
 }
 @media (max-width:316px){
 	.place {
@@ -5626,6 +5669,10 @@ margin-top: 26px;
 	width: 300px;
 	height:620px;
 }
+.btn-levels{
+
+	left: 11%;
+	}
 }
 @media (max-width:306px){
 	.place {
@@ -5744,6 +5791,10 @@ margin-top: 26px;
 	width: 290px;
 	height:620px;
 }
+.btn-levels{
+
+	left: 10%;
+	}
 }
 @media (max-width:296px){
 	.place {
@@ -5807,7 +5858,10 @@ padding: auto;
 	.titre-column{
 		font-size: 20px;
 	}
+.btn-levels{
 
+left: 8%;
+}
 	.buttons-main{
 		display: flex;
 		flex-direction: column;
@@ -5926,8 +5980,7 @@ padding: auto;
 		display: flex;
 		flex-direction: column;
 		padding: 30px;
-		margin-left: auto;
-margin-right: auto;
+margin-left: -4%;
 
 	}
 
@@ -5948,7 +6001,7 @@ margin-right: auto;
 	}
 
 	.btn-levels{
-		left: 5%;
+		left: 7%;
 	}
 	.price{
 		font-size: 30px;

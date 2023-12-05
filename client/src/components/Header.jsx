@@ -95,7 +95,7 @@ export const Header = () => {
             <Link to="/"><span className="header-logo"><img src={"/images/logo.png"} alt="logo" width={70} height={94}/></span></Link>
             <nav id="burger-nav" className={`header-nav ${isOpen? "active" : ""}`}>
                 <ul className="header-nav-list">
-                    <Link to="/aboutus"><li className="header-nav-items">About Us</li></Link>
+                    <Link to="/aboutus"><li className="header-nav-items aboutt">About Us</li></Link>
                     {!user && <Link to="/" state={{hash: "testimonials"}}><li className="header-nav-items">Testimonials</li></Link>}
                     <Link to="/" state={{hash: "contacts"}}><li className="header-nav-items">Contacts</li></Link>
                     <Link to="/" state={{hash: "pricing"}}><li className="header-nav-items">Pricing</li></Link>

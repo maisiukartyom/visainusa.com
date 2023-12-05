@@ -304,8 +304,9 @@ const Jobs = () => {
           <input  type="checkbox" checked={selectedStates.includes('MO')}  onChange={(e) => handleCheckboxChange(e.target.value)} value="MO"/>Missouri (MO)
           </div>
           </div>
-          </div>
-          <div className='state-two'>
+
+
+
           <div className='states-left'>
           
           <div className="st">
@@ -391,6 +392,9 @@ const Jobs = () => {
           </div>
           </div>
           </div>
+
+
+
         </div>
         </div>
         {/* <button>SHOW</button> */}

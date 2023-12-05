@@ -240,10 +240,10 @@ Additionally, you'll be provided with step-by-step instructions for self-filing 
           <iframe    src="https://www.youtube.com/embed/LiaLKhQQ6mA?si=shCT7oIdXvxfuSzn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
           clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen className="youtube-levelone"></iframe> 
           <p className='text-levelOneMain'>I worked unauthorized, can I apply for the EB3 unskilled?</p>
-          <hr className='hr-levelone'></hr>
+          <hr className='hr-levelone-top'></hr>
           <div>
           <TextBlockone className="text-levelOne"  title=" If you have worked without authorization in the U.S. for less than 180 days, it should not be troublesome,
-          as it is not considered unauthorized work.   ..." description=" If you have worked without authorization in the U.S. for more than 180 days, it could negatively impact your immigration case. To apply for EB3 unskilled through the Adjustment of Status pathway (inside the U.S.), you would need to depart and re-enter the U.S (a valid passport and a valid visa are mandatory) to 'fix' the unauthorized work. Once you re-enter the U.S., 
+          as it is not considered unauthorized work. If you have worked without authorization in the U.S.  ..." description="  for more than 180 days, it could negatively impact your immigration case. To apply for EB3 unskilled through the Adjustment of Status pathway (inside the U.S.), you would need to depart and re-enter the U.S (a valid passport and a valid visa are mandatory) to 'fix' the unauthorized work. Once you re-enter the U.S., 
           the unauthorized work 'clock' will reset, allowing you to apply for the green card." descriptionn1="Another option, if you prefer not to re-enter the U.S., is to apply for EB3 unskilled through the consular processing pathway, even if you are inside the U.S. This means that once your Labor Certification and I-140 are approved, you will need to leave the U.S. and apply for the green
            card (DS-260) from outside." description1="Any job performed without authorization is considered unauthorized, irrespective of whether taxes were paid. Furthermore, receiving payment in cash for any job within the U.S. or performing tasks remotely, including but not limited to teaching, accounting, or coding, for a company located outside of the U.S. without the proper authorization is also deemed unauthorized work. While volunteering is generally allowed, 
            taking on positions typically held by paid employees is generally prohibited."description2="However, even without a work permit,
@@ -294,7 +294,30 @@ Additionally, you'll be provided with step-by-step instructions for self-filing 
                           </div>
 
             </div>
-
+            <div className='tabels-time'>
+<div className='AOS-time'>
+  <p className='text-AOS'>EB3 unskilled INSIDE of the U.S. - Adjustment of Status timiline </p>
+  <div className="table-time">
+      <img src="/images/table-AOS.jpg" alt="table" className="AOS"/>
+            </div>
+</div>
+<div className='AOS-time'>
+  <p className='text-AOS'>EB3 unskilled OUTSIDE of the U.S. - Consular Processing timiline  </p>
+  <div className="table-time">
+      <img src="/images/table-CP.jpg" alt="table" className="CP"/>
+            </div>
+</div>
+</div>
+<hr className='hr-bull'></hr>
+<div className='bulletin'>
+<p className='text-bulletin'>The Visa Bulletin</p>
+<div className='btn-bulletin'>
+  <a href='https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html' target='blank'>
+    <button className='btn-bull'>Click here</button>
+   </a>
+   </div>
+</div>
+<hr className='hr-bull-bot'></hr>
       </div>
     )
 }

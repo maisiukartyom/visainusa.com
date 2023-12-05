@@ -19,6 +19,7 @@
         line-height: 32px;
         padding: 20px;
         margin-top: -2%;
+
     }
 
     .text-levelA{
@@ -70,11 +71,20 @@
             height: 360px;
             padding: 10px;
         }
+        .text-levelApply{
+            text-align: start;
+        }
+        .text-levelApply{
+            text-align: start;
+        }
+        .text-levelA{
+            text-align: start;
+        }
     }
     @media (max-width:486px){
         .youtube-levelApply{
             width: 100%;
-            height: 340px;
+            height: 300px;
             padding: 10px;
         }
     }
@@ -82,16 +92,30 @@
     @media (max-width:386px){
         .youtube-levelApply{
             width: 100%;
-            height: 310px;
+            height: 220px;
+            padding: 10px;
+        }
+    }
+    @media (max-width:336px){
+        .youtube-levelApply{
+            width: 100%;
+            height: 200px;
             padding: 10px;
         }
     }
 
+    @media (max-width:306px){
+        .youtube-levelApply{
+            width: 100%;
+            height: 180px;
+            padding: 10px;
+        }
+    }
     
     @media (max-width:286px){
         .youtube-levelApply{
             width: 100%;
-            height: 220px;
+            height: 180px;
             padding: 10px;
         }
     }
