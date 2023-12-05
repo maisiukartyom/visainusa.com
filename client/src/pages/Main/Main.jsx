@@ -407,14 +407,14 @@ const  Main = ({isUser, user}) => {
               <p className="coming-bonus">Extra bonus!</p>
               <p className="description-future description-future-finaly "> Be prepared to immerse in English language environment 
               (3 x 30 mins speaking club for you and your kids)
-</p>
+</p></div></Link>
 <div className="center-level">
                           <Link to='/levelthree'>
               <button className="btn-levels ">CHOOSE</button>
               </Link>
               </div>
-                          </div></Link>
                           </div>
+
           </div>
 <div className="grid-future">
           {/* Change the classNames once are made! */}
@@ -635,7 +635,7 @@ const Contacts = () => {
                <h4 class="contact-name" id="contact">Contacts</h4>
                 <div className="number-phone">
                 <a className="number" href='tel:+1 864 748 9898'>
-                  <img src="/images/number.png" alt="phone" width={20} height={20} />+1 864 748 9898</a>
+                  <img src="/images/number.png" alt="phone" width={20} height={20} />  +1 864 748 9898</a>
                               </div>
                               <div className="number-phone">
                <img src="/images/mail.png" alt="phone" width={26} height={20} />
@@ -649,8 +649,8 @@ const Contacts = () => {
                               </div>
                               </div>
                               <div className="link-column">
-                              <a href="t.me/eb3visainusa" target="_blank"><img className="link-margin" src="images/telegram.png" alt="telegram" width="38" height="38" /></a>
-                        <a href="tel:+79168070961WhatsApp" target="_blank"><img className="link-margin" src="images/whatsapp.png" alt="whatsapp" width="38" height="38" /></a>
+                              <a href="https://t.me/eb3visainusa" target="_blank"><img className="link-margin" src="images/telegram.png" alt="telegram" width="38" height="38" /></a>
+                        <a href="tel:+79168070961" target="_blank"><img className="link-margin" src="images/whatsapp.png" alt="whatsapp" width="38" height="38" /></a>
                         </div>
                </div>
             </div>
@@ -704,7 +704,7 @@ const Footer = ({isUser}) => {
                 <div className="contacts ">
                     <h4 className="parr4 light-color">Services</h4>
                     <Link to="/abouteb3">
-                        <p className="grey marg">EB-3 Unskilled Visa</p>
+                        <p className="grey marg eb3-un">EB-3 Unskilled Visa</p>
                     </Link>
                     <a href="#pricing">
                         <p className="grey marg">Pricing</p>
@@ -726,7 +726,7 @@ const Footer = ({isUser}) => {
                 
             </footer>
             <div className="created"><p className="we-creat">Created by</p></div>
-            <div className="created-we"><p className="we"> Olya Safronova</p> <p className="we">and</p><a href="https://github.com/maisiukartyom"><p className="we"> Artsiom Maisiuk</p></a> </div>
+            <div className="created-we"><a href="#" className="we" target="blank"><p > Olya Safronova and</p></a> <a className="we"><p >and</p></a><a className="we " href="https://github.com/maisiukartyom"><p > Artsiom Maisiuk</p></a> </div>
         </>
     )
 }

@@ -70,11 +70,15 @@
     font-size: 24px;
     text-decoration: none;
     color: var(--dark-color);
-    padding: 10px 18px;
+    padding: 10px 20px;
   cursor: pointer;
     transition: transform .5s;
     text-align: center;
 
+}
+
+.aboutt{
+  max-width: 550px;
 }
 
 .header-nav-items:hover {
@@ -372,13 +376,17 @@ justify-content: center;
   margin: 8px;
 }
 .en, .ru{
-
-
   font-weight: 600;
 cursor: pointer;
 padding: 10px;
-
-
+}
+.ru:hover {
+	background: var(--dark-color);
+	color: var(--light-color);
+}
+.en:hover {
+	background: var(--dark-color);
+	color: var(--light-color);
 }
 .text-levelonee{
   display: flex;
@@ -445,6 +453,10 @@ margin-left: auto;
 
 .marg{
   margin-top: 1%;
+  word-break: break-all;
+}
+.eb3-un{
+  max-width: 124px;
 }
 
 
@@ -653,6 +665,90 @@ margin-top: 3%;
 margin-bottom: 3%;
   }
 
+  .we-creat{
+    font-family: 'Playfair Display', serif;
+    color: var(--light-color);
+    font-weight: lighter;
+  margin-bottom: 1%;
+  }
+  
+/*AOS and CP*/
+
+.tabels-time{
+  display: flex;
+  justify-content: space-evenly;
+
+}
+
+.AOS-time{
+  display: flex;
+  flex-direction: column;
+  
+}
+.AOS{
+  width: 100%;
+  padding: 14px;
+}
+.CP{
+  width: 100%;
+  padding: 14px;
+  margin-top: 1.4%;
+}
+.text-AOS{
+  font-size: 18px;
+	font-weight: 600;
+	font-family: 'Merriweather', serif;
+  text-align: center;
+  margin-bottom: -2%;
+}
+.text-bulletin{
+  font-size: 24px;
+	font-weight: 600;
+	font-family: 'Merriweather', serif;
+  text-align: center;
+  padding-left: 40px;
+  padding-right: 40px;
+  color: var(--deep-dark);
+
+}
+.bulletin{
+  /* border: #CF3549 2px solid; */
+}
+.btn-bull{
+  text-transform: uppercase;
+	border-radius: 10px;
+	border: none;
+	width: 240px;
+	height: 50px;
+	font-size: 17px;
+	color: #ffffff;
+	padding: 13px 60px;
+	background-color: var(--main-color);
+	margin: auto;
+	outline: none;
+	cursor: pointer;
+	transition: all 0.1s;
+}
+.btn-bull:hover {
+	background: var(--dark-color);
+	color: var(--light-color);
+}
+.btn-bulletin{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10%;
+}
+.hr-bull{
+  width: 100%;
+  height: 2px;
+  background-color: rgb(154, 154, 155);
+}
+.hr-bull-bot{
+  width: 100%;
+  height: 2px;
+  background-color: rgb(154, 154, 155);
+  margin-bottom: 10%;
+}
   @media (max-width:1920px){
 
     .footer-column {
@@ -1183,6 +1279,7 @@ margin-bottom: 3%;
 
 
 @media (max-width:924px) {
+
   .header-nav{
     position: fixed;
     top: 0;
@@ -1228,17 +1325,23 @@ margin-bottom: 3%;
     padding: 0;
     border: 0;
   }
+  .level-first-block{
+    display: flex;
+    flex-direction: column;
+  }
+  .tabels-time{
+    display: flex;
+    flex-direction: column;
+  }
 }
 @media (max-width:846px){
   .text-level-important{
     text-align: justify;
   }
 }
+
 @media all and (max-width:800px) {
-  .level-first-block{
-    display: flex;
-    flex-direction: column;
-  }
+
 
 .appliName-level{
   width: 100%;
@@ -1294,9 +1397,21 @@ footer {
 }
 }
 
-@media (max-width: 610px) {
+@media (max-width: 616px) {
   footer {
     padding: 55px;
+  }
+
+  .text-level-important{
+    font-size: 20px;
+    font-weight: 600;
+    max-width:1400px;
+    max-height: 20000px;
+    text-align: start;
+    color: var(--deep-dark);
+    font-family: 'Merriweather', serif;
+    line-height: 28px;
+    word-spacing: 1px;
   }
 }
 
@@ -1375,7 +1490,11 @@ height: 215px;
     padding: 80px;
   }
 }
-
+@media (max-width: 506px) {
+.text-AOS{
+  font-size: 16px;
+}
+}
 @media (max-width: 462px) {
   .links-chatt {
 display: flex;
@@ -1385,7 +1504,16 @@ margin-right: auto;
   }
 }
 
+@media (max-width: 446px) {
+  .text-AOS{
+    font-size: 15px;
+    margin-bottom: -8%;
+  }
 
+  .text-bulletin{
+    font-size: 22px;
+  }
+  }
 
 @media (max-width: 436px) {
   footer {
@@ -1422,6 +1550,9 @@ font-size: 30px;
       .youtube-levelone{
         height: 190px;
       }
+      .h2-level{
+        font-size: 28px;
+      }
       }
 
       @media (max-width: 336px) {
@@ -1444,6 +1575,13 @@ font-size: 30px;
   .youtube-levelone{
     height: 168px;
   }
+  .text-AOS{
+    font-size: 14px;
+    margin-bottom: -12%;
+  }
+  .text-bulletin{
+    font-size: 20px;
+  }
 }
 
 
@@ -1453,6 +1591,10 @@ font-size: 30px;
   }
   .foot{
     color: var(--light-color);
+  }
+  .text-AOS{
+    font-size: 13px;
+    margin-bottom: -14%;
   }
 }
 

@@ -105,25 +105,32 @@ color: #0619e6;
 display: flex;
 justify-content: center;
 padding: 2px;
-max-width: 380px;
+
 
 }
 
-.mini-text-sign{
-font-size: 16px;
-word-spacing: 6px;
-margin-left: 8px;
-text-decoration: underline;
+.mini-text-s{
+font-size: 14px;
+word-spacing: 4px;
+margin-left:5px;
+
 }
+.mini-text-sign-read{
+  font-size: 14px;
+  word-spacing: 4px;
+  margin-left: 10px;
+  text-decoration: underline;
+  }
 
 .login-here{
 display: flex;
 justify-content: center;
+max-width: 280px;
 }
 
 .here{
-font-size: 12px;
-margin-left: 20%;
+font-size: 14px;
+margin-left: 8%;
 text-decoration: underline;
 color: var(--dark-color);
 }

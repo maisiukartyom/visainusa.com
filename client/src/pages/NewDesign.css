@@ -106,7 +106,7 @@ display: block;
 .appliName-levelOne-free{
 	margin-top: 10px;
 	text-align: center;
-	font-size: 40px;
+	font-size: 35px;
 	font-weight: bolder;
 	color: var(--color);
 	text-transform: uppercase;
@@ -188,10 +188,92 @@ display: block;
 	}
 	
   }
-  @media (max-width:386px){
-
+  @media (max-width:456px){
+	.level-paid{
+		width: 445px;
+	  }
+	}
+  @media (max-width:446px){
+	.level-paid{
+		width: 435px;
+	  }
+	}
+  @media (max-width:436px){
+	.level-paid{
+		width: 420px;
+	  }
+	}
+  @media (max-width:426px){
+	.level-paid{
+		width: 410px;
+	  }
+	}
+  @media (max-width:416px){
+	.level-paid{
+		width: 400px;
+	  }
+	}
+  @media (max-width:406px){
+	.level-paid{
+		width: 395px;
+	  }
+	}
+  @media (max-width:396px){
+	.level-paid{
+		width: 375px;
+	  }
 	  .coming-newDesign{
 		margin-right: -15%;
+	  }
+  }
+  @media (max-width:386px){
+	.level-paid{
+		width: 375px;
+	  }
+  }
+  @media (max-width:376px){
+	.level-paid{
+		width: 360px;
+	  }
+  }
+  @media (max-width:366px){
+	.level-paid{
+		width: 355px;
+	  }
+  }
+  @media (max-width:356px){
+	.level-paid{
+		width: 345px;
+	  }
+  }
+  @media (max-width:346px){
+	.level-paid{
+		width: 335px;
+	  }
+  }
+  @media (max-width:336px){
+	.level-paid{
+		width: 325px;
+	  }
+  }
+  @media (max-width:326px){
+	.level-paid{
+		width: 310px;
+	  }
+  }
+  @media (max-width:316px){
+	.level-paid{
+		width: 310px;
+	  }
+  }
+  @media (max-width:306px){
+	.level-paid{
+		width: 300px;
+	  }
+  }
+  @media (max-width:296px){
+	.level-paid{
+		width: 280px;
 	  }
   }
   @media (max-width:286px){
@@ -201,7 +283,10 @@ display: block;
 	  .level-paid{
 		width: 270px;
 	  }
-
+	  .description-future{
+		margin-left: -1.8%;
+		word-wrap: break-word;
+	}
 	  .coming-newDesign{
 		margin-right: -15%;
 	  }

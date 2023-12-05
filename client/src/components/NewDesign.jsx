@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
-import '..//pages//NewDesign.css'
+import '..//pages//NewDesign.css';
+import '../pages//Main/main.css';
 import { HeaderForMain } from './HeaderForMain';
 
 

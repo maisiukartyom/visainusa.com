@@ -304,6 +304,56 @@ text-align: justify;
       height:345px ;
       }
   }
+  @media all and (max-width: 320px){
+    .text-aboutus{
+      max-width:300px;
+      line-height: 22px;
+      font-size: 16px;
+    }
+
+    .first-team{
+      padding: 16px;
+      margin: 8px;
+      width: 310px;
+    }
+
+    .photo-team{
+      border-bottom: 8px #244B7A solid;
+      box-shadow: 0px 0px 8px 1px #91979f;
+      align-self: center;
+      margin-top: 5%;
+      width: 305px;
+      height:345px ;
+      }
+  }
+
+  @media all and (max-width: 280px){
+    .text-aboutus{
+      max-width:265px;
+      line-height: 19px;
+      font-size: 14px;
+    }
+
+    .first-team{
+      padding: 16px;
+      margin: 8px;
+      width: 260px;
+    }
+
+    .photo-team{
+      border-bottom: 8px #244B7A solid;
+      box-shadow: 0px 0px 8px 1px #91979f;
+      align-self: center;
+      margin-top: 5%;
+      width: 260px;
+      height:305px ;
+      }
+      .h2-ourteam{
+        margin-bottom: 8px;
+         font-size: 28px;
+        margin-top: 10%;
+      }
+  }
 
   @media all and (max-width: 320px){
     .text-aboutus{
@@ -348,6 +398,366 @@ text-align: justify;
       margin-top: 5%;
       width: 260px;
       height:305px ;
+      }
+      .h2-ourteam{
+        margin-bottom: 8px;
+         font-size: 28px;
+        margin-top: 10%;
+      }
+  }
+  @media all and (max-width: 320px){
+    .text-aboutus{
+      max-width:300px;
+      line-height: 22px;
+      font-size: 16px;
+    }
+
+    .first-team{
+      padding: 16px;
+      margin: 8px;
+      width: 310px;
+    }
+
+    .photo-team{
+      border-bottom: 8px #244B7A solid;
+      box-shadow: 0px 0px 8px 1px #91979f;
+      align-self: center;
+      margin-top: 5%;
+      width: 305px;
+      height:345px ;
+      }
+  }
+
+  @media all and (max-width: 280px){
+    .text-aboutus{
+      max-width:265px;
+      line-height: 19px;
+      font-size: 14px;
+    }
+
+    .first-team{
+      padding: 16px;
+      margin: 8px;
+      width: 260px;
+    }
+
+    .photo-team{
+      border-bottom: 8px #244B7A solid;
+      box-shadow: 0px 0px 8px 1px #91979f;
+      align-self: center;
+      margin-top: 5%;
+      width: 260px;
+      height:305px ;
+      }
+      .h2-ourteam{
+        margin-bottom: 8px;
+         font-size: 28px;
+        margin-top: 10%;
+      }
+  }
+  @media all and (max-width: 320px){
+    .text-aboutus{
+      max-width:300px;
+      line-height: 22px;
+      font-size: 16px;
+    }
+
+    .first-team{
+      padding: 16px;
+      margin: 8px;
+      width: 310px;
+    }
+
+    .photo-team{
+      border-bottom: 8px #244B7A solid;
+      box-shadow: 0px 0px 8px 1px #91979f;
+      align-self: center;
+      margin-top: 5%;
+      width: 305px;
+      height:345px ;
+      }
+  }
+
+  @media all and (max-width: 280px){
+    .text-aboutus{
+      max-width:265px;
+      line-height: 19px;
+      font-size: 14px;
+    }
+
+    .first-team{
+      padding: 16px;
+      margin: 8px;
+      width: 260px;
+    }
+
+    .photo-team{
+      border-bottom: 8px #244B7A solid;
+      box-shadow: 0px 0px 8px 1px #91979f;
+      align-self: center;
+      margin-top: 5%;
+      width: 260px;
+      height:305px ;
+      }
+      .h2-ourteam{
+        margin-bottom: 8px;
+         font-size: 28px;
+        margin-top: 10%;
+      }
+  }
+  @media all and (max-width: 320px){
+    .text-aboutus{
+      max-width:300px;
+      line-height: 22px;
+      font-size: 16px;
+    }
+
+    .first-team{
+      padding: 16px;
+      margin: 8px;
+      width: 310px;
+    }
+
+    .photo-team{
+      border-bottom: 8px #244B7A solid;
+      box-shadow: 0px 0px 8px 1px #91979f;
+      align-self: center;
+      margin-top: 5%;
+      width: 305px;
+      height:345px ;
+      }
+  }
+
+  @media all and (max-width: 280px){
+    .text-aboutus{
+      max-width:265px;
+      line-height: 19px;
+      font-size: 14px;
+    }
+
+    .first-team{
+      padding: 16px;
+      margin: 8px;
+      width: 260px;
+    }
+
+    .photo-team{
+      border-bottom: 8px #244B7A solid;
+      box-shadow: 0px 0px 8px 1px #91979f;
+      align-self: center;
+      margin-top: 5%;
+      width: 260px;
+      height:305px ;
+      }
+      .h2-ourteam{
+        margin-bottom: 8px;
+         font-size: 28px;
+        margin-top: 10%;
+      }
+  }
+  @media all and (max-width: 320px){
+    .text-aboutus{
+      max-width:300px;
+      line-height: 22px;
+      font-size: 16px;
+    }
+
+    .first-team{
+      padding: 16px;
+      margin: 8px;
+      width: 310px;
+    }
+
+    .photo-team{
+      border-bottom: 8px #244B7A solid;
+      box-shadow: 0px 0px 8px 1px #91979f;
+      align-self: center;
+      margin-top: 5%;
+      width: 305px;
+      height:345px ;
+      }
+  }
+
+  @media all and (max-width: 280px){
+    .text-aboutus{
+      max-width:265px;
+      line-height: 19px;
+      font-size: 14px;
+    }
+
+    .first-team{
+      padding: 16px;
+      margin: 8px;
+      width: 260px;
+    }
+
+    .photo-team{
+      border-bottom: 8px #244B7A solid;
+      box-shadow: 0px 0px 8px 1px #91979f;
+      align-self: center;
+      margin-top: 5%;
+      width: 260px;
+      height:305px ;
+      }
+      .h2-ourteam{
+        margin-bottom: 8px;
+         font-size: 28px;
+        margin-top: 10%;
+      }
+  }
+  @media all and (max-width: 376px){
+    .text-aboutus{
+      max-width:300px;
+      line-height: 22px;
+      font-size: 16px;
+    }
+
+    .first-team{
+      padding: 16px;
+      margin: 8px;
+      width: 360px;
+    }
+
+    .photo-team{
+      border-bottom: 8px #244B7A solid;
+      box-shadow: 0px 0px 8px 1px #91979f;
+      align-self: center;
+      margin-top: 5%;
+      width: 305px;
+      height:345px ;
+      }
+  }
+  @media all and (max-width: 336px){
+    .text-aboutus{
+      max-width:300px;
+      line-height: 22px;
+      font-size: 16px;
+    }
+
+    .first-team{
+      padding: 16px;
+      margin: 8px;
+      width: 310px;
+    }
+
+    .photo-team{
+      border-bottom: 8px #244B7A solid;
+      box-shadow: 0px 0px 8px 1px #91979f;
+      align-self: center;
+      margin-top: 5%;
+      width: 305px;
+      height:345px ;
+      }
+  }
+  @media all and (max-width: 326px){
+    .text-aboutus{
+      max-width:300px;
+      line-height: 22px;
+      font-size: 16px;
+    }
+
+    .first-team{
+      padding: 16px;
+      margin: 8px;
+      width: 310px;
+    }
+
+    .photo-team{
+      border-bottom: 8px #244B7A solid;
+      box-shadow: 0px 0px 8px 1px #91979f;
+      align-self: center;
+      margin-top: 5%;
+      width: 305px;
+      height:345px ;
+      }
+  }
+  @media all and (max-width: 316px){
+    .text-aboutus{
+      max-width:300px;
+      line-height: 22px;
+      font-size: 16px;
+    }
+
+    .first-team{
+      padding: 16px;
+      margin: 8px;
+      width: 310px;
+    }
+
+    .photo-team{
+      border-bottom: 8px #244B7A solid;
+      box-shadow: 0px 0px 8px 1px #91979f;
+      align-self: center;
+      margin-top: 5%;
+      width: 305px;
+      height:345px ;
+      }
+  }
+  @media all and (max-width: 306px){
+    .text-aboutus{
+      max-width:300px;
+      line-height: 22px;
+      font-size: 16px;
+    }
+
+    .first-team{
+      padding: 16px;
+      margin: 8px;
+      width: 290px;
+    }
+
+    .photo-team{
+      border-bottom: 8px #244B7A solid;
+      box-shadow: 0px 0px 8px 1px #91979f;
+      align-self: center;
+      margin-top: 5%;
+      width: 280px;
+      height:325px ;
+      }
+  }
+  @media all and (max-width: 296px){
+    .text-aboutus{
+      max-width:300px;
+      line-height: 22px;
+      font-size: 16px;
+      padding: 20px;
+    }
+
+    .first-team{
+      padding: 16px;
+      margin: 8px;
+      width: 280px;
+    }
+
+    .photo-team{
+      border-bottom: 8px #244B7A solid;
+      box-shadow: 0px 0px 8px 1px #91979f;
+      align-self: center;
+      margin-top: 5%;
+      width: 270px;
+      height:305px ;
+      }
+  }
+  @media all and (max-width: 286px){
+    .text-aboutus{
+      max-width:265px;
+      line-height: 19px;
+      font-size: 14px;
+    }
+
+    .first-team{
+      padding: 16px;
+      margin: 8px;
+      width: 260px;
+    }
+
+    .photo-team{
+      border-bottom: 8px #244B7A solid;
+      box-shadow: 0px 0px 8px 1px #91979f;
+      align-self: center;
+      margin-top: 5%;
+      width: 240px;
+      height:270px ;
       }
       .h2-ourteam{
         margin-bottom: 8px;

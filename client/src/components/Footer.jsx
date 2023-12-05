@@ -18,7 +18,7 @@ const Footer = ({isUser}) => {
               <div className="contacts ">
                   <h4 className="parr4 light-color">Services</h4>
                   <Link to="/abouteb3">
-                      <p className="grey marg">EB-3 Unskilled Visa</p>
+                      <p className="grey marg eb3-un">EB-3 Unskilled Visa</p>
                   </Link>
                   <Link to="/" state={{hash: "pricing"}}>
                       <p className="grey marg">Pricing</p>

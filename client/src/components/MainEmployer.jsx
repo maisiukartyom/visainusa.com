@@ -3,16 +3,25 @@ import FormEmployer from './FormEmployer';
 import "../pages/ForEmployer/ForEmployer.css";
 
 
+
 export const MainEmployer = () => {
     return(
         <div>
          <div className="employer-first-block">
+            <div className="emp-form">
             <div className="first-block-employer">
                <h2 className="h2-employer">ABOUT US</h2>
                <p className="text-employer">At "Visa in USA" Limited Liability Company, we
 specialize in helping businesses reduce unskilled labor
 turnover and increase their funds for growth and
 expansion. We don't charge you for unskilled workers.</p>
+            </div>
+            <div className="link-emp-form">
+                  <div className="block-link">
+                  <a href="#formEmp"><button className="link-emp">Click here</button></a>
+                        <p className="text-form-click">and we will reach out to explain how this program might help your business</p>
+                  </div>
+            </div>
             </div>
          </div>
          <div className="hr"></div>
@@ -43,8 +52,8 @@ organization after working in an entry-level role ​</li>
       <li className="par-benefits-employer">they pay all legal and government fees​​</li>
       <li className="par-benefits-employer">No employment agency recurring fee, unique
       and untapped labor pool, long-lasting solution​</li>
-      <li className="par-benefits-employer">Cost saving model for 1 year:​</li>
-       <li className="par-benefits-employer cost-emp"><img src="/images/cost.jpg" alt="table" className="cost-table" />​</li> 
+      {/* <li className="par-benefits-employer">Cost saving model for 1 year:​</li>
+       <li className="par-benefits-employer cost-emp"><img src="/images/cost.jpg" alt="table" className="cost-table" />​</li>  */}
          </ul>
    </div>
    <div className="photo-block-employer">
@@ -89,9 +98,9 @@ because of our market knowledge and a great team behind our
 service. As our CEO says, "Efficiencies will come from proactively
 transforming how we do business."</p>
       </div>
-
+<div id="formEmp" >
       <FormEmployer />
-
+      </div>
 </div>
 </div>
 </div>
