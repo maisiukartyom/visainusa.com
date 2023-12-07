@@ -6034,11 +6034,23 @@ margin-top: 26px;
 	height: 200px;
 }
 .product-card {
-	width: 240px;
-	height:750px;
+	width: 290px;
+	height:550px;
 }
 .contacts{
 	margin-left: 10%;
+}
+
+.name{
+font-size: 16px;
+}
+
+.stars{
+	margin-left: 22%;
+}
+.review{
+	margin-top: 14%;
+	font-size: 16px;
 }
 
 }

@@ -1485,9 +1485,12 @@ height: 215px;
 
 
 }
-@media (max-width: 550px) {
+@media (max-width: 556px) {
   footer {
     padding: 80px;
+  }
+  .level-list{
+    font-size: 10px;
   }
 }
 @media (max-width: 506px) {
