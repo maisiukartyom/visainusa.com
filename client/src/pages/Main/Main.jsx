@@ -8,6 +8,7 @@ import SupportEngine from "../../components/SupportEngine";
 import axios from "../../api/axios";
 import {toast} from 'react-toastify';
 import CallForm from "../../components/CallForm/CallForm";
+import Rating from '@mui/material/Rating';
 
 
 const  Main = ({isUser, user}) => {
@@ -401,7 +402,8 @@ const  Main = ({isUser, user}) => {
               {hasInfo && <p className="appliName-level-two price-all">${levelsInfo[2].cost}</p>}
                 </div>
               </>
-}<Link to='/levelthree'></Link>
+}
+{/* <Link to='/levelthree'></Link> */}
 <div className="text-discription-future">
               <p className="description-future ">
               Access to more than 1000 U.S. employers’ database (script of pitch included)
@@ -499,9 +501,9 @@ const Testimonials = () => {
                               <div className=" star">
                                 <p className="name">Francisco R.</p>
                                 <div className="stars-auto">
-                                <img className="stars" src="images/star-all.png" alt="star" width={100} height={20}/>
-
+                                <Rating name="half-rating-read" defaultValue={5} precision={0.5} readOnly />
                                 </div>
+                                
                                 </div>
                                 <p className="review">"I had the pleasure of working with this team for my EB3 unskilled process, and
                                  I can't express how grateful I am. Their first-hand experience and extensive knowledge helped to find solutions when my EB3 unskilled case got stuck in the USCIS. Thanks to their expertise, I now hold a U.S. permanent resident card. Highly recommended!"</p>
@@ -512,9 +514,8 @@ const Testimonials = () => {
                             <div className=" star">
                                 <p className="name">Maria S.</p>
                                 <div className="stars-auto">
-                                <img className="stars" src="images/star-hulf.png" alt="star" width={100} height={20}/>
-
-                                                                </div>
+                                <Rating name="half-rating-read" defaultValue={4.5} precision={0.5} readOnly />
+                                </div>
                                 </div>
                                 <p className="review">"I can't thank this team enough for their incredible support during my EB3 unskilled application. Their unique knowledge and personal involvement in each step of the process made a huge difference.
                                  They provided fast response for a reasonable price." </p>
@@ -525,7 +526,7 @@ const Testimonials = () => {
                             <div className=" star">
                                 <p className="name">David L.</p>
                                 <div className="stars-auto">
-                                <img className="stars" src="images/star-hulf.png" alt="star" width={100} height={20}/>
+                                  <Rating name="half-rating-read" defaultValue={4.5} precision={0.5} readOnly />
                                 </div>
                                                                 </div>
                                 <p className="review">"I was fortunate to have this team on my side for my EB3 journey. Their dedication and commitment were evident, and I couldn't be happier with the results. If you're considering the EB3 unskilled route, don't hesitate to reach out to them."</p>
@@ -536,7 +537,7 @@ const Testimonials = () => {
                             <div className=" star">
                                 <p className="name">Carl S.</p>
                                 <div className="stars-auto">
-                                <img className="stars" src="images/star-all.png" alt="star" width={100} height={20}/>
+                                <Rating name="half-rating-read" defaultValue={5} precision={0.5} readOnly />
                                 </div>
                                                                 </div>
                                 <p className="review">"Working with this team was a game-changer for my EB3 unskilled visa journey. Their deep understanding of the program and their ability to simplify complex procedures were invaluable. They were not just consultants; they were partners in my success.
@@ -548,7 +549,7 @@ const Testimonials = () => {
                             <div className=" star">
                                 <p className="name">Oksana P.</p>
                                 <div className="stars-auto">
-                                <img className="stars" src="images/star-all.png" alt="star" width={100} height={20}/>
+                                  <Rating name="half-rating-read" defaultValue={5} precision={0.5} readOnly />
                                 </div>
                                 </div>
                                 <p className="review">"I was skeptical before approaching them, but during the first consultation they laid out all the aspects of the EB3 Unskilled workers program in a very simple manner and we came up with a list of pros and cons.
@@ -560,7 +561,7 @@ const Testimonials = () => {
                             <div className=" star">
                                 <p className="name">Maxim F.</p>
                                 <div className="stars-auto">
-                                <img className="stars" src="images/star-hulf.png" alt="star" width={100} height={20}/>
+                                  <Rating name="half-rating-read" defaultValue={4.5} precision={0.5} readOnly />
                                 </div>
                                 </div>
                                 <p className="review">"I couldn't have sorted out the complexities of the EB3 unskilled visa process without the expertise of this team. 
@@ -572,7 +573,7 @@ const Testimonials = () => {
                             <div className=" star">
                                 <p className="name">Anton P.</p>
                                 <div className="stars-auto">
-                                <img className="stars" src="images/star-all.png" alt="star" width={100} height={20}/>
+                                  <Rating name="half-rating-read" defaultValue={5} precision={0.5} readOnly />
                                 </div>
                                 </div>
                                 <p className="review">"I highly recommend this team to anyone seeking assistance with their EB3 unskilled visa application.
@@ -584,7 +585,7 @@ const Testimonials = () => {
                             <div className=" star">
                                 <p className="name">Mario A.</p>
                                 <div className="stars-auto">
-                                <img className="stars" src="images/star-all.png" alt="star" width={100} height={20}/>
+                                  <Rating name="half-rating-read" defaultValue={5} precision={0.5} readOnly />
                                 </div>
                                 </div>
                                 <p className="review">"I was supposed to apply for H1B, but when found these guys who answered my questions about EB3 unskilled visa
@@ -596,7 +597,7 @@ const Testimonials = () => {
                             <div className=" star">
                                 <p className="name">Sergey K.</p>
                                 <div className="stars-auto">
-                                <img className="stars" src="images/star-hulf.png" alt="star" width={100} height={20}/>
+                                  <Rating name="half-rating-read" defaultValue={4.5} precision={0.5} readOnly />
                                 </div>
                                 </div>
                                 <p className="review">"I was lost in the EB3 application process until I found this team.
@@ -608,7 +609,7 @@ const Testimonials = () => {
                             <div className=" star">
                                 <p className="name">Lucas R.</p>
                                 <div className="stars-auto">
-                                <img className="stars" src="images/star-all.png" alt="star" width={100} height={20}/>
+                                  <Rating name="half-rating-read" defaultValue={5} precision={0.5} readOnly />
                                 </div>
                                 </div>
                                 <p className="review">"The team's expertise in EB3 unskilled visas is truly impressive. 
@@ -620,7 +621,7 @@ const Testimonials = () => {
                             <div className=" star">
                                 <p className="name">Anna L.</p>
                                 <div className="stars-auto">
-                                <img className="stars" src="images/star-all.png" alt="star" width={100} height={20}/>
+                                  <Rating name="half-rating-read" defaultValue={5} precision={0.5} readOnly />
                                 </div>
                                 </div>
                                 <p className="review">"I reached out to this team when I needed help with my EB3 case, and it was the best decision I made.
