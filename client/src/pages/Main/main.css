@@ -509,6 +509,19 @@ border-top-left-radius: 6px;
 border-bottom-left-radius: 6px;
 
 }
+
+.coming-lev2{
+	background-color: var(--color);
+	padding: 20px;
+	margin-right: -8%;
+	margin-top: -1%;
+	width: 200px;
+	color: var(--light-color);
+	font-size: 22px;
+margin-left: auto;
+border-top-left-radius: 6px;
+border-bottom-left-radius: 6px;
+}
 .appliName {
 	margin-top: 50px;
 	margin-bottom: 10px;
@@ -4819,6 +4832,9 @@ padding: auto;
 		width: 360px;
 		height:500px;
 	}
+	.coming-lev2{
+		margin-right: -15%;
+	}
 }
 @media (max-width:386px){
 	.place {
@@ -4930,9 +4946,10 @@ padding: auto;
 		}
 .level-future{
 	width: 370px;
-
 }
-
+.price-del{
+	margin-left: -1%;
+}
 	.titre{
 		font-size: 30px;
 	}
@@ -5022,7 +5039,9 @@ padding: auto;
 .level-future{
 	width: 360px;
 }
-	
+.price-del{
+	margin-left: -8%;
+}
 	.titre{
 		font-size: 26px;
 	}
@@ -5309,6 +5328,10 @@ padding: auto;
 		width: 300px;
 		height:600px;
 	}
+
+	.coming-lev2{
+		margin-right: -15%;
+	}
 }
 @media (max-width:336px){
 	.place {
@@ -5528,7 +5551,7 @@ margin-left: -32%;
 	}
 
 	.price-del{
-		margin-left: -32%;
+		margin-left: -8%;
 	}
 	.appliName-levelOne{
 		margin-left: -5%;
@@ -5672,6 +5695,10 @@ margin-top: 26px;
 .btn-levels{
 
 	left: 11%;
+	}
+
+	.coming-lev2{
+		margin-right: -15%;
 	}
 }
 @media (max-width:306px){
@@ -6051,6 +6078,10 @@ font-size: 16px;
 .review{
 	margin-top: 14%;
 	font-size: 16px;
+}
+
+.coming-lev2{
+	margin-right: -15%;
 }
 
 }

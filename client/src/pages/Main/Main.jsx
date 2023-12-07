@@ -390,6 +390,7 @@ const  Main = ({isUser, user}) => {
           {
               user.level >= 3 && <p className="coming-newDesign">Paid</p>
             }
+             <p className="coming-lev2">in the end of December 2023</p>
             <h2 className="appliName-future">Level 3</h2>
             <h3 className="appliName-names">"Smart immigration with no overpriced assistance"</h3>
             { 
@@ -400,8 +401,8 @@ const  Main = ({isUser, user}) => {
               {hasInfo && <p className="appliName-level-two price-all">${levelsInfo[2].cost}</p>}
                 </div>
               </>
-}
-<Link to='/levelthree'><div className="text-discription-future">
+}<Link to='/levelthree'></Link>
+<div className="text-discription-future">
               <p className="description-future ">
               Access to more than 1000 U.S. employers’ database (script of pitch included)
               </p>
@@ -424,12 +425,12 @@ const  Main = ({isUser, user}) => {
               <p className="coming-bonus">Extra bonus!</p>
               <p className="description-future description-future-finaly "> Be prepared to immerse in English language environment 
               (3 x 30 mins speaking club for you and your kids)
-</p></div></Link>
-<div className="center-level">
+</p></div>
+{/* <div className="center-level">
                           <Link to='/levelthree'>
               <button className="btn-levels ">CHOOSE</button>
               </Link>
-              </div>
+              </div> */}
                           </div>
 
           </div>
