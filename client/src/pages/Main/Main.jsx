@@ -401,7 +401,7 @@ const  Main = ({isUser, user}) => {
               {hasInfo && <p className="appliName-level-two price-all">${levelsInfo[2].cost}</p>}
                 </div>
               </>
-}<Link to='/levelthree'></Link>
+}<Link to='/levelthree'>
 <div className="text-discription-future">
               <p className="description-future ">
               Access to more than 1000 U.S. employers’ database (script of pitch included)
@@ -425,7 +425,7 @@ const  Main = ({isUser, user}) => {
               <p className="coming-bonus">Extra bonus!</p>
               <p className="description-future description-future-finaly "> Be prepared to immerse in English language environment 
               (3 x 30 mins speaking club for you and your kids)
-</p></div>
+</p></div></Link>
 {/* <div className="center-level">
                           <Link to='/levelthree'>
               <button className="btn-levels ">CHOOSE</button>
@@ -490,7 +490,7 @@ const Testimonials = () => {
                 <div id="testimonials" className="titrecenter ">
                     <p className="titre" data-aos="fade-up">Testimonials</p>
                 </div>
-                <section className="product">
+                 <section className="product">
                     <button className="pre-btn"><img src="/images/left-arrow.png" alt="arrow" width="20" height="20" /></button>
                     <button className="nxt-btn"><img src="/images/right-arrow.png" alt="arrow" width="20" height="20" /></button>
                     <div className="product-container">
@@ -628,7 +628,7 @@ const Testimonials = () => {
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> 
             </section>
         </>
     )

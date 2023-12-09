@@ -99,8 +99,8 @@ const AboutUsMain = () => {
           <div className="first-team">
             <img src="/images/Olya.jpg" alt="photo" width={370} height={400} className="photo-team"/>
             <h3 className="name-team">Olya </h3>
-            <h4 className="when">Applied for EB3 unskilled in 2020 </h4>
-            <h4 className="when-CP">Went through Adjustment of status</h4>
+            <h4 className="when">Applied for EB3 unskilled in 2017 </h4>
+            <h4 className="when-CP">Went through Consular processing</h4>
             <div className="hr-aboutus"></div>
             <div>
             <TextBlock className="text-Alexey" title="Hello, 
