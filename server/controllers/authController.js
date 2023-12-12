@@ -30,24 +30,9 @@ const handleLogin = async (req, res) => {
             { expiresIn: '1d' }
         );
         await foundUser.save();
-
-        // if (!isAdmin){
-        //     await axios.put(
-        //         'https://api.chatengine.io/users/',
-        //         {
-        //             "username": email,
-        //             "secret": email,
-        //             "email": email
-        //         },
-        //         {headers: {"Private-Key": process.env.CHAT_SECRET}})
-        // }
         
         // Creates Secure Cookie with access token
-        res.cookie('jwt', accessToken, { httpOnly: true, secure: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 });
-        
-        res.sendStatus(200); 
-        // Send authorization roles and access token to user
-        //res.json({ isAdmin, accessToken, level });
+        res.cookie('jwt', accessToken, { httpOnly: true, secure: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 }).json({name: foundUser.fullname, email: foundUser.email, user_id: foundUser._id, isAdmin});
 
     } else {
         res.sendStatus(401);

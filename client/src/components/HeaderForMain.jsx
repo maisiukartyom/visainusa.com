@@ -20,6 +20,8 @@ export const HeaderForMain = (props) => {
         await axios.get("/auth/logout", {
         withCredentials: true
         });
+
+        //window.Intercom('shutdown');
         setVerified(false);
         setUser(false);
         toast.success('Logged out!', {
@@ -54,10 +56,21 @@ export const HeaderForMain = (props) => {
             setEmail(user.data.email)
             setUser(true)
             setVerified(true)
+            // INTERCOM
+            // if (!user.data.isAdmin){
+            //     window.Intercom('boot', {
+            //         api_base: "https://api-iam.intercom.io",
+            //         app_id: 'lu9lx80w',
+            //         name: user.data.name,
+            //         email: user.data.email,
+            //         user_id: user.data.user_id,
+            //     });
+            // }
         }
         catch (err){
             setVerified(true)
             setUser(false)
+            //window.Intercom('shutdown');
         }
         }
 

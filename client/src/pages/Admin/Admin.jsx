@@ -48,10 +48,6 @@ export const Admin = () => {
         verified && 
         <div className="center-screen">
             <Link to="/"><span className="header-logo"><img src={"/images/logo.png"} alt="logo" width={70} height={94}/></span></Link>
-            <Link className="header-nav-item item-button-l login-l"
-            to="/adminChat">
-                Chats
-            </Link>
             <Link className="header-nav-item item-button-l login-l" to="/adminDashboard">
                 Dashboard
             </Link>

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import SupportEngine from "../../components/SupportEngine";
 import axios from "../../api/axios";
 
 const Profile = () => {
@@ -59,7 +58,6 @@ const Profile = () => {
                     }
                 </div>
             </div>
-              {/* <SupportEngine user={user} /> */}
         </>
 
     )

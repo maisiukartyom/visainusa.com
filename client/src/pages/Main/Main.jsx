@@ -4,7 +4,6 @@ import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
 import {Link, useLocation} from 'react-router-dom';
 import { MainPhoto } from "../../components/MainPhoto";
-import SupportEngine from "../../components/SupportEngine";
 import axios from "../../api/axios";
 import {toast} from 'react-toastify';
 import CallForm from "../../components/CallForm/CallForm";
@@ -805,12 +804,6 @@ const Index = () => {
         {!isUser && <Testimonials />}
         <Contacts />
         <Footer isUser={isUser} />
-        {/* {
-          isVerified && !isAdmin && isUser &&           
-          <>
-            <SupportEngine user={user} />
-          </>  
-        } */}
         {
           !isAdmin &&
           <CallForm />

@@ -4,7 +4,6 @@ import "../pages/LevelOne/LevelOne.css";
 import "../pages/NewDesign.css";
 import axios from "../api/axios";
 import {toast} from "react-toastify";
-import SupportEngine from "./SupportEngine";
 import '../pages/NewDesign.css';
 import CallForm from "./CallForm/CallForm";
 
@@ -23,6 +22,8 @@ export const Header = () => {
         await axios.get("/auth/logout", {
           withCredentials: true
         });
+
+        //window.Intercom('shutdown');
         setChatUser({})
         setVerified(false);
         setUser(false);
@@ -62,10 +63,21 @@ export const Header = () => {
               })
               setUser(true)
               setVerified(true)
+              // INTERCOM
+              // if (!user.data.isAdmin){
+              //   window.Intercom('boot', {
+              //       api_base: "https://api-iam.intercom.io",
+              //       app_id: 'lu9lx80w',
+              //       name: user.data.name,
+              //       email: user.data.email,
+              //       user_id: user.data.user_id,
+              //   });
+              // }
             }
             catch (err){
               setVerified(true)
               setUser(false)
+              //window.Intercom('shutdown');
             }
           }
           
@@ -149,12 +161,6 @@ export const Header = () => {
             onClick={() => setOpen(!isOpen)}
             >< img src="/images/menu.png" alt="menu"  width={24} height={24} /></button>
         </header>
-        {/* {
-          verified && !isAdmin && user && 
-          <>
-            <SupportEngine user={chatUser} />
-          </> 
-        } */}
         {
           !isAdmin &&
           <CallForm />

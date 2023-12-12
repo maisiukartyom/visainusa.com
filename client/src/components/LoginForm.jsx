@@ -52,11 +52,24 @@ function LoginForm(props)  {
             try{
                 const response = await axios.post("/auth",
                 JSON.stringify({email, password}),
-                {
-                    headers: { 'Content-Type': 'application/json' },
-                    withCredentials: true
-                }
+                    {
+                        headers: { 'Content-Type': 'application/json' },
+                        withCredentials: true
+                    }
                 )
+
+                // INTERCOM
+                
+                // if (!response.data.isAdmin){
+                //     window.Intercom('boot', {
+                //         api_base: "https://api-iam.intercom.io",
+                //         app_id: 'lu9lx80w',
+                //         name: response.data.name,
+                //         email: response.data.email,
+                //         user_id: response.data.user_id,
+                //       });
+                // }
+
                 setEmail('');
                 setPassword('');
                 if (state && state.previousPath !== "/signup" ){

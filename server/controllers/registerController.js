@@ -80,16 +80,6 @@ const handleNewUser = async (req, res) => {
             }
         );
 
-        // add chat user
-        await axios.put(
-            'https://api.chatengine.io/users/',
-            {
-                "username": email,
-                "secret": email,
-                "email": email
-            },
-            {headers: {"Private-Key": process.env.CHAT_SECRET}})
-
         res.status(201).json({ 'success': `New user ${email} created!` });
     } catch (err) {
         res.status(500).json({ 'message': err.message });

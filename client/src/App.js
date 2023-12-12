@@ -17,7 +17,6 @@ import AbotUs from './pages/AboutUs/AboutUs';
 import LevelThree from './pages/LevelThree/LevelThree';
 import Payment from './components/Payment';
 import Dashboard from './pages/Dashboard/Dashboard';
-import AdminChat from './pages/AdminChat/AdminChat';
 import AboutEB3 from './pages/AboutEB3/AboutEb3';
 import Jobs from './pages/Jobs/Jobs';
 import JobInfo from './components/JobInfo';
@@ -29,6 +28,8 @@ import ApplyNow from './components/ApplyNow/ApplyNow';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./App.css"
+
+
 
 const Popup = ({onClose}) => {
   return (
@@ -61,6 +62,10 @@ function App() {
       setShowPopup(true);
     }, 5* 60 * 1000);
 
+    // INTERCOM
+
+    //window.Intercom("update");
+    
     return () => clearInterval(intervalId);
 
   }, [pathname, state, showPopup]);
@@ -117,7 +122,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/survey" element={<Anketa />} />
           {/* <Route path="/profile" element={<Profile />}/> */}
-          <Route path="/adminChat" element={<AdminChat />}/>
+          {/* <Route path="/adminChat" element={<AdminChat />}/> */}
           <Route path="/adminDashboard" element={<Dashboard />}/>
           <Route path="/levelone" element={<LevelOne />} />
           <Route path="/leveltwo" element={<LevelTwo />} />
