@@ -33,14 +33,14 @@ const handleLogin = async (req, res) => {
 
         if (!isAdmin){
             await axios.put(
-                'https://api.chatengine.io/users/',
+               'https://api.chatengine.io/users/',
                 {
-                    "username": email,
+                   "username": email,
                     "secret": email,
-                    "email": email
-                },
+                   "email": email
+               },
                 {headers: {"Private-Key": process.env.CHAT_SECRET}})
-        }
+         }
         
         // Creates Secure Cookie with access token
         res.cookie('jwt', accessToken, { httpOnly: true, secure: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 });
