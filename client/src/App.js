@@ -58,11 +58,9 @@ function App() {
     }
 
     const intervalId = setInterval(() => {
-      // Показываем попап каждые 5 минут
       setShowPopup(true);
-    }, 2 * 1000);
+    }, 5* 60 * 1000);
 
-    // Очищаем интервал при размонтировании компонента
     return () => clearInterval(intervalId);
 
   }, [pathname, state, showPopup]);
@@ -80,13 +78,12 @@ function App() {
   };
 
   const handleClosePopup = () => {
-    // Закрываем попап и снова устанавливаем интервал
     setShowPopup(false);
   };
 
   return (
     <>  
-    {showPopup && <Popup onClose={handleClosePopup} />}
+          {/* {showPopup && <Popup onClose={handleClosePopup} />} */}
           {showModal && (
         <div className="modal">
           <div className="modal-content">
