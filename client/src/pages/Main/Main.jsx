@@ -805,12 +805,12 @@ const Index = () => {
         {!isUser && <Testimonials />}
         <Contacts />
         <Footer isUser={isUser} />
-        {
+        {/* {
           isVerified && !isAdmin && isUser &&           
           <>
             <SupportEngine user={user} />
           </>  
-        }
+        } */}
         {
           !isAdmin &&
           <CallForm />
