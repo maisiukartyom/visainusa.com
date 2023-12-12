@@ -7,6 +7,7 @@ import {toast} from 'react-toastify'
 import { useEffect } from "react";
 
 
+
 export const HeaderForMain = (props) => {
 
     const [isOpen, setOpen] = useState();
@@ -81,6 +82,9 @@ export const HeaderForMain = (props) => {
 
     return (
         verified &&
+<div>       
+     {/* <NewYear/> */}
+
         <header className="header-level">
             <Link to="/"><span className="header-logo"><img src="images/logo-white.png" alt="logo" width={70} height={94}/></span></Link>
             <nav id="burger-nav" className={`header-nav ${isOpen? "active" : ""}`}>
@@ -143,5 +147,6 @@ export const HeaderForMain = (props) => {
                 onClick={() => setOpen(!isOpen)}
             >< img src="/images/menu.png" alt="menu"  width={24} height={24} /></button>
         </header>
+        </div>
     )
 }

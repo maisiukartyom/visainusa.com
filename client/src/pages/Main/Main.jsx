@@ -8,6 +8,10 @@ import SupportEngine from "../../components/SupportEngine";
 import axios from "../../api/axios";
 import {toast} from 'react-toastify';
 import CallForm from "../../components/CallForm/CallForm";
+import News from "../../components/News/News";
+import NewYearcopy from "../../components/NewYear copy/NewYearcopy";
+
+
 
 
 const  Main = ({isUser, user}) => {
@@ -798,9 +802,12 @@ const Index = () => {
     
     isVerified &&
     <>
+    {/* <NewYearcopy/> */}
         <MainPhoto isUser={isUser} logout={logout} />
         <Main isUser={isUser} user={user} />
+
         {!isUser && <Testimonials />}
+        {/* <News/> */}
         <Contacts />
         <Footer isUser={isUser} />
         {
