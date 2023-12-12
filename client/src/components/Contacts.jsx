@@ -35,8 +35,8 @@ const Contacts = () => {
                                 </div>
                                 </div>
                                 <div className="link-column">
-                          <a href="https://t.me/eb3visainusa" target="_blank"><img className="link-margin" src="images/telegram.png" alt="telegram" width="38" height="38" /></a>
-                          <a href="tel:+79168070961" target="_blank"><img className="link-margin" src="images/whatsapp.png" alt="whatsapp" width="38" height="38" /></a>
+                          <a href="https://t.me/eb3visainusa" target="_blank" rel='noopener noreferrer'><img className="link-margin" src="images/telegram.png" alt="telegram" width="38" height="38" /></a>
+                          <a href="tel:+79168070961" target="_blank" rel='noopener noreferrer'><img className="link-margin" src="images/whatsapp.png" alt="whatsapp" width="38" height="38" /></a>
                           </div>
                  </div>
               </div>

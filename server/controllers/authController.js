@@ -90,7 +90,7 @@ const userVerification = (req, res) => {
                     return res.sendStatus(200);
                 }
 
-                if (data.level >= requiredLevel){
+                if (user.level >= requiredLevel){
                     return res.status(200).json({email: user.email, 
                         level: user.level, 
                         name: user.fullname, 

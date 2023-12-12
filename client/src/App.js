@@ -1,6 +1,5 @@
 import Layout from './components/Layout';
 import Missing from './components/Missing';
-import Unauthorized from './components/Unauthorized';
 import { Routes, Route } from 'react-router-dom';
 import Main from './pages/Main/Main';
 import Login from './pages/Login/Login';
@@ -20,20 +19,33 @@ import Payment from './components/Payment';
 import Dashboard from './pages/Dashboard/Dashboard';
 import AdminChat from './pages/AdminChat/AdminChat';
 import AboutEB3 from './pages/AboutEB3/AboutEb3';
-import CallForm from './components/CallForm/CallForm';
 import Jobs from './pages/Jobs/Jobs';
 import JobInfo from './components/JobInfo';
 import AddJob from './components/AddJob';
 import { Admin } from './pages/Admin/Admin';
 import EditJob from './pages/JobEdit/JobEdit';
 import { ResetPassword } from './pages/ResetPassword/ResetPassword';
-import { AdminEditor, MyEditor } from './components/Editor';
 import ApplyNow from './components/ApplyNow/ApplyNow';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import "./App.css"
+
+const Popup = ({onClose}) => {
+  return (
+    <div className="popup-container">
+      <div className="popup">
+        <p className='p-popup'>
+          Level 2 is the best way to reach the goal! We may help you. Check it out by <Link to="/leveltwo" onClick={onClose}>clicking here</Link>
+        </p>
+        <button className='button-popup' onClick={onClose}>Close</button>
+      </div>
+    </div>
+  );
+};
 
 function App() {
   const { pathname, state } = useLocation();
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     if (!state){
@@ -44,7 +56,14 @@ function App() {
       setAgreed(true);
       setShowModal(false);
     }
-  }, [pathname, state]);
+
+    const intervalId = setInterval(() => {
+      setShowPopup(true);
+    }, 5* 60 * 1000);
+
+    return () => clearInterval(intervalId);
+
+  }, [pathname, state, showPopup]);
 
 
   const [showModal, setShowModal] = useState(
@@ -58,8 +77,13 @@ function App() {
     localStorage.setItem('agreementShown', 'true');
   };
 
+  const handleClosePopup = () => {
+    setShowPopup(false);
+  };
+
   return (
-    <>
+    <>  
+          {/* {showPopup && <Popup onClose={handleClosePopup} />} */}
           {showModal && (
         <div className="modal">
           <div className="modal-content">
@@ -91,9 +115,8 @@ function App() {
           <Route path="/" element={<Main />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/unauthorized" element={<Unauthorized />} />
           <Route path="/survey" element={<Anketa />} />
-          <Route path="/profile" element={<Profile />}/>
+          {/* <Route path="/profile" element={<Profile />}/> */}
           <Route path="/adminChat" element={<AdminChat />}/>
           <Route path="/adminDashboard" element={<Dashboard />}/>
           <Route path="/levelone" element={<LevelOne />} />

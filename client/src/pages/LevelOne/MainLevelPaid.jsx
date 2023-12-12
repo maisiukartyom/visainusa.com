@@ -14,8 +14,8 @@ export const MainLevelPaid = () => {
 
                   
                    <div className='links-chatt'>
-                   <a href="https://t.me/eb3unskilledusa" target="_blank"><button className='en'> English-speaking EB3 online community </button></a>
-                   <a href="https://t.me/eb3usa" target="_blank"><button className='ru'> Russian-speaking EB3 online community </button></a>
+                   <a href="https://t.me/eb3unskilledusa" target="_blank" rel='noopener noreferrer'><button className='en'> English-speaking EB3 online community </button></a>
+                   <a href="https://t.me/eb3usa" target="_blank" rel='noopener noreferrer'><button className='ru'> Russian-speaking EB3 online community </button></a>
                    </div>
                    </div>
           <div className="video-level-one">
