@@ -149,12 +149,12 @@ export const Header = () => {
             onClick={() => setOpen(!isOpen)}
             >< img src="/images/menu.png" alt="menu"  width={24} height={24} /></button>
         </header>
-        {
+        {/* {
           verified && !isAdmin && user && 
           <>
             <SupportEngine user={chatUser} />
           </> 
-        }
+        } */}
         {
           !isAdmin &&
           <CallForm />
