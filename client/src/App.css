@@ -78,15 +78,20 @@
   justify-content: center;
   align-items: center;
   background: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+  
 }
 
 .popup {
-  background: #fff; /* Цвет фона попапа */
+  background-image: url();
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Тень */
-  max-width: 400px;
+  max-width: 460px;
   text-align: center;
+  background-image: url(../public/images/2.jpg);
+  background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 
 .button-popup {
@@ -104,8 +109,12 @@
 }
 
 .p-popup {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.6;
   color: #333; /* Цвет текста */
-  border: 2px solid #3498db; /* Синяя граница */
+  border: 2px solid #244B7A; /* Синяя граница */
+  font-family: 'Merriweather', serif;
+  padding: 16px;
+font-weight: bolder;
+border-radius: 8px;
 }

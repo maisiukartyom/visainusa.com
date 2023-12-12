@@ -473,6 +473,7 @@ overflow: hidden;
 	border-radius: 8px;
 	padding: 30px;
 	background-image: url(../../../public/images/level.jpg);
+	
 	transition: transform .1s;
 	background-position-x: center;
 	background-size: cover;

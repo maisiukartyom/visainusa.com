@@ -83,7 +83,7 @@ function App() {
 
   return (
     <>  
-          {/* {showPopup && <Popup onClose={handleClosePopup} />} */}
+          {showPopup && <Popup onClose={handleClosePopup} />} 
           {showModal && (
         <div className="modal">
           <div className="modal-content">
