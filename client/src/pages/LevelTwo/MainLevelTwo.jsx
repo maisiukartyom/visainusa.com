@@ -105,7 +105,7 @@ export const MainLevelTwo = () => {
     <h2 className="level-list">Level 2</h2>
     <h3 className="appliName-names">"Immigration with no mistake"</h3>
     <div className="price-all">
-    <del className=" price-del appliName-levelOne-del">$500</del>
+    <del className=" price-del appliName-levelOne-del">$149</del>
             {canPurchase &&<ins className=" price appliName-levelOne">${levelCost}</ins>}
             </div>
                <ul  className="text-discription-level">
