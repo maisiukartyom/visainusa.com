@@ -11,6 +11,7 @@ export const MainLevelTwo = () => {
 
    const navigate = useNavigate();
    const [levelCost, setLevelCost] = useState(0);
+   const [originalCost, setOriginalCost] = useState(0);
    const [canPurchase, setCanPurchase] = useState(false);
 
    const purchaseLevel = async () => {
@@ -57,6 +58,7 @@ export const MainLevelTwo = () => {
                  level: 2
              })
              setLevelCost(res.data.cost);
+             setOriginalCost(res.data.originalCost);
              setCanPurchase(true);
          }
          catch(err){
@@ -105,7 +107,7 @@ export const MainLevelTwo = () => {
     <h2 className="level-list">Level 2</h2>
     <h3 className="appliName-names">"Immigration with no mistake"</h3>
     <div className="price-all">
-    <del className=" price-del appliName-levelOne-del">$500</del>
+    {canPurchase &&<del className=" price-del appliName-levelOne-del">${originalCost}</del>}
             {canPurchase &&<ins className=" price appliName-levelOne">${levelCost}</ins>}
             </div>
                <ul  className="text-discription-level">

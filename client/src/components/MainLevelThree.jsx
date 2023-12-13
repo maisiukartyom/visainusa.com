@@ -12,6 +12,7 @@ export const MainLevelThree = () => {
    const navigate = useNavigate();
 
    const [levelCost, setLevelCost] = useState(0);
+   const [originalCost, setOriginalCost] = useState(0);
    const [canPurchase, setCanPurchase] = useState(false);
 
    const purchaseLevel = async () => {
@@ -58,6 +59,7 @@ export const MainLevelThree = () => {
                  level: 3
              })
              setLevelCost(res.data.cost);
+             setOriginalCost(res.data.originalCost);
              setCanPurchase(true);
          }
          catch(err){
@@ -86,7 +88,7 @@ export const MainLevelThree = () => {
     <div className="appliName-level">
     <h2 className="level-list">Level 3</h2>
     <h3 className="appliName-names">"Smart immigration with no overpriced assistance"</h3>
-               <del className=" price-del-level">$1500</del>
+               {canPurchase && <del className=" price-del-level">${originalCost}</del>}
                {canPurchase && <ins className=" price-level" >${levelCost}</ins>}
                <ul  className="text-discription-level">
                   <li  className="description-level">

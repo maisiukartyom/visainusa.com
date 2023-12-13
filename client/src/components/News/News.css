@@ -1,0 +1,49 @@
+
+  
+  @keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%);
+     }
+  }
+  
+  .running-text {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    border-bottom: #244B7A 2px solid;
+    border-top: #244B7A 2px solid;
+  }
+  
+  .running-text span {
+    display: inline-block;
+    animation: marquee 30s linear infinite;
+  }
+
+  .news{
+          font-family: 'Merriweather', serif;
+            font-size: 24px;
+            font-weight: 600;
+            word-spacing: 10px;
+            color: var(--deep-dark);
+            padding: 20px;
+  }
+
+  .running-text-right {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    border-bottom: #244B7A 2px solid;
+    border-top: #244B7A 2px solid;
+  }
+  
+  .running-text-right span {
+    display: inline-block;
+    animation: run 30s linear infinite;
+  }
+
+   
+  @keyframes run {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%);
+     }
+  }

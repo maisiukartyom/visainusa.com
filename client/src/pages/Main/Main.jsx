@@ -799,9 +799,12 @@ const Index = () => {
     
     isVerified &&
     <>
+    {/* <NewYearcopy/> */}
         <MainPhoto isUser={isUser} logout={logout} />
         <Main isUser={isUser} user={user} />
+
         {!isUser && <Testimonials />}
+        {/* <News/> */}
         <Contacts />
         <Footer isUser={isUser} />
         {

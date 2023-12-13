@@ -1,0 +1,40 @@
+
+.popup {
+position: fixed;
+display: flex;
+justify-content: center;
+    width: 100%;
+    height: 850px;
+    /* background-image: url("..//..//..//public/images/sale.png"); */
+text-align: center;
+    margin-top: 100px;
+    z-index: 20;
+    margin-top: 10%;
+  }
+
+  .popup-content{
+width: 1050px;
+  }
+  
+.popup-close-button{
+    position: absolute;
+    box-shadow: 0px 0px 8px 4px #b5b3b3;
+width: 34px;
+height: 30px;
+    font-weight: bold;
+    color: var(--deep-dark);
+    font-weight: bolder;
+    cursor: pointer;
+    font-size: 18px;
+    background-color: var(--light-color);
+    border: none;
+}
+  .sale-banner{
+      background-position: center;
+    width:1050px;
+height:540px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        box-shadow: 0px 0px 8px 4px #b5b3b3;
+  }
+  

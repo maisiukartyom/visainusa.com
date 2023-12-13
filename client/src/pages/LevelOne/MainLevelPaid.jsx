@@ -261,7 +261,7 @@ Additionally, you'll be provided with step-by-step instructions for self-filing 
 
 
               <div>
-          <div className='levelone-text-bottom'>
+          <div className='levelone-text'>
           <iframe    src="https://www.youtube.com/embed/5xy9vZnWBAQ?si=y8edB37RtYLaQDL-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
           clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen className="youtube-levelone"></iframe> 
           <p className='text-levelOneMain'>How to move from political asylum to EB3 unskilled?</p>
@@ -270,7 +270,7 @@ Additionally, you'll be provided with step-by-step instructions for self-filing 
                           </div>
                           </div>
                           <div>
-          <div className='levelone-text-bottom'>
+          <div className='levelone-text'>
           <iframe    src="https://www.youtube.com/embed/Bhfd_OnstY4?si=Gc4NJYzFBUjew1IR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
           clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen className="youtube-levelone"></iframe> 
           <p className='text-levelOneMain'>How does the EB3 unskilled program work for the U. S. employer ?</p>

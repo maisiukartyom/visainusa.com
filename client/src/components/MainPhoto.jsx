@@ -36,6 +36,7 @@ export const MainPhoto = ({isUser, logout}) => {
       {   !isUser && <div className="photoMain">
         <HeaderForMain isUser={isUser} logout = {logout}/>
      <div>
+      {/* <NewYear/> */}
         <div className="center-text">
         <div className="first-text">
       <p id="first-text" >EB3 unskilled program</p>
