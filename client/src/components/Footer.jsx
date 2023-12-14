@@ -39,7 +39,7 @@ const Footer = ({isUser}) => {
               </div>
           </footer>
           <div className="created"><p className="we-creat">Created by</p></div>
-          <div className="created-we"><a href="https://olya-safronova.glitch.me/" className="we" target="blank"><p > Olya Safronova </p></a> <a className="we"><p >and</p></a><a className="we " href="https://github.com/maisiukartyom"><p > Artsiom Maisiuk</p></a> </div>
+          <div className="created-we"><a href="https://olya-safronova.glitch.me/" className="we" target="blank"><p > Olya Safronova </p></a> <a className="we"><p >and</p></a><a className="we " href="https://github.com/maisiukartyom" target="blank"><p > Artsiom Maisiuk</p></a> </div>
       </>
   )
 }
