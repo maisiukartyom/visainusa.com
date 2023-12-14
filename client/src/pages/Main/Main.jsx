@@ -8,6 +8,7 @@ import axios from "../../api/axios";
 import {toast} from 'react-toastify';
 import CallForm from "../../components/CallForm/CallForm";
 import Rating from '@mui/material/Rating';
+import { Helmet } from 'react-helmet';
 
 
 const  Main = ({isUser, user}) => {
@@ -796,21 +797,26 @@ const Index = () => {
   }
 
   return (
-    
-    isVerified &&
     <>
-    {/* <NewYearcopy/> */}
-        <MainPhoto isUser={isUser} logout={logout} />
-        <Main isUser={isUser} user={user} />
+      <Helmet>
+        <meta content="Learn how to get your Green Card with the EB-3 Unskilled Visa program" name="description" />
+        <meta name="keywords" content="eb3, eb3 visa, eb3 program, eb3 unskilled program, eb3 unskilled, eb3 program" />
+      </Helmet>
+      { isVerified &&
+      <>
+      {/* <NewYearcopy/> */}
+          <MainPhoto isUser={isUser} logout={logout} />
+          <Main isUser={isUser} user={user} />
 
-        {!isUser && <Testimonials />}
-        {/* <News/> */}
-        <Contacts />
-        <Footer isUser={isUser} />
-        {
-          !isAdmin &&
-          <CallForm />
-        }
+          {!isUser && <Testimonials />}
+          {/* <News/> */}
+          <Contacts />
+          <Footer isUser={isUser} />
+          {
+            !isAdmin &&
+            <CallForm />
+          }
+      </>}
     </>
   );
 };
