@@ -429,11 +429,11 @@ const  Main = ({isUser, user}) => {
               <p className="description-future description-future-finaly "> Be prepared to immerse in English language environment 
               (3 x 30 mins speaking club for you and your kids)
 </p></div></Link>
-{/* <div className="center-level">
+ <div className="center-level">
                           <Link to='/levelthree'>
               <button className="btn-levels ">CHOOSE</button>
               </Link>
-              </div> */}
+              </div> 
                           </div>
 
           </div>
