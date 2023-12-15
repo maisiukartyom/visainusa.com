@@ -91,31 +91,29 @@ export const MainLevelThree = () => {
                {canPurchase && <del className=" price-del-level">${originalCost}</del>}
                {canPurchase && <ins className=" price-level" >${levelCost}</ins>}
                <ul  className="text-discription-level">
-                  <li  className="description-level">
-                  Access to more than 1000 U.S. employers’ database (script of pitch included)
-                  </li>
-                  <li className="description-level">
-                  Access to more than 25 U.S. immigration attorneys’ database 
-                  </li>
-                  <li className="description-level">
-                  Access to instruction of immigration forms as I-140, I-485, I-765, I-131 and DS-260
-                  </li>
-                  <li className="description-level">
-                  List of EB3 unskilled agencies
-                  </li>
-                  <li className="description-level">
-                  48 hours online chat after the consultation
-                  </li>
-                  <li className="description-level">
-                  Job offering pool
-                  </li>
-                  <li className="description-level">
-                  Opportunity to complete entire EB3 program from 9999$
-                  </li>            
-                  <p className="coming-bonus">Extra bonus!</p>
-                        <li className="description-level">
-                        Be prepared to immerse in English language environment (3 x 30 mins speaking club for you and your kids)
-                  </li>
+               <p className="description-future ">
+              Access to more than 1000 U.S. employers’ database (script of pitch included)
+              </p>
+              <p className="description-future">
+              Access to more than 25 U.S. immigration attorneys’ database 
+              </p>
+              <p className="description-future ">
+              Access to instruction of immigration forms as I-140, I-485, I-765, I-131 and DS-260
+              </p>
+ <p className="description-future ">
+              List of EB3 unskilled agencies
+              </p>
+              <p className="description-future ">
+              48 hours online chat after the consultation
+              </p>
+
+              <p className="description-future ">
+              Opportunity to complete entire EB3 program from $9999
+              </p>
+              <p className="coming-bonus">Extra bonus!</p>
+              <p className="description-future description-future-finaly "> Be prepared to immerse in English language environment 
+              (3 x 30 mins speaking club for you and your kids)
+                  </p>
                   </ul>
 
                </div>
