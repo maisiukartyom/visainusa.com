@@ -103,6 +103,13 @@
    line-height: 22px;
 }
 
+@media only screen and (max-width: 600px) {
+  form {
+    width: 80vw;
+    min-width: initial;
+  }
+}
+
 @media (max-width:546px){
     .check-choose{
         display: flex;
@@ -119,7 +126,7 @@ flex-direction: column;
 
 .paymentForm {
     width: 30vw;
-    min-width: 500px;
+    width: 500px;
     align-self: center;
     box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
       0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
@@ -229,10 +236,72 @@ flex-direction: column;
       transform: rotate(360deg);
     }
   }
+
+  @media (max-width:466px){
+    .paymentForm {
+width: 380px;
+      align-self: center;
+      box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
+        0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+      border-radius: 7px;
+      padding: 40px;
+      width: none;
+    }
+  }
+
   
-  @media only screen and (max-width: 600px) {
-    form {
-      width: 80vw;
-      min-width: initial;
+  @media (max-width:366px){
+    .paymentForm {
+width: 340px;
+      align-self: center;
+      box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
+        0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+      border-radius: 7px;
+      padding: 40px;
+      width: none;
+    }
+  }
+
+  @media (max-width:346px){
+    .paymentForm {
+width: 340px;
+      align-self: center;
+      box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
+        0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+      border-radius: 7px;
+      padding: 40px;
+      width: none;
+    }
+  }
+  @media (max-width:326px){
+    .paymentForm {
+width: 320px;
+      align-self: center;
+      box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
+        0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+      border-radius: 7px;
+      padding: 40px;
+      width: none;
+    }
+  }
+  @media (max-width:366px){
+    .paymentForm {
+width: 300px;
+      align-self: center;
+      box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
+        0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+      border-radius: 7px;
+      padding: 40px;
+      width: none;
+    }
+  }
+  @media (max-width:286px){
+    .paymentForm {
+width: 280px;
+      align-self: center;
+      box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
+        0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+      border-radius: 7px;
+      padding: 40px;
     }
   }
