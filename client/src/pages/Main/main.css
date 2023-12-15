@@ -1005,7 +1005,9 @@ height: 250px;
 	background-color: var(--main-color);
 	max-height: 960px;
 }
-
+.eb3-un{
+	word-wrap: normal;
+}
 .marg {
 	font-size: 18px;
 	margin-top: -10%;

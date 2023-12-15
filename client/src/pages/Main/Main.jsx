@@ -9,6 +9,7 @@ import axios from "../../api/axios";
 import {toast} from 'react-toastify';
 import CallForm from "../../components/CallForm/CallForm";
 import Rating from '@mui/material/Rating';
+import Top from "../../components/Top/Top";
 
 
 const  Main = ({isUser, user}) => {
@@ -67,7 +68,7 @@ const  Main = ({isUser, user}) => {
 
   return (
     <>
-      <div className="main">
+      <div className="main" >
         {!isUser && <>
           <div className="titrecenter">
           <p className="titre titre-bottom" id="advantages" data-aos="fade-up">
@@ -801,7 +802,7 @@ const Index = () => {
     isVerified &&
     <>
     {/* <NewYearcopy/> */}
-        <MainPhoto isUser={isUser} logout={logout} />
+        <MainPhoto  isUser={isUser} logout={logout} />
         <Main isUser={isUser} user={user} />
 
         {!isUser && <Testimonials />}
@@ -817,7 +818,9 @@ const Index = () => {
         {
           !isAdmin &&
           <CallForm />
+
         }
+<Top/>
     </>
   );
 };

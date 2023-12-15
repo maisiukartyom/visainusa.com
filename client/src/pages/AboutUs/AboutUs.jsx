@@ -7,6 +7,7 @@ import Footer from '../../components/Footer';
 import "../AboutUs/AboutUs.css";
 import AboutUsMain from '../../components/AboutUsMain';
 import Contacts from '../../components/Contacts';
+import Tophead from '../../components/Top/Top';
 
 
 const AbotUs = () => {
@@ -17,6 +18,7 @@ const AbotUs = () => {
 <AboutUsMain />
 <Contacts/>
   <Footer />
+  <Tophead/>
         </div>
     )
   }

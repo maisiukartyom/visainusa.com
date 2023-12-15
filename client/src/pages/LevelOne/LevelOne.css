@@ -553,6 +553,16 @@ margin-bottom: 20%;
   font-family: 'Merriweather', serif;
   padding: 6px;
 }
+.text-levelmini{
+  font-size: 14px;
+  font-weight: 500;
+  max-height: 5000px;
+  text-align: start;
+  color: var(--deep-dark);
+  font-family: 'Merriweather', serif;
+  margin-top: -4%;
+  padding: 6px;
+}
 
 .hr-levelone, .hr-levelone-top{
   height: 4px;
