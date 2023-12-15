@@ -404,7 +404,7 @@ const  Main = ({isUser, user}) => {
               </>
 }
     {/* CHANGE LATER */}
-<Link to='/levelthree'>
+<Link to={user.isAdmin ? '/levelthree': ''}>
       <div className="text-discription-future">
               <p className="description-future ">
               Access to more than 1000 U.S. employers’ database (script of pitch included)
@@ -430,9 +430,9 @@ const  Main = ({isUser, user}) => {
               (3 x 30 mins speaking club for you and your kids)
 </p></div></Link>
  <div className="center-level">
-                          <Link to='/levelthree'>
-              <button className="btn-levels ">CHOOSE</button>
-              </Link>
+              {/* <Link to='/levelthree'>
+                  <button className="btn-levels ">CHOOSE</button>
+              </Link> */}
               </div> 
                           </div>
 
