@@ -9,6 +9,7 @@ import {toast} from 'react-toastify';
 import CallForm from "../../components/CallForm/CallForm";
 import Rating from '@mui/material/Rating';
 import { Helmet } from 'react-helmet';
+import Top from "../../components/Top/Top";
 
 
 const  Main = ({isUser, user}) => {
@@ -63,11 +64,11 @@ const  Main = ({isUser, user}) => {
             item.scrollLeft -= containerWidth;
         })
     })
-  }, [state])
+  }, [state, isUser])
 
   return (
     <>
-      <div className="main">
+      <div className="main" >
         {!isUser && <>
           <div className="titrecenter">
           <p className="titre titre-bottom" id="advantages" data-aos="fade-up">
@@ -817,6 +818,7 @@ const Index = () => {
             <CallForm />
           }
       </>}
+      <Top />
     </>
   );
 };

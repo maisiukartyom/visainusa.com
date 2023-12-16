@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from 'react-router-dom';
 import "../LevelOne/LevelOne.css";
 import TextBlocktwo from "../../components/TextBlocktwo";
+import Tophead from "../../components/Top/Top";
 
 export const MainLevelTwoPaid = () => {
 
@@ -65,6 +66,7 @@ export const MainLevelTwoPaid = () => {
 
 </div>
 </div>
+<Tophead/>
 </div>
         
     )

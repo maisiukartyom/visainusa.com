@@ -1,0 +1,61 @@
+
+
+.top-form-container {
+  position: fixed;
+  z-index: 10000;
+  bottom: 70px;
+  right: 8px;
+  left: auto;
+}
+
+
+.top-toggle {
+  display: block;
+  padding: 15px;
+  background-color: var(--dark-color);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  text-align: center;
+}
+
+
+
+
+
+.form-toggle:hover {
+  background-color: var(--main-color);
+}
+@media (max-width:806px){
+  .input-phone{
+    max-width: 220px;
+  }
+
+  .button-phone{
+    max-width: 220px;
+  }
+
+  .input-ph{
+    max-width: 220px;
+  }
+}
+
+@media (max-width:286px){
+  .input-phone{
+    max-width: 220px;
+  }
+
+  .button-phone{
+    max-width: 220px;
+  }
+
+  .input-ph{
+    max-width: 220px;
+  }
+  .expanded-form {
+margin-left: -5%;
+width: 275px;
+    }
+  
+}

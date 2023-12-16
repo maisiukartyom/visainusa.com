@@ -5,6 +5,7 @@ import "../pages/LevelOne/LevelOne.css";
 import axios from "../api/axios";
 import {toast} from "react-toastify";
 import { Link } from "react-router-dom";
+import Tophead from "./Top/Top";
 
 
 export const MainLevelThree = () => {
@@ -135,7 +136,7 @@ export const MainLevelThree = () => {
                   <div className="button-level2">
                     <button className="button-level-two" disabled={!canPurchase} onClick={purchaseLevel}>PAY</button>
                 </div>
-
+<Tophead/>
       </div>
 
         

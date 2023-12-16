@@ -6,6 +6,7 @@ import Footer from '../../components/Footer';
 
 import "./ForEmployer.css";
 import Contacts from '../../components/Contacts';
+import Tophead from '../../components/Top/Top';
 
 
 const ForEmployer = () => {
@@ -16,6 +17,7 @@ const ForEmployer = () => {
             <MainEmployer />
             <Contacts/>
             <Footer />
+            <Tophead/>
         </div>
     )
   }

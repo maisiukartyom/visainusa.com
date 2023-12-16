@@ -28,6 +28,9 @@ import ApplyNow from './components/ApplyNow/ApplyNow';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./App.css"
+import { Header } from './components/Header';
+import { HeaderForMain } from './components/HeaderForMain';
+import { MainPhoto } from './components/MainPhoto';
 
 
 
@@ -136,8 +139,8 @@ function App() {
           <Route path="/jobEdit/:id" element={<EditJob/>} />
           <Route path='/addJob' element={<AddJob/>}/>
           <Route path='/admin' element={<Admin/>}/>
+          <Route path='/photo' element={<MainPhoto/>}/>
           <Route path='/resetPassword/:token' element={<ResetPassword/>}/>
-
           <Route path='/applynow' element={<ApplyNow/>}/>
           <Route path='/youtube' component={() => {
                       window.location.href = 'https://www.youtube.com/@EB3unskilled'

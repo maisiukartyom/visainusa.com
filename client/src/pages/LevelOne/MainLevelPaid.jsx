@@ -1,4 +1,5 @@
 import TextBlockone from '../../components/TextBlockone';
+import Tophead from '../../components/Top/Top';
 
 export const MainLevelPaid = () => {
     return(
@@ -291,6 +292,18 @@ Additionally, you'll be provided with step-by-step instructions for self-filing 
           </div>
                           </div> 
                           </div>
+                          <div>
+          <div className='levelone-text-bottom'>
+          <iframe    src="https://www.youtube.com/embed/O-_Jb11ojDI?si=gKx9euoXbMIjY3tH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
+          clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen className="youtube-levelone"></iframe> 
+          <p className='text-levelOneMain'>Webinar on the immigration program    </p>
+          <p className='text-levelmini'>  (this video is available only in Russian language) </p>
+          <hr className='hr-levelone-white'></hr>
+          <div>
+                                    
+          </div>
+                          </div> 
+                          </div>
                           </div>
 
             </div>
@@ -318,6 +331,7 @@ Additionally, you'll be provided with step-by-step instructions for self-filing 
    </div>
 </div>
 <hr className='hr-bull-bot'></hr>
+<Tophead/>
       </div>
     )
 }

@@ -3,6 +3,7 @@ import {Link, useNavigate} from 'react-router-dom';
 import React, { useState } from 'react';
 import PopUpForm from "../../components/PopUpForm";
 import {toast} from 'react-toastify'
+import Tophead from "../../components/Top/Top";
 
 const Anketa = () => {
 
@@ -240,7 +241,7 @@ const Anketa = () => {
             {
                 isPopUpOpen && <PopUpForm onClose={closePopUp}/>
             }
-
+<Tophead/>
         </div>
     )
 }

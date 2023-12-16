@@ -103,7 +103,7 @@ export const Header = () => {
     return (
         verified &&
         <>
-            <header className="header-level" >
+            <header className="header-level" id="head" >
             <Link to="/"><span className="header-logo"><img src={"/images/logo.png"} alt="logo" width={70} height={94}/></span></Link>
             <nav id="burger-nav" className={`header-nav ${isOpen? "active" : ""}`}>
                 <ul className="header-nav-list">
