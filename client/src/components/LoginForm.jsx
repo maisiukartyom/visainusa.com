@@ -212,7 +212,7 @@ function LoginForm(props)  {
                         <button className="submit">Log in</button>
                     </div>
                     <div className="login-here">
-                        <p className="mini-text-log">Sign up please click <Link to="/signup" className="here-log">HERE</Link>  </p>
+                        <p className="mini-text-log">To sign up please click <Link to="/signup" className="here-log">HERE</Link>  </p>
                         
                     </div>
                 </form>
