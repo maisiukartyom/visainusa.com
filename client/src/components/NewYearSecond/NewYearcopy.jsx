@@ -1,12 +1,12 @@
 
 import React, { useState, useEffect } from 'react';
 import "./NewYearcopy.css";
-import Timer from '../Timer/Timer';
+import TimerSecond from '../TimerSecond/TimerSecond';
 
 
 
 
-const NewYearcopy = () => {
+const NewYearcopySecond = () => {
   const [isOpen, setIsOpen] = useState(true);
 
   const handleClose = () => {
@@ -19,12 +19,11 @@ const NewYearcopy = () => {
         <div className="popup-new-t">
           <div className="popup-content-new-t">
             
-            <img className='sale-bannerr' src='images/sale.png'/>
+            <img className='sale-bannerr' src='images/sale-second.png'/>
             <button onClick={handleClose} className="popup-close-buttonn">
               X
             </button>
-            <Timer/>
-
+            <TimerSecond/>
           </div>
         </div>
       )}
@@ -32,5 +31,5 @@ const NewYearcopy = () => {
   );
 };
 
-export default NewYearcopy;
+export default NewYearcopySecond;
 

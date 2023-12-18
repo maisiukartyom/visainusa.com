@@ -1,0 +1,238 @@
+.timer{
+
+margin-top: auto;
+text-align: center;
+margin-right: auto;
+background-image: url(..//..//..//public/images/bg-timer.png);
+background-position-x: center;
+background-size: cover;
+margin-top: -1%;
+box-shadow: 0px 0px 8px 4px #faf9f9;
+display: flex;
+justify-content: center;
+margin-left: auto;
+margin-right: auto;
+
+}
+.timer-color{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 80px;
+    color: var(--light-color);
+padding: 20px;
+padding-left: 10px;
+padding-right: 10px;
+align-items: center;
+}
+
+@media all and (max-width:1286px) {
+    .timer-color{
+        font-size: 58px;
+        padding: 26px;
+    }
+    .timer{
+        width: 1180px;
+        box-shadow: 0px 0px 2px 2px #faf9f9;;
+    }
+}
+@media all and (max-width:1256px) {
+    .timer-color{
+        font-size: 58px;
+        padding: 26px;
+    }
+    .timer{
+        width: 1160px;
+        box-shadow: 0px 0px 2px 2px #faf9f9;;
+    }
+}
+@media all and (max-width:1156px) {
+    .timer-color{
+        font-size: 46px;
+        padding: 20px;
+    }
+    .timer{
+        width: 1000px;
+        box-shadow: 0px 0px 2px 2px #faf9f9;;
+    }
+}
+@media all and (max-width:1086px) {
+    .timer-color{
+        font-size: 46px;
+        padding: 20px;
+    }
+    .timer{
+        width: 960px;
+        box-shadow: 0px 0px 2px 2px #faf9f9;;
+    }
+}
+@media all and (max-width:1026px) {
+    .timer-color{
+        font-size: 42px;
+        padding: 20px;
+    }
+    .timer{
+        width: 900px;
+        box-shadow: 0px 0px 2px 2px #faf9f9;;
+    }
+}
+@media all and (max-width:986px) {
+    .timer-color{
+        font-size: 29px;
+        padding: 20px;
+    }
+    .timer{
+        width: 860px;
+        box-shadow: 0px 0px 2px 2px #faf9f9;;
+    }
+}
+@media all and (max-width:906px) {
+    .timer-color{
+        font-size: 29px;
+        padding: 20px;
+    }
+    .timer{
+        width: 800px;
+        box-shadow: 0px 0px 2px 2px #faf9f9;;
+    }
+}
+@media all and (max-width:826px) {
+    .timer-color{
+        font-size: 29px;
+        padding: 20px;
+    }
+    .timer{
+        width: 700px;
+        box-shadow: 0px 0px 2px 2px #faf9f9;;
+    }
+}
+@media all and (max-width:786px) {
+    .timer-color{
+        font-size: 28px;
+        padding: 18px;
+    }
+    .timer{
+        width: 660px;
+        box-shadow: 0px 0px 2px 2px #faf9f9;;
+    }
+}
+@media all and (max-width:726px) {
+    .timer-color{
+        font-size: 28px;
+        padding: 18px;
+    }
+    .timer{
+        width: 600px;
+        box-shadow: 0px 0px 2px 2px #faf9f9;;
+    }
+}
+@media all and (max-width:686px) {
+    .timer-color{
+        font-size: 24px;
+        padding: 14px;
+    }
+    .timer{
+        width: 565px;
+        box-shadow: 0px 0px 2px 2px #faf9f9;;
+    }
+}
+@media all and (max-width:626px) {
+    .timer-color{
+        font-size: 22px;
+        padding: 10px;
+    }
+    .timer{
+        width: 540px;
+        box-shadow: 0px 0px 2px 2px #faf9f9;;
+    }
+}
+@media all and (max-width:586px) {
+    .timer-color{
+        font-size: 20px;
+        padding: 6px;
+    }
+    .timer{
+        width: 500px;
+        box-shadow: 0px 0px 2px 2px #faf9f9;;
+    }
+}
+@media all and (max-width:536px) {
+    .timer-color{
+        font-size: 20px;
+        padding: 6px;
+    }
+    .timer{
+        width: 480px;
+        box-shadow: 0px 0px 2px 2px #faf9f9;;
+    }
+}
+@media all and (max-width:526px) {
+    .timer-color{
+        font-size: 18px;
+        padding: 6px;
+    }
+    .timer{
+        width: 420px;
+        box-shadow: 0px 0px 2px 2px #faf9f9;;
+    }
+}
+@media all and (max-width:486px) {
+    .timer-color{
+        font-size: 14px;
+        padding: 4px;
+    }
+    .timer{
+        width: 380px;
+        box-shadow: 0px 0px 2px 2px #faf9f9;;
+    }
+}
+@media all and (max-width:426px) {
+    .timer-color{
+        font-size: 14px;
+        padding: 4px;
+    }
+    .timer{
+        width: 340px;
+        box-shadow: 0px 0px 2px 2px #faf9f9;;
+    }
+}
+@media all and (max-width:386px) {
+    .timer-color{
+        font-size: 14px;
+        padding: 4px;
+    }
+    .timer{
+        width: 300px;
+        box-shadow: 0px 0px 2px 2px #faf9f9;;
+    }
+}
+@media all and (max-width:316px) {
+    .timer-color{
+        font-size: 14px;
+        padding: 4px;
+    }
+    .timer{
+        width: 260px;
+        box-shadow: 0px 0px 2px 2px #faf9f9;;
+    }
+}
+@media all and (max-width:306px) {
+    .timer-color{
+        font-size: 14px;
+        padding: 4px;
+    }
+    .timer{
+        width: 250px;
+        box-shadow: 0px 0px 2px 2px #faf9f9;;
+    }
+}
+@media all and (max-width:286px) {
+    .timer-color{
+        font-size: 14px;
+        padding: 4px;
+    }
+    .timer{
+        width: 240px;
+        box-shadow: 0px 0px 2px 2px #faf9f9;;
+    }
+}

@@ -10,6 +10,7 @@ import {toast} from 'react-toastify';
 import CallForm from "../../components/CallForm/CallForm";
 import Rating from '@mui/material/Rating';
 import Top from "../../components/Top/Top";
+import NewYearcopy from "../../components/NewYear copy/NewYearcopy";
 
 
 const  Main = ({isUser, user}) => {
@@ -373,6 +374,9 @@ const  Main = ({isUser, user}) => {
               General information about other immigration programs in the U.S.
               </p>
               <p className="description-future ">
+              List of EB3 unskilled agencies
+              </p>
+              <p className="description-future ">
               Enjoy 24/7 online chat support for any additional questions or clarifications after your consultation
               </p>
               <p className="coming-bonus-two description-future-finaly">
@@ -415,9 +419,6 @@ const  Main = ({isUser, user}) => {
               </p>
               <p className="description-future ">
               Access to instruction of immigration forms as I-140, I-485, I-765, I-131 and DS-260
-              </p>
- <p className="description-future ">
-              List of EB3 unskilled agencies
               </p>
               <p className="description-future ">
               48 hours online chat after the consultation
@@ -801,7 +802,7 @@ const Index = () => {
     
     isVerified &&
     <>
-    {/* <NewYearcopy/> */}
+    {/* <NewYearcopy/>  */}
         <MainPhoto  isUser={isUser} logout={logout} />
         <Main isUser={isUser} user={user} />
 

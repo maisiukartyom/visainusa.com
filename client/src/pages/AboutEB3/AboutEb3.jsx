@@ -5,13 +5,16 @@ import "../AboutEB3/AboutEB3.css";
 import Contacts from "../../components/Contacts"
 import AboutEB3Main from '../../components/AboutEB3Main';
 import Tophead from '../../components/Top/Top';
+import NewYearcopySecond from '../../components/NewYearSecond/NewYearcopy';
 
 
 const AboutEB3 = () => {
   
     return (
         <div >
-            <Header />
+                      {/* <NewYearcopySecond/> */}
+            <Header /> 
+
 <AboutEB3Main />
 <Contacts/>
   <Footer />

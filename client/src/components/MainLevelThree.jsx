@@ -6,6 +6,7 @@ import axios from "../api/axios";
 import {toast} from "react-toastify";
 import { Link } from "react-router-dom";
 import Tophead from "./Top/Top";
+import NewYearcopySecond from "./NewYearSecond/NewYearcopy";
 
 
 export const MainLevelThree = () => {
@@ -81,6 +82,8 @@ export const MainLevelThree = () => {
    }, [])
 
     return(
+        <div>
+            {/* <NewYearcopySecond/> */}
         <div className="levels">
 <div className="level-first-block">
 
@@ -99,9 +102,7 @@ export const MainLevelThree = () => {
               <p className="description-future ">
               Access to instruction of immigration forms as I-140, I-485, I-765, I-131 and DS-260
               </p>
- <p className="description-future ">
-              List of EB3 unskilled agencies
-              </p>
+ 
               <p className="description-future ">
               48 hours online chat after the consultation
               </p>
@@ -136,7 +137,7 @@ export const MainLevelThree = () => {
                 </div>
 <Tophead/>
       </div>
-
+      </div>
         
     )
 }
