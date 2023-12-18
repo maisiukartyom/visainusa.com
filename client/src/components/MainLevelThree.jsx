@@ -37,8 +37,8 @@ export const MainLevelThree = () => {
              errorMessage = 'You already have this level!'
          }
          else if (err.response?.status === 403) {
-            errorMessage = 'You are not authorized! Please login or sign up to make purchase!';
-            navigate("/login");
+            errorMessage = 'You are not authorized! Please sign up or login to make a purchase!';
+            navigate("/signup");
          } 
 
          toast.error(errorMessage, {
