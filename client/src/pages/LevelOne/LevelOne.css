@@ -681,7 +681,26 @@ margin-bottom: 3%;
     font-weight: lighter;
   margin-bottom: 1%;
   }
-  
+
+  .link-table{
+    margin-left: 2%;
+  }
+  .btn-read-link{
+    border: none;
+    background: var(--main-color);
+    border-radius: 10px;
+    width: 140px;
+    height: 50px;
+    color: var(--light-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .btn-read-link:hover{
+    background: var(--dark-color);
+    color: var(--light-color);
+  }
 /*AOS and CP*/
 
 .tabels-time{
@@ -1549,6 +1568,11 @@ font-size: 30px;
   }
 }
 
+@media (max-width: 376px) {
+.btn-read-link{
+  width: 120px;
+}
+  }
 @media (max-width: 366px) {
   .youtube-levelone{
     height: 200px;
@@ -1558,6 +1582,9 @@ font-size: 30px;
     .youtube-levelone{
       height: 190px;
     }
+    .btn-read-link{
+      width: 110px;
+    }
     }
     @media (max-width: 346px) {
       .youtube-levelone{
@@ -1566,11 +1593,18 @@ font-size: 30px;
       .h2-level{
         font-size: 28px;
       }
+      .btn-read-link{
+        width: 100px;
+      }
       }
 
       @media (max-width: 336px) {
         .youtube-levelone{
           height: 180px;
+        }
+        .btn-read-link{
+          width: 80px;
+          height: 40px;
         }
         }
 @media (max-width: 326px) {
@@ -1579,6 +1613,17 @@ font-size: 30px;
   }
   .youtube-levelone{
     height: 174px;
+  }
+  .btn-read-link{
+    width: 80px;
+    height: 40px;
+  }
+}
+@media (max-width: 316px) {
+  .btn-read-link{
+    width: 74px;
+    height: 34px;
+    font-size: 14px;
   }
 }
 @media (max-width: 306px) {
@@ -1595,9 +1640,26 @@ font-size: 30px;
   .text-bulletin{
     font-size: 20px;
   }
+  .btn-read-link{
+    width: 70px;
+    height: 32px;
+    font-size: 14px;
+  }
+  .link-table{
+    margin-left: -1%;
+  }
 }
 
-
+@media (max-width: 296px) {
+  .btn-read-link{
+    width: 68px;
+    height: 30px;
+    font-size: 14px;
+  }
+  .link-table{
+    margin-left: -1.8%;
+    margin-bottom: 8%;
+  }}
 @media (max-width: 286px) {
   footer {
     padding: 2px;
@@ -1608,6 +1670,15 @@ font-size: 30px;
   .text-AOS{
     font-size: 13px;
     margin-bottom: -14%;
+  }
+  .btn-read-link{
+    width: 66px;
+    height: 28px;
+    font-size: 12px;
+  }
+  .link-table{
+    margin-left: -6%;
+    margin-bottom: 10%;
   }
 }
 

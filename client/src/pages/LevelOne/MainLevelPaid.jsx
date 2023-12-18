@@ -1,8 +1,13 @@
+import NewYearcopySecond from '../../components/NewYearSecond/NewYearcopy';
 import TextBlockone from '../../components/TextBlockone';
+
+import TimerSecond from '../../components/TimerSecond/TimerSecond';
 import Tophead from '../../components/Top/Top';
 
 export const MainLevelPaid = () => {
     return(
+<div>
+  {/* <NewYearcopySecond/> */}
         <div className="text-levelonee">
           <h2 className="h2-level">Level 1</h2>
           
@@ -331,7 +336,9 @@ Additionally, you'll be provided with step-by-step instructions for self-filing 
    </div>
 </div>
 <hr className='hr-bull-bot'></hr>
+
 <Tophead/>
+      </div>
       </div>
     )
 }
