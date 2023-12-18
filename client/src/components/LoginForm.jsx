@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import axios from '../api/axios'
 import { useNavigate, useLocation } from "react-router-dom";
 import {toast} from 'react-toastify'
+import "../../src/pages/SignUp/signup.css"
 
 function LoginForm(props)  {
     const navigate = useNavigate();
@@ -211,8 +212,8 @@ function LoginForm(props)  {
                         <button className="submit">Log in</button>
                     </div>
                     <div className="login-here">
-                        <p className="mini-text-log">Sign up please click </p>
-                        <Link to="/signup"><p className="here-log">here</p></Link>
+                        <p className="mini-text-log">Sign up please click <Link to="/signup" className="here-log">HERE</Link>  </p>
+                        
                     </div>
                 </form>
                 {sendLink && <div><button style={{marginTop: "10px", backgroundColor: "green"}} className="submit" onClick={sendEmail}>send email</button></div> }
