@@ -98,8 +98,8 @@ const SignupForm = () => {
                             <button className="submit">Sign Up</button>
                         </div>
                         <div className="login-here">
-                        <p className="mini-text-s">If you have already signed up, please log in </p>
-                        <Link to="/login"><p className="here">here</p></Link>
+                 <p className="mini-text-s"> if you already created the account please click  <Link to="/login" className="here">HERE to log in</Link></p>
+                        
                         </div>
                     </form>
                 
