@@ -115,10 +115,8 @@ export const MainLevelThreePaid = () => {
 </p>
                   </ul>
                   <div className="button-pool">
-                  <a  href="https://docs.google.com/spreadsheets/d/1Prvz6qVh7jtfwOnHbnLtvDdMVw5zLAVcIFJwTBL9wCc/edit?usp=sharing" target="blank"><button className="btn-pool">List of employers</button></a>
-                  <a  href="https://docs.google.com/spreadsheets/d/1KdCCQ1m3Gb2-PyQ9kIl7nlP9OA36gaklzHYUaDOTF_0/edit?usp=sharing" target="blank"><button className="btn-pool">List of immigration attorneys  </button></a>
-          
-
+                  <button onClick={() => window.open("https://docs.google.com/spreadsheets/d/1Prvz6qVh7jtfwOnHbnLtvDdMVw5zLAVcIFJwTBL9wCc/edit?usp=sharing", '_blank').focus()} className="btn-pool">List of employers</button>
+                  <button onClick={() => window.open("https://docs.google.com/spreadsheets/d/1KdCCQ1m3Gb2-PyQ9kIl7nlP9OA36gaklzHYUaDOTF_0/edit?usp=sharing", '_blank').focus()} className="btn-pool">List of immigration attorneys  </button>
                   </div>
                </div>
                {/* <iframe width="550" height="415" src="https://www.youtube.com/embed/2PInBgRNHo4?si=RYBU3j3Bh_VF0Zfv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen className="youtube-level1"></iframe>  */}
