@@ -411,11 +411,15 @@ const  Main = ({isUser, user}) => {
     {/* CHANGE LATER */}
 <Link to={user.isAdmin ? '/levelthree': ''}>
       <div className="text-discription-future">
+
+      <p className="coming-bonus">
+      Includes LEVEL 2 plus:
+              </p>
               <p className="description-future ">
-              Access to more than 1000 U.S. employers’ database (script of pitch included)
+              Access to more than 500 U.S. employers’ database (script of pitch included)
               </p>
               <p className="description-future">
-              Access to more than 25 U.S. immigration attorneys’ database 
+              Access to more than 25 U.S. immigration attorneys’ database
               </p>
               <p className="description-future ">
               Access to instruction of immigration forms as I-140, I-485, I-765, I-131 and DS-260
@@ -428,8 +432,7 @@ const  Main = ({isUser, user}) => {
               Opportunity to complete entire EB3 program from $9999
               </p>
               <p className="coming-bonus">Extra bonus!</p>
-              <p className="description-future description-future-finaly "> Be prepared to immerse in English language environment 
-              (3 x 30 mins speaking club for you and your kids)
+              <p className="description-future description-future-finaly "> Be prepared to immerse in English language environment (3 x 30 mins speaking club for you and your kids)
 </p></div></Link>
  <div className="center-level">
               {/* <Link to='/levelthree'>

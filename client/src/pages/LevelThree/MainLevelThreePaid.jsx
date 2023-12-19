@@ -9,12 +9,11 @@ import Tophead from "./Top/Top";
 import NewYearcopySecond from "./NewYearSecond/NewYearcopy";
 
 
-export const MainLevelThree = () => {
+export const MainLevelThreePaid = () => {
 
    const navigate = useNavigate();
 
    const [levelCost, setLevelCost] = useState(0);
-   const [originalCost, setOriginalCost] = useState(0);
    const [canPurchase, setCanPurchase] = useState(false);
 
    const purchaseLevel = async () => {
@@ -37,8 +36,8 @@ export const MainLevelThree = () => {
              errorMessage = 'You already have this level!'
          }
          else if (err.response?.status === 403) {
-            errorMessage = 'You are not authorized! Please sign up or login to make a purchase!';
-            navigate("/signup");
+            errorMessage = 'You are not authorized! Please login or sign up to make purchase!';
+            navigate("/login");
          } 
 
          toast.error(errorMessage, {
@@ -61,7 +60,6 @@ export const MainLevelThree = () => {
                  level: 3
              })
              setLevelCost(res.data.cost);
-             setOriginalCost(res.data.originalCost);
              setCanPurchase(true);
          }
          catch(err){
@@ -92,8 +90,8 @@ export const MainLevelThree = () => {
     <div className="appliName-level">
     <h2 className="level-list">Level 3</h2>
     <h3 className="appliName-names">"Smart immigration with no overpriced assistance"</h3>
-               {canPurchase && <del className=" price-del-level">${originalCost}</del>}
-               {canPurchase && <ins className=" price-level" >${levelCost}</ins>}
+               <del className=" price-del-level">$1500</del>
+               {canPurchase && <ins className=" price-level" >$999{levelCost}</ins>}
                <ul  className="text-discription-level">
                <p className="coming-bonus">
       Includes LEVEL 2 plus:
@@ -118,7 +116,12 @@ export const MainLevelThree = () => {
               <p className="description-future description-future-finaly "> Be prepared to immerse in English language environment (3 x 30 mins speaking club for you and your kids)
 </p>
                   </ul>
+                  <div className="button-pool">
+                  <a  href="https://docs.google.com/spreadsheets/d/1Prvz6qVh7jtfwOnHbnLtvDdMVw5zLAVcIFJwTBL9wCc/edit?usp=sharing" target="blank"><button className="btn-pool">List of employers</button></a>
+                  <a  href="https://docs.google.com/spreadsheets/d/1KdCCQ1m3Gb2-PyQ9kIl7nlP9OA36gaklzHYUaDOTF_0/edit?usp=sharing" target="blank"><button className="btn-pool">List of immigration attorneys  </button></a>
+          
 
+                  </div>
                </div>
                {/* <iframe width="550" height="415" src="https://www.youtube.com/embed/2PInBgRNHo4?si=RYBU3j3Bh_VF0Zfv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen className="youtube-level1"></iframe>  */}
 
@@ -135,9 +138,7 @@ export const MainLevelThree = () => {
                         </div>
                     </div>
                   </div> */}
-                  <div className="button-level2">
-                    <button className="button-level-two" disabled={!canPurchase} onClick={purchaseLevel}>PAY</button>
-                </div>
+
 <Tophead/>
       </div>
       </div>
