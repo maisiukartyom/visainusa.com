@@ -37,12 +37,12 @@ const handleSendEmail = async (req, res) => {
       };
       
         transporter.sendMail(mailOptions, function(error, info){
-        if (error) {
-            console.log(error.message)
-          res.status(500).json({'message': error.message});
-        } else {
-            res.sendStatus(200);
-        }
+          if (error) {
+              console.log(error.message)
+            res.status(500).json({'message': error.message});
+          } else {
+              res.sendStatus(200);
+          }
       });
 }
 

@@ -1,6 +1,7 @@
 const Payment = require('../model/Payment');
 const User = require('../model/User');
-const Level = require('../model/Level')
+var nodemailer = require('nodemailer');
+const Level = require('../model/Level');
 const jwt = require('jsonwebtoken');
 const paypal = require('@paypal/checkout-server-sdk');
 const stripe = require('stripe')(process.env.STRIPE_SECRET);
@@ -141,7 +142,38 @@ const handlePaypalTransactionComplete = async (req, res) => {
                   { expiresIn: '1d' }
                 );
 
-                // IF LEVEL >= 3 SOMEHOW NOTIFY ALEXEY!
+                // IF LEVEL = 3 SOMEHOW NOTIFY ALEXEY!
+                if (level === 3){
+                  const transporter = nodemailer.createTransport({
+                    service: 'gmail',
+                    secure: true,
+                    host: 'smtp.gmail.com',
+                    port: 587,
+                    auth: {
+                      user: 'EB3unskilled@gmail.com',
+                      pass: 'muzh frte fruc uslx'
+                    },
+                    tls : { rejectUnauthorized: false }
+                  });
+
+                  const htmlContent = `
+                  <h1>LEVEL 3 Purchase</h1>
+                  <p><strong>User's email:</strong> ${email}</p>
+                `;
+
+                  const mailOptions = {
+                    from: 'EB3unskilled@gmail.com',
+                    to: 'EB3unskilled@visainusa.com',
+                    subject: `LEVEL 3 Purchase`,
+                    html: htmlContent
+                  };
+
+                  transporter.sendMail(mailOptions, function(error, info){
+                      if (error) {
+                          console.log(error.message)
+                      }
+                  });
+                }
                 
                 await Payment.create({
                   paymentID: result.purchase_units[0].payments.captures[0].id,
@@ -286,6 +318,38 @@ const success = async (req, res) => {
               process.env.ACCESS_TOKEN_SECRET,
               { expiresIn: '1d' }
             );
+
+            if (level === 3){
+              const transporter = nodemailer.createTransport({
+                service: 'gmail',
+                secure: true,
+                host: 'smtp.gmail.com',
+                port: 587,
+                auth: {
+                  user: 'EB3unskilled@gmail.com',
+                  pass: 'muzh frte fruc uslx'
+                },
+                tls : { rejectUnauthorized: false }
+              });
+
+              const htmlContent = `
+              <h1>LEVEL 3 Purchase</h1>
+              <p><strong>User's email:</strong> ${email}</p>
+            `;
+
+              const mailOptions = {
+                from: 'EB3unskilled@gmail.com',
+                to: 'EB3unskilled@visainusa.com',
+                subject: `LEVEL 3 Purchase`,
+                html: htmlContent
+              };
+
+              transporter.sendMail(mailOptions, function(error, info){
+                  if (error) {
+                      console.log(error.message)
+                  }
+              });
+            }
 
             res.cookie('jwt', accessToken, { httpOnly: true, secure: true, sameSite: 'None', maxAge: 24 * 60 * 60 * 1000 });
 
