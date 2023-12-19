@@ -409,7 +409,8 @@ const  Main = ({isUser, user}) => {
               </>
 }
     {/* CHANGE LATER */}
-<Link to={user.isAdmin ? '/levelthree': ''}>
+{/* <Link to={user.isAdmin ? '/levelthree': ''}> */}
+<Link to='/levelthree'>
       <div className="text-discription-future">
 
       <p className="coming-bonus">
@@ -435,9 +436,9 @@ const  Main = ({isUser, user}) => {
               <p className="description-future description-future-finaly "> Be prepared to immerse in English language environment (3 x 30 mins speaking club for you and your kids)
 </p></div></Link>
  <div className="center-level">
-              {/* <Link to='/levelthree'>
+              <Link to='/levelthree'>
                   <button className="btn-levels ">CHOOSE</button>
-              </Link> */}
+              </Link>
               </div> 
                           </div>
 

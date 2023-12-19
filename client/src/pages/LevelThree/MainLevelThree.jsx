@@ -1,12 +1,12 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import {useNavigate} from 'react-router-dom';
-import "../pages/LevelOne/LevelOne.css";
-import axios from "../api/axios";
+import "../LevelOne/LevelOne.css";
+import axios from "../../api/axios";
 import {toast} from "react-toastify";
 import { Link } from "react-router-dom";
-import Tophead from "./Top/Top";
-import NewYearcopySecond from "./NewYearSecond/NewYearcopy";
+import Tophead from "../../components/Top/Top";
+import NewYearcopySecond from "../../components/NewYearSecond/NewYearcopy";
 
 
 export const MainLevelThree = () => {

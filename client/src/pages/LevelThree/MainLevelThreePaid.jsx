@@ -1,12 +1,12 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import {useNavigate} from 'react-router-dom';
-import "../pages/LevelOne/LevelOne.css";
-import axios from "../api/axios";
+import "../LevelOne/LevelOne.css";
+import axios from "../../api/axios";
 import {toast} from "react-toastify";
 import { Link } from "react-router-dom";
-import Tophead from "./Top/Top";
-import NewYearcopySecond from "./NewYearSecond/NewYearcopy";
+import Tophead from "../../components/Top/Top";
+import NewYearcopySecond from "../../components/NewYearSecond/NewYearcopy";
 
 
 export const MainLevelThreePaid = () => {
@@ -90,8 +90,6 @@ export const MainLevelThreePaid = () => {
     <div className="appliName-level">
     <h2 className="level-list">Level 3</h2>
     <h3 className="appliName-names">"Smart immigration with no overpriced assistance"</h3>
-               <del className=" price-del-level">$1500</del>
-               {canPurchase && <ins className=" price-level" >$999{levelCost}</ins>}
                <ul  className="text-discription-level">
                <p className="coming-bonus">
       Includes LEVEL 2 plus:
