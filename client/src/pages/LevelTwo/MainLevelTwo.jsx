@@ -146,11 +146,7 @@ export const MainLevelTwo = () => {
                     Job offering pool            
                     </li>
                   </ul>
-                  <div className="button-pool">
-                                    <Link to='/jobs'><button className="btn-pool">
-                  Job offering pool            
-                  </button></Link>
-                  </div>
+                 
 
                 </div>
 
