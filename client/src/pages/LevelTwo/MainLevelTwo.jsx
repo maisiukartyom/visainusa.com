@@ -144,12 +144,6 @@ export const MainLevelTwo = () => {
                     Job offering pool            
                     </li>
                   </ul>
-                  <div className="button-pool">
-                  <a  href="https://docs.google.com/spreadsheets/d/10dTZRQGvCD2soSDIop9TB-p7od37ZJXDcmaC4ZNs-og/edit?usp=sharing" target="blank"><button className="btn-pool">List of EB3 agencies</button></a>
-                  <Link to='/jobs'><button className="btn-pool">
-                  Job offering pool            
-                  </button></Link>
-                  </div>
 
                 </div>
 

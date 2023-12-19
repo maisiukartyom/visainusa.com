@@ -396,7 +396,6 @@ const  Main = ({isUser, user}) => {
           {
               user.level >= 3 && <p className="coming-newDesign">Paid</p>
             }
-             <p className="coming-lev2">in the end of December 2023</p>
             <h2 className="appliName-future">Level 3</h2>
             <h3 className="appliName-names">"Smart immigration with no overpriced assistance"</h3>
             { 
