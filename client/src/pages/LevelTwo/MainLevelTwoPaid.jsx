@@ -46,7 +46,7 @@ export const MainLevelTwoPaid = () => {
                   General information about other immigration programs in the U.S.
                   </li>
                   <li className="description-level ">
-              List of EB3 unskilled agencies <a className="link-table" href="https://docs.google.com/spreadsheets/d/10dTZRQGvCD2soSDIop9TB-p7od37ZJXDcmaC4ZNs-og/edit?usp=sharing" target="blank"><button className="btn-read-link">Read</button></a>
+              List of EB3 unskilled agencies 
               </li>
                   <li className="description-level">
                   Enjoy 24/7 online chat support for any additional questions or clarifications after your consultation
@@ -56,6 +56,7 @@ export const MainLevelTwoPaid = () => {
                   </ul>
 
                   <div className="button-pool">
+                  <a  href="https://docs.google.com/spreadsheets/d/10dTZRQGvCD2soSDIop9TB-p7od37ZJXDcmaC4ZNs-og/edit?usp=sharing" target="blank"><button className="btn-pool">List of EB3 agencies</button></a>
                   <Link to='/jobs'><button className="btn-pool">
                   Job offering pool            
                   </button></Link>

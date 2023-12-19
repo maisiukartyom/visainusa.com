@@ -606,10 +606,13 @@ margin-top: -5%;
 /* level 2 */
 
 .button-level2{
-  max-width: 650px;
-  margin-left: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* max-width: 650px; */
+  /* margin-left: 10%; */
   padding: 10px;
-  margin-top: -10%;
+   margin-top: -10%; 
 }
 
 .button-level-two {
@@ -656,23 +659,28 @@ margin-left: 1%;
 
   .button-pool{
 display: flex;
-justify-content: center;
+justify-content: space-evenly;
 margin-bottom: 5%;
   }
   .btn-pool{
     border: none;
     background: var(--main-color);
     border-radius: 10px;
-    width: 240px;
+    width: 200px;
     height: 50px;
     color: var(--light-color);
     font-weight: 600;
     text-transform: uppercase;
-    font-size: 16px;
+    font-size: 14px;
 cursor: pointer;
+text-align: center;
 
-margin-top: 3%;
 margin-bottom: 3%;
+  }
+
+  .btn-pool:hover{
+    background: var(--dark-color);
+    color: var(--light-color);
   }
 
   .we-creat{
@@ -682,25 +690,9 @@ margin-bottom: 3%;
   margin-bottom: 1%;
   }
 
-  .link-table{
-    margin-left: 2%;
-  }
-  .btn-read-link{
-    border: none;
-    background: var(--main-color);
-    border-radius: 10px;
-    width: 140px;
-    height: 50px;
-    color: var(--light-color);
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  .btn-read-link:hover{
-    background: var(--dark-color);
-    color: var(--light-color);
-  }
+
+
+
 /*AOS and CP*/
 
 .tabels-time{
@@ -1552,7 +1544,13 @@ margin-right: auto;
     padding: 30px;
   }
 }
-
+@media (max-width: 426px) {
+  .button-pool{
+    display: flex;
+    flex-direction: column;
+align-items: center;
+  }
+}
 
 @media (max-width: 406px) {
 .youtube-levelone{

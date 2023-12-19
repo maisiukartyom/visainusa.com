@@ -9,7 +9,7 @@ import Tophead from "./Top/Top";
 import NewYearcopySecond from "./NewYearSecond/NewYearcopy";
 
 
-export const MainLevelThree = () => {
+export const MainLevelThreePaid = () => {
 
    const navigate = useNavigate();
 
@@ -116,7 +116,12 @@ export const MainLevelThree = () => {
               <p className="description-future description-future-finaly "> Be prepared to immerse in English language environment (3 x 30 mins speaking club for you and your kids)
 </p>
                   </ul>
+                  <div className="button-pool">
+                  <a  href="https://docs.google.com/spreadsheets/d/1Prvz6qVh7jtfwOnHbnLtvDdMVw5zLAVcIFJwTBL9wCc/edit?usp=sharing" target="blank"><button className="btn-pool">List of employers</button></a>
+                  <a  href="https://docs.google.com/spreadsheets/d/1KdCCQ1m3Gb2-PyQ9kIl7nlP9OA36gaklzHYUaDOTF_0/edit?usp=sharing" target="blank"><button className="btn-pool">List of immigration attorneys  </button></a>
+          
 
+                  </div>
                </div>
                {/* <iframe width="550" height="415" src="https://www.youtube.com/embed/2PInBgRNHo4?si=RYBU3j3Bh_VF0Zfv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen className="youtube-level1"></iframe>  */}
 
@@ -133,9 +138,7 @@ export const MainLevelThree = () => {
                         </div>
                     </div>
                   </div> */}
-                  <div className="button-level2">
-                    <button className="button-level-two" disabled={!canPurchase} onClick={purchaseLevel}>PAY</button>
-                </div>
+
 <Tophead/>
       </div>
       </div>
