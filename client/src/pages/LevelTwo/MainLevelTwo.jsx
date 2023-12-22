@@ -146,10 +146,6 @@ export const MainLevelTwo = () => {
                     Job offering pool            
                     </li>
                   </ul>
-<<<<<<< HEAD
-=======
-                 
->>>>>>> 158c888c40c8a5c9dc4a76a84c824b89acdc38c0
 
                 </div>
 
