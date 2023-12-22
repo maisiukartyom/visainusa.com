@@ -14,7 +14,7 @@ const ForEmployer = () => {
   
     return (
         <div >
-            {/* <NewYearcopy/> */}
+             {/* <NewYearcopy/> */}
             <Header />
             <MainEmployer />
             <Contacts/>

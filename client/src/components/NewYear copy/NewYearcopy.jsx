@@ -6,11 +6,13 @@ import Timer from '../Timer/Timer';
 
 
 
-const NewYearcopy = () => {
+const NewYearcopy = ({showSale}) => {
   const [isOpen, setIsOpen] = useState(true);
 
   const handleClose = () => {
     setIsOpen(false);
+    showSale(false);
+    localStorage.setItem("saleShown", "true");
   };
 
   return (

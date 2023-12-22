@@ -86,7 +86,7 @@ export const MainLevelTwo = () => {
 
     return(
       <div>
-        {/* <NewYearcopy/> */}
+         {/* <NewYearcopy/>  */}
       <div className="text-leveltwo">
       <h2 className="h2-level">Level 2</h2>
       <TextBlocktwo className="text-levelTwo" title="Welcome to Level 2 - immigration with no mistakes. Having the call with one of our experienced experts, who possess
@@ -146,12 +146,6 @@ export const MainLevelTwo = () => {
                     Job offering pool            
                     </li>
                   </ul>
-                  <div className="button-pool">
-                  <a  href="https://docs.google.com/spreadsheets/d/10dTZRQGvCD2soSDIop9TB-p7od37ZJXDcmaC4ZNs-og/edit?usp=sharing" target="blank"><button className="btn-pool">List of EB3 agencies</button></a>
-                  <Link to='/jobs'><button className="btn-pool">
-                  Job offering pool            
-                  </button></Link>
-                  </div>
 
                 </div>
 

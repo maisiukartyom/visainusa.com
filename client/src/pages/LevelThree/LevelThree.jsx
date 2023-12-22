@@ -36,21 +36,6 @@ const LevelThree = () => {
              else if (user.data.level < level){
               setHasLevel(false)
              }
-
-             // DELETE LATER
-            //  if (!user.data.isAdmin){
-            //   toast.error("Level is still in development!", {
-            //     position: "top-center",
-            //     autoClose: 4000,
-            //     hideProgressBar: false,
-            //     closeOnClick: true,
-            //     pauseOnHover: false,
-            //     draggable: false,
-            //     progress: undefined,
-            //     theme: "light",
-            //     });
-            //     navigate("/")
-            //  }
              setVerified(true);
              setUser({email: user.data.email, isAdmin: user.data.isAdmin, name: user.data.name})
            }

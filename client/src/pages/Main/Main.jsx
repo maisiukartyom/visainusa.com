@@ -761,6 +761,8 @@ const Index = () => {
   const [isUser, setIsUser] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [isVerified, setIsVerified] = useState(false);
+  const [showSale, setShowSale] = useState(true);
+  const [rang, setRang] = useState(false);
 
   useEffect(() => {
     const verifyCookie = async (level) => {
@@ -792,8 +794,18 @@ const Index = () => {
       }
       }
     AOS.init();
-    verifyCookie(0)
-  }, []);
+    
+    if (localStorage.getItem("saleShown") === "true" && !rang){
+      setShowSale(false);
+    }
+    const intervalId = setInterval(() => {
+      setShowSale(true);
+      setRang(true)
+    }, 30 * 60 * 1000);
+    
+    verifyCookie(0);
+    return () => clearInterval(intervalId)
+  }, [showSale]);
 
   const logout = () => {
     setUser({})
@@ -809,7 +821,7 @@ const Index = () => {
       </Helmet>
       { isVerified &&
       <>
-      {/* <NewYearcopy/> */}
+          {showSale && <NewYearcopy showSale={setShowSale}/>}
           <MainPhoto isUser={isUser} logout={logout} />
           <Main isUser={isUser} user={user} />
 

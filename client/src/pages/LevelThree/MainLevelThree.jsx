@@ -85,7 +85,7 @@ export const MainLevelThree = () => {
 
     return(
         <div>
-            {/* <NewYearcopySecond/> */}
+            {/* <NewYearcopySecond/>  */}
         <div className="levels">
 <div className="level-first-block">
 

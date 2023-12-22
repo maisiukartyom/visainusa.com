@@ -3,7 +3,7 @@
  import "./Timer.css"
 
  const Timer = () => {
-   const countdownDate = new Date('December 22, 2023 00:00:00').getTime();
+   const countdownDate = new Date('December 31, 2023 00:00:00').getTime();
    const currentDate = new Date().getTime();
   const [remainingTime, setRemainingTime] = useState(countdownDate - currentDate);
 

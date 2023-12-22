@@ -1,13 +1,17 @@
 import NewYearcopySecond from '../../components/NewYearSecond/NewYearcopy';
+import PopupImage from '../../components/PopUpTable/PopUpTable';
+import ImagePopup from '../../components/PopUpTable/PopUpTable';
+import PopupImageB from '../../components/PopUpTableB/PopUpTableB';
 import TextBlockone from '../../components/TextBlockone';
 
 import TimerSecond from '../../components/TimerSecond/TimerSecond';
 import Tophead from '../../components/Top/Top';
 
 export const MainLevelPaid = () => {
+
     return(
 <div>
-  {/* <NewYearcopySecond/> */}
+   {/* <NewYearcopySecond/>  */}
         <div className="text-levelonee">
           <h2 className="h2-level">Level 1</h2>
           
@@ -287,7 +291,7 @@ Additionally, you'll be provided with step-by-step instructions for self-filing 
                           </div>
                           </div>
                           <div>
-          <div className='levelone-text-bottom'>
+          <div className='levelone-text'>
           <iframe    src="https://www.youtube.com/embed/ATr7QhmtlGY?si=0eOG2yi7qo0x4N2t" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
           clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen className="youtube-levelone"></iframe> 
           <p className='text-levelOneMain'>How can you legally earn money in the USA while in student or tourist status?</p>
@@ -301,13 +305,12 @@ Additionally, you'll be provided with step-by-step instructions for self-filing 
           <div className='levelone-text-bottom'>
           <iframe    src="https://www.youtube.com/embed/O-_Jb11ojDI?si=gKx9euoXbMIjY3tH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
           clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen className="youtube-levelone"></iframe> 
-          <p className='text-levelOneMain'>Webinar on the immigration program    </p>
-          <p className='text-levelmini'>  (this video is available only in Russian language) </p>
+          <p className='text-levelOneMain'>Webinar on the immigration program  (this video is available only in Russian language)</p>
           <hr className='hr-levelone-white'></hr>
           <div>
-                                    
-          </div>
+          
                           </div> 
+                          </div>
                           </div>
                           </div>
 
@@ -327,14 +330,20 @@ Additionally, you'll be provided with step-by-step instructions for self-filing 
 </div>
 </div>
 <hr className='hr-bull'></hr>
-<div className='bulletin'>
+<div className='table-AB'>
+  <PopupImage/>
+  <PopupImageB/>
+
+</div >
+
+ <div className='bulletin'>
 <p className='text-bulletin'>The Visa Bulletin</p>
 <div className='btn-bulletin'>
   <a href='https://travel.state.gov/content/travel/en/legal/visa-law0/visa-bulletin.html' target='blank'>
     <button className='btn-bull'>Click here</button>
    </a>
    </div>
-</div>
+</div> 
 <hr className='hr-bull-bot'></hr>
 
 <Tophead/>
