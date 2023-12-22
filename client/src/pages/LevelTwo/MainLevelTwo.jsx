@@ -84,7 +84,7 @@ export const MainLevelTwo = () => {
 
     return(
       <div>
-        {/* <NewYearcopy/> */}
+         <NewYearcopy/> 
       <div className="text-leveltwo">
       <h2 className="h2-level">Level 2</h2>
       <TextBlocktwo className="text-levelTwo" title="Welcome to Level 2 - immigration with no mistakes. Having the call with one of our experienced experts, who possess

@@ -804,7 +804,7 @@ const Index = () => {
     
     isVerified &&
     <>
-    {/* <NewYearcopy/>  */}
+    <NewYearcopy/> 
         <MainPhoto  isUser={isUser} logout={logout} />
         <Main isUser={isUser} user={user} />
 
