@@ -795,7 +795,7 @@ const Index = () => {
       }
     AOS.init();
     
-    if (localStorage.getItem("saleShown") === "true" && !rang){
+    if (sessionStorage.getItem("saleShown") === "true" && !rang){
       setShowSale(false);
     }
     const intervalId = setInterval(() => {

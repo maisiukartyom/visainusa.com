@@ -12,7 +12,7 @@ const NewYearcopy = ({showSale}) => {
   const handleClose = () => {
     setIsOpen(false);
     showSale(false);
-    localStorage.setItem("saleShown", "true");
+    sessionStorage.setItem("saleShown", "true");
   };
 
   return (
