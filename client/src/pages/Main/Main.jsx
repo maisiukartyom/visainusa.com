@@ -791,17 +791,17 @@ const Index = () => {
       }
     AOS.init();
     
-    if (sessionStorage.getItem("saleShown") === "true" && !rang){
+    /*if (sessionStorage.getItem("saleShown") === "true" && !rang){
       setShowSale(false);
     }
     const intervalId = setInterval(() => {
       setShowSale(true);
       setRang(true)
-    }, 30 * 60 * 1000);
+    }, 30 * 60 * 1000);*/
     
     verifyCookie(0);
-    return () => clearInterval(intervalId)
-  }, [showSale]);
+    //return () => clearInterval(intervalId)
+  }, []);
 
   const logout = () => {
     setUser({})
@@ -817,7 +817,6 @@ const Index = () => {
       </Helmet>
       { isVerified &&
       <>
-          {showSale && <NewYearcopy showSale={setShowSale}/>}
           <MainPhoto isUser={isUser} logout={logout} />
           <Main isUser={isUser} user={user} />
 
