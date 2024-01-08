@@ -5,7 +5,6 @@ import axios from "../../api/axios";
 import {toast} from 'react-toastify';
 import TextBlocktwo from "../../components/TextBlocktwo";
 import Tophead from "../../components/Top/Top";
-import NewYearcopy from "../../components/NewYear copy/NewYearcopy";
 import {Link} from 'react-router-dom';
 
 
@@ -84,7 +83,7 @@ export const MainLevelTwo = () => {
 
     return(
       <div>
-         <NewYearcopy/> 
+
       <div className="text-leveltwo">
       <h2 className="h2-level">Level 2</h2>
       <TextBlocktwo className="text-levelTwo" title="Welcome to Level 2 - immigration with no mistakes. Having the call with one of our experienced experts, who possess

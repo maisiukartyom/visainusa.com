@@ -1,4 +1,3 @@
-import NewYearcopySecond from '../../components/NewYearSecond/NewYearcopy';
 import PopupImage from '../../components/PopUpTable/PopUpTable';
 import ImagePopup from '../../components/PopUpTable/PopUpTable';
 import PopupImageB from '../../components/PopUpTableB/PopUpTableB';
@@ -11,7 +10,6 @@ export const MainLevelPaid = () => {
 
     return(
 <div>
-   <NewYearcopySecond/> 
         <div className="text-levelonee">
           <h2 className="h2-level">Level 1</h2>
           

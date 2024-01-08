@@ -10,7 +10,8 @@ import {toast} from 'react-toastify';
 import CallForm from "../../components/CallForm/CallForm";
 import Rating from '@mui/material/Rating';
 import Top from "../../components/Top/Top";
-import NewYearcopy from "../../components/NewYear copy/NewYearcopy";
+import News from "../../components/News/News";
+
 
 
 const  Main = ({isUser, user}) => {
@@ -804,12 +805,12 @@ const Index = () => {
     
     isVerified &&
     <>
-    <NewYearcopy/> 
+
         <MainPhoto  isUser={isUser} logout={logout} />
         <Main isUser={isUser} user={user} />
 
         {!isUser && <Testimonials />}
-        {/* <News/> */}
+         {/* <News/> */}
         <Contacts />
         <Footer isUser={isUser} />
         {/* {
