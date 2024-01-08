@@ -10,7 +10,8 @@ import CallForm from "../../components/CallForm/CallForm";
 import Rating from '@mui/material/Rating';
 import { Helmet } from 'react-helmet';
 import Top from "../../components/Top/Top";
-import NewYearcopy from "../../components/NewYear copy/NewYearcopy";
+import News from "../../components/News/News";
+
 
 
 const  Main = ({isUser, user}) => {
@@ -821,7 +822,6 @@ const Index = () => {
       </Helmet>
       { isVerified &&
       <>
-          {showSale && <NewYearcopy showSale={setShowSale}/>}
           <MainPhoto isUser={isUser} logout={logout} />
           <Main isUser={isUser} user={user} />
 

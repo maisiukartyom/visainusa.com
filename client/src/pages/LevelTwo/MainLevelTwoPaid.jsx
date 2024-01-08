@@ -3,14 +3,14 @@ import {Link} from 'react-router-dom';
 import "../LevelOne/LevelOne.css";
 import TextBlocktwo from "../../components/TextBlocktwo";
 import Tophead from "../../components/Top/Top";
-import NewYearcopy from "../../components/NewYear copy/NewYearcopy";
+import Calendly from "../../components/Calendly/Calendly";
+
 
 
 export const MainLevelTwoPaid = () => {
 
     return(
       <div>
-         {/* <NewYearcopy/>  */}
       <div className="text-leveltwo">
       <h2 className="h2-level">Level 2</h2>
       <TextBlocktwo className="text-levelTwo" title="Thank you for choosing Level 2! To schedule a call with one of our experts, it's as easy as clicking on the 'Schedule the Call' button below on this page. Choose a time slot that suits you,
@@ -61,6 +61,7 @@ export const MainLevelTwoPaid = () => {
                   Job offering pool            
                   </button></Link>
                   </div>
+                  <Calendly/>
                 </div>
 
 <div className="video-level">

@@ -3,15 +3,13 @@ import './calendly.css'
 
 const calendlyButtonStyle = {
   background: '#CF3549', 
-  position: "fixed", 
   color: "#ffffff",
   fontFamily: "sans-serif",
   textAlign: "center",
   borderRadius: "12px",
   width: "auto",
   height: "45px",
-  left: "50%",
-  transform: "translateX(-50%)",
+  margin: "0 auto",
   bottom: "15px",
   padding: "0 30px",
   fontWeight: "bold",
@@ -20,6 +18,8 @@ const calendlyButtonStyle = {
   fontWeigh:"700",
   border: "none",
   boxShadow: "0px 0px 6px 2px #353532",
+  display: "block",
+  marginBottom: "5%"
 }
 
 

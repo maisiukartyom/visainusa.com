@@ -5,7 +5,6 @@ import axios from "../../api/axios";
 import {toast} from 'react-toastify';
 import TextBlocktwo from "../../components/TextBlocktwo";
 import Tophead from "../../components/Top/Top";
-import NewYearcopy from "../../components/NewYear copy/NewYearcopy";
 import {Link} from 'react-router-dom';
 
 
@@ -86,7 +85,6 @@ export const MainLevelTwo = () => {
 
     return(
       <div>
-         {/* <NewYearcopy/>  */}
       <div className="text-leveltwo">
       <h2 className="h2-level">Level 2</h2>
       <TextBlocktwo className="text-levelTwo" title="Welcome to Level 2 - immigration with no mistakes. Having the call with one of our experienced experts, who possess
@@ -152,7 +150,8 @@ export const MainLevelTwo = () => {
 <div className="video-level">
 <iframe    src="https://www.youtube.com/embed/HHjjHUIbpH0?si=h-tmIHklDpwDPQV5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
  clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen className="youtube-leveltwo"></iframe> 
-                </div> 
+                </div>
+
             </div>
 
                            {/* <div className="button-level2">
@@ -166,7 +165,7 @@ export const MainLevelTwo = () => {
                         </div>
                     </div>
                   </div> */}
-                  
+
                   <div className="button-level2">
                     <button className="button-level-two" disabled={!canPurchase} onClick={purchaseLevel}>PAY</button>
                 </div>
