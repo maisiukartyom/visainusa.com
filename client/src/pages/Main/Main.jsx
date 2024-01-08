@@ -426,10 +426,6 @@ const  Main = ({isUser, user}) => {
               Access to instruction of immigration forms as I-140, I-485, I-765, I-131 and DS-260
               </p>
               <p className="description-future ">
-              48 hours online chat after the consultation
-              </p>
-
-              <p className="description-future ">
               Opportunity to complete entire EB3 program from $9999
               </p>
               <p className="coming-bonus">Extra bonus!</p>
@@ -796,17 +792,17 @@ const Index = () => {
       }
     AOS.init();
     
-    if (sessionStorage.getItem("saleShown") === "true" && !rang){
+    /*if (sessionStorage.getItem("saleShown") === "true" && !rang){
       setShowSale(false);
     }
     const intervalId = setInterval(() => {
       setShowSale(true);
       setRang(true)
-    }, 30 * 60 * 1000);
+    }, 30 * 60 * 1000);*/
     
     verifyCookie(0);
-    return () => clearInterval(intervalId)
-  }, [showSale]);
+    //return () => clearInterval(intervalId)
+  }, []);
 
   const logout = () => {
     setUser({})
