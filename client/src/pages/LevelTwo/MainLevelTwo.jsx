@@ -149,7 +149,8 @@ export const MainLevelTwo = () => {
 <div className="video-level">
 <iframe    src="https://www.youtube.com/embed/HHjjHUIbpH0?si=h-tmIHklDpwDPQV5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;
  clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen className="youtube-leveltwo"></iframe> 
-                </div> 
+                </div>
+
             </div>
 
                            {/* <div className="button-level2">
@@ -163,7 +164,7 @@ export const MainLevelTwo = () => {
                         </div>
                     </div>
                   </div> */}
-                  
+
                   <div className="button-level2">
                     <button className="button-level-two" disabled={!canPurchase} onClick={purchaseLevel}>PAY</button>
                 </div>
