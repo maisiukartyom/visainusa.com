@@ -43,7 +43,7 @@ const UpdateButton = styled.button`
 `;
 
 const User = ({ user, update }) => {
-  const { email, level, isAdmin } = user;
+  const { email, level, phoneNumber, isAdmin } = user;
   const [newLevel, setNewLevel] = useState(level);
 
   const handleDeleteClick = async () => {
@@ -130,6 +130,7 @@ const User = ({ user, update }) => {
             <option value={3}>3</option>
           </select>
         </p>
+        <p>Phone: {phoneNumber}</p>
       </UserInfo>
       <ActionButtons>
         <UpdateButton onClick={handleUpdateClick}>Update Level</UpdateButton>

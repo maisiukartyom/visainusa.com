@@ -104,14 +104,16 @@ const Dashboard = () => {
           <UserList update={getUsers} users={users} />
         </div>
         <div style={{flex: 1}}>
-          <h1 style={{textAlign: "center"}}>Payments</h1>
-          <TransactionList transactions={transactions}/>
+          {/* <h1 style={{textAlign: "center"}}>Payments</h1>
+          <TransactionList transactions={transactions}/> */}
+          <h1 style={{textAlign: "center"}}>Levels</h1>
+          <LevelList />
         </div>
       </div>
-      <div>
+      {/* <div>
         <h1 style={{textAlign: "center"}}>Levels</h1>
         <LevelList />
-      </div>
+      </div> */}
     </>
 
   );
