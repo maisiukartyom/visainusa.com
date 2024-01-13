@@ -43,7 +43,7 @@ const UpdateButton = styled.button`
 `;
 
 const User = ({ user, update }) => {
-  const { email, level, phoneNumber, isAdmin } = user;
+  const { email, level, phoneNumber, fullname } = user;
   const [newLevel, setNewLevel] = useState(level);
 
   const handleDeleteClick = async () => {
@@ -122,6 +122,7 @@ const User = ({ user, update }) => {
   return (
     <UserWrapper>
       <UserInfo>
+        <p>Name: {fullname}</p>
         <p>Email: {email}</p>
         <p>Level:
           <select value={newLevel} onChange={handleLevelChange}>
