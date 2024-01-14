@@ -13,7 +13,6 @@ import Top from "../../components/Top/Top";
 import News from "../../components/News/News";
 
 
-
 const  Main = ({isUser, user}) => {
 
   const {state} = useLocation();
@@ -778,6 +777,9 @@ const Index = () => {
             setIsAdmin(false)
           }
           setUser({
+            id: user.data.id,
+            phone: user.data.phone,
+            name: user.data.name,
             email: user.data.email, 
             isAdmin: user.data.isAdmin, 
             level: user.data.level
@@ -810,6 +812,8 @@ const Index = () => {
     setIsUser(false)
   }
 
+  console.log(user)
+
   return (
     <>
       <Helmet>
@@ -829,6 +833,7 @@ const Index = () => {
             !isAdmin &&
             <CallForm />
           }
+          
       </>}
       <Top />
     </>

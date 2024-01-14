@@ -6,6 +6,7 @@ import axios from "../api/axios";
 import {toast} from "react-toastify";
 import '../pages/NewDesign.css';
 import CallForm from "./CallForm/CallForm";
+import {ChatWidget} from "@papercups-io/chat-widget";
 
 
 export const Header = () => {
@@ -57,6 +58,9 @@ export const Header = () => {
                 setIsAdmin(false)
               }
               setChatUser({
+                id: user.data.id,
+                phone: user.data.phone,
+                name: user.data.name,
                 email: user.data.email, 
                 isAdmin: user.data.isAdmin, 
                 level: user.data.level
@@ -165,6 +169,34 @@ export const Header = () => {
           !isAdmin &&
           <CallForm />
         }
+        {
+            !isAdmin && user &&
+              <ChatWidget
+                token="72a7fb3a-9c04-493c-93db-f063f9c1b77d"
+                inbox="f0b19045-fa6e-4051-af3a-25bb87bb0588"
+                title="Welcome to VisaInUSA"
+                subtitle="Ask us anything in the chat window below 😊"
+                primaryColor="#0693e3"
+                greeting="Hello! Any question?"
+                newMessagePlaceholder="Start typing..."
+                showAgentAvailability={true}
+                agentAvailableText="We're online right now!"
+                agentUnavailableText="We're away at the moment."
+                requireEmailUpfront={true}
+                iconVariant="filled"
+                baseUrl="https://app.papercups.io"
+                // Optionally include data about your customer here to identify them
+                customer={{
+                  name: chatUser.name,
+                  phone: chatUser.phone,
+                  email: chatUser.email,
+                  external_id: chatUser.id,
+                  metadata: {
+                    level: chatUser.level
+                  }
+                }}
+              />
+          }
         </>
         
     )

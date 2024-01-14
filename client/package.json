@@ -8,6 +8,7 @@
     "@fvilers/disable-react-devtools": "^1.3.0",
     "@material-ui/core": "^4.12.4",
     "@mui/material": "^5.14.20",
+    "@papercups-io/chat-widget": "^1.3.1",
     "@paypal/react-paypal-js": "^8.1.3",
     "@stripe/react-stripe-js": "^2.4.0",
     "@stripe/stripe-js": "^2.2.0",

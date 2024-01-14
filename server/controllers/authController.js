@@ -58,13 +58,14 @@ const userVerification = (req, res) => {
         } else {
             const user = await User.findOne({email: data.email})
             if (user) {
-
                 if (user.isAdmin){
-                    return res.status(200).json({email: user.email, 
+                    return res.status(200).json({
+                        id: user._id,
+                        email: user.email, 
                         level: user.level, 
                         name: user.fullname, 
                         isAdmin: user.isAdmin,
-                        phoneNumber: user.phoneNumber
+                        phone: user.phoneNumber
                         })
                 }
                 
@@ -76,11 +77,13 @@ const userVerification = (req, res) => {
                 }
 
                 if (user.level >= requiredLevel){
-                    return res.status(200).json({email: user.email, 
+                    return res.status(200).json({
+                        id: user._id,
+                        email: user.email, 
                         level: user.level, 
                         name: user.fullname, 
                         isAdmin: user.isAdmin,
-                        phoneNumber: user.phoneNumber})
+                        phone: user.phoneNumber})
                 }
                 else{
                     return res.sendStatus(403)
