@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import PopUpForm from "../../components/PopUpForm";
 import {toast} from 'react-toastify'
 import Tophead from "../../components/Top/Top";
+import Footer from "../../components/Footer";
 
 const Anketa = () => {
 
@@ -241,6 +242,7 @@ const Anketa = () => {
             {
                 isPopUpOpen && <PopUpForm onClose={closePopUp}/>
             }
+
 <Tophead/>
         </div>
     )

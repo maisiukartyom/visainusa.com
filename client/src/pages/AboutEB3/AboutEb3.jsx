@@ -12,7 +12,6 @@ const AboutEB3 = () => {
     return (
         <div >
             <Header /> 
-
 <AboutEB3Main />
 <Contacts/>
   <Footer />
