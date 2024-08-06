@@ -446,7 +446,7 @@ const  Main = ({isUser, user}) => {
           {/* Change the classNames once are made! */}
           <div className="level-future-bot ">
           <div className="text-future-bot">
-            <p className="coming">Coming in Q4 2024</p>
+            <p className="coming">Not available</p>
             <h2 className="appliName-future">Level 4</h2>
             <h3 className="appliName-names">"Turnkey package"</h3>
               <>
@@ -469,7 +469,7 @@ const  Main = ({isUser, user}) => {
           </div>
           <div className="level-future-bot ">
             <div className="text-future-bot">
-          <p className="coming">Coming in Q4 2024</p>
+          <p className="coming">Not available</p>
             <h2 className="appliName-future">Level 5</h2>
             <h3 className="appliName-names">"VIP package"</h3>
               {hasInfo && <p className="appliName-levelOne price">${levelsInfo[4].cost}</p>}

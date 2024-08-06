@@ -315,13 +315,13 @@ Additionally, you'll be provided with step-by-step instructions for self-filing 
             </div>
             <div className='tabels-time'>
 <div className='AOS-time'>
-  <p className='text-AOS'>EB3 unskilled INSIDE of the U.S. - Adjustment of Status timiline </p>
+  <p className='text-AOS'>EB3 unskilled INSIDE of the U.S. - Adjustment of Status timeline </p>
   <div className="table-time">
       <img src="/images/table-AOS.jpg" alt="table" className="AOS"/>
             </div>
 </div>
 <div className='AOS-time'>
-  <p className='text-AOS'>EB3 unskilled OUTSIDE of the U.S. - Consular Processing timiline  </p>
+  <p className='text-AOS'>EB3 unskilled OUTSIDE of the U.S. - Consular Processing timeline  </p>
   <div className="table-time">
       <img src="/images/table-CP.jpg" alt="table" className="CP"/>
             </div>
